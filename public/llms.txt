@@ -1,0 +1,31 @@
+# ALORA — globalalora.com
+
+## Company
+ALORA is a digital development agency based in Argentina, specializing in software, AI, automation, and web development for businesses worldwide.
+
+## Services
+- Custom software and web platforms
+- AI-powered customer service agents and chatbots (WhatsApp, web)
+- Business automation with Make.com, n8n, Zapier
+- Web design, landing pages, and e-commerce
+- Google Ads management
+
+## Key product
+LIDIA — WhatsApp appointment management for health and aesthetic clinics (soylidia.com)
+
+## Technology stack
+Next.js, TypeScript, Tailwind CSS, Supabase, Vercel, Groq (llama-3.3-70b), GPT-4, Claude, Gemini, WhatsApp Business API, HubSpot, Salesforce, Make.com, n8n
+
+## Markets
+Argentina, Mexico, Spain, Colombia, Chile — serving clients worldwide
+
+## Contact
+- Email: info@globalalora.com
+- WhatsApp: +54 11 2462-9452
+- Discovery call (ES): https://www.globalalora.com/es/llamada-de-relevamiento
+- Discovery call (EN): https://www.globalalora.com/en/discovery-call
+
+## Sitemap
+- https://www.globalalora.com/es
+- https://www.globalalora.com/en
+- https://www.globalalora.com/sitemap.xml
