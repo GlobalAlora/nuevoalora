@@ -1,8 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
+
+const CASE_IMAGES: Record<string, string> = {
+  "castro-yeso": "/images/castroweb.png",
+  "asesoria-dialogar": "/images/dialogar.png",
+  "protorneos": "/images/protorneo.png",
+  "tenis-trenque": "/images/tenisdemesatrenque.com.ar_.png",
+  "starley": "/images/starleyweb.png",
+  "jose-jose": "/images/josejose.png",
+  "alkemia": "/images/alkemia.png",
+  "soy-lidia": "/images/soylidia.png",
+  "fpnn": "/images/fpnn.png",
+  "grupo-terra-lauquen": "/images/grupoterralauquen.com.ar_.png",
+  "cichic": "/images/chichicImage.png",
+  "crm-alora": "/images/superadmin.png",
+  "crm-lidia": "/images/superadmin.png",
+  "talleres-unidos": "/images/talleres.png",
+  "lidia-superadmin": "/images/superadmin.png",
+  "ranking-tenis": "/images/tenisDeMesaImageRank.png",
+  "nutriac": "/images/nutriac.png",
+  "gangafan": "/images/gangafan-page.png",
+  "mega-mayorista": "/images/megamayorista.png",
+  "greta-kids": "/images/greta.png",
+  "alaux-neumaticos": "/images/alaux.png",
+  "yumkax": "/images/yumkax.png",
+  "terracota-valladolid": "/images/terracota.png",
+};
 
 interface Props {
   dict: Dictionary;
@@ -12,9 +39,12 @@ interface Props {
 const TAG_COLORS: Record<string, string> = {
   Web: "turquoise",
   IA: "electric",
+  AI: "electric",
   CRM: "violet",
+  Landing: "violet",
   Automatización: "turquoise",
   Automation: "turquoise",
+  Ecommerce: "electric",
   "E-commerce": "electric",
   Branding: "violet",
   App: "electric",
@@ -216,8 +246,16 @@ export function Cases({ dict, locale }: Props) {
               }}
             >
               {/* Frame */}
-              <div className="relative h-[190px] w-full overflow-hidden">
-                <CaseFrame idx={idx} />
+              <div className="relative h-[190px] w-full overflow-hidden bg-[oklch(0.12_0.01_260)]">
+                {CASE_IMAGES[item.slug] ? (
+                  <Image
+                    src={CASE_IMAGES[item.slug]}
+                    alt={item.client}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : null}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[oklch(0.14_0.012_260)/80]" />
                 {item.result && (
                   <div

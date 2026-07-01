@@ -50,7 +50,7 @@ export function Hero({ dict }: Props) {
         style={{ minHeight: "calc(100vh - 72px)" }}
       >
         {/* Copy */}
-        <div className="min-w-0 max-w-[860px]" style={{ transform: "translateY(-36px)" }}>
+        <div className="min-w-0 max-w-[860px] pt-20 md:pt-0" style={{ transform: "translateY(-36px)" }}>
           {/* Chip */}
           <div
             className="inline-flex items-center gap-2 rounded-full border bg-transparent uppercase text-white/[0.72]"

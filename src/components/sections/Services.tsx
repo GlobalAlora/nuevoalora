@@ -1,7 +1,19 @@
+import Link from "next/link";
 import type { Dictionary } from "@/dictionaries/es";
+import type { Locale } from "@/lib/i18n";
+
+const SOLUTION_SLUGS = [
+  "desarrollo-web",
+  "atencion-cliente-ia",
+  "chatbots",
+  "landing-pages",
+  "aplicaciones-web",
+  "ecommerce",
+];
 
 interface Props {
   dict: Dictionary;
+  locale: Locale;
 }
 
 type VisualKind = "nodes" | "waves" | "messages" | "layout" | "screens" | "checkout";
@@ -202,7 +214,7 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
   );
 }
 
-export function Services({ dict }: Props) {
+export function Services({ dict, locale }: Props) {
   const { services } = dict;
 
   return (
@@ -283,9 +295,9 @@ export function Services({ dict }: Props) {
                 <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)" }}>
                   {item.desc}
                 </p>
-                <a href="#contacto" className="mt-3 inline-flex items-center gap-1.5 text-white/70 transition-colors duration-300 hover:text-white" style={{ fontSize: "12.5px", fontWeight: 540 }}>
+                <Link href={`/${locale}/soluciones/${SOLUTION_SLUGS[idx] ?? "desarrollo-web"}`} className="mt-3 inline-flex items-center gap-1.5 text-white/70 transition-colors duration-300 hover:text-white" style={{ fontSize: "12.5px", fontWeight: 540 }}>
                   {services.cta} →
-                </a>
+                </Link>
               </div>
             </article>
           ))}

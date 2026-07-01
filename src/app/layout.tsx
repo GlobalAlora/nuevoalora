@@ -18,6 +18,15 @@ export const metadata: Metadata = {
   description:
     "Ecosistemas digitales que integran software, automatización e IA para convertir el crecimiento en capacidad operativa.",
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/logo192.png",
+  },
+  manifest: "/manifest.json",
 };
 
 export default async function RootLayout({

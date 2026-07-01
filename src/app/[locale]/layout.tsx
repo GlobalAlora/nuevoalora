@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, getDictionary, getAlternates, LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
+import { CookieBanner } from "@/components/alora/CookieBanner";
+import { ExitIntentPopup } from "@/components/alora/ExitIntentPopup";
+import { WhatsAppButton } from "@/components/alora/WhatsAppButton";
 
 interface Props {
   children: React.ReactNode;
@@ -57,5 +60,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <CookieBanner locale={locale} />
+      <ExitIntentPopup locale={locale} />
+      <WhatsAppButton locale={locale} />
+    </>
+  );
 }

@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Tienda Nube vs WooCommerce hero</title>
+  <desc id="desc">Minimalist comparison banner for Tienda Nube and WooCommerce</desc>
+  <defs>
+    <linearGradient id="split" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#eef2ff" />
+      <stop offset="100%" stop-color="#eef2ff" />
+    </linearGradient>
+    <linearGradient id="accentLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="accentRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#split)" />
+  <rect x="60" y="70" width="1080" height="490" rx="40" fill="#ffffff" stroke="#e2e8f0" />
+  <g font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="600" fill="#0f172a">
+    <text x="600" y="180" font-size="30" text-anchor="middle" letter-spacing="0.3em" fill="#94a3b8">ECOMMERCE PLAYBOOK</text>
+    <text x="600" y="270" font-size="72" text-anchor="middle">Tienda Nube vs WooCommerce</text>
+    <text x="600" y="318" font-size="26" text-anchor="middle" fill="#475569">SaaS simplicity versus full customization</text>
+  </g>
+  <line x1="600" y1="360" x2="600" y2="520" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8 10" />
+  <g font-family="'Inter', 'Segoe UI', sans-serif" font-size="24" font-weight="600">
+    <rect x="220" y="360" width="260" height="140" rx="24" fill="#ecfeff" stroke="#bae6fd" />
+    <text x="350" y="405" text-anchor="middle" fill="#0c4a6e">Tienda Nube</text>
+    <text x="350" y="443" text-anchor="middle" fill="#0891b2">SaaS • Plug &amp; Play</text>
+    <text x="350" y="481" text-anchor="middle" fill="#0891b2">Todo incluido</text>
+
+    <rect x="720" y="360" width="260" height="140" rx="24" fill="#fff7ed" stroke="#fed7aa" />
+    <text x="850" y="405" text-anchor="middle" fill="#9a3412">WooCommerce</text>
+    <text x="850" y="443" text-anchor="middle" fill="#c2410c">Control total</text>
+    <text x="850" y="481" text-anchor="middle" fill="#c2410c">Escalabilidad</text>
+  </g>
+  <g font-family="'Space Grotesk', 'Inter', sans-serif" font-size="22" fill="#475569" font-weight="500">
+    <text x="600" y="560" text-anchor="middle">Define qué plataforma acompaña mejor tu roadmap digital.</text>
+  </g>
+</svg>

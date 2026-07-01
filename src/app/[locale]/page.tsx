@@ -26,7 +26,7 @@ export default async function HomePage({ params }: Props) {
       <Nav dict={dict} locale={locale as Locale} />
       <main>
         <Hero dict={dict} />
-        <Services dict={dict} />
+        <Services dict={dict} locale={locale as Locale} />
         <Cases dict={dict} locale={locale as Locale} />
         <WhyAlora dict={dict} />
         <Process dict={dict} />

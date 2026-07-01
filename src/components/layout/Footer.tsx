@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
@@ -19,12 +20,14 @@ export function Footer({ dict, locale }: Props) {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href={`/${locale}`} className="flex items-center gap-[7px] text-[15px] font-semibold tracking-[0.14em] text-white/90 transition-colors hover:text-white">
-              <span
-                className="inline-block h-[5px] w-[5px] rounded-full"
-                style={{ background: "var(--turquoise)", boxShadow: "0 0 6px color-mix(in oklab, var(--turquoise) 50%, transparent)" }}
+            <Link href={`/${locale}`} className="flex items-center gap-2.5 transition-opacity hover:opacity-80" aria-label="ALORA — inicio">
+              <Image
+                src="/logo-web.png"
+                alt="ALORA"
+                width={110}
+                height={30}
+                className="h-8 w-auto"
               />
-              ALORA
             </Link>
             <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-white/45">{footer.tagline}</p>
             <div className="mt-6 flex gap-4">
@@ -61,7 +64,11 @@ export function Footer({ dict, locale }: Props) {
             <ul className="flex flex-col gap-2.5">
               {footer.companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={`/${locale}${link.href}`} className="text-[13.5px] text-white/50 transition-colors hover:text-white/90">{link.label}</Link>
+                  {link.href.startsWith("http") ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-white/50 transition-colors hover:text-white/90">{link.label}</a>
+                  ) : (
+                    <Link href={`/${locale}${link.href}`} className="text-[13.5px] text-white/50 transition-colors hover:text-white/90">{link.label}</Link>
+                  )}
                 </li>
               ))}
             </ul>

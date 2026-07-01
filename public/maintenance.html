@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Care Plans – Alora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            background: #f5f7fb;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 4vw, 3.3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: #475569;
+            max-width: 880px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .features-included {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px auto;
+            max-width: 920px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .features-included h3 {
+            font-size: 1.35rem;
+            margin-bottom: 25px;
+            color: #0f172a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: #2d8a85;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .plan-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            height: 100%;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .plan-card:nth-child(1) { animation-delay: 0.1s; }
+        .plan-card:nth-child(2) { animation-delay: 0.2s; }
+        .plan-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #2d8a85;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: #2d8a85;
+            box-shadow: 0 35px 70px rgba(15, 23, 42, 0.12);
+        }
+
+        .plan-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .plan-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(45, 138, 133, 0.12);
+            color: #2d8a85;
+            border: 1px solid rgba(45, 138, 133, 0.2);
+        }
+
+        .plan-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .plan-description {
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 0.97rem;
+            line-height: 1.6;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2d8a85;
+        }
+
+        .plan-price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .plan-features h3 {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .plan-features ul {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #475569;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: #2d8a85;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: #eefbf7;
+            border-left: 4px solid #2d8a85;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .highlight-box strong {
+            color: #0f172a;
+            font-size: 1rem;
+        }
+
+        .highlight-box p {
+            color: #475569;
+            margin-top: 8px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #2d8a85, #42a8b5);
+            color: white;
+            text-align: center;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: auto;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 35px rgba(66, 167, 181, 0.35);
+        }
+
+        .ideal-for {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .ideal-for strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        footer {
+            text-align: center;
+            color: #475569;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        footer strong {
+            color: #0f172a;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 50px 20px;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-price {
+                font-size: 2.1rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://www.globalalora.com/logo-web.png" alt="Alora Logo" class="logo">
+            <h1>Website Care Plans</h1>
+            <p class="subtitle">
+                Modular, scalable and strategic support for sites where uptime, performance and continuous improvement matter.
+                Beyond “updates”, we maintain, monitor, improve and evolve what already exists and what we keep building.
+            </p>
+        </header>
+
+        <div class="features-included">
+            <h3>👉 Every plan includes:</h3>
+            <div class="features-grid">
+                <div class="feature-item">Professional technical maintenance</div>
+                <div class="feature-item">24/7 site monitoring & uptime alerts</div>
+                <div class="feature-item">Bug fixing and incident response</div>
+                <div class="feature-item">Monthly executive report</div>
+                <div class="feature-item">Security scans and vulnerability checks</div>
+                <div class="feature-item">Daily automated backups (files & DB)</div>
+            </div>
+        </div>
+
+        <div class="plans-grid">
+            <div class="plan-card">
+                <span class="plan-badge">Plan Essential</span>
+                <h2>Stability & Peace of Mind</h2>
+                <p class="plan-description">
+                    Ideal for institutional or commercial sites where availability and security are the priority. We keep everything running and protected.
+                </p>
+                <div class="plan-price">USD 120 <small>/ month</small></div>
+                <div class="plan-features">
+                    <h3>Technical Care</h3>
+                    <ul>
+                        <li>Core, plugin and theme updates with QA</li>
+                        <li>Error troubleshooting and fixes</li>
+                        <li>Security hardening and anti-spam</li>
+                        <li>Backup management & restore support</li>
+                        <li>Baseline performance optimization</li>
+                    </ul>
+                    <h3>Support</h3>
+                    <ul>
+                        <li>Email support, 48h SLA</li>
+                        <li>Corrective tweaks every month</li>
+                        <li>Monthly health summary</li>
+                    </ul>
+                </div>
+                <div class="ideal-for">
+                    <strong>Perfect for:</strong>
+                    Brochure sites, landing pages, brand hubs and content sites that must stay online without surprises.
+                </div>
+                <a class="cta-button" href="https://wa.me/5491124629452?text=Hi%20Alora%2C%20I%20want%20to%20start%20the%20Essential%20maintenance%20plan" target="_blank" rel="noopener noreferrer">Start Essential Plan</a>
+            </div>
+
+            <div class="plan-card">
+                <span class="plan-badge">Plan Growth</span>
+                <h2>Continuous Improvement</h2>
+                <p class="plan-description">
+                    Built for companies and active brands that need maintenance plus ongoing UX/content adjustments and speed wins.
+                </p>
+                <div class="plan-price">USD 240 <small>/ month</small></div>
+                <div class="plan-features">
+                    <h3>Advanced Coverage</h3>
+                    <ul>
+                        <li>Everything in Essential</li>
+                        <li>Advanced performance reviews (mobile & desktop)</li>
+                        <li>Quarterly UX checkpoints</li>
+                        <li>Proactive improvement backlog</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Includes a 5-hour improvement block</strong>
+                        <p>Design tweaks, content changes, SEO adjustments, landing updates, forms, automations and more.</p>
+                    </div>
+                    <h3>Reporting</h3>
+                    <ul>
+                        <li>Analytics snippet (traffic & top pages)</li>
+                        <li>Recommendations & next steps</li>
+                    </ul>
+                </div>
+                <div class="ideal-for">
+                    <strong>Perfect for:</strong>
+                    SMBs, SaaS marketing sites or boutique ecommerce projects that iterate every month.
+                </div>
+                <a class="cta-button" href="https://wa.me/5491124629452?text=Hi%20Alora%2C%20I%20want%20to%20start%20the%20Growth%20maintenance%20plan" target="_blank" rel="noopener noreferrer">Start Growth Plan</a>
+            </div>
+
+            <div class="plan-card">
+                <span class="plan-badge">Plan Scale</span>
+                <h2>Strategic Evolution</h2>
+                <p class="plan-description">
+                    For mission-critical sites, ecommerce or platforms where the website is a revenue engine and requires constant evolution.
+                </p>
+                <div class="plan-price">USD 380 <small>/ month</small></div>
+                <div class="plan-features">
+                    <h3>Full Protection</h3>
+                    <ul>
+                        <li>Active monitoring + incident response SLAs</li>
+                        <li>Enhanced security & uptime guarantees</li>
+                        <li>Performance tuning with Lighthouse/GTM pulses</li>
+                        <li>Priority queue for fixes and releases</li>
+                        <li>Evolution roadmap managed with your team</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Includes a 10-hour build/iteration block</strong>
+                        <p>New sections, integrations, functional upgrades, CRO experiments and strategic support.</p>
+                    </div>
+                    <h3>Executive Partnership</h3>
+                    <ul>
+                        <li>Monthly strategy review</li>
+                        <li>Coordination with marketing & vendors</li>
+                        <li>Custom KPI dashboard</li>
+                    </ul>
+                </div>
+                <div class="ideal-for">
+                    <strong>Perfect for:</strong>
+                    Ecommerce, platforms or B2B companies where digital experience impacts revenue directly.
+                </div>
+                <a class="cta-button" href="https://wa.me/5491124629452?text=Hi%20Alora%2C%20I%20want%20to%20start%20the%20Scale%20maintenance%20plan" target="_blank" rel="noopener noreferrer">Start Scale Plan</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Pricing is reviewed every 6 months with advance notice to keep transparency and planning.</p>
+            <p><strong>Alora</strong> · Product & Web Ops for teams that rely on digital.</p>
+        </footer>
+    </div>
+</body>
+</html>
