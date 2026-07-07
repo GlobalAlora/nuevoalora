@@ -10,6 +10,7 @@ export interface LeadData {
   pais?: string;
   telefono?: string;
   website?: string;
+  empresa?: string;
   mensaje: string;
   formId: string;
   fuente?: string;
@@ -39,6 +40,7 @@ async function sendToClay(data: LeadData): Promise<void> {
       email: data.email,
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
+      empresa: data.empresa ?? "",
       consulta: data.mensaje,
       fecha_ingreso: new Date().toISOString(),
     }),
@@ -54,6 +56,7 @@ async function sendToMake(data: LeadData): Promise<void> {
       email: data.email,
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
+      empresa: data.empresa ?? "",
       consulta: data.mensaje,
       fuente: data.fuente ?? data.formId,
     }),
@@ -70,6 +73,7 @@ async function sendToAloraCRM(data: LeadData): Promise<void> {
       website: data.website ?? "",
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
+      empresa: data.empresa ?? "",
       mensaje: data.mensaje,
       formId: data.formId,
       fuente: data.fuente ?? data.formId,
@@ -88,6 +92,7 @@ async function sendToMailerLite(data: LeadData): Promise<void> {
     "fields[country]": data.pais ?? "",
     "fields[phone]": data.telefono ?? "",
     "fields[website]": data.website ?? "",
+    "fields[company]": data.empresa ?? "",
     "fields[consulta]": data.mensaje,
     "ml-submit": "1",
   });

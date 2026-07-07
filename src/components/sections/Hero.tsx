@@ -1,12 +1,49 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { AloraOS } from "@/components/alora/AloraOS";
 import type { Dictionary } from "@/dictionaries/es";
+import type { Locale } from "@/lib/i18n";
 
 interface Props {
   dict: Dictionary;
+  locale?: Locale;
 }
 
-export function Hero({ dict }: Props) {
+const tickerColors = ["var(--turquoise)", "var(--electric)", "var(--violet)"];
+const TICKER_DURATION_MS = 38000;
+
+export function Hero({ dict, locale }: Props) {
   const { hero } = dict;
+  const dimTrackRef = useRef<HTMLDivElement>(null);
+  const colorTrackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let frameId: number;
+    let loopWidthPx = 0;
+
+    const measure = () => {
+      if (dimTrackRef.current) loopWidthPx = dimTrackRef.current.scrollWidth / 3;
+    };
+    measure();
+    window.addEventListener("resize", measure);
+
+    const tick = (time: number) => {
+      if (loopWidthPx > 0) {
+        const progress = (time % TICKER_DURATION_MS) / TICKER_DURATION_MS;
+        const transform = `translateX(-${(progress * loopWidthPx).toFixed(2)}px)`;
+        if (dimTrackRef.current) dimTrackRef.current.style.transform = transform;
+        if (colorTrackRef.current) colorTrackRef.current.style.transform = transform;
+      }
+      frameId = requestAnimationFrame(tick);
+    };
+    frameId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
 
   return (
     <section className="relative isolate overflow-hidden bg-ink text-white">
@@ -45,76 +82,35 @@ export function Hero({ dict }: Props) {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink" />
       </div>
 
-      <div
-        className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-8 md:grid-cols-[58fr_42fr] md:items-center md:gap-10 md:pt-8"
-        style={{ minHeight: "calc(100vh - 72px)" }}
-      >
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 pb-20 pt-16 md:min-h-[640px] md:grid-cols-[58fr_42fr] md:items-center md:gap-10 md:py-28">
         {/* Copy */}
-        <div className="min-w-0 max-w-[860px] pt-20 md:pt-0" style={{ transform: "translateY(-36px)" }}>
-          {/* Chip */}
-          <div
-            className="inline-flex items-center gap-2 rounded-full border bg-transparent uppercase text-white/[0.72]"
-            style={{
-              height: "32px",
-              paddingInline: "18px",
-              fontSize: "13px",
-              fontWeight: 500,
-              letterSpacing: "0.22em",
-              whiteSpace: "nowrap",
-              marginBottom: "40px",
-              borderColor: "rgba(255,255,255,0.06)",
-            }}
-          >
-            <span
-              className="rounded-full"
-              style={{ width: "4px", height: "4px", background: "var(--turquoise)", opacity: 0.7 }}
-            />
-            {hero.chip}
-          </div>
-
+        <div className="min-w-0 max-w-[860px] pt-24 md:pt-0">
           {/* H1 */}
-          <h1 className="max-w-[880px]">
+          <h1 className="max-w-[880px]" style={{ marginBottom: "28px" }}>
             <span
-              className="block text-white"
+              className="block text-white text-[32px] sm:text-[44px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px]"
               style={{
-                fontSize: "clamp(64px, 5.2vw, 88px)",
                 fontWeight: 820,
-                lineHeight: 0.84,
-                letterSpacing: "-0.045em",
+                lineHeight: 1.15,
+                letterSpacing: "-0.04em",
               }}
             >
               <span className="block">{hero.h1Line1}</span>
-              <span className="block whitespace-nowrap">
-                {hero.h1Line2}{" "}
-                <span
-                  className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(100deg, var(--turquoise), var(--electric) 55%, color-mix(in oklab, var(--violet) 70%, transparent))",
-                  }}
-                >
-                  {hero.h1Accent}
-                </span>
+              <span className="block">{hero.h1Line2}</span>
+              <span
+                className="block bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(100deg, var(--turquoise), var(--electric) 55%, color-mix(in oklab, var(--violet) 70%, transparent))",
+                  backgroundSize: "100% 200%",
+                  backgroundPosition: "0 0",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
+                {hero.h1Accent}
               </span>
             </span>
           </h1>
-
-          {/* Subtitle */}
-          <div
-            style={{
-              maxWidth: "640px",
-              fontSize: "clamp(20px, 1.64vw, 28px)",
-              fontWeight: 560,
-              lineHeight: 1.02,
-              letterSpacing: "-0.02em",
-              color: "rgba(255,255,255,0.82)",
-              marginTop: "14px",
-              marginBottom: "36px",
-            }}
-          >
-            <span className="block">{hero.sub1}</span>
-            <span className="block">{hero.sub2}</span>
-          </div>
 
           {/* Body */}
           <p
@@ -159,11 +155,11 @@ export function Hero({ dict }: Props) {
 
         {/* AloraOS graph */}
         <div
-          className="relative flex min-w-0 items-center justify-center"
-          style={{ opacity: 0.82, transform: "translate(-56px, -42px) scale(1.1)" }}
+          className="relative flex min-w-0 items-center justify-end"
+          style={{ opacity: 0.82, transform: "scale(1.05)" }}
         >
           <div className="w-full max-w-[690px]">
-            <AloraOS dict={dict} />
+            <AloraOS dict={dict} locale={locale} />
           </div>
         </div>
       </div>
@@ -171,31 +167,60 @@ export function Hero({ dict }: Props) {
       {/* Ticker */}
       <div className="relative border-t border-white/[0.06]">
         <div
-          className="relative mx-auto max-w-7xl overflow-hidden px-6 py-7"
+          className="relative mx-auto max-w-7xl overflow-hidden px-6 py-5"
           style={{
             maskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
             WebkitMaskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
           }}
         >
-          <div className="hero-ticker flex w-max items-center gap-12 whitespace-nowrap">
-            {Array.from({ length: 3 }).map((_, r) => (
-              <div key={r} className="flex items-center gap-12">
-                {hero.ticker.map((t, i) => (
-                  <span key={`${t}-${i}`} className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-white/35">
-                    <span className="inline-block h-[3px] w-[3px] rounded-full bg-white/30" />
-                    {t}
-                  </span>
+          {/* Unpadded inner wrapper: w-full keeps its box matching the visible viewport-width container (not the huge scrolling track), so the mask's 50% is the true center */}
+          <div className="relative w-full">
+            {/* Dim base text, position driven by rAF so it stays pixel-identical to the colored layer */}
+            <div ref={dimTrackRef} className="flex w-max items-center gap-12 whitespace-nowrap">
+              {Array.from({ length: 3 }).map((_, r) => (
+                <div key={r} className="flex items-center gap-12">
+                  {hero.ticker.map((t, i) => (
+                    <span key={`${t}-${i}`} className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-white/35">
+                      <span className="inline-block h-[3px] w-[3px] rounded-full bg-white/30" />
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            {/* Static center spotlight mask, sized relative to the viewport-width container (not the moving track) */}
+            <div
+              className="absolute inset-0 flex items-center"
+              style={{
+                maskImage: "linear-gradient(90deg, transparent, transparent 43%, black 50%, transparent 57%, transparent)",
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent, transparent 43%, black 50%, transparent 57%, transparent)",
+              }}
+            >
+              <div ref={colorTrackRef} className="flex w-max items-center gap-12 whitespace-nowrap">
+                {Array.from({ length: 3 }).map((_, r) => (
+                  <div key={r} className="flex items-center gap-12" style={{ textShadow: "0 0 7px currentColor" }}>
+                    {hero.ticker.map((t, i) => {
+                      const color = tickerColors[i % tickerColors.length];
+                      return (
+                        <span
+                          key={`${t}-${i}`}
+                          className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em]"
+                          style={{ color }}
+                        >
+                          <span className="inline-block h-[3px] w-[3px] rounded-full" style={{ background: color }} />
+                          {t}
+                        </span>
+                      );
+                    })}
+                  </div>
                 ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes hero-ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-33.3333%); } }
-        .hero-ticker { animation: hero-ticker 38s linear infinite; }
-      `}</style>
     </section>
   );
 }

@@ -3,10 +3,10 @@ import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
 
 const SOLUTION_SLUGS = [
-  "desarrollo-web",
+  "desarrollo-software",
   "atencion-cliente-ia",
   "chatbots",
-  "landing-pages",
+  "desarrollo-web",
   "aplicaciones-web",
   "ecommerce",
 ];
@@ -223,15 +223,15 @@ export function Services({ dict, locale }: Props) {
 
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-20">
         {/* Header */}
-        <div className="mx-auto max-w-[820px] text-center">
+        <div className="mx-auto max-w-[960px] text-center">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
             <span className="text-white/50">{services.sectionIndex}</span>
             <span className="h-px w-8 bg-white/20" />
             <span className="text-white/80">{services.sectionLabel}</span>
           </div>
           <h2
-            className="mt-6 text-balance text-white"
-            style={{ fontSize: "clamp(36px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
+            className="mt-6 text-white sm:whitespace-nowrap"
+            style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
           >
             {services.heading}
           </h2>
@@ -295,8 +295,20 @@ export function Services({ dict, locale }: Props) {
                 <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)" }}>
                   {item.desc}
                 </p>
-                <Link href={`/${locale}/soluciones/${SOLUTION_SLUGS[idx] ?? "desarrollo-web"}`} className="mt-3 inline-flex items-center gap-1.5 text-white/70 transition-colors duration-300 hover:text-white" style={{ fontSize: "12.5px", fontWeight: 540 }}>
-                  {services.cta} →
+                <Link
+                  href={`/${locale}/soluciones/${SOLUTION_SLUGS[idx] ?? "desarrollo-web"}`}
+                  className="svc-cta group/cta mt-4 inline-flex items-center gap-1.5 rounded-full border transition-all duration-300"
+                  style={{
+                    fontSize: "12.5px",
+                    fontWeight: 600,
+                    padding: "6px 14px",
+                    color: "var(--turquoise)",
+                    borderColor: "color-mix(in oklab, var(--turquoise) 35%, transparent)",
+                    background: "color-mix(in oklab, var(--turquoise) 10%, transparent)",
+                  }}
+                >
+                  {services.cta}
+                  <span className="transition-transform duration-300 group-hover/cta:translate-x-0.5">→</span>
                 </Link>
               </div>
             </article>
@@ -319,6 +331,7 @@ export function Services({ dict, locale }: Props) {
         .svc-typing-dot:nth-child(2) { animation-delay:.2s; }
         .svc-typing-dot:nth-child(3) { animation-delay:.4s; }
         .svc-sync-icon { animation: svc-sync 6s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+        .svc-cta:hover { background: color-mix(in oklab, var(--turquoise) 20%, transparent); border-color: color-mix(in oklab, var(--turquoise) 60%, transparent); }
         .svc-parallax { transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
         .svc-card:hover .svc-parallax { transform: translate3d(0,-3px,0) scale(1.02); }
         .svc-card:hover {

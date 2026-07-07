@@ -174,16 +174,11 @@ function CaseFrame({ idx }: { idx: number }) {
 
 export function Cases({ dict, locale }: Props) {
   const { cases } = dict;
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [activeFilter, setActiveFilter] = useState<string>(cases.filters[0]?.key ?? "");
 
-  const filters = [
-    { key: "all", label: cases.filterAll },
-    ...cases.filters.map((f) => ({ key: f.key, label: f.label })),
-  ];
+  const filters = cases.filters.map((f) => ({ key: f.key, label: f.label }));
 
-  const visible = activeFilter === "all"
-    ? cases.items
-    : cases.items.filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()));
+  const visible = cases.items.filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()));
 
   return (
     <section id="casos" className="relative isolate overflow-hidden py-24">
@@ -202,13 +197,13 @@ export function Cases({ dict, locale }: Props) {
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <div className="mx-auto max-w-[820px] text-center text-white">
+        <div className="mx-auto max-w-[1150px] text-center text-white">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
             <span className="text-white/50">{cases.sectionIndex}</span>
             <span className="h-px w-8 bg-white/20" />
             <span className="text-white/80">{cases.sectionLabel}</span>
           </div>
-          <h2 className="mt-6 text-balance" style={{ fontSize: "clamp(36px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="mt-6 sm:whitespace-nowrap" style={{ fontSize: "clamp(28px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             {cases.heading}
           </h2>
           <p className="mt-4 text-pretty" style={{ maxWidth: "580px", margin: "16px auto 0", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.62)" }}>

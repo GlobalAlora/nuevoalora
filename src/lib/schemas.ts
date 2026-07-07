@@ -25,3 +25,14 @@ export const contactSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
+
+export const solutionContactSchema = z.object({
+  nombre: z.string().min(2, "Mínimo 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  empresa: z.string().optional(),
+  pais: z.string().min(1, "Campo requerido"),
+  mensaje: z.string().min(10, "Mínimo 10 caracteres").max(2000, "Máximo 2000 caracteres"),
+  privacy: z.literal(true, { message: "Debes aceptar para continuar" }),
+});
+
+export type SolutionContactFormData = z.infer<typeof solutionContactSchema>;

@@ -1,9 +1,9 @@
 export interface Dictionary {
   locale: string;
-  nav: { services: string; cases: string; why: string; contact: string; cta: string };
+  nav: { home: string; solutions: string; cases: string; contact: string; ctaCall: string; ctaWhatsapp: string };
   hero: {
     chip: string; h1Line1: string; h1Line2: string; h1Accent: string;
-    sub1: string; sub2: string; body: string;
+    body: string;
     ctaPrimary: string; ctaSecondary: string; ticker: string[];
   };
   services: {
@@ -12,7 +12,6 @@ export interface Dictionary {
   };
   cases: {
     sectionIndex: string; sectionLabel: string; heading: string; body: string;
-    filterAll: string;
     filters: { key: string; label: string }[];
     items: { slug: string; client: string; desc: string; tags: string[]; result?: string }[];
     ctaAll: string; ctaCard: string;
@@ -22,7 +21,7 @@ export interface Dictionary {
     cards: { title: string; body: string }[];
   };
   process: {
-    sectionIndex: string; sectionLabel: string; heading: string;
+    sectionIndex: string; sectionLabel: string; headingLine1: string; headingLine2: string;
     steps: { n: string; title: string; body: string }[];
   };
   contact: {
@@ -43,6 +42,21 @@ export interface Dictionary {
     serviceLinks: { label: string; href: string }[];
     companyLinks: { label: string; href: string }[];
   };
+  solutionForm: {
+    ways: string;
+    wayCall: string; wayCallBody: string;
+    wayWhatsapp: string; wayWhatsappBody: string;
+    wayForm: string; wayFormBody: string;
+    formHeading: string;
+    name: string; namePlaceholder: string;
+    email: string; emailPlaceholder: string;
+    company: string; companyPlaceholder: string;
+    country: string; countryPlaceholder: string;
+    project: string; projectPlaceholder: string;
+    consent: string; privacyLink: string;
+    submit: string; sending: string;
+    success: string; errorGeneral: string;
+  };
   chatbot: {
     welcome: string; offerContact: string; askName: string; askEmail: string;
     invalidEmail: string; askPhone: string; thankYou: string; continueChat: string;
@@ -55,45 +69,43 @@ export interface Dictionary {
 const es: Dictionary = {
   locale: "es",
   nav: {
-    services: "Servicios",
-    cases: "Casos",
-    why: "Por qué ALORA",
+    home: "Home",
+    solutions: "Soluciones",
+    cases: "Casos de Éxito",
     contact: "Contacto",
-    cta: "Hablar con ALORA",
+    ctaCall: "Reservar Llamada Gratuita",
+    ctaWhatsapp: "Habla con nosotros",
   },
   hero: {
     chip: "SOFTWARE · AUTOMATIZACIÓN · IA APLICADA",
     h1Line1: "Tecnología,",
-    h1Line2: "automatización e",
-    h1Accent: "IA",
-    sub1: "para convertir crecimiento",
-    sub2: "en capacidad operativa.",
-    body: "Construimos sistemas que integran software, automatización e inteligencia artificial para convertir crecimiento en capacidad operativa.",
+    h1Line2: "sistemas e",
+    h1Accent: "inteligencia artificial",
+    body: "Construimos ecosistemas digitales completos — sitios, aplicaciones, ecommerce, chatbots y agentes de IA — integrados y potenciados con inteligencia artificial para que tu negocio opere y escale con fluidez.",
     ctaPrimary: "Reservar una asesoría gratuita",
     ctaSecondary: "Ver casos de éxito",
     ticker: ["Software", "IA", "Automatización", "Plataformas", "Ecommerce", "Sistemas web"],
   },
   services: {
     sectionIndex: "02",
-    sectionLabel: "Servicios",
+    sectionLabel: "Soluciones",
     heading: "Creamos tecnología para crecer.",
     body: "Software, IA y experiencias digitales conectadas para operar mejor.",
     cta: "Explorar solución",
     items: [
-      { n: "01", title: "Diseño de Software", desc: "Plataformas y sistemas preparados para crecer." },
-      { n: "02", title: "IA para Atención al Cliente", desc: "Automatización e inteligencia aplicada." },
-      { n: "03", title: "Chatbots con IA", desc: "Asistentes conectados a procesos reales." },
-      { n: "04", title: "Diseño Web", desc: "Experiencias digitales que convierten." },
-      { n: "05", title: "Diseño de Aplicaciones", desc: "Productos digitales para operar mejor." },
-      { n: "06", title: "Ecommerce", desc: "Canales preparados para vender." },
+      { n: "01", title: "Diseño de Software", desc: "Plataformas y sistemas a medida, pensados para crecer sin fricciones." },
+      { n: "02", title: "Agentes Conversacionales IA", desc: "Conversaciones reales con tus clientes, que resuelven consultas en segundos, todo el día." },
+      { n: "03", title: "Chatbots IA", desc: "Flujos guiados que cualifican leads, agendan llamadas y capturan contactos." },
+      { n: "04", title: "Diseño Web", desc: "Sitios rápidos y a medida que convierten visitas en clientes." },
+      { n: "05", title: "Diseño de Aplicaciones", desc: "Apps web y móviles que digitalizan y agilizan tu operación." },
+      { n: "06", title: "Ecommerce", desc: "Tiendas online listas para vender, integradas a tu stock y pagos." },
     ],
   },
   cases: {
     sectionIndex: "03",
     sectionLabel: "Casos de éxito",
-    heading: "Sistemas en producción,\nresultados medibles.",
+    heading: "Sistemas en producción, resultados medibles.",
     body: "Proyectos que ya están operando y acompañando el crecimiento de nuestros clientes.",
-    filterAll: "Todos",
     filters: [
       { key: "web", label: "Web" },
       { key: "ecommerce", label: "Ecommerce" },
@@ -133,25 +145,27 @@ const es: Dictionary = {
   why: {
     sectionIndex: "04",
     sectionLabel: "Por qué ALORA",
-    heading: "Crecés más rápido cuando la tecnología trabaja para vos.",
-    body: "Un equipo que entiende negocio, opera con criterio técnico y entrega resultados reales.",
+    heading: "Lo que nos hace diferentes.",
+    body: "Un equipo que piensa como socio, no como proveedor, y construye tecnología que realmente mueve tu negocio.",
     cards: [
-      { title: "Personas que aceleran, no que agregan gestión.", body: "Equipos seleccionados para integrarse rápido, reducir fricción y generar valor desde las primeras semanas." },
-      { title: "Acompañamiento que se siente interno.", body: "No entregamos proyectos y desaparecemos. Trabajamos cerca del equipo para sostener decisiones y resolver bloqueos." },
-      { title: "Tecnología preparada para el siguiente paso.", body: "Sistemas flexibles y escalables para que el crecimiento no obligue a reconstruir lo que ya funciona." },
-      { title: "Decisiones técnicas con criterio de negocio.", body: "Entendemos captación, operación y conversión para construir tecnología que genere capacidad, no complejidad." },
+      { title: "Visión de negocio, no solo tecnología.", body: "Entendemos captación, operación y conversión para construir tecnología que genere resultados, no solo funcionalidades." },
+      { title: "Sistemas escalables desde el día uno.", body: "Arquitectura pensada para crecer, así el éxito no te obliga a reconstruir lo que ya funciona." },
+      { title: "Cercanía y calidad que no se encuentran en todos lados.", body: "Equipos chicos, comunicación directa y estándares altos en cada entrega." },
+      { title: "Partners, no proveedores.", body: "Nos involucramos en tu negocio como propio: acompañamos decisiones, no solo entregamos un proyecto." },
     ],
   },
   process: {
     sectionIndex: "06",
     sectionLabel: "Cómo trabajamos",
-    heading: "Un proceso diseñado para generar resultados desde el día uno.",
+    headingLine1: "Un proceso diseñado para generar resultados",
+    headingLine2: "desde el día uno.",
     steps: [
-      { n: "01", title: "Diagnóstico", body: "Entendemos tu negocio, tus objetivos y el contexto antes de proponer cualquier solución." },
-      { n: "02", title: "Estrategia", body: "Definimos la arquitectura técnica, el stack y el roadmap que tiene más sentido para tu caso." },
-      { n: "03", title: "Ejecución", body: "Construimos con iteraciones cortas, entregando valor en cada sprint sin esperar al final." },
-      { n: "04", title: "Lanzamiento", body: "Desplegamos, monitoreamos y ajustamos hasta que el sistema funcione exactamente como esperás." },
-      { n: "05", title: "Crecimiento", body: "Seguimos cerca para evolucionar el producto junto con tu negocio." },
+      { n: "01", title: "Relevamiento y diagnóstico", body: "Una llamada para entender tu negocio, objetivos y contexto antes de proponer una solución." },
+      { n: "02", title: "Alcance, tiempos y costos", body: "Definimos qué se construye, en cuánto tiempo y a qué costo, con un plan claro y sin sorpresas." },
+      { n: "03", title: "Ejecución del proyecto", body: "Desarrollamos con entregas visibles y comunicación constante durante todo el proceso." },
+      { n: "04", title: "QA pre-lanzamiento", body: "Probamos cada flujo a fondo para asegurar que todo funcione antes de salir a producción." },
+      { n: "05", title: "Lanzamiento", body: "Publicamos el proyecto y acompañamos de cerca los primeros pasos en producción." },
+      { n: "06", title: "Escalación sin límites", body: "Seguimos optimizando y sumando capacidad a medida que tu negocio crece." },
     ],
   },
   contact: {
@@ -191,18 +205,18 @@ const es: Dictionary = {
   },
   footer: {
     tagline: "Ecosistemas digitales que convierten el crecimiento en capacidad operativa.",
-    servicesLabel: "Servicios",
+    servicesLabel: "Soluciones",
     companyLabel: "Empresa",
     copy: `© ${new Date().getFullYear()} ALORA. Todos los derechos reservados.`,
     privacy: "Privacidad",
     cookies: "Cookies",
     serviceLinks: [
+      { label: "Desarrollo de Software", href: "/es/soluciones/desarrollo-software" },
       { label: "Desarrollo Web", href: "/es/soluciones/desarrollo-web" },
-      { label: "Landing Pages", href: "/es/soluciones/landing-pages" },
-      { label: "Chatbots con IA", href: "/es/soluciones/chatbots" },
+      { label: "Aplicaciones Web", href: "/es/soluciones/aplicaciones-web" },
       { label: "Ecommerce", href: "/es/soluciones/ecommerce" },
-      { label: "Google Ads", href: "/es/soluciones/google-ads" },
-      { label: "Mantenimiento Web", href: "/es/soluciones/mantenimiento-web" },
+      { label: "Chatbots IA", href: "/es/soluciones/chatbots" },
+      { label: "Agentes Conversacionales IA", href: "/es/soluciones/atencion-cliente-ia" },
     ],
     companyLinks: [
       { label: "Portfolio", href: "/portfolio" },
@@ -212,6 +226,32 @@ const es: Dictionary = {
       { label: "Instagram", href: "https://www.instagram.com/globalalora" },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/globalalora" },
     ],
+  },
+  solutionForm: {
+    ways: "Tres formas de contactarnos",
+    wayCall: "Agendá una llamada",
+    wayCallBody: "20 minutos para contarnos tu proyecto y ver cómo ayudarte.",
+    wayWhatsapp: "Escribinos por WhatsApp",
+    wayWhatsappBody: "Respuesta directa y rápida, sin formularios.",
+    wayForm: "Completá el formulario",
+    wayFormBody: "Contanos los detalles y te respondemos en menos de 24 horas.",
+    formHeading: "Contanos sobre tu proyecto",
+    name: "Nombre",
+    namePlaceholder: "Tu nombre",
+    email: "Correo",
+    emailPlaceholder: "vos@empresa.com",
+    company: "Empresa",
+    companyPlaceholder: "Nombre de tu empresa",
+    country: "País",
+    countryPlaceholder: "Seleccioná tu país",
+    project: "Contanos sobre tu proyecto",
+    projectPlaceholder: "¿Qué necesitás y qué objetivo querés lograr?",
+    consent: "Acepto la política de privacidad y quiero recibir novedades y comunicaciones comerciales de ALORA.",
+    privacyLink: "Política de Privacidad",
+    submit: "Enviar",
+    sending: "Enviando...",
+    success: "¡Listo! Recibimos tu mensaje, te contactamos pronto.",
+    errorGeneral: "Error al enviar. Por favor intentá de nuevo.",
   },
   chatbot: {
     welcome: "¡Hola! Soy el asistente virtual de Alora. Somos una agencia de desarrollo digital. ¿En qué puedo ayudarte hoy?",

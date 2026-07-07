@@ -48,7 +48,7 @@ export function ContactForm({ dict, locale }: Props) {
     borderRadius: "10px",
     color: "rgba(255,255,255,0.9)",
     fontSize: "14.5px",
-    padding: "10px 14px",
+    padding: "8px 14px",
     width: "100%",
     outline: "none",
     transition: "border-color 200ms, box-shadow 200ms",
@@ -59,16 +59,16 @@ export function ContactForm({ dict, locale }: Props) {
     letterSpacing: "0.04em",
     color: "rgba(255,255,255,0.55)",
     display: "block",
-    marginBottom: "6px",
+    marginBottom: "4px",
   };
 
   const fieldError = (msg?: string) =>
     msg ? <span className="mt-1 block text-[12px] text-red-400/80">{msg}</span> : null;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
       {/* Name + Email row */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
           <label style={labelBase}>{contact.name} <span className="text-red-400/70">*</span></label>
           <input {...register("nombre")} placeholder={contact.namePlaceholder} style={inputBase}
@@ -84,7 +84,7 @@ export function ContactForm({ dict, locale }: Props) {
       </div>
 
       {/* Country + Phone row */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
           <label style={labelBase}>{contact.country} <span className="text-red-400/70">*</span></label>
           <select {...register("pais")} style={{ ...inputBase, appearance: "none" }}
@@ -112,7 +112,7 @@ export function ContactForm({ dict, locale }: Props) {
       {/* Message */}
       <div>
         <label style={labelBase}>{contact.message} <span className="text-red-400/70">*</span></label>
-        <textarea {...register("mensaje")} rows={4} placeholder={contact.messagePlaceholder}
+        <textarea {...register("mensaje")} rows={3} placeholder={contact.messagePlaceholder}
           style={{ ...inputBase, resize: "vertical" }}
           className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
         {fieldError(errors.mensaje?.message)}
