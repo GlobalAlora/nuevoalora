@@ -3,6 +3,7 @@ import { hasLocale, getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPost, BLOG_POSTS } from "@/lib/blog-data";
@@ -34,22 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function renderMarkdown(md: string): string {
-  return md
-    .trim()
-    .replace(/^## (.+)$/gm, '<h2 class="text-white text-[22px] font-semibold mt-10 mb-4" style="letter-spacing:-0.025em">$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3 class="text-white text-[18px] font-semibold mt-7 mb-3">$1</h3>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[var(--turquoise)] hover:underline">$1</a>')
-    .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc">$1</li>')
-    .replace(/(<li[^>]*>[\s\S]*?<\/li>\n?)+/g, (match) => `<ul class="space-y-2 my-4 text-white/70">${match}</ul>`)
-    .replace(/^\| (.+) \|$/gm, (line) => {
-      const cells = line.split("|").map((c) => c.trim()).filter(Boolean);
-      const isHeader = false;
-      return "<tr>" + cells.map((c) => `<td class="px-4 py-2 border border-white/10 text-[14px]">${c}</td>`).join("") + "</tr>";
-    })
-    .replace(/(<tr>[\s\S]*?<\/tr>\n?)+/g, (match) => `<div class="overflow-x-auto my-6"><table class="w-full border-collapse text-white/70">${match}</table></div>`)
-    .replace(/\n\n/g, '</p><p class="mt-4 text-white/70 leading-relaxed text-[16px]">')
-    .replace(/^(?!<[h2h3liutalstrd])(.+)$/gm, (line) => line.trim() ? line : "");
+  return marked.parse(md.trim(), { gfm: true, breaks: false }) as string;
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -112,10 +98,24 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="border-t border-white/[0.07] mb-10" />
 
           {/* Content */}
-          <article
-            className="prose-custom"
-            dangerouslySetInnerHTML={{ __html: `<p class="text-white/70 leading-relaxed text-[16px]">${htmlContent}</p>` }}
-          />
+          <article className="prose-custom" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+          <style>{`
+            .prose-custom h2 { color: #fff; font-size: 22px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; letter-spacing: -0.025em; }
+            .prose-custom h3 { color: #fff; font-size: 18px; font-weight: 600; margin-top: 28px; margin-bottom: 12px; }
+            .prose-custom p { color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 16px; margin-top: 16px; }
+            .prose-custom strong { color: #fff; }
+            .prose-custom a { color: var(--turquoise); }
+            .prose-custom a:hover { text-decoration: underline; }
+            .prose-custom ul, .prose-custom ol { color: rgba(255,255,255,0.7); margin: 16px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+            .prose-custom ul { list-style: disc; }
+            .prose-custom ol { list-style: decimal; }
+            .prose-custom li { padding-left: 4px; }
+            .prose-custom table { width: 100%; display: block; overflow-x: auto; border-collapse: collapse; color: rgba(255,255,255,0.7); margin: 24px 0; font-size: 14px; }
+            .prose-custom th, .prose-custom td { padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
+            .prose-custom th { color: #fff; font-weight: 600; background: rgba(255,255,255,0.03); }
+            .prose-custom blockquote { border-left: 2px solid var(--turquoise); padding-left: 16px; margin: 16px 0; color: rgba(255,255,255,0.55); font-style: italic; }
+            .prose-custom code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; font-size: 13.5px; }
+          `}</style>
 
           {/* CTA */}
           <div
