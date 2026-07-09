@@ -15,10 +15,18 @@ const CATEGORIES: { key: ProjectCategory; es: string; en: string }[] = [
   { key: "all",       es: "Todos",        en: "All" },
   { key: "web",       es: "Sitios Web",   en: "Websites" },
   { key: "ecommerce", es: "Ecommerce",    en: "Ecommerce" },
-  { key: "landing",   es: "Landings",     en: "Landings" },
   { key: "app",       es: "Aplicaciones", en: "Apps" },
   { key: "ia",        es: "IA",           en: "AI" },
 ];
+
+function normalizeTag(tag: string) {
+  return tag.toLowerCase().replace(/[^a-z]/g, "");
+}
+
+function matchesCategory(project: { tags: string[] }, key: ProjectCategory) {
+  if (key === "all") return true;
+  return project.tags.some((t) => normalizeTag(t) === key);
+}
 
 const TAG_STYLE: Record<string, React.CSSProperties> = {
   Web:           { color: "var(--turquoise)", borderColor: "color-mix(in oklab, var(--turquoise) 35%, transparent)", background: "color-mix(in oklab, var(--turquoise) 8%, transparent)" },
@@ -60,7 +68,7 @@ export function PortfolioContent() {
     }
   }, [searchParams]);
 
-  const filtered = active === "all" ? PORTFOLIO : PORTFOLIO.filter((p) => p.category === active);
+  const filtered = PORTFOLIO.filter((p) => matchesCategory(p, active));
   const visible = sortByPriority(filtered);
 
   return (
@@ -102,7 +110,7 @@ export function PortfolioContent() {
                 : { borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.55)" }}>
               {cat[l]}
               <span className="ml-1.5 text-[11px] opacity-50">
-                ({cat.key === "all" ? PORTFOLIO.length : PORTFOLIO.filter(p => p.category === cat.key).length})
+                ({PORTFOLIO.filter((p) => matchesCategory(p, cat.key)).length})
               </span>
             </button>
           ))}
@@ -130,14 +138,6 @@ export function PortfolioContent() {
                   <ProjectPlaceholder slug={project.slug} />
                 )}
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(8,10,18,0.85) 100%)" }} />
-
-                {project.result && (
-                  <div className="absolute left-3 bottom-3 rounded-lg px-2.5 py-1"
-                    style={{ background: "rgba(0,0,0,0.60)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)" }}>
-                    <span className="text-[11px] font-semibold text-white/90">{project.result}</span>
-                  </div>
-                )}
-
               </div>
 
               {/* Body */}

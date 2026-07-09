@@ -47,7 +47,6 @@ const TAG_COLORS: Record<string, string> = {
   IA: "electric",
   AI: "electric",
   CRM: "violet",
-  Landing: "violet",
   Automatización: "turquoise",
   Automation: "turquoise",
   Ecommerce: "electric",
@@ -284,14 +283,6 @@ export function Cases({ dict, locale }: Props) {
                   <CaseThumbPlaceholder slug={item.slug} />
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[oklch(0.14_0.012_260)/80]" />
-                {item.result && (
-                  <div
-                    className="absolute right-3 top-3 rounded-lg px-2.5 py-1"
-                    style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)" }}
-                  >
-                    <span className="text-xs font-semibold text-white/90">{item.result}</span>
-                  </div>
-                )}
               </div>
 
               {/* Body */}
