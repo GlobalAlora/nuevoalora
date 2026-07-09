@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/dictionaries/es";
@@ -78,6 +79,7 @@ export function Nav({ dict, locale }: Props) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const pathname = usePathname();
   const otherLocale = locale === "es" ? "en" : "es";
   const solutions = SOLUTION_LINKS[locale] ?? SOLUTION_LINKS.es;
   const caseStudies = CASE_STUDIES;
@@ -85,6 +87,15 @@ export function Nav({ dict, locale }: Props) {
   const casosHref = `/${locale}/casos-de-exito`;
   const contactHref = `/${locale}/contacto`;
   const callHref = locale === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+
+  // Routes whose URL slug is translated per locale, so switching language
+  // needs an explicit mapping instead of just swapping the /es|/en prefix.
+  const SLUG_OVERRIDES: Record<string, string> = {
+    "/llamada-de-relevamiento": "/discovery-call",
+    "/discovery-call": "/llamada-de-relevamiento",
+  };
+  const restPath = pathname?.replace(/^\/(es|en)/, "") || "";
+  const otherLocaleHref = `/${otherLocale}${SLUG_OVERRIDES[restPath] ?? restPath}`;
 
   return (
     <header
@@ -103,7 +114,7 @@ export function Nav({ dict, locale }: Props) {
           aria-label="ALORA — inicio"
         >
           <Image
-            src="/logo-web.png"
+            src="/logo-nav-white.png"
             alt="ALORA"
             width={132}
             height={36}
@@ -397,7 +408,7 @@ export function Nav({ dict, locale }: Props) {
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 md:flex">
           <Link
-            href={`/${otherLocale}`}
+            href={otherLocaleHref}
             className="text-[13px] font-medium uppercase tracking-widest text-white/50 transition-colors hover:text-white/90"
           >
             {otherLocale}
@@ -525,7 +536,7 @@ export function Nav({ dict, locale }: Props) {
             </Link>
 
             <div className="mt-2 flex flex-col gap-3 border-t border-white/[0.06] pt-4">
-              <Link href={`/${otherLocale}`} className="text-[13px] uppercase tracking-widest text-white/50 hover:text-white">
+              <Link href={otherLocaleHref} className="text-[13px] uppercase tracking-widest text-white/50 hover:text-white">
                 {otherLocale}
               </Link>
               <Link

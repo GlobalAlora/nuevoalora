@@ -36,7 +36,7 @@ export default async function DiscoveryCallPage({ params }: Props) {
       {/* Minimal nav */}
       <header className="flex items-center justify-between border-b px-6 py-4" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
         <Link href={`/${l}`} className="flex items-center gap-2.5 transition-opacity hover:opacity-80">
-          <Image src="/logo-web.png" alt="ALORA" width={110} height={30} className="h-8 w-auto" />
+          <Image src="/logo-nav-white.png" alt="ALORA" width={110} height={30} className="h-8 w-auto" />
         </Link>
         <Link href={`/${l}`} className="text-[13px] text-white/45 transition-colors hover:text-white/80">
           ← Back to site

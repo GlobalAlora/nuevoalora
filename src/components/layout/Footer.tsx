@@ -22,7 +22,7 @@ export function Footer({ dict, locale }: Props) {
           <div className="lg:col-span-2">
             <Link href={`/${locale}`} className="flex items-center gap-2.5 transition-opacity hover:opacity-80" aria-label="ALORA — inicio">
               <Image
-                src="/logo-web.png"
+                src="/logo-nav-white.png"
                 alt="ALORA"
                 width={110}
                 height={30}

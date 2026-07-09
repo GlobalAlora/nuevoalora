@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { solutionContactSchema, type SolutionContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
 
@@ -19,6 +20,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
   const { solutionForm: f, contact } = dict;
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const router = useRouter();
 
   const {
     register,
@@ -39,6 +41,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
       if (!res.ok) throw new Error("error");
       setStatus("success");
       reset();
+      router.push(`/${locale}/thank-you`);
     } catch {
       setStatus("error");
     } finally {

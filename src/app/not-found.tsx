@@ -42,7 +42,7 @@ export default function NotFound() {
 
       {/* Logo */}
       <Link href="/es" className="mb-12 transition-opacity hover:opacity-75">
-        <Image src="/logo-web.png" alt="ALORA" width={110} height={30} className="h-8 w-auto" />
+        <Image src="/logo-nav-white.png" alt="ALORA" width={110} height={30} className="h-8 w-auto" />
       </Link>
 
       {/* Big 404 */}
