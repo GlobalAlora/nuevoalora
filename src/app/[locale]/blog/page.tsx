@@ -35,7 +35,7 @@ export default async function BlogPage({ params }: Props) {
   const posts = getBlogPostsByLocale(l);
 
   const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
+    const date = new Date(`${dateStr}T12:00:00`);
     return date.toLocaleDateString(isEs ? "es-AR" : "en-US", {
       year: "numeric",
       month: "long",

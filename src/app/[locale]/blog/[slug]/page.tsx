@@ -50,16 +50,48 @@ export default async function BlogPostPage({ params }: Props) {
   const langKey = l as "es" | "en";
 
   const formatDate = (dateStr: string) =>
-    new Date(dateStr).toLocaleDateString(isEs ? "es-AR" : "en-US", {
+    new Date(`${dateStr}T12:00:00`).toLocaleDateString(isEs ? "es-AR" : "en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
 
   const htmlContent = renderMarkdown(post.content[langKey]);
+  const faqItems = post.faq?.[langKey];
+
+  const siteUrl = "https://www.globalalora.com";
+  const pageUrl = `${siteUrl}/${l}/blog/${slug}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title[langKey],
+    description: post.excerpt[langKey],
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    author: { "@type": "Organization", name: "ALORA" },
+    publisher: { "@type": "Organization", name: "ALORA", url: siteUrl },
+  };
+
+  const faqSchema = faqItems
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      }
+    : null;
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
         <div className="mx-auto max-w-3xl px-6">
@@ -116,6 +148,38 @@ export default async function BlogPostPage({ params }: Props) {
             .prose-custom blockquote { border-left: 2px solid var(--turquoise); padding-left: 16px; margin: 16px 0; color: rgba(255,255,255,0.55); font-style: italic; }
             .prose-custom code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; font-size: 13.5px; }
           `}</style>
+
+          {/* FAQ */}
+          {faqItems && (
+            <div className="mt-14">
+              <h2 className="text-[22px] font-bold text-white mb-6" style={{ letterSpacing: "-0.025em" }}>
+                {isEs ? "Preguntas frecuentes" : "Frequently asked questions"}
+              </h2>
+              <div className="flex flex-col gap-3">
+                {faqItems.map((item) => (
+                  <details
+                    key={item.q}
+                    className="group rounded-xl px-5 py-4"
+                    style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-white">
+                      {item.q}
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="14"
+                        height="14"
+                        fill="none"
+                        className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      >
+                        <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(4.5 4)" />
+                      </svg>
+                    </summary>
+                    <p className="mt-3 text-[14px] leading-relaxed text-white/60">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* CTA */}
           <div
