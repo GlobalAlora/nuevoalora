@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 interface Props {
   path: string; // e.g. "alora/20-minutos-reunion"
+  label?: string;
 }
 
-export function TidyCalEmbed({ path }: Props) {
-  const loaded = useRef(false);
-
+export function TidyCalEmbed({ path, label }: Props) {
   useEffect(() => {
-    if (loaded.current) return;
-    loaded.current = true;
-
     // Remove any stale instance
     const existing = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
     if (existing) existing.remove();
@@ -38,15 +34,39 @@ export function TidyCalEmbed({ path }: Props) {
   }, []);
 
   return (
-    <div
-      className="overflow-hidden rounded-2xl"
-      style={{
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        minHeight: "580px",
-      }}
-    >
-      <div className="tidycal-embed" data-path={path} />
+    <div className="relative">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-1 rounded-[20px] opacity-30 blur-xl"
+        style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric), var(--violet))" }}
+      />
+      <div
+        className="relative overflow-hidden rounded-2xl border"
+        style={{
+          borderColor: "rgba(255,255,255,0.1)",
+          background: "linear-gradient(160deg, oklch(0.17 0.02 260), oklch(0.12 0.014 260))",
+          boxShadow: "0 30px 80px -20px rgba(0,0,0,0.6)",
+        }}
+      >
+        {label && (
+          <div className="flex items-center gap-1.5 border-b px-4 py-3" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.02)" }}>
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
+            <span className="ml-2 text-[11px] text-white/40">{label}</span>
+          </div>
+        )}
+        <div className="tidycal-scroll" style={{ maxHeight: "620px", overflowY: "auto" }}>
+          <div className="tidycal-embed" data-path={path} style={{ minHeight: "560px" }} />
+        </div>
+      </div>
+      <style>{`
+        .tidycal-scroll { scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--turquoise) 50%, transparent) transparent; }
+        .tidycal-scroll::-webkit-scrollbar { width: 8px; }
+        .tidycal-scroll::-webkit-scrollbar-track { background: transparent; }
+        .tidycal-scroll::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--turquoise) 45%, transparent); border-radius: 8px; }
+        .tidycal-scroll::-webkit-scrollbar-thumb:hover { background: color-mix(in oklab, var(--turquoise) 65%, transparent); }
+      `}</style>
     </div>
   );
 }

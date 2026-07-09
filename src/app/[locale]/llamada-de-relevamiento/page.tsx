@@ -59,29 +59,29 @@ export default async function LlamadaPage({ params }: Props) {
       </header>
 
       {/* Content */}
-      <div className="mx-auto max-w-4xl px-6 py-14">
+      <div className="mx-auto max-w-4xl px-6 py-8">
         {/* Header */}
-        <div className="mb-10 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", fontSize: "12px", letterSpacing: "0.2em" }}>
+        <div className="mb-5 text-center">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", fontSize: "12px", letterSpacing: "0.2em" }}>
             <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
             <span className="text-white/55 uppercase">Asesoría gratuita · 20 min</span>
           </div>
-          <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(28px, 3.5vw, 44px)", letterSpacing: "-0.03em" }}>
+          <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(22px, 2.6vw, 32px)", letterSpacing: "-0.03em" }}>
             Agendá tu llamada de relevamiento
           </h1>
-          <p className="mx-auto mt-4 max-w-lg text-pretty text-[16px] leading-relaxed text-white/55">
+          <p className="mx-auto mt-2 max-w-lg text-pretty text-[14px] leading-relaxed text-white/55">
             Seleccioná el horario que mejor se adapte a tu agenda. En 20 minutos analizamos tu proyecto y te decimos cómo podemos ayudarte.
           </p>
         </div>
 
-        {/* TidyCal embed */}
-        <TidyCalEmbed path={tidycalPath} />
+        {/* TidyCal booking */}
+        <TidyCalEmbed path={tidycalPath} label="Agenda tu llamada" />
 
         {/* Reassurances */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-5">
           {["Sin costo, sin compromiso", "Respuesta personalizada", "Equipo disponible"].map((item) => (
-            <div key={item} className="flex items-center gap-2 text-[13px] text-white/40">
-              <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+            <div key={item} className="flex items-center gap-1.5 text-[12px] text-white/40">
+              <svg viewBox="0 0 16 16" fill="none" width="13" height="13">
                 <circle cx="8" cy="8" r="6" stroke="var(--turquoise)" strokeOpacity=".4" />
                 <path d="M5.5 8l1.5 1.5L10.5 6" stroke="var(--turquoise)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

@@ -57,15 +57,18 @@ export default async function BlogPage({ params }: Props) {
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
         {/* Hero */}
         <div className="mx-auto max-w-7xl px-6 pb-16">
-          <div className="mb-12 mx-auto max-w-2xl text-center">
+          <div className="mb-10 mx-auto max-w-2xl text-center">
             <p className="text-[11px] uppercase tracking-widest text-white/30 mb-3">Insights</p>
-            <h1 className="text-[40px] sm:text-[52px] font-bold text-white mb-4" style={{ letterSpacing: "-0.035em" }}>
-              {isEs ? "Novedades e insights de tecnología" : "News and insights on technology"}
+            <h1
+              className="whitespace-nowrap font-bold text-white mb-4"
+              style={{ fontSize: "clamp(22px, 5vw, 48px)", letterSpacing: "-0.035em" }}
+            >
+              {isEs ? "Insights de tecnología" : "Technology insights"}
             </h1>
-            <p className="text-[17px] text-white/55 leading-relaxed">
+            <p className="mx-auto max-w-lg text-[16px] text-white/55 leading-relaxed">
               {isEs
-                ? "Análisis, novedades y estrategia sobre software, inteligencia artificial y ecosistemas digitales para empresas que quieren crecer."
-                : "Analysis, news and strategy on software, artificial intelligence and digital ecosystems for businesses that want to grow."}
+                ? "Análisis y estrategia sobre software, inteligencia artificial y ecosistemas digitales para empresas que quieren crecer."
+                : "Analysis and strategy on software, artificial intelligence and digital ecosystems for businesses that want to grow."}
             </p>
           </div>
 
