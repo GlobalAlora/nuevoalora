@@ -448,7 +448,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
       es: "Todos usan 'chatbot' y 'agente de IA' como sinónimos, pero no lo son. Te explicamos la diferencia técnica y de negocio, con ejemplos reales, para que elijas la tecnología correcta.",
       en: "Everyone uses 'chatbot' and 'AI agent' as if they were interchangeable — they're not. We break down the technical and business difference, with real examples, so you pick the right technology.",
     },
-    date: "2025-02-10",
+    date: "2026-07-09",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 10,
     content: {
@@ -638,7 +638,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
       es: "No toda empresa necesita IA, y no toda IA aplica a cualquier empresa. Te damos un método concreto para saber si es el momento, y en qué área de tu negocio aplicarla primero.",
       en: "Not every business needs AI, and not every AI use case fits every business. Here's a concrete method to know if it's the right time, and where in your business to apply it first.",
     },
-    date: "2025-02-24",
+    date: "2026-07-09",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 9,
     content: {
