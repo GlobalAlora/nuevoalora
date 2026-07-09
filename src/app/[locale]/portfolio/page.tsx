@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { hasLocale, getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -27,7 +28,9 @@ export default async function PortfolioPage({ params }: Props) {
   return (
     <>
       <Nav dict={dict} locale={l} />
-      <PortfolioContent />
+      <Suspense fallback={null}>
+        <PortfolioContent />
+      </Suspense>
       <Footer dict={dict} locale={l} />
     </>
   );

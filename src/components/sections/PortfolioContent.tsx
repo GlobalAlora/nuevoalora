@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { PORTFOLIO, type ProjectCategory } from "@/lib/portfolio-data";
+import { useParams, useSearchParams } from "next/navigation";
+import { PORTFOLIO, sortByPriority, type ProjectCategory } from "@/lib/portfolio-data";
 import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { ICONS } from "@/lib/icons";
 
 const CASE_STUDY_SLUGS = new Set(CASE_STUDIES.map((cs) => cs.slug));
+const CASE_STUDY_BY_SLUG = new Map(CASE_STUDIES.map((cs) => [cs.slug, cs]));
 
 const CATEGORIES: { key: ProjectCategory; es: string; en: string }[] = [
   { key: "all",       es: "Todos",        en: "All" },
@@ -28,14 +30,38 @@ const TAG_STYLE: Record<string, React.CSSProperties> = {
   SEO:           { color: "var(--turquoise)", borderColor: "color-mix(in oklab, var(--turquoise) 35%, transparent)", background: "color-mix(in oklab, var(--turquoise) 8%, transparent)" },
 };
 
+function ProjectPlaceholder({ slug }: { slug: string }) {
+  const cs = CASE_STUDY_BY_SLUG.get(slug);
+  const accent = cs?.theme.primary ?? "var(--turquoise)";
+  const accent2 = cs?.theme.secondary ?? "var(--electric)";
+  const icon = cs ? ICONS[cs.icon] : null;
+  return (
+    <div className="flex h-full w-full items-center justify-center" style={{ background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 22%, oklch(0.14 0.014 260)), color-mix(in oklab, ${accent2} 14%, oklch(0.12 0.01 260)))` }}>
+      <span className="flex h-14 w-14 items-center justify-center rounded-2xl" style={{ background: `color-mix(in oklab, ${accent} 20%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 40%, transparent)`, color: accent }}>
+        {icon}
+      </span>
+    </div>
+  );
+}
+
 export function PortfolioContent() {
   const params = useParams();
+  const searchParams = useSearchParams();
   const locale = (params?.locale as string) ?? "es";
   const l = locale === "en" ? "en" : "es";
 
   const [active, setActive] = useState<ProjectCategory>("all");
 
-  const visible = active === "all" ? PORTFOLIO : PORTFOLIO.filter((p) => p.category === active);
+  useEffect(() => {
+    const cat = searchParams.get("cat");
+    if (cat && CATEGORIES.some((c) => c.key === cat)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync from the URL on mount
+      setActive(cat as ProjectCategory);
+    }
+  }, [searchParams]);
+
+  const filtered = active === "all" ? PORTFOLIO : PORTFOLIO.filter((p) => p.category === active);
+  const visible = sortByPriority(filtered);
 
   return (
     <main className="min-h-screen text-white pt-20" style={{ background: "oklch(0.13 0.015 260)" }}>
@@ -95,10 +121,14 @@ export function PortfolioContent() {
 
               {/* Image */}
               <div className="relative h-[210px] overflow-hidden bg-[oklch(0.12_0.01_260)]">
-                <Image src={project.image} alt={project.client} fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  onError={() => {}} />
+                {project.image ? (
+                  <Image src={project.image} alt={project.client} fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    onError={() => {}} />
+                ) : (
+                  <ProjectPlaceholder slug={project.slug} />
+                )}
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, rgba(8,10,18,0.85) 100%)" }} />
 
                 {project.result && (

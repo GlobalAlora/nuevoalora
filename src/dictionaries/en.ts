@@ -50,6 +50,9 @@ const en: Dictionary = {
       { key: "app", label: "App" },
     ],
     items: [
+      { slug: "autodux", client: "Autodux", desc: "Custom car marketplace that centralized a fragmented market in Comodoro Rivadavia.", tags: ["App", "Web"], result: "Marketplace" },
+      { slug: "distrisal", client: "Distri-Sal", desc: "Ecommerce integrated with Centum, its management system, to sync products, stock and per-client pricing in real time.", tags: ["Ecommerce"], result: "Real-time integration" },
+      { slug: "voutier", client: "Voutier Repuestos", desc: "Robust ecommerce platform for auto parts, with advanced filters by make, model and year.", tags: ["Ecommerce"], result: "Ecommerce" },
       { slug: "crm-alora", client: "CRM Alora", desc: "Proprietary CRM system built by Alora for client management, sales pipeline and project tracking.", tags: ["CRM", "App"], result: "Internal" },
       { slug: "crm-lidia", client: "CRM LIDIA", desc: "CRM integrated into the LIDIA platform with AI for automated contact management, follow-ups and conversions.", tags: ["CRM", "AI", "App"], result: "In production" },
       { slug: "castro-yeso", client: "Castro Yeso", desc: "100% custom landing page for a drywall and construction company.", tags: ["Landing", "Web"], result: "+3x leads" },

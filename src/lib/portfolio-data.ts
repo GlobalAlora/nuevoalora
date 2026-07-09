@@ -2,7 +2,7 @@ export interface PortfolioProject {
   slug: string
   client: string
   url: string
-  image: string
+  image?: string
   category: "web" | "ecommerce" | "landing" | "app" | "ia"
   tags: string[]
   result?: string
@@ -10,7 +10,53 @@ export interface PortfolioProject {
   en: { desc: string }
 }
 
+/** Projects that should always sort first, in this exact order, wherever they appear. */
+export const PROJECT_PRIORITY = ["autodux", "alkemia", "distrisal", "voutier", "soy-lidia", "lidia-superadmin", "crm-alora", "crm-lidia"];
+
+export function sortByPriority<T extends { slug: string }>(items: T[]): T[] {
+  return items.slice().sort((a, b) => {
+    const ai = PROJECT_PRIORITY.indexOf(a.slug);
+    const bi = PROJECT_PRIORITY.indexOf(b.slug);
+    if (ai === -1 && bi === -1) return 0;
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+}
+
 export const PORTFOLIO: PortfolioProject[] = [
+  // ── FEATURED CASE STUDIES ───────────────────────────────────────────
+  {
+    slug: "autodux",
+    client: "Autodux",
+    url: "https://marketplace-sigma-teal.vercel.app/",
+    image: "/images/case-studies/autodux/hero.png",
+    category: "app",
+    tags: ["App", "Web"],
+    result: "Marketplace",
+    es: { desc: "Marketplace de compra y venta de autos a medida, para centralizar un mercado fragmentado en Comodoro Rivadavia." },
+    en: { desc: "Custom car marketplace that centralized a fragmented market in Comodoro Rivadavia." },
+  },
+  {
+    slug: "distrisal",
+    client: "Distri-Sal",
+    url: "https://nuevodistrisal.globalalora.com/",
+    category: "ecommerce",
+    tags: ["E-commerce"],
+    result: "Integración en tiempo real",
+    es: { desc: "Ecommerce integrado con Centum, su sistema de gestión, para sincronizar productos, stock y precios por cliente en tiempo real." },
+    en: { desc: "Ecommerce integrated with Centum, its management system, to sync products, stock and per-client pricing in real time." },
+  },
+  {
+    slug: "voutier",
+    client: "Voutier Repuestos",
+    url: "https://voutier.globalalora.com/",
+    category: "ecommerce",
+    tags: ["E-commerce"],
+    result: "Ecommerce",
+    es: { desc: "Plataforma de ecommerce robusta para repuestos, con filtros avanzados por marca, modelo y año." },
+    en: { desc: "Robust ecommerce platform for auto parts, with advanced filters by make, model and year." },
+  },
   // ── WEB DEVELOPMENT ─────────────────────────────────────────────────
   {
     slug: "alkemia",

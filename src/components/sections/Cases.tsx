@@ -5,11 +5,15 @@ import Image from "next/image";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
 import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { sortByPriority } from "@/lib/portfolio-data";
+import { ICONS } from "@/lib/icons";
 
 const CASE_STUDY_SLUGS = new Set(CASE_STUDIES.map((cs) => cs.slug));
+const CASE_STUDY_BY_SLUG = new Map(CASE_STUDIES.map((cs) => [cs.slug, cs]));
 const VISIBLE_COUNT = 3;
 
 const CASE_IMAGES: Record<string, string> = {
+  "autodux": "/images/case-studies/autodux/hero.png",
   "castro-yeso": "/images/castroweb.png",
   "asesoria-dialogar": "/images/dialogar.png",
   "protorneos": "/images/protorneo.png",
@@ -174,15 +178,37 @@ function CaseFrame({ idx }: { idx: number }) {
   return frames[idx] ?? frames[0];
 }
 
+function CaseThumbPlaceholder({ slug }: { slug: string }) {
+  const cs = CASE_STUDY_BY_SLUG.get(slug);
+  const accent = cs?.theme.primary ?? "var(--turquoise)";
+  const accent2 = cs?.theme.secondary ?? "var(--electric)";
+  return (
+    <div
+      className="flex h-full w-full items-center justify-center"
+      style={{ background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 22%, oklch(0.14 0.014 260)), color-mix(in oklab, ${accent2} 14%, oklch(0.12 0.01 260)))` }}
+    >
+      <span
+        className="flex h-12 w-12 items-center justify-center rounded-2xl"
+        style={{ background: `color-mix(in oklab, ${accent} 20%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 40%, transparent)`, color: accent }}
+      >
+        {cs && ICONS[cs.icon]}
+      </span>
+    </div>
+  );
+}
+
 export function Cases({ dict, locale }: Props) {
   const { cases } = dict;
   const [activeFilter, setActiveFilter] = useState<string>(cases.filters[0]?.key ?? "");
 
   const filters = cases.filters.map((f) => ({ key: f.key, label: f.label }));
+  const activeFilterLabel = filters.find((f) => f.key === activeFilter)?.label ?? activeFilter;
 
-  const visible = cases.items
-    .filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()))
-    .slice(0, VISIBLE_COUNT);
+  const filteredItems = sortByPriority(
+    cases.items.filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()))
+  );
+  const visible = filteredItems.slice(0, VISIBLE_COUNT);
+  const hasMore = filteredItems.length > VISIBLE_COUNT;
 
   return (
     <section id="casos" className="relative isolate overflow-hidden py-24">
@@ -254,6 +280,8 @@ export function Cases({ dict, locale }: Props) {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
+                ) : CASE_STUDY_BY_SLUG.has(item.slug) ? (
+                  <CaseThumbPlaceholder slug={item.slug} />
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[oklch(0.14_0.012_260)/80]" />
                 {item.result && (
@@ -302,7 +330,18 @@ export function Cases({ dict, locale }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 flex justify-center">
+        {hasMore && (
+          <div className="mt-6 flex justify-center">
+            <a
+              href={`/${locale}/portfolio?cat=${activeFilter}`}
+              className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/50 transition-colors hover:text-white/85"
+            >
+              {locale === "es" ? `Ver más proyectos de ${activeFilterLabel}` : `See more ${activeFilterLabel} projects`} →
+            </a>
+          </div>
+        )}
+
+        <div className="mt-6 flex justify-center">
           <a
             href={`/${locale}/portfolio`}
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-medium text-white/75 transition-all hover:border-white/20 hover:text-white"
