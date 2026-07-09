@@ -1,6 +1,6 @@
 export interface Dictionary {
   locale: string;
-  nav: { home: string; solutions: string; cases: string; contact: string; ctaCall: string; ctaWhatsapp: string };
+  nav: { home: string; solutions: string; cases: string; blog: string; contact: string; ctaCall: string; ctaWhatsapp: string };
   hero: {
     chip: string; h1Line1: string; h1Line2: string; h1Accent: string;
     body: string;
@@ -72,6 +72,7 @@ const es: Dictionary = {
     home: "Home",
     solutions: "Soluciones",
     cases: "Casos de Éxito",
+    blog: "Blog",
     contact: "Contacto",
     ctaCall: "Reservar Llamada Gratuita",
     ctaWhatsapp: "Habla con nosotros",

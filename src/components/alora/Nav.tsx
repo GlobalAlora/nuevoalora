@@ -85,6 +85,7 @@ export function Nav({ dict, locale }: Props) {
   const caseStudies = CASE_STUDIES;
   const homeHref = `/${locale}`;
   const casosHref = `/${locale}/casos-de-exito`;
+  const blogHref = `/${locale}/blog`;
   const contactHref = `/${locale}/contacto`;
   const callHref = locale === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
 
@@ -399,6 +400,11 @@ export function Nav({ dict, locale }: Props) {
             )}
           </div>
 
+          <Link href={blogHref} className="group relative text-[14px] font-medium text-white/[0.75] transition-colors hover:text-white">
+            {dict.nav.blog}
+            <span className="absolute -bottom-[2px] left-0 h-[2px] w-0 rounded-full bg-turquoise transition-[width] duration-200 group-hover:w-full" />
+          </Link>
+
           <Link href={contactHref} className="group relative text-[14px] font-medium text-white/[0.75] transition-colors hover:text-white">
             {dict.nav.contact}
             <span className="absolute -bottom-[2px] left-0 h-[2px] w-0 rounded-full bg-turquoise transition-[width] duration-200 group-hover:w-full" />
@@ -531,6 +537,9 @@ export function Nav({ dict, locale }: Props) {
                 })}
               </div>
             )}
+            <Link href={blogHref} onClick={() => setMobileOpen(false)} className="py-3 text-[15px] text-white/80 transition-colors hover:text-white">
+              {dict.nav.blog}
+            </Link>
             <Link href={contactHref} onClick={() => setMobileOpen(false)} className="py-3 text-[15px] text-white/80 transition-colors hover:text-white">
               {dict.nav.contact}
             </Link>
