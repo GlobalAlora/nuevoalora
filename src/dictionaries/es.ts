@@ -139,8 +139,6 @@ const es: Dictionary = {
       { slug: "nutriac", client: "Nutriac", desc: "Tienda online WooCommerce para marca de suplementos y nutrición deportiva.", tags: ["Ecommerce"], result: "Ventas online" },
       { slug: "gangafan", client: "GangaFan", desc: "Ecommerce WooCommerce para plataforma de ofertas y descuentos.", tags: ["Ecommerce"], result: "Lanzamiento" },
       { slug: "mega-mayorista", client: "Mega Mayorista", desc: "Tienda mayorista online con catálogo extenso y sistema de precios por volumen.", tags: ["Ecommerce"], result: "Online" },
-      { slug: "greta-kids", client: "Greta Kids Atelier", desc: "Tienda online WooCommerce para marca de ropa infantil artesanal.", tags: ["Ecommerce"], result: "Ventas online" },
-      { slug: "alaux-neumaticos", client: "Alaux Neumáticos", desc: "Ecommerce WooCommerce para distribuidora de neumáticos con gestión de stock.", tags: ["Ecommerce"], result: "Online" },
       { slug: "yumkax", client: "YumKax", desc: "Mejoras y optimizaciones web para plataforma de gastronomía.", tags: ["Web"], result: "Optimizado" },
       { slug: "terracota-valladolid", client: "Terracota Valladolid", desc: "Mejoras web y adaptaciones para empresa española de cerámica artesanal.", tags: ["Web"], result: "Mejorado" },
     ],

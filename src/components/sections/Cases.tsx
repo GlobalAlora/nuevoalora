@@ -29,8 +29,6 @@ const CASE_IMAGES: Record<string, string> = {
   "nutriac": "/images/nutriac.png",
   "gangafan": "/images/gangafan-page.png",
   "mega-mayorista": "/images/megamayorista.png",
-  "greta-kids": "/images/greta.png",
-  "alaux-neumaticos": "/images/alaux.png",
   "yumkax": "/images/yumkax.png",
   "terracota-valladolid": "/images/terracota.png",
 };

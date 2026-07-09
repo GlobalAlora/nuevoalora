@@ -792,8 +792,6 @@ export const SOLUTIONS: SolutionData[] = [
       en: "We develop online stores for different industries, always with the same criteria: clarity, trust and a focus on selling.",
     },
     projects: [
-      { name: "Greta Kids Atelier", url: "https://gretakidsatelier.com.ar", image: "/images/greta.png", es: "Tienda WooCommerce de moda infantil con checkout personalizado y gestión de inventario.", en: "Children's fashion WooCommerce store with custom checkout and inventory management." },
-      { name: "Alaux Neumáticos", url: "https://tiendaalaux.com.ar", image: "/images/alaux.png", es: "Tienda online para distribuidora de neumáticos con catálogo de 500+ productos.", en: "Online store for tire distributor with 500+ product catalog." },
       { name: "Nutriac", url: "https://nutriac.com.ar", image: "/images/nutriac.png", es: "Ecommerce 100% custom de productos nutricionales con integración de pagos local.", en: "100% custom nutritional products ecommerce with local payment integration." },
     ],
     whyUsExtra: {
@@ -1549,7 +1547,6 @@ export const SOLUTIONS: SolutionData[] = [
       { name: "Soy LIDIA", url: "https://soylidia.com", image: "/images/soylidia.png", es: "Sistema de gestión para profesionales de la salud con WhatsApp integrado. Calendario, pacientes, equipo, sucursales y pagos.", en: "Management system for health professionals with integrated WhatsApp. Calendar, patients, team, branches and payments." },
       { name: "Ranking Tenis de Mesa", url: "https://tenisdemesatrenque.com.ar", image: "/images/tenisDeMesaImageRank.png", es: "Sistema completo de gestión de ranking para Tenis de Mesa con perfiles de jugadores, estadísticas y clasificaciones.", en: "Complete ranking management system for Table Tennis with player profiles, statistics and classifications." },
       { name: "ALKEMIA", url: "https://goalkemia.com", image: "/images/alkemia.png", es: "Diseño y desarrollo de la nueva plataforma digital de ALKEMIA para acompañar su evolución de marca y consolidar su posicionamiento en tecnología, automatización e inteligencia artificial.", en: "Design and development of ALKEMIA's new digital platform to support its brand evolution and consolidate its positioning in technology, automation and artificial intelligence." },
-      { name: "Greta Kids Atelier", url: "https://gretakidsatelier.com.ar", image: "/images/greta.png", es: "Tienda WooCommerce de moda infantil con checkout personalizado y gestión de inventario.", en: "Children's fashion WooCommerce store with custom checkout and inventory management." },
       { name: "Castro Yeso", url: "https://castro-yeso.com", image: "/images/castroweb.png", es: "Sitio 100% personalizado desarrollado con WordPress sin uso de plantillas, para empresa de yesería y construcción en seco.", en: "100% custom WordPress site built without templates, for a drywall and plasterwork company." },
     ],
     whyUsExtra: {

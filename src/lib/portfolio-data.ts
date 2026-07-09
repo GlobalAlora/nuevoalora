@@ -66,26 +66,6 @@ export const PORTFOLIO: PortfolioProject[] = [
   },
   // ── ECOMMERCE ───────────────────────────────────────────────────────
   {
-    slug: "greta-kids-atelier",
-    client: "Greta Kids Atelier",
-    url: "https://gretakidsatelier.com.ar",
-    image: "/images/greta.png",
-    category: "ecommerce",
-    tags: ["E-commerce"],
-    es: { desc: "Tienda de ropa infantil WooCommerce con catálogo de productos variables y sistema de gestión de inventario." },
-    en: { desc: "WooCommerce children's clothing store with variable product catalog and inventory management." },
-  },
-  {
-    slug: "alaux-neumaticos",
-    client: "Alaux Neumáticos",
-    url: "https://tiendaalaux.com.ar",
-    image: "/images/alaux.png",
-    category: "ecommerce",
-    tags: ["E-commerce"],
-    es: { desc: "Ecommerce de neumáticos con buscador por vehículo, 500+ productos y configuración de envíos regionales." },
-    en: { desc: "Tire ecommerce with vehicle search, 500+ products and regional shipping configuration." },
-  },
-  {
     slug: "gangafan",
     client: "GangaFan",
     url: "https://gangafan.com",
@@ -222,16 +202,6 @@ export const PORTFOLIO: PortfolioProject[] = [
     tags: ["IA", "Web"],
     es: { desc: "Plataforma tecnológica con integración de IA para automatización de procesos y atención al cliente inteligente." },
     en: { desc: "Technology platform with AI integration for process automation and intelligent customer service." },
-  },
-  {
-    slug: "consultora-on",
-    client: "Consultora ON",
-    url: "#",
-    image: "/images/consultoraon.png",
-    category: "ia",
-    tags: ["IA", "Automatización"],
-    es: { desc: "Sistema de automatización e inteligencia artificial para procesos de consultoría y atención al cliente." },
-    en: { desc: "Automation and artificial intelligence system for consulting processes and customer service." },
   },
 ]
 
