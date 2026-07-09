@@ -820,12 +820,15 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
   category: string;
   readTime: number;
 }> {
-  return BLOG_POSTS.map((p) => ({
-    slug: p.slug,
-    title: p.title[locale],
-    excerpt: p.excerpt[locale],
-    date: p.date,
-    category: p.category[locale],
-    readTime: p.readTime,
-  }));
+  return BLOG_POSTS
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title[locale],
+      excerpt: p.excerpt[locale],
+      date: p.date,
+      category: p.category[locale],
+      readTime: p.readTime,
+    }));
 }
