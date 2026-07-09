@@ -50,6 +50,10 @@
   <url><loc>https://globalalora.com/es/resenas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://globalalora.com/en/resenas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <!-- Presentación / About -->
+  <url><loc>https://globalalora.com/es/presentacion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://globalalora.com/en/presentacion</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- Contacto -->
   <url><loc>https://globalalora.com/es/contacto</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://globalalora.com/en/contacto</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

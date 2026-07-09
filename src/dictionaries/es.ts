@@ -256,6 +256,7 @@ const es: Dictionary = {
       { label: "Agentes Conversacionales IA", href: "/es/soluciones/atencion-cliente-ia" },
     ],
     companyLinks: [
+      { label: "Quiénes somos", href: "/presentacion" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Reseñas", href: "/resenas" },
       { label: "Contacto", href: "/contacto" },

@@ -198,6 +198,7 @@ const en: Dictionary = {
       { label: "AI Conversational Agents", href: "/en/soluciones/atencion-cliente-ia" },
     ],
     companyLinks: [
+      { label: "About us", href: "/presentacion" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Reviews", href: "/resenas" },
       { label: "Contact", href: "/contacto" },
