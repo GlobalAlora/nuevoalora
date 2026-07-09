@@ -6,7 +6,7 @@ const en: Dictionary = {
     home: "Home",
     solutions: "Solutions",
     cases: "Success Stories",
-    blog: "Blog",
+    blog: "Insights",
     contact: "Contact",
     ctaCall: "Book a Free Call",
     ctaWhatsapp: "Talk to us",

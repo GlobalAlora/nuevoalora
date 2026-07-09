@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isEs = locale === "es";
   return {
-    title: isEs ? "Blog | ALORA — Software, IA y Automatización" : "Blog | ALORA — Software, AI & Automation",
+    title: isEs ? "Insights | ALORA — Software, IA y Automatización" : "Insights | ALORA — Software, AI & Automation",
     description: isEs
       ? "Artículos sobre desarrollo de software, inteligencia artificial, automatización y ecommerce para empresas en crecimiento."
       : "Articles about software development, artificial intelligence, automation and ecommerce for growing businesses.",
     openGraph: {
-      title: isEs ? "Blog de ALORA" : "ALORA Blog",
+      title: isEs ? "Insights de ALORA" : "ALORA Insights",
       description: isEs
         ? "Insights sobre tecnología, IA y automatización para negocios."
         : "Insights on technology, AI and automation for businesses.",
@@ -57,15 +57,15 @@ export default async function BlogPage({ params }: Props) {
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
         {/* Hero */}
         <div className="mx-auto max-w-7xl px-6 pb-16">
-          <div className="mb-12">
-            <p className="text-[11px] uppercase tracking-widest text-white/30 mb-3">Blog</p>
+          <div className="mb-12 mx-auto max-w-2xl text-center">
+            <p className="text-[11px] uppercase tracking-widest text-white/30 mb-3">Insights</p>
             <h1 className="text-[40px] sm:text-[52px] font-bold text-white mb-4" style={{ letterSpacing: "-0.035em" }}>
-              {isEs ? "Ideas, tutoriales y casos de uso" : "Ideas, tutorials and use cases"}
+              {isEs ? "Novedades e insights de tecnología" : "News and insights on technology"}
             </h1>
-            <p className="text-[17px] text-white/55 max-w-2xl leading-relaxed">
+            <p className="text-[17px] text-white/55 leading-relaxed">
               {isEs
-                ? "Contenido sobre software, inteligencia artificial, automatización y estrategia digital para empresas que quieren crecer."
-                : "Content about software, artificial intelligence, automation and digital strategy for businesses that want to grow."}
+                ? "Análisis, novedades y estrategia sobre software, inteligencia artificial y ecosistemas digitales para empresas que quieren crecer."
+                : "Analysis, news and strategy on software, artificial intelligence and digital ecosystems for businesses that want to grow."}
             </p>
           </div>
 

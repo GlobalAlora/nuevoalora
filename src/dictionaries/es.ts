@@ -72,7 +72,7 @@ const es: Dictionary = {
     home: "Home",
     solutions: "Soluciones",
     cases: "Casos de Éxito",
-    blog: "Blog",
+    blog: "Insights",
     contact: "Contacto",
     ctaCall: "Reservar Llamada Gratuita",
     ctaWhatsapp: "Habla con nosotros",

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Not found" };
   const l = locale as "es" | "en";
   return {
-    title: `${post.title[l]} | ALORA Blog`,
+    title: `${post.title[l]} | ALORA Insights`,
     description: post.excerpt[l],
     openGraph: {
       title: post.title[l],
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
             href={`/${l}/blog`}
             className="inline-flex items-center gap-2 text-[13px] text-white/35 hover:text-white/70 transition-colors mb-8"
           >
-            ← {isEs ? "Volver al blog" : "Back to blog"}
+            ← {isEs ? "Volver a Insights" : "Back to Insights"}
           </Link>
 
           {/* Header */}
