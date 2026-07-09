@@ -38,8 +38,35 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const locale = cookieStore.get("locale")?.value ?? "es";
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ALORA",
+    url: "https://globalalora.com",
+    logo: "https://globalalora.com/logo-nav-white.png",
+    description: "Agencia de desarrollo de software, automatización e inteligencia artificial para empresas en Latinoamérica.",
+    email: "hola@globalalora.com",
+    sameAs: [
+      "https://www.instagram.com/globalalora",
+      "https://www.linkedin.com/company/globalalora",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "AR",
+      addressLocality: "Buenos Aires",
+    },
+    areaServed: ["AR", "MX", "CO", "CL", "ES", "UY", "PE"],
+    knowsAbout: ["Software Development", "Artificial Intelligence", "Automation", "Ecommerce", "Web Development", "Chatbots"],
+  };
+
   return (
     <html lang={locale} className={inter.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
