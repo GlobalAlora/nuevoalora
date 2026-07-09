@@ -4,6 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
+import { CASE_STUDIES } from "@/lib/case-studies-data";
+
+const CASE_STUDY_SLUGS = new Set(CASE_STUDIES.map((cs) => cs.slug));
+const VISIBLE_COUNT = 3;
 
 const CASE_IMAGES: Record<string, string> = {
   "castro-yeso": "/images/castroweb.png",
@@ -178,7 +182,9 @@ export function Cases({ dict, locale }: Props) {
 
   const filters = cases.filters.map((f) => ({ key: f.key, label: f.label }));
 
-  const visible = cases.items.filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()));
+  const visible = cases.items
+    .filter((item) => item.tags?.some((t) => t.toLowerCase() === activeFilter.toLowerCase()))
+    .slice(0, VISIBLE_COUNT);
 
   return (
     <section id="casos" className="relative isolate overflow-hidden py-24">
@@ -271,12 +277,14 @@ export function Cases({ dict, locale }: Props) {
                   {item.client}
                 </h3>
                 <p className="flex-1 text-[13.5px] leading-relaxed text-white/56">{item.desc}</p>
-                <a
-                  href={`/${locale}/portfolio#${item.slug}`}
-                  className="mt-1 inline-flex w-fit items-center gap-1.5 text-[12.5px] font-medium text-white/55 transition-colors hover:text-white/90"
-                >
-                  {cases.ctaCard} →
-                </a>
+                {CASE_STUDY_SLUGS.has(item.slug) && (
+                  <a
+                    href={`/${locale}/casos-de-exito/${item.slug}`}
+                    className="mt-1 inline-flex w-fit items-center gap-1.5 text-[12.5px] font-medium text-white/55 transition-colors hover:text-white/90"
+                  >
+                    {cases.ctaCard} →
+                  </a>
+                )}
               </div>
 
               {/* Hover border glow */}

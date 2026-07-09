@@ -75,7 +75,7 @@ const en: Dictionary = {
       { slug: "terracota-valladolid", client: "Terracota Valladolid", desc: "Web improvements and adaptations for a Spanish artisan ceramics company.", tags: ["Web"], result: "Improved" },
     ],
     ctaAll: "View all cases",
-    ctaCard: "View case",
+    ctaCard: "View Case Study",
   },
   why: {
     sectionIndex: "04",
@@ -98,6 +98,38 @@ const en: Dictionary = {
       {
         title: "Partners, not vendors.",
         body: "We get involved in your business as if it were our own: we support decisions, not just hand off a project.",
+      },
+    ],
+  },
+  testimonials: {
+    sectionIndex: "05",
+    sectionLabel: "Testimonials",
+    heading: "What people who've worked with us say.",
+    body: "Real feedback from clients who already have their project in production.",
+    items: [
+      {
+        quote: "Working with Alora was an excellent experience. They developed both our institutional website and a fully custom professional ranking system, which now lets us manage players, statistics and points clearly and efficiently. The platform is fast, easy to use, and gave our table tennis organization a real leap in quality. There was always good communication, commitment and willingness to adapt the system to our real needs.",
+        tags: ["Comprehensive system", "Efficient management", "Easy to use"],
+        name: "Alejandro",
+        role: "President of the Table Tennis Commission",
+      },
+      {
+        quote: "At Fundación por Nuestros Niños we're grateful for the process we shared in creating our website. It's been a wonderful experience that also let us revisit some very important aspects of our organization. It was a pending debt for our NGO, which has worked for more than 28 years for the children of Salta. Thank you for the warmth, commitment, professionalism and patience of the Alora team. We hope to keep our alliance for the common good!",
+        tags: ["Collaborative process", "Social impact", "Committed team"],
+        name: "Verónica Figueroa",
+        role: "Fundación por Nuestros Niños – Chair of the Board",
+      },
+      {
+        quote: "It was a pleasure working with Bruno and his team. From the processes and communication channels to the way they managed timelines and approached the work seriously. They took the time to understand the essence of the project, made relevant suggestions, and were always willing to resolve any situation. I was very happy with the work and I recommend them.",
+        tags: ["Clear process", "Open communication", "Flawless results"],
+        name: "Rulo de Viaje",
+        role: "Founder of the Club Rulo de Viaje community",
+      },
+      {
+        quote: "Throughout this time, the work was very professional, with excellent willingness and on-time delivery. Communication was always clear and resolutive. I want to highlight their commitment and efficiency.",
+        tags: ["Consistent professionalism", "Clear communication", "Commitment and efficiency"],
+        name: "Fernando Celaya",
+        role: "Starley – Manager",
       },
     ],
   },

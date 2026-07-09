@@ -20,6 +20,10 @@ export interface Dictionary {
     sectionIndex: string; sectionLabel: string; heading: string; body: string;
     cards: { title: string; body: string }[];
   };
+  testimonials: {
+    sectionIndex: string; sectionLabel: string; heading: string; body: string;
+    items: { quote: string; tags: string[]; name: string; role: string }[];
+  };
   process: {
     sectionIndex: string; sectionLabel: string; headingLine1: string; headingLine2: string;
     steps: { n: string; title: string; body: string }[];
@@ -141,7 +145,7 @@ const es: Dictionary = {
       { slug: "terracota-valladolid", client: "Terracota Valladolid", desc: "Mejoras web y adaptaciones para empresa española de cerámica artesanal.", tags: ["Web"], result: "Mejorado" },
     ],
     ctaAll: "Ver todos los casos",
-    ctaCard: "Ver caso",
+    ctaCard: "Ver Caso de Éxito",
   },
   why: {
     sectionIndex: "04",
@@ -153,6 +157,38 @@ const es: Dictionary = {
       { title: "Sistemas escalables desde el día uno.", body: "Arquitectura pensada para crecer, así el éxito no te obliga a reconstruir lo que ya funciona." },
       { title: "Cercanía y calidad que no se encuentran en todos lados.", body: "Equipos chicos, comunicación directa y estándares altos en cada entrega." },
       { title: "Partners, no proveedores.", body: "Nos involucramos en tu negocio como propio: acompañamos decisiones, no solo entregamos un proyecto." },
+    ],
+  },
+  testimonials: {
+    sectionIndex: "05",
+    sectionLabel: "Testimonios",
+    heading: "Lo que dicen quienes ya trabajaron con nosotros.",
+    body: "Opiniones reales de clientes que ya tienen su proyecto en producción.",
+    items: [
+      {
+        quote: "Trabajar con Alora fue una excelente experiencia. Desarrollaron tanto el sitio web institucional como un sistema de ranking profesional totalmente a medida, que hoy nos permite gestionar jugadores, estadísticas y puntos de forma clara y eficiente. La plataforma es rápida, fácil de usar y nos dio un salto de calidad en la organización del Tenis de Mesa. Siempre hubo buena comunicación, compromiso y predisposición para adaptar el sistema a nuestras necesidades reales.",
+        tags: ["Sistema integral", "Gestión eficiente", "Fácil de usar"],
+        name: "Alejandro",
+        role: "Presidente de la Comisión de Tenis de Mesa",
+      },
+      {
+        quote: "Desde Fundación por Nuestros Niños agradecemos el proceso compartido en la creación de nuestra página web. Ha sido una experiencia muy linda, que además nos permitió revisar aspectos muy importantes de nuestra institución. Era una deuda pendiente para nuestra ONG que lleva más de 28 años trabajando por la niñez de Salta. Gracias por la calidez, compromiso, profesionalismo y paciencia del equipo de Alora. ¡Esperamos mantener nuestra alianza por el bien común!",
+        tags: ["Proceso colaborativo", "Impacto social", "Equipo comprometido"],
+        name: "Verónica Figueroa",
+        role: "Fundación por Nuestros Niños – Presidenta del Consejo de Administración",
+      },
+      {
+        quote: "Fue un placer trabajar con Bruno y su equipo. Desde los procesos y canales de comunicación, el manejo de los tiempos y la seriedad con la que abordaron el trabajo. Dedicaron tiempo para entender la esencia del proyecto, hacer las sugerencias pertinentes y tener la predisposición para resolver cada situación. Quedé muy conforme con el trabajo realizado y los recomiendo.",
+        tags: ["Proceso claro", "Comunicación abierta", "Resultados impecables"],
+        name: "Rulo de Viaje",
+        role: "Creador de la comunidad Club Rulo de Viaje",
+      },
+      {
+        quote: "Durante este tiempo, el trabajo fue muy profesional, con excelente predisposición y cumplimiento en los plazos. La comunicación fue siempre clara y resolutiva. Destaco el compromiso y la eficiencia.",
+        tags: ["Profesionalismo constante", "Comunicación clara", "Compromiso y eficiencia"],
+        name: "Fernando Celaya",
+        role: "Starley – Gerente",
+      },
     ],
   },
   process: {

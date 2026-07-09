@@ -6,6 +6,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Cases } from "@/components/sections/Cases";
 import { WhyAlora } from "@/components/sections/WhyAlora";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Process } from "@/components/sections/Process";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: Props) {
         <Services dict={dict} locale={locale as Locale} />
         <Cases dict={dict} locale={locale as Locale} />
         <WhyAlora dict={dict} />
+        <Testimonials dict={dict} />
         <Process dict={dict} />
         <ContactSection dict={dict} locale={locale as Locale} />
       </main>

@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { PORTFOLIO, type ProjectCategory } from "@/lib/portfolio-data";
+import { CASE_STUDIES } from "@/lib/case-studies-data";
+
+const CASE_STUDY_SLUGS = new Set(CASE_STUDIES.map((cs) => cs.slug));
 
 const CATEGORIES: { key: ProjectCategory; es: string; en: string }[] = [
   { key: "all",       es: "Todos",        en: "All" },
@@ -105,15 +108,6 @@ export function PortfolioContent() {
                   </div>
                 )}
 
-                {project.url !== "#" && (
-                  <a href={project.url} target="_blank" rel="noopener noreferrer"
-                    className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:opacity-100"
-                    style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                    <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                      <path d="M3 13L13 3M13 3H7M13 3v6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </a>
-                )}
               </div>
 
               {/* Body */}
@@ -133,11 +127,11 @@ export function PortfolioContent() {
                 <p className="text-[13px] leading-relaxed text-white/52">
                   {project[l].desc}
                 </p>
-                {project.url !== "#" && (
-                  <a href={project.url} target="_blank" rel="noopener noreferrer"
+                {CASE_STUDY_SLUGS.has(project.slug) && (
+                  <Link href={`/${l}/casos-de-exito/${project.slug}`}
                     className="mt-1 inline-flex w-fit items-center gap-1.5 text-[12px] font-medium text-white/45 transition-colors hover:text-white/80">
-                    {l === "es" ? "Ver sitio" : "View site"} →
-                  </a>
+                    {l === "es" ? "Ver Caso de Éxito" : "View Case Study"} →
+                  </Link>
                 )}
               </div>
             </article>
