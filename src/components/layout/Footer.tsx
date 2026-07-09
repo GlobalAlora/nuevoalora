@@ -51,7 +51,44 @@ export function Footer({ dict, locale }: Props) {
         </div>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
+          {/* Links column 1 — kept on the left so the floating chat widget never covers it */}
+          <div>
+            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.servicesLabel}</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footer.serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
+                    {link.label}
+                    <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Links column 2 — kept on the left so the floating chat widget never covers it */}
+          <div>
+            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.companyLabel}</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footer.companyLinks.map((link) => (
+                <li key={link.href}>
+                  {link.href.startsWith("http") ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
+                      {link.label}
+                      <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
+                    </a>
+                  ) : (
+                    <Link href={`/${locale}${link.href}`} className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
+                      {link.label}
+                      <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Brand — placed last/right on purpose: it sits under the floating chat widget, and losing sight of the logo/socials there is harmless */}
           <div className="lg:col-span-2">
             <Link href={`/${locale}`} className="flex items-center gap-2.5 transition-opacity hover:opacity-80" aria-label="ALORA — inicio">
               <Image
@@ -79,43 +116,6 @@ export function Footer({ dict, locale }: Props) {
                 </svg>
               </a>
             </div>
-          </div>
-
-          {/* Links column 1 */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.servicesLabel}</h4>
-            <ul className="flex flex-col gap-2.5">
-              {footer.serviceLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
-                    {link.label}
-                    <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Links column 2 */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.companyLabel}</h4>
-            <ul className="flex flex-col gap-2.5">
-              {footer.companyLinks.map((link) => (
-                <li key={link.href}>
-                  {link.href.startsWith("http") ? (
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
-                      {link.label}
-                      <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
-                    </a>
-                  ) : (
-                    <Link href={`/${locale}${link.href}`} className="group relative inline-block text-[13.5px] text-white/50 transition-colors hover:text-white/90">
-                      {link.label}
-                      <span className="absolute -bottom-[2px] left-0 h-px w-0 bg-turquoise transition-[width] duration-200 group-hover:w-full" />
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
