@@ -88,7 +88,7 @@ export function Hero({ dict, locale }: Props) {
           {/* H1 */}
           <h1 className="max-w-[880px]" style={{ marginBottom: "28px" }}>
             <span
-              className="block text-white text-[32px] sm:text-[44px] lg:text-[56px] xl:text-[64px] 2xl:text-[72px]"
+              className="block text-white text-[40px] sm:text-[48px] lg:text-[58px] xl:text-[66px] 2xl:text-[76px]"
               style={{
                 fontWeight: 820,
                 lineHeight: 1.15,
