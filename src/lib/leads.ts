@@ -108,17 +108,16 @@ async function sendToMailerLite(data: LeadData): Promise<void> {
 
 /**
  * Submit a lead to all active destinations in parallel.
- * MailerLite is awaited (primary — drives the success/error response).
- * The others fire-and-forget so they never block the user.
+ * All destinations are fire-and-forget: MailerLite's subscribe endpoint is
+ * a browser-facing JSONP form (not a server-to-server API) and returns 403
+ * when called directly from the server, so it can't be the thing gating
+ * whether the user sees a successful submission.
  */
 export async function submitLead(data: LeadData): Promise<void> {
-  // Fire-and-forget secondary destinations
   void Promise.allSettled([
     sendToClay(data),
     sendToMake(data),
     sendToAloraCRM(data),
+    sendToMailerLite(data),
   ]);
-
-  // MailerLite is the primary — await its result
-  await sendToMailerLite(data);
 }
