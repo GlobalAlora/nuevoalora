@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>ALORA — Concepto A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #05070d;
+    --turquoise: #00bdbe;
+    --electric: #069ff9;
+    --violet: #906ae5;
+    --white: #ffffff;
+    --white-60: rgba(255,255,255,0.6);
+    --white-40: rgba(255,255,255,0.4);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ width:100%; height:100%; }
+  body{
+    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1.4px) 0 0 / 30px 30px,
+      var(--ink);
+    color: var(--white);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .glow{
+    position:absolute;
+    border-radius:50%;
+    filter: blur(min(12vw,120px));
+    pointer-events:none;
+  }
+  .glow.turquoise{
+    width:50vw; height:50vw;
+    top:-14vw; left:-10vw;
+    background: radial-gradient(circle, rgba(0,189,190,0.55) 0%, rgba(0,189,190,0) 70%);
+  }
+  .glow.electric{
+    width:44vw; height:44vw;
+    bottom:-16vw; right:-10vw;
+    background: radial-gradient(circle, rgba(6,159,249,0.4) 0%, rgba(6,159,249,0) 70%);
+  }
+  .glow.violet{
+    width:34vw; height:34vw;
+    bottom:4vh; left:-4vw;
+    background: radial-gradient(circle, rgba(144,106,229,0.3) 0%, rgba(144,106,229,0) 70%);
+  }
+  .glow.violet2{
+    width:26vw; height:26vw;
+    top:2vh; right:-4vw;
+    background: radial-gradient(circle, rgba(144,106,229,0.28) 0%, rgba(144,106,229,0) 70%);
+  }
+
+  .logo{
+    position:absolute;
+    top: 6%;
+    left: 7%;
+    height: 6.2%;
+    max-height: 46px;
+    width:auto;
+    object-fit:contain;
+    z-index:5;
+  }
+
+  .score{
+    position:absolute;
+    top: 6%;
+    right: 7%;
+    z-index:5;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 0.4vw;
+  }
+  .score .ring{
+    width: clamp(46px, 6.6vw, 84px);
+    height: clamp(46px, 6.6vw, 84px);
+    border-radius:50%;
+    border: 2px solid rgba(0,189,190,0.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size: clamp(15px, 2.1vw, 26px);
+    box-shadow: 0 0 24px rgba(0,189,190,0.35);
+    background: rgba(0,189,190,0.06);
+  }
+  .score .label{
+    font-size: clamp(8px, 1vw, 11px);
+    font-weight:600;
+    letter-spacing: 0.14em;
+    text-transform:uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding: 0 8% 0 8%;
+    gap: 2.2vw;
+  }
+
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap: 0.6vw;
+    font-size: clamp(11px, 1.5vw, 16px);
+    font-weight:600;
+    letter-spacing: 0.16em;
+    text-transform:uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+  .eyebrow .dot{
+    width: 0.7vw;
+    height: 0.7vw;
+    min-width:6px;
+    min-height:6px;
+    border-radius:50%;
+    background: var(--turquoise);
+    box-shadow: 0 0 12px 2px rgba(0,189,190,0.7);
+  }
+
+  h1{
+    font-size: clamp(28px, 6.8vw, 96px);
+    font-weight:700;
+    line-height:1.06;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    max-width: 22ch;
+  }
+
+  .sub{
+    font-size: clamp(14px, 2.3vw, 28px);
+    font-weight:400;
+    line-height:1.4;
+    color: var(--white-60);
+    max-width: 30ch;
+  }
+
+  .cta{
+    margin-top: 1.2vw;
+    display:inline-flex;
+    align-items:center;
+    gap: 0.6em;
+    background: var(--turquoise);
+    color: #05141a;
+    font-weight:700;
+    font-size: clamp(13px, 1.9vw, 24px);
+    padding: 0.95em 1.9em;
+    border-radius: 999px;
+    box-shadow: 0 0 40px rgba(0,189,190,0.35);
+    white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="glow turquoise"></div>
+  <div class="glow electric"></div>
+  <div class="glow violet"></div>
+
+  <img class="logo" src="assets/logo.png" alt="ALORA" />
+
+  <div class="content">
+    <div class="eyebrow"><span class="dot"></span>Desarrollo Web</div>
+    <h1>Un sitio web que trabaja para tu negocio</h1>
+    <div class="sub">Performance y SEO técnico, optimizado para buscadores y motores de IA.</div>
+    <div class="cta">Reservá tu llamada gratuita</div>
+  </div>
+</body>
+</html>
