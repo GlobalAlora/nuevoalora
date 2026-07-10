@@ -9,13 +9,20 @@ import { CASE_STUDIES } from "@/lib/case-studies-data";
 
 interface Props { params: Promise<{ locale: string }> }
 
+const OG = "https://www.globalalora.com/images/hero-tw.png";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const isEs = locale === "es";
+  const title = isEs ? "Casos de éxito — ALORA" : "Case Studies — ALORA";
+  const description = isEs
+    ? "Proyectos reales que construimos: el desafío, la solución y el resultado."
+    : "Real projects we built: the challenge, the solution and the outcome.";
   return {
-    title: locale === "es" ? "Casos de éxito — ALORA" : "Case Studies — ALORA",
-    description: locale === "es"
-      ? "Proyectos reales que construimos: el desafío, la solución y el resultado."
-      : "Real projects we built: the challenge, the solution and the outcome.",
+    title,
+    description,
+    openGraph: { title, description, images: [{ url: OG, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [OG] },
   };
 }
 

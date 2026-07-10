@@ -1,5 +1,33 @@
 User-agent: *
 Allow: /
-Disallow: /api/
 
-Sitemap: https://globalalora.com/sitemap.xml
+# No indexar páginas de conversión internas
+Disallow: /api/
+Disallow: /es/thank-you
+Disallow: /en/thank-you
+Disallow: /es/call-booked
+Disallow: /en/call-booked
+
+# Permitir acceso a bots de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Archivos de contexto para IA
+Allow: /llms.txt
+
+Sitemap: https://www.globalalora.com/sitemap.xml

@@ -8,13 +8,20 @@ import { Footer } from "@/components/layout/Footer";
 
 interface Props { params: Promise<{ locale: string }> }
 
+const OG = "https://www.globalalora.com/images/hero-tw.png";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const isEs = locale === "es";
+  const title = isEs ? "Soluciones — ALORA" : "Solutions — ALORA";
+  const description = isEs
+    ? "Desarrollo de software, desarrollo web, aplicaciones web, ecommerce, chatbots y agentes conversacionales con IA. Soluciones digitales a medida para empresas."
+    : "Software development, web development, web applications, ecommerce, chatbots and conversational AI agents. Custom digital solutions for businesses.";
   return {
-    title: locale === "es" ? "Soluciones — ALORA" : "Solutions — ALORA",
-    description: locale === "es"
-      ? "Desarrollo de software, desarrollo web, aplicaciones web, ecommerce, chatbots y agentes conversacionales con IA. Soluciones digitales a medida para empresas."
-      : "Software development, web development, web applications, ecommerce, chatbots and conversational AI agents. Custom digital solutions for businesses.",
+    title,
+    description,
+    openGraph: { title, description, images: [{ url: OG, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [OG] },
   };
 }
 
