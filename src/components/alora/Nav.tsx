@@ -97,6 +97,8 @@ export function Nav({ dict, locale }: Props) {
   };
   const restPath = pathname?.replace(/^\/(es|en)/, "") || "";
   const otherLocaleHref = `/${otherLocale}${SLUG_OVERRIDES[restPath] ?? restPath}`;
+  const esHref = locale === "es" ? pathname ?? homeHref : otherLocaleHref;
+  const enHref = locale === "en" ? pathname ?? homeHref : otherLocaleHref;
 
   return (
     <header
@@ -419,12 +421,26 @@ export function Nav({ dict, locale }: Props) {
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href={otherLocaleHref}
-            className="text-[13px] font-medium uppercase tracking-widest text-white/50 transition-colors hover:text-white/90"
-          >
-            {otherLocale}
-          </Link>
+          <div className="flex items-center gap-0.5 rounded-full border border-white/[0.1] bg-white/[0.03] p-[3px]">
+            <Link
+              href={esHref}
+              className={`rounded-full px-2.5 py-1 text-[12px] font-semibold uppercase tracking-wide transition-colors ${
+                locale === "es" ? "text-white" : "text-white/40 hover:text-white/70"
+              }`}
+              style={locale === "es" ? { background: "linear-gradient(135deg, var(--turquoise), var(--electric))" } : undefined}
+            >
+              ES
+            </Link>
+            <Link
+              href={enHref}
+              className={`rounded-full px-2.5 py-1 text-[12px] font-semibold uppercase tracking-wide transition-colors ${
+                locale === "en" ? "text-white" : "text-white/40 hover:text-white/70"
+              }`}
+              style={locale === "en" ? { background: "linear-gradient(135deg, var(--turquoise), var(--electric))" } : undefined}
+            >
+              EN
+            </Link>
+          </div>
           <Link
             href={callHref}
             className="inline-flex items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-[6px] text-[13px] font-medium text-white/90 transition-all hover:border-turquoise/60 hover:text-white"
@@ -552,9 +568,28 @@ export function Nav({ dict, locale }: Props) {
             </Link>
 
             <div className="mt-2 flex flex-col gap-3 border-t border-white/[0.06] pt-4">
-              <Link href={otherLocaleHref} className="text-[13px] uppercase tracking-widest text-white/50 hover:text-white">
-                {otherLocale}
-              </Link>
+              <div className="flex items-center gap-0.5 self-start rounded-full border border-white/[0.1] bg-white/[0.03] p-[3px]">
+                <Link
+                  href={esHref}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-full px-3 py-1.5 text-[13px] font-semibold uppercase tracking-wide transition-colors ${
+                    locale === "es" ? "text-white" : "text-white/40 hover:text-white/70"
+                  }`}
+                  style={locale === "es" ? { background: "linear-gradient(135deg, var(--turquoise), var(--electric))" } : undefined}
+                >
+                  ES
+                </Link>
+                <Link
+                  href={enHref}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-full px-3 py-1.5 text-[13px] font-semibold uppercase tracking-wide transition-colors ${
+                    locale === "en" ? "text-white" : "text-white/40 hover:text-white/70"
+                  }`}
+                  style={locale === "en" ? { background: "linear-gradient(135deg, var(--turquoise), var(--electric))" } : undefined}
+                >
+                  EN
+                </Link>
+              </div>
               <Link
                 href={callHref}
                 onClick={() => setMobileOpen(false)}
