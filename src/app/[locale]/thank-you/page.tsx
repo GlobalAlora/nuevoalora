@@ -26,13 +26,13 @@ export default async function ThankYouPage({ params }: Props) {
   const steps = l === "es"
     ? [
         { icon: "✉️", title: "Recibimos tu mensaje", desc: "Ya tenemos tus datos y el detalle de tu proyecto." },
-        { icon: "🔍", title: "Lo analizamos", desc: "Revisamos tu caso y preparamos una propuesta personalizada." },
-        { icon: "📞", title: "Te contactamos", desc: "Un experto te escribe o llama en menos de 24 horas." },
+        { icon: "📞", title: "Coordinamos una llamada", desc: "Un experto te escribe o llama en menos de 24 horas para agendar una llamada de relevamiento." },
+        { icon: "🎯", title: "Armamos tu propuesta", desc: "Después de la llamada, preparamos una propuesta a medida de lo que necesitás." },
       ]
     : [
         { icon: "✉️", title: "We received your message", desc: "We already have your details and project info." },
-        { icon: "🔍", title: "We analyze it", desc: "We review your case and prepare a personalized proposal." },
-        { icon: "📞", title: "We contact you", desc: "An expert writes or calls you within 24 hours." },
+        { icon: "📞", title: "We schedule a call", desc: "An expert writes or calls you within 24 hours to set up a discovery call." },
+        { icon: "🎯", title: "We prepare your proposal", desc: "After the call, we put together a proposal tailored to what you need." },
       ];
 
   return (
