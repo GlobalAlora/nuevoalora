@@ -9,7 +9,7 @@ import { CASE_STUDIES } from "@/lib/case-studies-data";
 
 interface Props { params: Promise<{ locale: string }> }
 
-const OG = "https://globalalora.com/opengraph-image";
+const OG = "https://globalalora.com/api/og";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
