@@ -121,9 +121,9 @@ export default async function ContactPage({ params }: Props) {
                 {/* Stats */}
                 <div className="mt-6 flex flex-wrap gap-6">
                   {[
-                    { n: "120+", label: l === "es" ? "Proyectos Exitosos" : "Successful Projects" },
-                    { n: "15+",  label: l === "es" ? "Años de Experiencia" : "Years of Experience" },
-                    { n: l === "es" ? "7+ países" : "7+ countries", label: l === "es" ? "Presencia global" : "Global presence" },
+                    { n: "+12", label: l === "es" ? "Años generando ecosistemas digitales" : "Years building digital ecosystems" },
+                    { n: l === "es" ? "IA First" : "AI First", label: l === "es" ? "Integrada en cada proyecto" : "Built into every project" },
+                    { n: l === "es" ? "7 países" : "7 countries", label: l === "es" ? "Mercados activos" : "Active markets" },
                   ].map((s) => (
                     <div key={s.n}>
                       <div className="text-[26px] font-bold text-white" style={{ letterSpacing: "-0.03em", background: "linear-gradient(135deg, var(--turquoise), var(--electric))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
