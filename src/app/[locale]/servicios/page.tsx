@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 
 interface Props { params: Promise<{ locale: string }> }
 
-const OG = "https://www.globalalora.com/images/hero-tw.png";
+const OG = "https://globalalora.com/opengraph-image";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;

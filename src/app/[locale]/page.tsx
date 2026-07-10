@@ -17,7 +17,7 @@ interface Props {
   params: Promise<{ locale: string }>;
 }
 
-const OG_IMAGE = "https://globalalora.com/images/hero-tw.png";
+const OG_IMAGE = "https://globalalora.com/opengraph-image";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
