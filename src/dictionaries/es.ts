@@ -292,7 +292,7 @@ const es: Dictionary = {
     errorGeneral: "Error al enviar. Por favor intentá de nuevo.",
   },
   chatbot: {
-    welcome: "¡Hola! Soy el asistente virtual de Alora. Somos una agencia de desarrollo digital. ¿En qué puedo ayudarte hoy?",
+    welcome: "¡Hola! Soy Lidia, la asistente virtual de ALORA 👋 Somos una agencia especializada en software, automatización e IA. ¿En qué te puedo ayudar hoy?",
     offerContact: "¿Te gustaría que un asesor especializado te contacte con más detalles?",
     askName: "¡Perfecto! ¿Me podés decir tu nombre?",
     askEmail: "¡Genial! ¿Y cuál es tu email de contacto?",
@@ -304,7 +304,7 @@ const es: Dictionary = {
     bubble: "¡Hola! ¿Cómo puedo ayudarte? 👋",
     open: "Abrir chat",
     close: "Cerrar chat",
-    agentName: "Asistente ALORA",
+    agentName: "Lidia — Asistente ALORA",
     online: "En línea",
     inputPlaceholder: "Escribí tu mensaje...",
   },
