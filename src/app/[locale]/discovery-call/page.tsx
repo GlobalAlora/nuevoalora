@@ -43,23 +43,29 @@ export default async function DiscoveryCallPage({ params }: Props) {
         </Link>
       </header>
 
-      <div className="mx-auto max-w-4xl px-6 py-8">
-        <div className="mb-5 text-center">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", fontSize: "12px", letterSpacing: "0.2em" }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-            <span className="text-white/55 uppercase">Free consultation · 20 min</span>
+      <div className="mx-auto max-w-6xl px-6 py-8">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[38fr_62fr] lg:items-start lg:gap-12">
+          {/* Left: header — sticky on desktop so it stays in view as the widget grows */}
+          <div className="text-center lg:sticky lg:top-10 lg:text-left">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5" style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", fontSize: "12px", letterSpacing: "0.2em" }}>
+              <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+              <span className="text-white/55 uppercase">Free consultation · 20 min</span>
+            </div>
+            <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(22px, 2.6vw, 34px)", letterSpacing: "-0.03em" }}>
+              Schedule your discovery call
+            </h1>
+            <p className="mx-auto mt-2 max-w-lg text-pretty text-[14px] leading-relaxed text-white/55 lg:mx-0">
+              Pick the time that works best for you. In 20 minutes we&apos;ll analyze your project and show you exactly how we can help.
+            </p>
           </div>
-          <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(22px, 2.6vw, 32px)", letterSpacing: "-0.03em" }}>
-            Schedule your discovery call
-          </h1>
-          <p className="mx-auto mt-2 max-w-lg text-pretty text-[14px] leading-relaxed text-white/55">
-            Pick the time that works best for you. In 20 minutes we&apos;ll analyze your project and show you exactly how we can help.
-          </p>
+
+          {/* Right: TidyCal booking */}
+          <div>
+            <TidyCalEmbed path={tidycalPath} label="Book your call" />
+          </div>
         </div>
 
-        <TidyCalEmbed path={tidycalPath} label="Book your call" />
-
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-5">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
           {["No cost, no commitment", "Personalized response", "Team available"].map((item) => (
             <div key={item} className="flex items-center gap-1.5 text-[12px] text-white/40">
               <svg viewBox="0 0 16 16" fill="none" width="13" height="13">
