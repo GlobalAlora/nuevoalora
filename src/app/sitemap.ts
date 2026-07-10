@@ -24,6 +24,11 @@ const ROUTES: { path: string; freq: Freq; priority: number }[] = [
 
   // Casos de éxito
   { path: "/casos-de-exito",                         freq: "monthly", priority: 0.9 },
+  { path: "/casos-de-exito/autodux",                 freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/castro-yeso",             freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/alkemia",                 freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/distrisal",               freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/voutier",                 freq: "monthly", priority: 0.8 },
 
   // Blog
   { path: "/blog",                                   freq: "weekly",  priority: 0.8 },
@@ -43,6 +48,7 @@ const ROUTES: { path: string; freq: Freq; priority: number }[] = [
   // Contacto / Booking
   { path: "/contacto",                               freq: "monthly", priority: 0.8 },
   { path: "/llamada-de-relevamiento",                freq: "monthly", priority: 0.8 },
+  { path: "/discovery-call",                         freq: "monthly", priority: 0.8 },
 
   // Legal
   { path: "/privacy-policy",                         freq: "yearly",  priority: 0.3 },
