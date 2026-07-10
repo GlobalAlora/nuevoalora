@@ -253,19 +253,31 @@ export function Chatbot({ dict, locale }: Props) {
 
       {/* Chat panel */}
       <div
-        className="fixed bottom-24 right-6 z-50 flex flex-col overflow-hidden rounded-2xl shadow-2xl transition-all duration-300"
+        className="fixed bottom-24 right-6 z-50 transition-all duration-300"
         style={{
           width: "360px",
           maxHeight: "520px",
-          background: "oklch(0.13 0.015 260)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          backdropFilter: "blur(16px)",
           opacity: open ? 1 : 0,
           pointerEvents: open ? "all" : "none",
           transform: open ? "translateY(0) scale(1)" : "translateY(12px) scale(0.97)",
           transformOrigin: "bottom right",
         }}
       >
+        {/* Glow halo — without this the panel blends into dark page backgrounds */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -inset-1 rounded-[20px] opacity-40 blur-lg"
+          style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric), var(--violet))" }}
+        />
+        <div
+          className="relative flex h-full max-h-[520px] flex-col overflow-hidden rounded-2xl"
+          style={{
+            background: "linear-gradient(165deg, oklch(0.19 0.022 260), oklch(0.11 0.014 260))",
+            border: "1px solid rgba(255,255,255,0.16)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 60px -14px rgba(0,0,0,0.65)",
+            backdropFilter: "blur(16px)",
+          }}
+        >
         {/* Header */}
         <div className="flex items-center gap-3 border-b px-4 py-3.5" style={{ borderColor: "rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.03)" }}>
           <div className="flex h-8 w-8 items-center justify-center rounded-full" style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric))" }}>
@@ -327,6 +339,7 @@ export function Chatbot({ dict, locale }: Props) {
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
+        </div>
         </div>
       </div>
 
