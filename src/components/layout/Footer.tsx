@@ -100,7 +100,13 @@ export function Footer({ dict, locale }: Props) {
               />
             </Link>
             <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-white/45">{footer.tagline}</p>
-            <div className="mt-6 flex gap-3">
+            <a href="mailto:info@globalalora.com" className="mt-5 inline-flex items-center gap-2 text-[13px] text-white/45 transition-colors hover:text-white/80">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+              </svg>
+              info@globalalora.com
+            </a>
+            <div className="mt-4 flex gap-3">
               <a href="https://www.instagram.com/globalalora" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                 className="group flex h-10 w-10 items-center justify-center rounded-xl border transition-all"
                 style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)" }}>

@@ -90,7 +90,7 @@ export default async function CookiesPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">Contacto</h2>
-                  <p>Para consultas sobre el uso de cookies: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>Para consultas sobre el uso de cookies: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             ) : (
@@ -136,7 +136,7 @@ export default async function CookiesPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">Contact</h2>
-                  <p>For cookie-related inquiries: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>For cookie-related inquiries: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             )}

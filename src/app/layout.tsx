@@ -59,7 +59,7 @@ export default async function RootLayout({
     url: "https://globalalora.com",
     logo: "https://globalalora.com/logo-nav-white.png",
     description: "Agencia de desarrollo de software, automatización e inteligencia artificial para empresas en Latinoamérica.",
-    email: "hola@globalalora.com",
+    email: "info@globalalora.com",
     sameAs: [
       "https://www.instagram.com/globalalora",
       "https://www.linkedin.com/company/globalalora",

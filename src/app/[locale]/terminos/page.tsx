@@ -108,7 +108,7 @@ export default async function TerminosPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">10. Contacto</h2>
-                  <p>Para consultas sobre estos términos: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>Para consultas sobre estos términos: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             ) : (
@@ -167,7 +167,7 @@ export default async function TerminosPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">8. Contact</h2>
-                  <p>For inquiries about these terms: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>For inquiries about these terms: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             )}

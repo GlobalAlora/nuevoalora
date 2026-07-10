@@ -50,7 +50,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">1. Responsable del tratamiento</h2>
                   <p>ALORA (en adelante, "la Empresa", "nosotros") es responsable del tratamiento de los datos personales recabados a través del sitio web <strong className="text-white">globalalora.com</strong> y sus subdominios.</p>
-                  <p className="mt-3">Contacto: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p className="mt-3">Contacto: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
 
                 <section>
@@ -111,7 +111,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                     <li>Revocar tu consentimiento en cualquier momento.</li>
                     <li>Presentar una reclamación ante la autoridad de protección de datos de tu país.</li>
                   </ul>
-                  <p className="mt-3">Para ejercer estos derechos, escribinos a <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a>.</p>
+                  <p className="mt-3">Para ejercer estos derechos, escribinos a <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a>.</p>
                 </section>
 
                 <section>
@@ -126,7 +126,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">10. Contacto</h2>
-                  <p>Para consultas sobre privacidad: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>Para consultas sobre privacidad: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             ) : (
@@ -134,7 +134,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">1. Data Controller</h2>
                   <p>ALORA ("the Company", "we", "us") is responsible for processing personal data collected through <strong className="text-white">globalalora.com</strong> and its subdomains.</p>
-                  <p className="mt-3">Contact: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p className="mt-3">Contact: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
 
                 <section>
@@ -194,7 +194,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
                     <li>Withdraw your consent at any time.</li>
                     <li>Lodge a complaint with your country's data protection authority.</li>
                   </ul>
-                  <p className="mt-3">To exercise these rights, contact us at <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a>.</p>
+                  <p className="mt-3">To exercise these rights, contact us at <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a>.</p>
                 </section>
 
                 <section>
@@ -209,7 +209,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
 
                 <section>
                   <h2 className="text-white text-[20px] font-semibold mb-3">10. Contact</h2>
-                  <p>For privacy inquiries: <a href="mailto:hola@globalalora.com" className="text-[var(--turquoise)] hover:underline">hola@globalalora.com</a></p>
+                  <p>For privacy inquiries: <a href="mailto:info@globalalora.com" className="text-[var(--turquoise)] hover:underline">info@globalalora.com</a></p>
                 </section>
               </>
             )}
