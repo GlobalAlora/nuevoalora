@@ -121,7 +121,7 @@ export default async function ContactPage({ params }: Props) {
                 {/* Stats */}
                 <div className="mt-6 flex flex-wrap gap-6">
                   {[
-                    { n: "+12", label: l === "es" ? "Años generando ecosistemas digitales" : "Years building digital ecosystems" },
+                    { n: "+15", label: l === "es" ? "Años generando ecosistemas digitales" : "Years building digital ecosystems" },
                     { n: l === "es" ? "IA First" : "AI First", label: l === "es" ? "Integrada en cada proyecto" : "Built into every project" },
                     { n: l === "es" ? "7 países" : "7 countries", label: l === "es" ? "Mercados activos" : "Active markets" },
                   ].map((s) => (

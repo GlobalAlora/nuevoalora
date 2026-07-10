@@ -32,7 +32,7 @@ const BRUNO_PHOTO = "/images/team/bruno.jpg";
 const WALO_PHOTO = "/images/team/walo.jpg";
 
 const STATS = [
-  { icon: "chart", es: { n: "+12", label: "Años generando ecosistemas digitales" }, en: { n: "+12", label: "Years building digital ecosystems" } },
+  { icon: "chart", es: { n: "+15", label: "Años generando ecosistemas digitales" }, en: { n: "+15", label: "Years building digital ecosystems" } },
   { icon: "spark", es: { n: "IA First", label: "Integrada en cada proyecto" }, en: { n: "AI First", label: "Built into every project" } },
   { icon: "cloud", es: { n: "7 países", label: "Mercados activos" }, en: { n: "7 countries", label: "Active markets" } },
 ];
