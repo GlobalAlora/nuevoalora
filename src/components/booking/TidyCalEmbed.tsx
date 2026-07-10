@@ -56,16 +56,16 @@ export function TidyCalEmbed({ path, label }: Props) {
             <span className="ml-2 text-[11px] text-white/40">{label}</span>
           </div>
         )}
-        <div className="tidycal-scroll" style={{ maxHeight: "620px", overflowY: "auto" }}>
-          <div className="tidycal-embed" data-path={path} style={{ minHeight: "560px" }} />
-        </div>
+        <div className="tidycal-embed" data-path={`${path}?bg-color=111827&text-color=ffffff&link-color=00e5ff&button-color=00b4cc`} />
       </div>
       <style>{`
-        .tidycal-scroll { scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--turquoise) 50%, transparent) transparent; }
-        .tidycal-scroll::-webkit-scrollbar { width: 8px; }
-        .tidycal-scroll::-webkit-scrollbar-track { background: transparent; }
-        .tidycal-scroll::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--turquoise) 45%, transparent); border-radius: 8px; }
-        .tidycal-scroll::-webkit-scrollbar-thumb:hover { background: color-mix(in oklab, var(--turquoise) 65%, transparent); }
+        /* Force TidyCal iframe to match our dark background */
+        .tidycal-embed iframe {
+          background: transparent !important;
+          color-scheme: dark;
+        }
+        /* TidyCal injects an <a> tag we don't want visible */
+        .tidycal-embed > a { display: none !important; }
       `}</style>
     </div>
   );
