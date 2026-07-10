@@ -845,61 +845,6 @@ export default async function SolutionPage({ params }: Props) {
         </section>
       )}
 
-      {/* Testimonials — mockup layout until real client quotes are available */}
-      {!sol.testimonials && sol.testimonialsPlaceholder && (
-        <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <div className="mx-auto max-w-2xl text-center">
-              <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/35">
-                <span className="h-1.5 w-1.5 rounded-full border border-white/30" />
-                {l === "es" ? "Prueba social — pendiente" : "Social proof — pending"}
-              </div>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-white/45">{sol.testimonialsPlaceholder[l]}</p>
-            </div>
-
-            <div className="mt-11 grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {[
-                ["78%", "52%", "64%"],
-                ["60%", "82%", "44%"],
-                ["70%", "48%", "58%"],
-              ].map((lineWidths, i) => (
-                <div
-                  key={i}
-                  className="relative flex flex-col gap-4 rounded-2xl p-6"
-                  style={{ border: "1px dashed rgba(255,255,255,0.16)", background: "rgba(255,255,255,0.015)" }}
-                >
-                  <svg viewBox="0 0 32 32" fill="none" className="h-6 w-6 opacity-20">
-                    <path d="M9 10c-3 0-5 2.3-5 5.4C4 18.7 6.4 21 9.5 21S15 18.7 15 15.6c0-2.5-1.6-4.6-3.9-5.3.3-1.6 1.6-3 3.4-3.3V9c-3 .3-5.5 2.5-5.5 1zM22 10c-3 0-5 2.3-5 5.4 0 3.3 2.4 5.6 5.5 5.6S28 18.7 28 15.6c0-2.5-1.6-4.6-3.9-5.3.3-1.6 1.6-3 3.4-3.3V9c-3 .3-5.5 2.5-5.5 1z" fill="currentColor" />
-                  </svg>
-
-                  <div className="flex items-center gap-1" aria-hidden>
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <svg key={s} viewBox="0 0 16 16" fill="none" width="13" height="13">
-                        <path d="M8 1.5l1.85 3.75 4.15.6-3 2.93.7 4.12L8 11.9l-3.7 1.95.7-4.12-3-2.93 4.15-.6L8 1.5z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.1" strokeLinejoin="round" />
-                      </svg>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-col gap-2" aria-hidden>
-                    <div className="h-2.5 rounded-full bg-white/[0.07]" style={{ width: lineWidths[0] }} />
-                    <div className="h-2.5 rounded-full bg-white/[0.07]" style={{ width: lineWidths[1] }} />
-                    <div className="h-2.5 rounded-full bg-white/[0.07]" style={{ width: lineWidths[2] }} />
-                  </div>
-
-                  <div className="mt-1 flex items-center gap-3" aria-hidden>
-                    <span className="h-10 w-10 shrink-0 rounded-full" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }} />
-                    <div className="flex flex-col gap-1.5">
-                      <div className="h-2.5 w-24 rounded-full bg-white/[0.08]" />
-                      <div className="h-2 w-16 rounded-full bg-white/[0.05]" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Process — single-line stepper, alternating labels above/below */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-[820px] text-center">

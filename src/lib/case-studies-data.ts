@@ -51,7 +51,6 @@ export interface CaseStudyData {
     en: { heading: string; intro: string; items: string[] }
   }
   duration: { es: string; en: string }
-  testimonialPlaceholder?: { es: string; en: string }
   cta: { es: string; en: string }
 }
 
@@ -197,10 +196,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
     },
     duration: { es: "60 días", en: "60 days" },
-    testimonialPlaceholder: {
-      es: "Esta sección va a mostrar el testimonio real del cliente — agregar cita verificada antes de publicar.",
-      en: "This section will show the client's real testimonial — add a verified quote before publishing.",
-    },
     cta: { es: "Quiero un proyecto como este", en: "I want a project like this" },
   },
   {
@@ -322,10 +317,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
     },
     duration: { es: "30 días", en: "30 days" },
-    testimonialPlaceholder: {
-      es: "Esta sección va a mostrar el testimonio real del cliente — agregar cita verificada antes de publicar.",
-      en: "This section will show the client's real testimonial — add a verified quote before publishing.",
-    },
     cta: { es: "Quiero un sitio que convierta", en: "I want a website that converts" },
   },
   {
@@ -445,10 +436,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
     },
     duration: { es: "30 días", en: "30 days" },
-    testimonialPlaceholder: {
-      es: "Esta sección va a mostrar el testimonio real del cliente — agregar cita verificada antes de publicar.",
-      en: "This section will show the client's real testimonial — add a verified quote before publishing.",
-    },
     cta: { es: "Quiero un sitio que refleje mi marca", en: "I want a site that reflects my brand" },
   },
   {
@@ -566,10 +553,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
     },
     duration: { es: "75 días", en: "75 days" },
-    testimonialPlaceholder: {
-      es: "Esta sección va a mostrar el testimonio real del cliente — agregar cita verificada antes de publicar.",
-      en: "This section will show the client's real testimonial — add a verified quote before publishing.",
-    },
     cta: { es: "Quiero un ecommerce integrado a mi sistema", en: "I want an ecommerce integrated with my system" },
   },
   {
@@ -687,10 +670,6 @@ export const CASE_STUDIES: CaseStudyData[] = [
       },
     },
     duration: { es: "60 días", en: "60 days" },
-    testimonialPlaceholder: {
-      es: "Esta sección va a mostrar el testimonio real del cliente — agregar cita verificada antes de publicar.",
-      en: "This section will show the client's real testimonial — add a verified quote before publishing.",
-    },
     cta: { es: "Quiero un ecommerce estable y escalable", en: "I want a stable, scalable ecommerce" },
   },
 ];

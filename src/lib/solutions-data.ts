@@ -82,7 +82,6 @@ export interface SolutionData {
     intro: { es: string; en: string }
     reasons: { es: { tag: string; label: string }[]; en: { tag: string; label: string }[] }
   }
-  testimonialsPlaceholder?: { es: string; en: string }
   testimonials?: {
     es: { quote: string; tags: string[]; name: string; role: string }[]
     en: { quote: string; tags: string[]; name: string; role: string }[]

@@ -351,20 +351,6 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Testimonial placeholder */}
-        {cs.testimonialPlaceholder && (
-          <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
-            <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-              <div className="rounded-2xl p-8" style={{ border: "1px dashed rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.015)" }}>
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/35">
-                  {l === "es" ? "Testimonio — pendiente" : "Testimonial — pending"}
-                </div>
-                <p className="text-[14.5px] leading-relaxed text-white/45">{cs.testimonialPlaceholder[l]}</p>
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* CTA final */}
         <section className="relative overflow-hidden border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div
