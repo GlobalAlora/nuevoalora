@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
@@ -16,7 +17,7 @@ export function ContactForm({ dict, locale }: Props) {
   const { contact } = dict;
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -34,7 +35,7 @@ export function ContactForm({ dict, locale }: Props) {
         body: JSON.stringify({ ...data, locale }),
       });
       if (!res.ok) throw new Error("error");
-      setSuccess(true);
+      router.push(`/${locale}/thank-you`);
     } catch {
       setError(contact.errorGeneral ?? "Error al enviar. Por favor intentá de nuevo.");
       setSubmitting(false);
@@ -67,47 +68,6 @@ export function ContactForm({ dict, locale }: Props) {
 
   const fieldError = (msg?: string) =>
     msg ? <span className="mt-1 block text-[12px] text-red-400/80">{msg}</span> : null;
-
-  if (success) {
-    const isEs = locale === "es";
-    const callUrl = isEs ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
-    return (
-      <div className="flex flex-col items-center gap-6 py-8 text-center">
-        <div
-          className="flex h-16 w-16 items-center justify-center rounded-full"
-          style={{
-            background: "color-mix(in oklab, var(--turquoise) 15%, transparent)",
-            border: "1.5px solid color-mix(in oklab, var(--turquoise) 40%, transparent)",
-            boxShadow: "0 0 32px color-mix(in oklab, var(--turquoise) 20%, transparent)",
-          }}
-        >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12l4 4L19 7" stroke="var(--turquoise)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div>
-          <h3 className="text-[22px] font-bold text-white" style={{ letterSpacing: "-0.03em" }}>
-            {isEs ? "¡Mensaje recibido!" : "Message received!"}
-          </h3>
-          <p className="mt-2 text-[14px] leading-relaxed text-white/55">
-            {isEs
-              ? "Te respondemos en menos de 24 horas con una propuesta personalizada."
-              : "We'll reply within 24 hours with a personalized proposal."}
-          </p>
-        </div>
-        <a
-          href={callUrl}
-          className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
-          style={{
-            background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
-            boxShadow: "0 6px 24px color-mix(in oklab, var(--turquoise) 30%, transparent)",
-          }}
-        >
-          {isEs ? "Agendar llamada gratuita" : "Book a free call"}
-        </a>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">

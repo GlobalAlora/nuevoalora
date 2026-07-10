@@ -19,7 +19,7 @@ interface Props {
 export function SolutionContactForm({ dict, locale, slug, accent, accent2, source }: Props) {
   const { solutionForm: f, contact } = dict;
   const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "error">("idle");
   const router = useRouter();
 
   const {
@@ -39,7 +39,6 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
         body: JSON.stringify({ ...data, locale, slug, source }),
       });
       if (!res.ok) throw new Error("error");
-      setStatus("success");
       reset();
       router.push(`/${locale}/thank-you`);
     } catch {
@@ -126,11 +125,6 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
 
       {status === "error" && (
         <p className="rounded-lg border border-red-400/20 bg-red-500/10 px-4 py-3 text-[13px] text-red-400">{f.errorGeneral}</p>
-      )}
-      {status === "success" && (
-        <p className="rounded-lg border px-4 py-3 text-[13px]" style={{ borderColor: `color-mix(in oklab, ${accent} 35%, transparent)`, background: `color-mix(in oklab, ${accent} 10%, transparent)`, color: "rgba(255,255,255,0.85)" }}>
-          {f.success}
-        </p>
       )}
 
       <button
