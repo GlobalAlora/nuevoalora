@@ -69,6 +69,10 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
     marginBottom: "6px",
   };
   const focusClass = "placeholder:text-white/25 focus:shadow-[0_0_0_3px_rgba(255,255,255,0.05)]";
+  const optionStyle: React.CSSProperties = {
+    background: "var(--ink)",
+    color: "rgba(255,255,255,0.92)",
+  };
 
   const fieldError = (msg?: string) =>
     msg ? <span className="mt-1 block text-[11.5px] text-red-400/80">{msg}</span> : null;
@@ -96,8 +100,8 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
         <div>
           <label style={labelBase}>{f.country} <span className="text-red-400/70">*</span></label>
           <select {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`}>
-            <option value="">{f.countryPlaceholder}</option>
-            {contact.countries.map((c) => <option key={c} value={c}>{c}</option>)}
+            <option value="" style={optionStyle}>{f.countryPlaceholder}</option>
+            {contact.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
           </select>
           {fieldError(errors.pais?.message)}
         </div>

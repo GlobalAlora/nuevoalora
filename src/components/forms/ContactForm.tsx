@@ -60,6 +60,10 @@ export function ContactForm({ dict, locale }: Props) {
     display: "block",
     marginBottom: "4px",
   };
+  const optionStyle: React.CSSProperties = {
+    background: "var(--ink)",
+    color: "rgba(255,255,255,0.9)",
+  };
 
   const fieldError = (msg?: string) =>
     msg ? <span className="mt-1 block text-[12px] text-red-400/80">{msg}</span> : null;
@@ -129,8 +133,8 @@ export function ContactForm({ dict, locale }: Props) {
           <label style={labelBase}>{contact.country} <span className="text-red-400/70">*</span></label>
           <select {...register("pais")} style={{ ...inputBase, appearance: "none" }}
             className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]">
-            <option value="">{contact.countryPlaceholder}</option>
-            {contact.countries.map((c) => <option key={c} value={c}>{c}</option>)}
+            <option value="" style={optionStyle}>{contact.countryPlaceholder}</option>
+            {contact.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
           </select>
           {fieldError(errors.pais?.message)}
         </div>
