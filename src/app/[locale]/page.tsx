@@ -11,7 +11,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Process } from "@/components/sections/Process";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
-import { Chatbot } from "@/components/alora/Chatbot";
+
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -74,7 +74,6 @@ export default async function HomePage({ params }: Props) {
         <ContactSection dict={dict} locale={locale as Locale} />
       </main>
       <Footer dict={dict} locale={locale as Locale} />
-      <Chatbot dict={dict} locale={locale as Locale} />
     </>
   );
 }

@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/i18n";
 import { CookieBanner } from "@/components/alora/CookieBanner";
 import { ExitIntentPopup } from "@/components/alora/ExitIntentPopup";
 import { WhatsAppButton } from "@/components/alora/WhatsAppButton";
+import { Chatbot } from "@/components/alora/Chatbot";
 
 interface Props {
   children: React.ReactNode;
@@ -59,6 +60,8 @@ export async function generateMetadata({
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
+  const l = locale as Locale;
+  const dict = await getDictionary(l);
 
   return (
     <>
@@ -66,6 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <CookieBanner locale={locale} />
       <ExitIntentPopup locale={locale} />
       <WhatsAppButton locale={locale} />
+      <Chatbot dict={dict} locale={l} />
     </>
   );
 }

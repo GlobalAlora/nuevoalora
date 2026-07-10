@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { Chatbot } from "@/components/alora/Chatbot";
+
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -151,7 +151,6 @@ export default async function ContactPage({ params }: Props) {
       </main>
 
       <Footer dict={dict} locale={l} />
-      <Chatbot dict={dict} locale={l} />
     </>
   );
 }
