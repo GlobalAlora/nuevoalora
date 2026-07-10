@@ -68,7 +68,7 @@ export default async function ContactPage({ params }: Props) {
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[48fr_52fr] lg:items-center lg:gap-12">
               {/* Left: copy */}
-              <div>
+              <div className="text-center lg:text-left">
                 <div
                   className="mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
                   style={{ borderColor: "rgba(255,255,255,0.10)", background: "rgba(255,255,255,0.04)", fontSize: "11.5px", letterSpacing: "0.18em" }}
@@ -93,7 +93,7 @@ export default async function ContactPage({ params }: Props) {
                 </p>
 
                 {/* CTA row */}
-                <div className="mt-5 flex flex-wrap gap-3">
+                <div className="mt-5 flex flex-wrap justify-center gap-3 lg:justify-start">
                   <a
                     href={callUrl}
                     className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[14px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"
@@ -119,17 +119,17 @@ export default async function ContactPage({ params }: Props) {
                 </div>
 
                 {/* Stats */}
-                <div className="mt-6 flex flex-wrap gap-6">
+                <div className="mt-6 flex flex-wrap justify-center gap-6 lg:justify-start">
                   {[
                     { n: "+15", label: l === "es" ? "Años generando ecosistemas digitales" : "Years building digital ecosystems" },
                     { n: l === "es" ? "IA First" : "AI First", label: l === "es" ? "Integrada en cada proyecto" : "Built into every project" },
                     { n: l === "es" ? "7 países" : "7 countries", label: l === "es" ? "Mercados activos" : "Active markets" },
                   ].map((s) => (
-                    <div key={s.n}>
+                    <div key={s.n} className="text-center lg:text-left">
                       <div className="text-[26px] font-bold text-white" style={{ letterSpacing: "-0.03em", background: "linear-gradient(135deg, var(--turquoise), var(--electric))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                         {s.n}
                       </div>
-                      <div className="max-w-[120px] text-[12px] leading-snug text-white/45">{s.label}</div>
+                      <div className="mx-auto max-w-[120px] text-[12px] leading-snug text-white/45 lg:mx-0">{s.label}</div>
                     </div>
                   ))}
                 </div>

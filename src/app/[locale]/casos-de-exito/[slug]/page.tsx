@@ -96,7 +96,7 @@ export default async function CaseStudyPage({ params }: Props) {
           />
           <HeroInteractiveBackground accent={accent} accent2={accent2} />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-20 pt-32 lg:grid-cols-[56fr_44fr] lg:items-center lg:pt-40">
-            <div>
+            <div className="text-center lg:text-left">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
                 style={{ borderColor: "rgba(255,255,255,0.10)", background: "rgba(255,255,255,0.04)", fontSize: "11.5px", letterSpacing: "0.18em" }}>
                 <span className="h-1.5 w-1.5 rounded-full" style={{ background: accent }} />
@@ -111,7 +111,7 @@ export default async function CaseStudyPage({ params }: Props) {
               </p>
 
               {/* Client info row */}
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13.5px] text-white/50">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13.5px] text-white/50 lg:justify-start">
                 <span className="flex items-center gap-1.5">
                   <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><circle cx="8" cy="8" r="6.3" stroke="currentColor" strokeWidth="1.3" /></svg>
                   {cs.client}
@@ -177,14 +177,14 @@ export default async function CaseStudyPage({ params }: Props) {
             style={{ background: `radial-gradient(closest-side, ${accent}, transparent)` }}
           />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[3fr_2fr] lg:items-center">
-            <div>
+            <div className="text-center lg:text-left">
               <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
                 {l === "es" ? "El desafío" : "The challenge"}
               </div>
               <h2 className="text-balance text-white" style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 {challenge.heading}
               </h2>
-              <p className="mt-5 max-w-2xl text-pretty text-[16px] leading-relaxed" style={{ color: "rgba(255,255,255,0.62)" }}>
+              <p className="mx-auto mt-5 max-w-2xl text-pretty text-[16px] leading-relaxed lg:mx-0" style={{ color: "rgba(255,255,255,0.62)" }}>
                 {challenge.body}
               </p>
             </div>
@@ -299,7 +299,7 @@ export default async function CaseStudyPage({ params }: Props) {
           />
           <div className="relative mx-auto max-w-6xl px-6 py-24">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-              <div>
+              <div className="text-center lg:text-left">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
                   {l === "es" ? "Resultado" : "Outcome"}
                 </div>
@@ -312,7 +312,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
                 <SpotlightCard
                   accent={accent}
-                  className="stat-card mt-8 inline-flex flex-col gap-1 rounded-2xl p-6"
+                  className="stat-card mt-8 inline-flex flex-col items-center gap-1 rounded-2xl p-6 lg:items-start"
                   style={{
                     background: `linear-gradient(140deg, color-mix(in oklab, ${accent} 16%, transparent), rgba(255,255,255,0.02))`,
                     border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`,

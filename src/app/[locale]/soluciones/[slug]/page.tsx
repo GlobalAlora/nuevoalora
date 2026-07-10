@@ -98,7 +98,7 @@ export default async function SolutionPage({ params }: Props) {
         />
         <HeroInteractiveBackground accent={accent} accent2={accent2} />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-24 pt-32 lg:grid-cols-[56fr_44fr] lg:items-center lg:pt-40">
-          <div>
+          <div className="text-center lg:text-left">
             {/* Badge */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
               style={{ borderColor: "rgba(255,255,255,0.10)", background: "rgba(255,255,255,0.04)", fontSize: "11.5px", letterSpacing: "0.18em" }}>
@@ -116,7 +116,7 @@ export default async function SolutionPage({ params }: Props) {
               {h.sub}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
               <Link
                 href={callUrl}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[14px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"

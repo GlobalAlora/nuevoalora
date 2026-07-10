@@ -84,7 +84,7 @@ export function Hero({ dict, locale }: Props) {
 
       <div className="mx-auto grid max-w-7xl gap-10 px-6 pb-20 pt-16 md:min-h-[640px] md:grid-cols-[58fr_42fr] md:items-center md:gap-10 md:py-28">
         {/* Copy */}
-        <div className="min-w-0 max-w-[860px] pt-24 md:pt-0">
+        <div className="min-w-0 max-w-[860px] pt-24 text-center md:pt-0 md:text-left">
           {/* H1 */}
           <h1 className="max-w-[880px]" style={{ marginBottom: "28px" }}>
             <span
@@ -127,7 +127,7 @@ export function Hero({ dict, locale }: Props) {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
             <a
               href="#contacto"
               className="group inline-flex w-fit items-center gap-2 rounded-full px-8 py-[6px] text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5"

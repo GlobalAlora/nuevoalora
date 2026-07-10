@@ -36,8 +36,8 @@ export function ContactSection({ dict, locale }: Props) {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-14 lg:grid-cols-[42fr_58fr] lg:gap-20 lg:items-start">
           {/* Left — copy */}
-          <div>
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.22em]">
+          <div className="text-center lg:text-left">
+            <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em] lg:justify-start">
               <span className="text-white/50">{contact.sectionIndex}</span>
               <span className="h-px w-8 bg-white/20" />
               <span className="text-white/80">{contact.sectionLabel}</span>
@@ -48,7 +48,7 @@ export function ContactSection({ dict, locale }: Props) {
             <p className="mt-5 text-pretty text-[15.5px] leading-relaxed text-white/60">{contact.body}</p>
 
             {/* Reassurance items */}
-            <ul className="mt-8 flex flex-col gap-3">
+            <ul className="mt-8 flex flex-col items-center gap-3 lg:items-start">
               {contact.reassurances.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-[13.5px] text-white/55">
                   <svg className="mt-0.5 shrink-0" viewBox="0 0 16 16" fill="none" width="16" height="16">
