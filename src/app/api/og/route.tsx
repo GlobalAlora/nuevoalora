@@ -3,7 +3,11 @@ import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-export function GET(_req: NextRequest) {
+export async function GET(req: NextRequest) {
+  const logoUrl = new URL("/logo-nav-white.png", req.url).toString();
+  const logoData = await fetch(logoUrl).then((r) => r.arrayBuffer());
+  const logoSrc = `data:image/png;base64,${Buffer.from(logoData).toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -54,17 +58,10 @@ export function GET(_req: NextRequest) {
             border: "1px solid rgba(255,255,255,0.10)",
             borderRadius: 100,
             padding: "10px 24px",
-            marginBottom: 36,
+            marginBottom: 48,
           }}
         >
-          <div
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              background: "#00e5ff",
-            }}
-          />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#00e5ff" }} />
           <span
             style={{
               color: "rgba(255,255,255,0.55)",
@@ -78,24 +75,14 @@ export function GET(_req: NextRequest) {
           </span>
         </div>
 
-        {/* Wordmark */}
-        <div
-          style={{
-            fontSize: 120,
-            fontWeight: 800,
-            color: "#ffffff",
-            letterSpacing: "-0.04em",
-            lineHeight: 1,
-            fontFamily: "sans-serif",
-          }}
-        >
-          ALORA
-        </div>
+        {/* Logo image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoSrc} alt="ALORA" width={380} height={103} style={{ objectFit: "contain" }} />
 
         {/* Tagline */}
         <div
           style={{
-            marginTop: 28,
+            marginTop: 36,
             fontSize: 26,
             color: "rgba(255,255,255,0.50)",
             letterSpacing: "-0.01em",
@@ -111,7 +98,7 @@ export function GET(_req: NextRequest) {
         {/* Domain */}
         <div
           style={{
-            marginTop: 48,
+            marginTop: 44,
             fontSize: 18,
             color: "#00e5ff",
             letterSpacing: "0.06em",
