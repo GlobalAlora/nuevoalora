@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface Props {
   path: string; // e.g. "alora/20-minutos-reunion"
@@ -8,6 +8,8 @@ interface Props {
 }
 
 export function TidyCalEmbed({ path, label }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Remove any stale instance
     const existing = document.querySelector('script[src="https://asset-tidycal.b-cdn.net/js/embed.js"]');
@@ -33,8 +35,43 @@ export function TidyCalEmbed({ path, label }: Props) {
     };
   }, []);
 
+  // TidyCal resizes its iframe to fit each step (calendar → time slots → form)
+  // and disables its own scrollbar, so the page is meant to be the only scroll
+  // container. Without this, the user has to manually scroll to find whatever
+  // just got revealed. Auto-scroll the page to follow the widget as it grows.
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let lastHeight = container.getBoundingClientRect().height;
+    let settleTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const observer = new ResizeObserver((entries) => {
+      const newHeight = entries[0].contentRect.height;
+      if (settleTimer) clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        if (newHeight > lastHeight + 40) {
+          const rect = container.getBoundingClientRect();
+          if (rect.bottom > window.innerHeight) {
+            window.scrollTo({
+              top: window.scrollY + rect.bottom - window.innerHeight + 24,
+              behavior: "smooth",
+            });
+          }
+        }
+        lastHeight = newHeight;
+      }, 200);
+    });
+
+    observer.observe(container);
+    return () => {
+      observer.disconnect();
+      if (settleTimer) clearTimeout(settleTimer);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div ref={containerRef} className="relative">
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-1 rounded-[20px] opacity-30 blur-xl"
