@@ -6,20 +6,16 @@ export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "es";
 
 function getLocale(request: NextRequest): Locale {
-  // 1. Cookie takes priority (user's explicit choice)
+  // 1. Cookie takes priority (user's explicit choice, e.g. via the language switcher)
   const cookieLocale = request.cookies.get("locale")?.value;
   if (cookieLocale && LOCALES.includes(cookieLocale as Locale)) {
     return cookieLocale as Locale;
   }
 
-  // 2. Accept-Language header
-  const acceptLang = request.headers.get("accept-language") ?? "";
-  const preferred = acceptLang
-    .split(",")
-    .map((s) => s.split(";")[0].trim().slice(0, 2).toLowerCase())
-    .find((lang) => LOCALES.includes(lang as Locale));
-
-  return (preferred as Locale) ?? DEFAULT_LOCALE;
+  // 2. Otherwise always default to Spanish — the browser's Accept-Language
+  // header is intentionally not used, so the site defaults to es regardless
+  // of the visitor's OS/browser language.
+  return DEFAULT_LOCALE;
 }
 
 export function proxy(request: NextRequest) {
