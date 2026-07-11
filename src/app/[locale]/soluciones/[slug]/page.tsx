@@ -18,6 +18,113 @@ interface Props {
   params: Promise<{ locale: string; slug: string }>;
 }
 
+const CASE_STUDY_HIGHLIGHT: Record<string, {
+  caseSlug: string;
+  image: string;
+  imageAspect: string;
+  imageAlt: string;
+  badge: { es: string; en: string };
+  heading: { es: string; en: string };
+  body: { es: string; en: string };
+  tags: { es: string[]; en: string[] };
+}> = {
+  chatbots: {
+    caseSlug: "soy-lidia",
+    image: "/images/case-studies/soy-lidia/hero.png",
+    imageAspect: "1600/1542",
+    imageAlt: "Soy LIDIA",
+    badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
+    heading: {
+      es: "LIDIA: el chatbot con IA que agenda turnos por WhatsApp, 24/7",
+      en: "LIDIA: the AI chatbot that books appointments over WhatsApp, 24/7",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos LIDIA, un chatbot con IA para consultorios y clínicas de salud: responde, agenda turnos, cobra señas y envía recordatorios automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+      en: "We designed and built LIDIA, an AI chatbot for health clinics and private practices: it replies, books appointments, charges deposits and sends reminders automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+    },
+    tags: {
+      es: ["Chatbot IA", "Agente Conversacional", "Software a Medida"],
+      en: ["AI Chatbot", "Conversational Agent", "Custom Software"],
+    },
+  },
+  "atencion-cliente-ia": {
+    caseSlug: "soy-lidia",
+    image: "/images/case-studies/soy-lidia/hero.png",
+    imageAspect: "1600/1542",
+    imageAlt: "Soy LIDIA",
+    badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
+    heading: {
+      es: "LIDIA: el agente conversacional con IA que resuelve consultas por WhatsApp, 24/7",
+      en: "LIDIA: the AI conversational agent that resolves inquiries over WhatsApp, 24/7",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos LIDIA, un agente conversacional con IA para consultorios y clínicas de salud: entiende lenguaje natural, resuelve consultas reales, agenda turnos y cobra señas automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+      en: "We designed and built LIDIA, an AI conversational agent for health clinics and private practices: it understands natural language, resolves real queries, books appointments and charges deposits automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+    },
+    tags: {
+      es: ["Agente Conversacional IA", "Chatbot IA", "Software a Medida"],
+      en: ["AI Conversational Agent", "AI Chatbot", "Custom Software"],
+    },
+  },
+  ecommerce: {
+    caseSlug: "autodux",
+    image: "/images/case-studies/autodux/hero.png",
+    imageAspect: "1144/694",
+    imageAlt: "Autodux",
+    badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
+    heading: {
+      es: "Autodux: el marketplace que centraliza la compra y venta de autos",
+      en: "Autodux: the marketplace centralizing car buying and selling",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos Autodux, un marketplace de compra y venta de autos: publicaciones para particulares y agencias, buscador con filtros, panel de gestión y contacto directo por WhatsApp con cada vendedor. Hoy centraliza la compra y venta de autos en Comodoro Rivadavia, Argentina.",
+      en: "We designed and built Autodux, a car marketplace: listings for individuals and agencies, search with filters, a management panel and direct WhatsApp contact with every seller. Now centralizing car buying and selling in Comodoro Rivadavia, Argentina.",
+    },
+    tags: {
+      es: ["Marketplace", "Ecommerce a Medida", "Software a Medida"],
+      en: ["Marketplace", "Custom Ecommerce", "Custom Software"],
+    },
+  },
+  "desarrollo-web": {
+    caseSlug: "alkemia",
+    image: "/images/case-studies/alkemia/hero.png",
+    imageAspect: "1400/697",
+    imageAlt: "ALKEMIA",
+    badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
+    heading: {
+      es: "ALKEMIA: el sitio institucional que construyó su presencia digital en tech e IA",
+      en: "ALKEMIA: the institutional website that built its digital presence in tech and AI",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos el nuevo sitio institucional de ALKEMIA en WordPress, bilingüe en español e inglés: arquitectura pensada para conversión, copywriting con posicionamiento tech y SEO técnico desde el lanzamiento. Hoy representa su marca ante una audiencia en LATAM y mercados internacionales.",
+      en: "We designed and built ALKEMIA's new institutional website in WordPress, bilingual in Spanish and English: a conversion-focused architecture, copywriting with a tech positioning, and technical SEO from launch. Now representing the brand for a LATAM and international audience.",
+    },
+    tags: {
+      es: ["Sitio Institucional", "WordPress a Medida", "Bilingüe ES/EN"],
+      en: ["Institutional Website", "Custom WordPress", "Bilingual ES/EN"],
+    },
+  },
+  "desarrollo-software": {
+    caseSlug: "soy-lidia",
+    image: "/images/case-studies/soy-lidia/hero.png",
+    imageAspect: "1600/1542",
+    imageAlt: "Soy LIDIA",
+    badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
+    heading: {
+      es: "LIDIA: el software a medida que digitalizó la gestión de consultorios de salud",
+      en: "LIDIA: the custom software that digitized health clinic management",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos LIDIA, un sistema de gestión a medida para consultorios y clínicas de salud: agenda multi-profesional, cobro de señas, reportes de negocio en tiempo real y una web propia generada automáticamente para cada clínica. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+      en: "We designed and built LIDIA, a custom management system for health clinics and private practices: multi-professional scheduling, deposit collection, real-time business reports and an automatically generated website for each clinic. Now in use in Argentina, Uruguay, Spain and Chile.",
+    },
+    tags: {
+      es: ["Software a Medida", "Sistema de Gestión", "Dashboard de Reportes"],
+      en: ["Custom Software", "Management System", "Reporting Dashboard"],
+    },
+  },
+};
+
 export async function generateStaticParams() {
   const locales = ["es", "en"];
   return locales.flatMap((locale) =>
@@ -58,6 +165,7 @@ export default async function SolutionPage({ params }: Props) {
   const accent = sol.theme.primary;
   const accent2 = sol.theme.secondary ?? sol.theme.primary;
   const SECTION_BG = "oklch(0.13 0.015 260)";
+  const caseStudy = CASE_STUDY_HIGHLIGHT[sol.slug];
 
   return (
     <>
@@ -686,36 +794,154 @@ export default async function SolutionPage({ params }: Props) {
       </section>
       )}
 
-      {/* Projects */}
-      {sol.projects && sol.projects.length > 0 && (
-        <section className="border-y py-20" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+      {/* Projects / Case study */}
+      {caseStudy ? (
+        <section className="py-12">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="mx-auto max-w-[820px] text-center">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
-                {l === "es" ? "Proyectos reales" : "Real projects"}
+            <div
+              className="relative overflow-hidden rounded-[28px] p-7 sm:p-10 lg:p-12"
+              style={{
+                background: "linear-gradient(155deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015))",
+                border: "1px solid rgba(255,255,255,0.12)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.09), 0 40px 100px -30px rgba(0,0,0,0.65)",
+              }}
+            >
+              {/* Corner glows — color and depth without flattening the card */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl opacity-30"
+                style={{ background: accent }}
+              />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full blur-3xl opacity-25"
+                style={{ background: accent2 }}
+              />
+              {/* Gradient-traced border ring — the "techy circuit" edge */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-[28px]"
+                style={{
+                  padding: "1px",
+                  background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 55%, transparent), transparent 42%, transparent 58%, color-mix(in oklab, ${accent2} 50%, transparent))`,
+                  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                }}
+              />
+
+              <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
+                {/* Text */}
+                <div className="text-center lg:text-left">
+                  <div
+                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[12px] font-bold uppercase tracking-wider text-white"
+                    style={{
+                      background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                      boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 10px 24px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                    }}
+                  >
+                    <svg viewBox="0 0 32 32" fill="none" className="h-3.5 w-3.5">
+                      <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" />
+                    </svg>
+                    {caseStudy.badge[l]}
+                  </div>
+                  <h2
+                    className="mt-6 text-balance text-white"
+                    style={{ fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}
+                  >
+                    {caseStudy.heading[l]}
+                  </h2>
+                  <p className="mx-auto mt-5 text-pretty lg:mx-0" style={{ maxWidth: "560px", fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.7)" }}>
+                    {caseStudy.body[l]}
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                    {caseStudy.tags[l].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full px-3 py-1 text-[11.5px] font-medium text-white/70"
+                        style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-8 flex justify-center lg:justify-start">
+                    <Link
+                      href={`/${l}/casos-de-exito/${caseStudy.caseSlug}`}
+                      className="group inline-flex items-center gap-1 rounded-full py-1.5 pl-6 pr-1.5 text-[14.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+                      style={{
+                        background: "linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))",
+                        boxShadow: `0 1px 0 rgba(255,255,255,0.16) inset, 0 16px 36px -14px color-mix(in oklab, ${accent} 60%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 45%, transparent)`,
+                      }}
+                    >
+                      {l === "es" ? "Leer caso completo" : "Read full case study"}
+                      <span
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform group-hover:translate-x-0.5"
+                        style={{ background: `linear-gradient(135deg, ${accent}, ${accent2})` }}
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Case study image */}
+                <div
+                  className="overflow-hidden rounded-2xl border"
+                  style={{ borderColor: "rgba(255,255,255,0.12)", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
+                >
+                  <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
+                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
+                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
+                  </div>
+                  <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: caseStudy.imageAspect }}>
+                    <Image
+                      src={caseStudy.image}
+                      alt={caseStudy.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 480px"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
               </div>
-              <h2
-                className="mt-6 text-balance text-white"
-                style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
-              >
-                {l === "es" ? "Resultados que ya están operando" : "Results already in production"}
-              </h2>
-              {sol.projectsIntro && (
-                <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
-                  {sol.projectsIntro[l]}
-                </p>
-              )}
             </div>
-            <ProjectsSection
-              featured={sol.projects.slice(0, 3)}
-              more={sol.projects.slice(3)}
-              locale={l}
-              accent={accent}
-              moreLabel={l === "es" ? "Ver más proyectos" : "View more projects"}
-              lessLabel={l === "es" ? "Ver menos" : "View less"}
-            />
           </div>
         </section>
+      ) : (
+        sol.projects && sol.projects.length > 0 && (
+          <section className="border-y py-20" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+            <div className="mx-auto max-w-7xl px-6">
+              <div className="mx-auto max-w-[820px] text-center">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+                  {l === "es" ? "Proyectos reales" : "Real projects"}
+                </div>
+                <h2
+                  className="mt-6 text-balance text-white"
+                  style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
+                >
+                  {l === "es" ? "Resultados que ya están operando" : "Results already in production"}
+                </h2>
+                {sol.projectsIntro && (
+                  <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
+                    {sol.projectsIntro[l]}
+                  </p>
+                )}
+              </div>
+              <ProjectsSection
+                featured={sol.projects.slice(0, 3)}
+                more={sol.projects.slice(3)}
+                locale={l}
+                accent={accent}
+                moreLabel={l === "es" ? "Ver más proyectos" : "View more projects"}
+                lessLabel={l === "es" ? "Ver menos" : "View less"}
+              />
+            </div>
+          </section>
+        )
       )}
 
       {/* Why us */}
