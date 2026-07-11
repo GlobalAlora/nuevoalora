@@ -199,6 +199,147 @@ export const CASE_STUDIES: CaseStudyData[] = [
     cta: { es: "Quiero un proyecto como este", en: "I want a project like this" },
   },
   {
+    slug: "soy-lidia",
+    client: "Soy LIDIA",
+    icon: "chat",
+    url: "https://soylidia.com",
+    theme: { primary: "var(--violet)", secondary: "var(--electric)" },
+    heroImage: "/images/case-studies/soy-lidia/hero.png",
+    heroImageAspect: "1600/1542",
+    heroImageMobile: "/images/case-studies/soy-lidia/hero-mobile.png",
+    heroImageMobileAspect: "1280/1560",
+    screenshots: [
+      {
+        src: "/images/case-studies/soy-lidia/calendar.png",
+        alt: { es: "Agenda multi-profesional sincronizada con Google Calendar", en: "Multi-professional agenda synced with Google Calendar" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/web-generada.png",
+        alt: { es: "Página web generada automáticamente para cada clínica", en: "Automatically generated website for each clinic" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/booking-steps.png",
+        alt: { es: "Reserva guiada en pasos como canal de respaldo", en: "Step-by-step guided booking as a backup channel" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/inbox.png",
+        alt: { es: "Panel de control de conversaciones con alertas de seguridad", en: "Conversation control panel with safety alerts" },
+      },
+    ],
+    location: { es: "Argentina, Uruguay, España y Chile", en: "Argentina, Uruguay, Spain and Chile" },
+    industry: { es: "Salud y bienestar (consultorios y clínicas)", en: "Health and wellness (clinics and practices)" },
+    category: { es: "Producto SaaS / Agente de IA", en: "SaaS Product / AI Agent" },
+    meta: {
+      es: {
+        title: "Caso de éxito: LIDIA | ALORA",
+        desc: "Cómo diseñamos y desarrollamos LIDIA, un agente de IA por WhatsApp que agenda, confirma, cobra y recuerda turnos para consultorios y clínicas, 24/7.",
+      },
+      en: {
+        title: "Case study: LIDIA | ALORA",
+        desc: "How we designed and built LIDIA, a WhatsApp AI agent that books, confirms, charges and reminds appointments for clinics and practices, 24/7.",
+      },
+    },
+    hero: {
+      es: {
+        badge: "Caso de éxito",
+        title: "Cómo LIDIA se convirtió en la recepcionista que nunca duerme",
+        sub: "Diseñamos y desarrollamos un agente de IA conversacional por WhatsApp que agenda, confirma, cobra señas y recuerda turnos automáticamente, con una web propia y reportes de negocio en tiempo real — hoy en uso en consultorios de Argentina, Uruguay, España y Chile.",
+      },
+      en: {
+        badge: "Case study",
+        title: "How LIDIA became the receptionist that never sleeps",
+        sub: "We designed and developed a conversational AI agent on WhatsApp that books, confirms, charges deposits and reminds patients automatically, with its own website and real-time business reports — now in use at clinics across Argentina, Uruguay, Spain and Chile.",
+      },
+    },
+    challenge: {
+      es: {
+        heading: "El desafío",
+        body: "Los consultorios y clínicas pierden pacientes todos los días por algo tan simple como no responder a tiempo. De noche, los fines de semana o en hora pico no hay quien conteste — y el paciente no espera: agenda con el primero que le responde. Confirmar y recordar turno por turno a mano consume horas, y cuando nadie lo hace aparecen los ausentes que dejan el horario vacío. Y cuando hay varios profesionales, coordinar la agenda a mano termina en turnos solapados, huecos y dobles reservas.",
+        points: [
+          { icon: "chat", text: "Mensajes sin respuesta de noche, fines de semana y en hora pico — el paciente agenda en otro lado" },
+          { icon: "controls", text: "Confirmar y recordar turno por turno a mano consume horas, y sin recordatorios aparecen los ausentes" },
+          { icon: "structure", text: "Coordinar varios profesionales a mano termina en turnos solapados, huecos y dobles reservas" },
+          { icon: "target", text: "El objetivo no era un chatbot más, sino una recepcionista digital que agende, cobre y ordene sola" },
+        ],
+      },
+      en: {
+        heading: "The challenge",
+        body: "Clinics and private practices lose patients every day over something as simple as not responding in time. At night, on weekends or during peak hours, no one answers — and the patient doesn't wait: they book with whoever replies first. Confirming and reminding patients one by one by hand eats up hours, and when nobody does it, no-shows leave the slot empty. And once several professionals are involved, coordinating the schedule by hand ends in overlapping appointments, gaps and double bookings.",
+        points: [
+          { icon: "chat", text: "Unanswered messages at night, on weekends and during peak hours — the patient books elsewhere" },
+          { icon: "controls", text: "Confirming and reminding appointments by hand eats up hours, and no-shows pile up without reminders" },
+          { icon: "structure", text: "Coordinating several professionals by hand ends in overlapping slots, gaps and double bookings" },
+          { icon: "target", text: "The goal wasn't another chatbot, but a digital receptionist that books, charges and organizes on its own" },
+        ],
+      },
+    },
+    solution: {
+      es: {
+        heading: "Qué construimos",
+        intro: "La misma IA responde, agenda, cobra y recuerda — todo dentro de una sola conversación de WhatsApp, sin intervención humana.",
+        items: [
+          { icon: "chat", title: "Agente de IA por WhatsApp, 24/7", body: "Responde y agenda el turno en segundos, a toda hora, leyendo la disponibilidad real del calendario.", highlight: true },
+          { icon: "controls", title: "Confirmaciones y recordatorios automáticos", body: "Avisa 24h y 2h antes de cada turno para reducir el ausentismo, sin que nadie tenga que acordarse." },
+          { icon: "plug", title: "Cobro de señas integrado", body: "Pide y cobra la seña por Mercado Pago dentro de la misma conversación, sin salir del chat." },
+          { icon: "shield", title: "Canal oficial, sin riesgo de bloqueo", body: "Cuenta de WhatsApp Business verificada por Meta, con control manual y alertas si la ventana de 24 hs está por cerrarse." },
+          { icon: "layers", title: "Agenda multi-profesional en tiempo real", body: "Sincronizada con Google Calendar, con permisos y filtros por profesional y por sede." },
+          { icon: "portal", title: "Página web generada automáticamente", body: "Cada clínica recibe un sitio propio con su marca, mapa, obras sociales y botón de reserva, sin diseñador ni una línea de código." },
+          { icon: "search", title: "Reserva web como canal de respaldo", body: "Un formulario guiado en pasos para cuando WhatsApp no es una opción, sincronizado con la misma agenda." },
+          { icon: "chart", title: "Reportes de negocio en tiempo real", body: "Ingresos, conversión, ocupación y demanda por especialidad, exportables a CSV." },
+        ],
+      },
+      en: {
+        heading: "What we built",
+        intro: "The same AI responds, books, charges and reminds — all inside a single WhatsApp conversation, with no human intervention.",
+        items: [
+          { icon: "chat", title: "AI agent on WhatsApp, 24/7", body: "Replies and books the appointment in seconds, any time of day, reading real calendar availability.", highlight: true },
+          { icon: "controls", title: "Automatic confirmations and reminders", body: "Sends reminders 24h and 2h before each appointment to cut down on no-shows, with nobody having to remember." },
+          { icon: "plug", title: "Built-in deposit collection", body: "Requests and collects the deposit via Mercado Pago inside the same conversation, without leaving the chat." },
+          { icon: "shield", title: "Official channel, no risk of being blocked", body: "WhatsApp Business account verified by Meta, with manual takeover and alerts before the 24-hour window closes." },
+          { icon: "layers", title: "Real-time multi-professional schedule", body: "Synced with Google Calendar, with permissions and filters by professional and location." },
+          { icon: "portal", title: "Automatically generated website", body: "Every clinic gets its own site with its brand, map, insurance providers and a booking button — no designer, no code." },
+          { icon: "search", title: "Web booking as a backup channel", body: "A step-by-step guided form for when WhatsApp isn't an option, synced with the same schedule." },
+          { icon: "chart", title: "Real-time business reports", body: "Revenue, conversion, occupancy and demand by specialty, exportable to CSV." },
+        ],
+      },
+    },
+    techStack: [
+      { name: "WhatsApp Business API", icon: "chat", body: { es: "Canal oficial verificado por Meta, sin riesgo de bloqueo.", en: "Official channel verified by Meta, no risk of being blocked." } },
+      { name: "Google Calendar", icon: "layers", body: { es: "Agenda sincronizada en tiempo real por profesional y sede.", en: "Real-time agenda synced by professional and location." } },
+      { name: "Mercado Pago", icon: "plug", body: { es: "Cobro de señas y pagos dentro de la conversación.", en: "Deposit and payment collection within the conversation." } },
+    ],
+    scopeDelivered: {
+      es: {
+        heading: "Una recepcionista digital, lista para operar",
+        intro: "LIDIA se construyó en 60 días de producción y hoy sigue mejorando de forma constante con el uso real de cada clínica.",
+        items: [
+          "Un agente de IA conversacional en producción, agendando turnos reales por WhatsApp las 24 horas",
+          "Cobro de señas integrado con Mercado Pago, dentro de la misma conversación",
+          "Agenda multi-profesional y multi-sede sincronizada con Google Calendar en tiempo real",
+          "Generación automática de sitio web propio para cada clínica, sin diseñador ni desarrollo a medida",
+          "Un segundo canal de reserva por web, como respaldo si WhatsApp o Meta fallan",
+          "Dashboard de reportes con ingresos, conversión, ocupación y demanda por especialidad",
+          "Hoy en uso en consultorios y clínicas de Argentina, Uruguay, España y Chile, con potencial de expansión a más mercados",
+        ],
+      },
+      en: {
+        heading: "A digital receptionist, ready to operate",
+        intro: "LIDIA was built in 60 days of production and keeps improving constantly based on real usage from every clinic.",
+        items: [
+          "A conversational AI agent in production, booking real appointments over WhatsApp around the clock",
+          "Deposit collection built in with Mercado Pago, inside the same conversation",
+          "Multi-professional, multi-location schedule synced with Google Calendar in real time",
+          "Automatic website generation for each clinic, no designer or custom development needed",
+          "A second web booking channel as backup if WhatsApp or Meta go down",
+          "A reporting dashboard with revenue, conversion, occupancy and demand by specialty",
+          "Now in use at clinics and practices across Argentina, Uruguay, Spain and Chile, with potential to expand into more markets",
+        ],
+      },
+    },
+    duration: { es: "60 días", en: "60 days" },
+    cta: { es: "Quiero un proyecto como este", en: "I want a project like this" },
+  },
+  {
     slug: "castro-yeso",
     client: "Castro Yeso",
     icon: "target",
