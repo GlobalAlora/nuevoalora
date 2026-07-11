@@ -23,6 +23,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
   image: string;
   imageAspect: string;
   imageAlt: string;
+  frame?: "browser" | "phone";
   badge: { es: string; en: string };
   heading: { es: string; en: string };
   body: { es: string; en: string };
@@ -121,6 +122,26 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
     tags: {
       es: ["Software a Medida", "Sistema de Gestión", "Dashboard de Reportes"],
       en: ["Custom Software", "Management System", "Reporting Dashboard"],
+    },
+  },
+  "aplicaciones-web": {
+    caseSlug: "alora-crm",
+    image: "/images/case-studies/alora-crm/mobile-pipeline.png",
+    imageAspect: "390/795",
+    imageAlt: "ALORA CRM en celular",
+    frame: "phone",
+    badge: { es: "Caso de Éxito · Aplicaciones Web", en: "Case Study · Web Applications" },
+    heading: {
+      es: "Un CRM web que funciona igual de bien en el celular que en el escritorio.",
+      en: "A web CRM that works just as well on mobile as on desktop.",
+    },
+    body: {
+      es: "Diseñamos y desarrollamos ALORA CRM, una aplicación web de gestión comercial 100% responsive: pipeline, fichas de leads y WhatsApp con IA integrado, funcionando igual en desktop y en celular. Hoy está disponible como marca blanca para otras empresas.",
+      en: "We designed and built ALORA CRM, a fully responsive sales management web app: pipeline, lead cards and WhatsApp with built-in AI, working the same on desktop and mobile. Now available as a white-label product for other companies.",
+    },
+    tags: {
+      es: ["Aplicación Web", "100% Responsive", "Software a Medida"],
+      en: ["Web Application", "Fully Responsive", "Custom Software"],
     },
   },
 };
@@ -888,25 +909,44 @@ export default async function SolutionPage({ params }: Props) {
                 </div>
 
                 {/* Case study image */}
-                <div
-                  className="overflow-hidden rounded-2xl border"
-                  style={{ borderColor: "rgba(255,255,255,0.12)", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
-                >
-                  <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
-                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
-                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
+                {caseStudy.frame === "phone" ? (
+                  <div className="flex justify-center">
+                    <div
+                      className="w-full max-w-[280px] overflow-hidden rounded-[36px] border-[6px]"
+                      style={{ borderColor: "rgba(255,255,255,0.14)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
+                    >
+                      <div className="relative w-full" style={{ aspectRatio: caseStudy.imageAspect }}>
+                        <Image
+                          src={caseStudy.image}
+                          alt={caseStudy.imageAlt}
+                          fill
+                          sizes="280px"
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: caseStudy.imageAspect }}>
-                    <Image
-                      src={caseStudy.image}
-                      alt={caseStudy.imageAlt}
-                      fill
-                      sizes="(max-width: 1024px) 90vw, 480px"
-                      className="object-contain"
-                    />
+                ) : (
+                  <div
+                    className="overflow-hidden rounded-2xl border"
+                    style={{ borderColor: "rgba(255,255,255,0.12)", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
+                  >
+                    <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
+                    </div>
+                    <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: caseStudy.imageAspect }}>
+                      <Image
+                        src={caseStudy.image}
+                        alt={caseStudy.imageAlt}
+                        fill
+                        sizes="(max-width: 1024px) 90vw, 480px"
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
