@@ -233,7 +233,7 @@ export default async function CaseStudyPage({ params }: Props) {
             style={{ background: `radial-gradient(closest-side, ${accent2}, transparent)` }}
           />
           <div className="relative mx-auto max-w-7xl px-6 py-20">
-            <div className="mx-auto max-w-[820px] text-center">
+            <div className="mx-auto max-w-[1100px] text-center">
               <div
                 className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
                 style={{
@@ -243,7 +243,7 @@ export default async function CaseStudyPage({ params }: Props) {
               >
                 {l === "es" ? "La solución" : "The solution"}
               </div>
-              <h2 className="mt-6 text-balance text-white" style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+              <h2 className="mx-auto mt-6 text-balance text-white" style={{ fontSize: "clamp(28px, 3vw, 46px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}>
                 {solution.heading}
               </h2>
               <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
