@@ -114,7 +114,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "Comprar o vender un auto significaba saltar entre grupos de Facebook y agencias aisladas.",
         body: "En Comodoro Rivadavia, comprar o vender un auto significaba recorrer grupos de Facebook, marketplaces genéricos y agencias que no se comunican entre sí. Ninguna plataforma nacional estaba pensada para la lógica ni la escala de un mercado regional. Autodux necesitaba nacer como la base de un marketplace propio de la Patagonia — no un clasificado más, sino la infraestructura de un negocio que pueda crecer con el tiempo.",
         points: [
           { icon: "puzzle", text: "Oferta dispersa entre grupos de Facebook, redes sociales y agencias que operan de forma aislada" },
@@ -124,7 +124,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "Buying or selling a car meant jumping between Facebook groups and isolated agencies.",
         body: "In Comodoro Rivadavia, buying or selling a car meant scrolling through Facebook groups, generic marketplaces and agencies that didn't talk to each other. No national platform was built for the logic or scale of a regional market. Autodux needed to become the foundation of a marketplace built for Patagonia — not another classifieds site, but the infrastructure for a business that can grow over time.",
         points: [
           { icon: "puzzle", text: "Supply scattered across Facebook groups, social media and agencies operating in isolation" },
@@ -136,7 +136,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Un marketplace de autos con publicaciones, buscador, panel de agencias y contacto directo por WhatsApp.",
         intro: "Priorizamos lo que hace que un marketplace realmente funcione: que sea fácil publicar, fácil encontrar y fácil confiar.",
         items: [
           { icon: "structure", title: "Dos públicos, una plataforma", body: "Particulares venden gratis en minutos; las agencias acceden a cuentas profesionales pensadas para gestionar stock a escala.", highlight: true },
@@ -150,7 +150,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A car marketplace with listings, search, an agency panel and direct WhatsApp contact.",
         intro: "We prioritized what actually makes a marketplace work: easy to list, easy to find, and easy to trust.",
         items: [
           { icon: "structure", title: "Two audiences, one platform", body: "Individuals sell for free in minutes; agencies get professional accounts built to manage stock at scale.", highlight: true },
@@ -253,7 +253,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "Los consultorios pierden pacientes por no responder a tiempo, de noche o en hora pico.",
         body: "Los consultorios y clínicas pierden pacientes todos los días por algo tan simple como no responder a tiempo. De noche, los fines de semana o en hora pico no hay quien conteste — y el paciente no espera: agenda con el primero que le responde. Confirmar y recordar turno por turno a mano consume horas, y cuando nadie lo hace aparecen los ausentes que dejan el horario vacío. Y cuando hay varios profesionales, coordinar la agenda a mano termina en turnos solapados, huecos y dobles reservas.",
         points: [
           { icon: "chat", text: "Mensajes sin respuesta de noche, fines de semana y en hora pico — el paciente agenda en otro lado" },
@@ -263,7 +263,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "Clinics lose patients when nobody answers at night or during peak hours.",
         body: "Clinics and private practices lose patients every day over something as simple as not responding in time. At night, on weekends or during peak hours, no one answers — and the patient doesn't wait: they book with whoever replies first. Confirming and reminding patients one by one by hand eats up hours, and when nobody does it, no-shows leave the slot empty. And once several professionals are involved, coordinating the schedule by hand ends in overlapping appointments, gaps and double bookings.",
         points: [
           { icon: "chat", text: "Unanswered messages at night, on weekends and during peak hours — the patient books elsewhere" },
@@ -275,7 +275,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Un agente de IA por WhatsApp que agenda, confirma, cobra señas y recuerda turnos, 24/7.",
         intro: "La misma IA responde, agenda, cobra y recuerda — todo dentro de una sola conversación de WhatsApp, sin intervención humana.",
         items: [
           { icon: "chat", title: "Agente de IA por WhatsApp, 24/7", body: "Responde y agenda el turno en segundos, a toda hora, leyendo la disponibilidad real del calendario.", highlight: true },
@@ -289,7 +289,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A WhatsApp AI agent that books, confirms, charges deposits and reminds appointments, 24/7.",
         intro: "The same AI responds, books, charges and reminds — all inside a single WhatsApp conversation, with no human intervention.",
         items: [
           { icon: "chat", title: "AI agent on WhatsApp, 24/7", body: "Replies and books the appointment in seconds, any time of day, reading real calendar availability.", highlight: true },
@@ -340,6 +340,149 @@ export const CASE_STUDIES: CaseStudyData[] = [
     cta: { es: "Quiero un proyecto como este", en: "I want a project like this" },
   },
   {
+    slug: "alora-crm",
+    client: "ALORA CRM",
+    icon: "chart",
+    url: "https://www.globalalora.com",
+    theme: { primary: "var(--electric)", secondary: "var(--violet)" },
+    heroImage: "/images/case-studies/alora-crm/hero.png",
+    heroImageAspect: "1400/613",
+    screenshots: [
+      {
+        src: "/images/case-studies/alora-crm/pipeline.png",
+        alt: { es: "Pipeline de leads por etapas en formato Kanban", en: "Stage-based lead pipeline in Kanban format" },
+      },
+      {
+        src: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+        alt: { es: "WhatsApp integrado con IA dentro del CRM", en: "WhatsApp integrated with AI inside the CRM" },
+      },
+      {
+        src: "/images/case-studies/alora-crm/lead-detail.png",
+        alt: { es: "Ficha de lead autocompletada con historial y fechas del proceso", en: "Auto-filled lead card with history and process dates" },
+      },
+      {
+        src: "/images/case-studies/alora-crm/funnel.png",
+        alt: { es: "Embudo de conversión y tiempos entre etapas", en: "Conversion funnel and time between stages" },
+      },
+      {
+        src: "/images/case-studies/alora-crm/por-pais-fuente.png",
+        alt: { es: "Performance de venta por país y por fuente", en: "Sales performance by country and by source" },
+      },
+    ],
+    location: { es: "Argentina, con implementación white-label en 4 clientes", en: "Argentina, with white-label deployment across 4 clients" },
+    industry: { es: "CRM comercial / Ventas y seguimiento de leads", en: "Sales CRM / Lead tracking & conversion" },
+    category: { es: "Producto SaaS / CRM White-Label", en: "SaaS Product / White-Label CRM" },
+    meta: {
+      es: {
+        title: "Caso de éxito: ALORA CRM | ALORA",
+        desc: "Cómo diseñamos y desarrollamos un CRM para seguimiento comercial automatizado, con pipeline por etapas, IA integrada y dashboard en tiempo real — hoy disponible como marca blanca.",
+      },
+      en: {
+        title: "Case study: ALORA CRM | ALORA",
+        desc: "How we designed and built a CRM for automated sales follow-up, with a stage-based pipeline, built-in AI and a real-time dashboard — now available as a white-label product.",
+      },
+    },
+    hero: {
+      es: {
+        badge: "Caso de éxito",
+        title: "Un CRM para automatizar todo tu seguimiento comercial",
+        sub: "Diseñamos y desarrollamos un CRM comercial con pipeline por etapas 100% automatizado, fichas de leads autocompletadas desde WhatsApp, chatbot o formulario web, IA integrada para el seguimiento y un dashboard en tiempo real. Hoy está disponible como marca blanca para otras empresas.",
+      },
+      en: {
+        badge: "Case study",
+        title: "A CRM that automates your entire sales follow-up",
+        sub: "We designed and built a sales CRM with a fully automated stage-based pipeline, lead cards auto-filled from WhatsApp, chatbot or web forms, built-in AI for follow-up, and a real-time dashboard. Now available as a white-label product for other companies.",
+      },
+    },
+    challenge: {
+      es: {
+        heading: "Leads dispersos entre WhatsApp, chatbot y web, con seguimiento perdido entre etapas.",
+        body: "Muchos equipos comerciales gestionan sus leads entre WhatsApp, planillas y mensajes sueltos: leads que llegan por distintas fuentes sin quedar centralizados, seguimientos que se pierden entre etapas y ningún panel real para saber qué está funcionando. Faltaba una herramienta que ordenara todo el proceso comercial de punta a punta, sin depender de que alguien se acuerde de actualizar una planilla.",
+        points: [
+          { icon: "puzzle", text: "Leads entrando por WhatsApp, chatbot y formulario web sin quedar centralizados en un solo lugar" },
+          { icon: "controls", text: "Seguimiento manual etapa por etapa, con leads que se pierden entre la primera respuesta y el cierre" },
+          { icon: "chart", text: "Ningún panel real para ver cierres, rentabilidad y performance de venta en un mismo lugar" },
+          { icon: "target", text: "El objetivo no era un CRM genérico, sino una herramienta que automatice la gestión completa del pipeline" },
+        ],
+      },
+      en: {
+        heading: "Leads scattered across WhatsApp, chatbot and web, with follow-up lost between stages.",
+        body: "Many sales teams manage their leads across WhatsApp, spreadsheets and scattered messages: leads arriving from different sources with nothing centralized, follow-ups falling through the cracks between stages, and no real dashboard to know what's actually working. What was missing was a tool that organized the entire commercial process end to end, without depending on someone remembering to update a spreadsheet.",
+        points: [
+          { icon: "puzzle", text: "Leads coming in through WhatsApp, chatbot and web forms with nothing centralized in one place" },
+          { icon: "controls", text: "Manual stage-by-stage follow-up, with leads falling through between first reply and close" },
+          { icon: "chart", text: "No real dashboard to see closed deals, profitability and sales performance in one place" },
+          { icon: "target", text: "The goal wasn't a generic CRM, but a tool that automates the entire pipeline management" },
+        ],
+      },
+    },
+    solution: {
+      es: {
+        heading: "Un CRM con pipeline automatizado, WhatsApp con IA integrado y dashboard comercial en tiempo real.",
+        intro: "Un CRM comercial pensado de punta a punta: desde que el lead entra hasta que se cierra la venta, todo automatizado y visible en un solo lugar.",
+        items: [
+          { icon: "structure", title: "Pipeline por etapas, 100% automatizado", body: "Cada lead avanza solo entre etapas —contactado, reunión, propuesta, cierre— sin mover una card a mano.", highlight: true },
+          { icon: "chat", title: "WhatsApp con API oficial, sin riesgo de bloqueo", body: "Respondé, agendá y hacé seguimiento desde el mismo CRM, sin depender del celular físico — con la cuenta de WhatsApp Business verificada por Meta." },
+          { icon: "layers", title: "Ficha de lead autocompletada", body: "Nombre, contacto, empresa y fuente se cargan solos apenas el lead entra, venga de WhatsApp, chatbot o formulario web." },
+          { icon: "controls", title: "Tareas y recordatorios automáticos", body: "El sistema avisa cuándo hacer seguimiento y marca los leads sin respuesta antes de que se enfríen." },
+          { icon: "chart", title: "Dashboard comercial en tiempo real", body: "Etapas, cierres, rentabilidad y performance de venta, todo en un panel que se actualiza solo." },
+          { icon: "search", title: "Embudo de conversión visual", body: "Vemos cuántos leads pasan de una etapa a la siguiente y dónde se cae la conversión." },
+          { icon: "shield", title: "Datos por país y por fuente", body: "Vemos qué mercados y qué canales convierten mejor, para invertir donde realmente funciona." },
+          { icon: "portal", title: "Marca blanca para otras empresas", body: "La misma plataforma, con la marca de cada cliente, lista para implementarse en su propio proceso comercial." },
+        ],
+      },
+      en: {
+        heading: "A CRM with an automated pipeline, WhatsApp with built-in AI, and a real-time commercial dashboard.",
+        intro: "A sales CRM designed end to end: from the moment a lead comes in to the moment the sale closes, everything automated and visible in one place.",
+        items: [
+          { icon: "structure", title: "Fully automated stage pipeline", body: "Every lead moves automatically between stages — contacted, meeting, proposal, close — with no card ever moved by hand.", highlight: true },
+          { icon: "chat", title: "WhatsApp on the official API, no risk of being blocked", body: "Reply, book and follow up right from the CRM, with no need for a physical phone — using a WhatsApp Business account verified by Meta." },
+          { icon: "layers", title: "Auto-filled lead card", body: "Name, contact, company and source populate automatically the moment a lead comes in, whether from WhatsApp, chatbot or a web form." },
+          { icon: "controls", title: "Automatic tasks and reminders", body: "The system flags when to follow up and marks unanswered leads before they go cold." },
+          { icon: "chart", title: "Real-time commercial dashboard", body: "Stages, closed deals, profitability and sales performance, all in a panel that updates itself." },
+          { icon: "search", title: "Visual conversion funnel", body: "See how many leads move from one stage to the next, and where conversion drops off." },
+          { icon: "shield", title: "Data by country and by source", body: "We see which markets and channels convert best, so we invest where it actually works." },
+          { icon: "portal", title: "White-label for other companies", body: "The same platform, branded for each client, ready to run their own sales process." },
+        ],
+      },
+    },
+    techStack: [
+      { name: "WhatsApp Business API", icon: "chat", body: { es: "Canal oficial verificado por Meta, sin riesgo de bloqueo, integrado directo al pipeline de ventas.", en: "Official channel verified by Meta, with no risk of being blocked, integrated directly into the sales pipeline." } },
+      { name: "IA de seguimiento", icon: "spark", body: { es: "Motor de IA que responde, agenda y hace seguimiento dentro del CRM.", en: "AI engine that replies, books and follows up inside the CRM." } },
+      { name: "Google Calendar", icon: "layers", body: { es: "Reuniones agendadas y sincronizadas automáticamente con el calendario del equipo.", en: "Meetings booked and synced automatically with the team's calendar." } },
+    ],
+    scopeDelivered: {
+      es: {
+        heading: "Un CRM listo para automatizar la gestión comercial",
+        intro: "Un pipeline que se gestiona solo, hoy disponible como plataforma que licenciamos como marca blanca a otras empresas.",
+        items: [
+          "Un CRM comercial completo, gestionando el pipeline de ventas de punta a punta",
+          "Pipeline por etapas 100% automatizado, con tareas y recordatorios que evitan que un lead se enfríe",
+          "Ficha de lead autocompletada según la fuente: WhatsApp, chatbot, formulario web y más",
+          "WhatsApp con API oficial: se responde desde el mismo CRM, sin celular físico y sin riesgo de bloqueo",
+          "IA integrada para responder, agendar y hacer seguimiento por WhatsApp sin intervención manual",
+          "Dashboard comercial en tiempo real con cierres, rentabilidad, ciclo de venta y performance por país y por fuente",
+          "Implementado como marca blanca en 4 clientes, cada uno con su propio proceso y sus propios datos",
+        ],
+      },
+      en: {
+        heading: "A CRM built to automate commercial management",
+        intro: "A pipeline that manages itself, now available as a platform we license white-label to other companies.",
+        items: [
+          "A complete sales CRM, running the sales pipeline end to end",
+          "Fully automated stage pipeline, with tasks and reminders that keep leads from going cold",
+          "Auto-filled lead card based on source: WhatsApp, chatbot, web form and more",
+          "WhatsApp on the official API: answered right from the CRM, no physical phone and no risk of being blocked",
+          "Built-in AI to reply, book and follow up over WhatsApp with no manual intervention",
+          "Real-time commercial dashboard with closed deals, profitability, sales cycle and performance by country and by source",
+          "Deployed as a white-label product across 4 clients, each with their own process and their own data",
+        ],
+      },
+    },
+    duration: { es: "En uso y evolución constante", en: "Ongoing use and constant evolution" },
+    cta: { es: "Quiero un CRM así para mi negocio", en: "I want a CRM like this for my business" },
+  },
+  {
     slug: "castro-yeso",
     client: "Castro Yeso",
     icon: "target",
@@ -376,7 +519,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "Un sitio tradicional dispersaba la atención justo cuando el usuario buscaba algo concreto.",
         body: "Castro Yeso necesitaba presencia digital para captar clientes de durlock y yesería en su zona de trabajo. Pero el problema real no era la falta de una web — era la falta de consultas calificadas. Un sitio tradicional con múltiples páginas dispersa la atención justo cuando el usuario busca algo concreto: ver trabajos reales y contactar ya por WhatsApp.",
         points: [
           { icon: "search", text: "El usuario busca una solución concreta, no un sitio para explorar página por página" },
@@ -386,7 +529,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "A traditional multi-page site scattered attention when the user wanted something specific.",
         body: "Castro Yeso needed a digital presence to capture drywall and plastering clients in its service area. But the real problem wasn't the lack of a website — it was the lack of qualified inquiries. A traditional multi-page site scatters attention right when the user is looking for something specific: real work examples and immediate WhatsApp contact.",
         points: [
           { icon: "search", text: "The user is looking for a specific solution, not a site to browse page by page" },
@@ -398,7 +541,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Un sitio one page que lleva al visitante de la duda a la consulta por WhatsApp.",
         intro: "Un sitio one page, pensado para llevar al visitante de la duda a la consulta por WhatsApp en el menor tiempo posible.",
         items: [
           { icon: "target", title: "Hero con zona de cobertura clara", body: "Presentación del servicio, propuesta de valor y botón de WhatsApp visible desde el primer segundo." },
@@ -412,7 +555,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A one-page site that takes the visitor from doubt to a WhatsApp inquiry.",
         intro: "A one-page website, designed to take the visitor from doubt to a WhatsApp inquiry in the shortest time possible.",
         items: [
           { icon: "target", title: "Hero with clear coverage area", body: "Service presentation, value proposition and a WhatsApp button visible from the first second." },
@@ -495,7 +638,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "La marca se había relanzado, pero la web no transmitía innovación ni capacidad tecnológica.",
         body: "ALKEMIA venía de relanzar su marca luego de una etapa anterior, y necesitaba mucho más que una web nueva: necesitaba un activo digital que transmitiera innovación, solidez y capacidad tecnológica desde el primer segundo, para posicionarse en el sector de software e inteligencia artificial frente a una audiencia en LATAM y mercados internacionales.",
         points: [
           { icon: "target", text: "La marca se había relanzado, pero la web todavía no representaba ese cambio" },
@@ -505,7 +648,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "The brand had relaunched, but the site didn't convey innovation or tech capability.",
         body: "ALKEMIA had just relaunched its brand after a previous stage, and needed much more than a new website: it needed a digital asset that conveyed innovation, solidity and technological capability from the first second, to position itself in the software and AI sector in front of a LATAM and international audience.",
         points: [
           { icon: "target", text: "The brand had relaunched, but the website still didn't represent that change" },
@@ -517,7 +660,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Un sitio institucional bilingüe, autogestionable y con posicionamiento tech desde el día uno.",
         intro: "Un sitio institucional pensado para transmitir en segundos lo que ALKEMIA hace mejor: transformar procesos complejos en soluciones simples.",
         items: [
           { icon: "structure", title: "Arquitectura pensada para conversión", body: "Home, Servicios, Producto (Creatio), Empresa y Contacto, organizados para guiar al visitante hacia la acción." },
@@ -531,7 +674,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A bilingual, self-manageable institutional site with tech positioning from day one.",
         intro: "An institutional site designed to convey in seconds what ALKEMIA does best: turning complex processes into simple solutions.",
         items: [
           { icon: "structure", title: "Architecture built for conversion", body: "Home, Services, Product (Creatio), Company and Contact, organized to guide the visitor toward action." },
@@ -612,7 +755,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "El ecommerce operaba desconectado de Centum, con carga manual entre ambos sistemas.",
         body: "Distri-Sal ya tenía un sitio web con catálogo y precios visibles para usuarios logueados, pero el proceso de venta estaba desacoplado de Centum, su sistema de gestión interno. Cada pedido implicaba carga operativa manual, y esa desconexión limitaba cuánto podía escalar el canal digital sin sumar más trabajo administrativo.",
         points: [
           { icon: "layers", text: "El ecommerce y el sistema de gestión operaban por separado, con carga manual entre ambos" },
@@ -622,7 +765,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "The ecommerce operated disconnected from Centum, with manual work between both systems.",
         body: "Distri-Sal already had a website with a catalog and prices visible to logged-in users, but the sales process was decoupled from Centum, its internal management system. Every order meant extra manual work, and that disconnection limited how much the digital channel could scale without adding more administrative load.",
         points: [
           { icon: "layers", text: "The ecommerce and the management system operated separately, with manual work between them" },
@@ -634,7 +777,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Una integración real entre WooCommerce y Centum, con precios por cliente en tiempo real.",
         intro: "Una integración real entre el ecommerce y la gestión interna, para que Centum sea la única fuente de verdad y cada cliente compre bajo sus propias condiciones.",
         items: [
           { icon: "api", title: "Integración WooCommerce + Centum", body: "Sincronización automática de productos, stock, precios y pedidos entre el ecommerce y el sistema de gestión.", highlight: true },
@@ -648,7 +791,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A real integration between WooCommerce and Centum, with real-time per-client pricing.",
         intro: "A real integration between the ecommerce and the internal management system, so Centum becomes the single source of truth and every client buys under its own terms.",
         items: [
           { icon: "api", title: "WooCommerce + Centum integration", body: "Automatic synchronization of products, stock, prices and orders between the ecommerce and the management system.", highlight: true },
@@ -729,7 +872,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     challenge: {
       es: {
-        heading: "El desafío",
+        heading: "La tienda en Kodear tenía caídas de hasta 12 horas y sin filtros por marca o año.",
         body: "Voutier Repuestos ya vendía online, pero su tienda en Kodear tenía caídas frecuentes — llegó a estar 12 horas fuera de servicio — y no permitía filtros de búsqueda por marca, modelo, motor o año, algo clave para un ecommerce de autopartes. Eso, sumado a un checkout con login obligatorio, empujaba a muchos clientes a abandonar el carrito y terminar comprando por WhatsApp.",
         points: [
           { icon: "cloud", text: "Caídas frecuentes de la plataforma — incluida una de 12 horas seguidas" },
@@ -739,7 +882,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "The challenge",
+        heading: "The Kodear store had outages of up to 12 hours, with no filters by make or year.",
         body: "Voutier Repuestos already sold online, but its Kodear store had frequent outages — it was once down for 12 hours straight — and didn't support search filters by make, model, engine or year, something key for an auto parts ecommerce. That, combined with a checkout that required mandatory login, pushed many customers to abandon their cart and end up buying over WhatsApp.",
         points: [
           { icon: "cloud", text: "Frequent platform outages — including one 12 hours straight" },
@@ -751,7 +894,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     solution: {
       es: {
-        heading: "Qué construimos",
+        heading: "Un ecommerce estable con filtros por vehículo, checkout sin fricción y más formas de pagar.",
         intro: "Una tienda nueva de punta a punta, pensada para vender autopartes: fácil de buscar, fácil de comprar y siempre disponible.",
         items: [
           { icon: "search", title: "Filtros avanzados por vehículo", body: "Búsqueda por marca, modelo, tipo de motor y año, pensada específicamente para tiendas de autopartes.", highlight: true },
@@ -765,7 +908,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
         ],
       },
       en: {
-        heading: "What we built",
+        heading: "A stable ecommerce with vehicle filters, frictionless checkout and more ways to pay.",
         intro: "A brand new store built to sell auto parts: easy to search, easy to buy, and always available.",
         items: [
           { icon: "search", title: "Advanced vehicle filters", body: "Search by make, model, engine type and year, built specifically for auto parts stores.", highlight: true },

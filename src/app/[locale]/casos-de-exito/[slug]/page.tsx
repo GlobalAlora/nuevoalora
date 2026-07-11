@@ -97,10 +97,17 @@ export default async function CaseStudyPage({ params }: Props) {
           <HeroInteractiveBackground accent={accent} accent2={accent2} />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-20 pt-32 lg:grid-cols-[56fr_44fr] lg:items-center lg:pt-40">
             <div className="text-center lg:text-left">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5"
-                style={{ borderColor: "rgba(255,255,255,0.10)", background: "rgba(255,255,255,0.04)", fontSize: "11.5px", letterSpacing: "0.18em" }}>
-                <span className="h-1.5 w-1.5 rounded-full" style={{ background: accent }} />
-                <span className="font-medium uppercase text-white/60">{h.badge}</span>
+              <div
+                className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[12px] font-bold uppercase tracking-wider text-white"
+                style={{
+                  background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                  boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 10px 24px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                }}
+              >
+                <svg viewBox="0 0 32 32" fill="none" className="h-3.5 w-3.5">
+                  <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" />
+                </svg>
+                {h.badge}
               </div>
 
               <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(32px, 4.6vw, 60px)", letterSpacing: "-0.035em", lineHeight: 1.06 }}>
@@ -178,7 +185,13 @@ export default async function CaseStudyPage({ params }: Props) {
           />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[3fr_2fr] lg:items-center">
             <div className="text-center lg:text-left">
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div
+                className="mb-4 inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                style={{
+                  background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                  boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                }}
+              >
                 {l === "es" ? "El desafío" : "The challenge"}
               </div>
               <h2 className="text-balance text-white" style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
@@ -221,7 +234,13 @@ export default async function CaseStudyPage({ params }: Props) {
           />
           <div className="relative mx-auto max-w-7xl px-6 py-20">
             <div className="mx-auto max-w-[820px] text-center">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div
+                className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                style={{
+                  background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                  boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                }}
+              >
                 {l === "es" ? "La solución" : "The solution"}
               </div>
               <h2 className="mt-6 text-balance text-white" style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
@@ -278,7 +297,13 @@ export default async function CaseStudyPage({ params }: Props) {
             />
             <div className="relative mx-auto max-w-7xl px-6 py-16">
               <div className="mx-auto mb-10 max-w-[680px] text-center">
-                <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+                <div
+                  className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                  style={{
+                    background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                    boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                  }}
+                >
                   {l === "es" ? "En producción" : "In production"}
                 </div>
                 <h2 className="mt-4 text-balance text-white" style={{ fontSize: "clamp(26px, 3vw, 40px)", fontWeight: 720, lineHeight: 1.1, letterSpacing: "-0.03em" }}>
@@ -300,7 +325,13 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="relative mx-auto max-w-6xl px-6 py-24">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
               <div className="text-center lg:text-left">
-                <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+                <div
+                  className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                  style={{
+                    background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                    boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                  }}
+                >
                   {l === "es" ? "Resultado" : "Outcome"}
                 </div>
                 <h2 className="mt-6 text-balance text-white" style={{ fontSize: "clamp(28px, 3.2vw, 44px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}>
@@ -361,10 +392,14 @@ export default async function CaseStudyPage({ params }: Props) {
           <HeroInteractiveBackground accent={accent} accent2={accent2} />
           <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-[1fr_1.05fr] lg:items-start">
             <div>
-              <div className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em]">
-                <span style={{ color: `color-mix(in oklab, ${accent} 75%, transparent)` }}>
-                  {l === "es" ? "Empecemos" : "Let's start"}
-                </span>
+              <div
+                className="mb-4 inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                style={{
+                  background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                  boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                }}
+              >
+                {l === "es" ? "Empecemos" : "Let's start"}
               </div>
               <h2 className="text-balance text-white" style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
                 {l === "es" ? "¿Tenés un proyecto parecido?" : "Have a similar project?"}
