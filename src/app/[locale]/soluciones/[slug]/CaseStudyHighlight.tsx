@@ -129,12 +129,15 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
             {caseStudy.badge[l]}
           </div>
           <h2
-            className="mt-6 text-balance text-white"
-            style={{ fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}
+            className="mt-6 text-balance text-white [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden"
+            style={{ fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em", minHeight: "2.16em" }}
           >
             {caseStudy.heading[l]}
           </h2>
-          <p className="mx-auto mt-5 text-pretty lg:mx-0" style={{ maxWidth: "560px", fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.7)" }}>
+          <p
+            className="mx-auto mt-5 text-pretty lg:mx-0 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5] overflow-hidden"
+            style={{ maxWidth: "560px", fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.7)", minHeight: "8.25em" }}
+          >
             {caseStudy.body[l]}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
@@ -184,7 +187,7 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
                     alt={caseStudy.imageAlt}
                     fill
                     sizes="280px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 )}
               </div>
@@ -207,7 +210,7 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
                   alt={caseStudy.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 90vw, 480px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center">

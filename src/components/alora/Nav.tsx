@@ -322,46 +322,24 @@ export function Nav({ dict, locale }: Props) {
                         </svg>
                       </Link>
                     </div>
-                    <div className="grid grid-cols-3 gap-2.5">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {caseStudies.map((cs) => {
                         const cat = cs.category[locale] ?? cs.category.es;
                         const accent = cs.theme.primary;
-                        const accent2 = cs.theme.secondary ?? cs.theme.primary;
                         return (
                           <Link
                             key={cs.slug}
                             href={`/${locale}/casos-de-exito/${cs.slug}`}
                             onClick={() => setCasesOpen(false)}
-                            className="group flex flex-col overflow-hidden rounded-xl transition-colors hover:bg-white/[0.05]"
-                            style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+                            className="group flex flex-col gap-0.5 rounded-lg py-2.5 pl-3.5 pr-3 transition-colors hover:bg-white/[0.05]"
+                            style={{ borderLeft: `2.5px solid ${accent}`, background: "rgba(255,255,255,0.02)" }}
                           >
-                            <div
-                              className="relative aspect-[16/10] w-full overflow-hidden"
-                              style={{ background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 30%, #0b0d14), color-mix(in oklab, ${accent2} 20%, #0b0d14))` }}
-                            >
-                              {cs.heroImage ? (
-                                <Image
-                                  src={cs.heroImage}
-                                  alt={cs.client}
-                                  fill
-                                  sizes="200px"
-                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                              ) : (
-                                <div className="absolute inset-0 flex items-center justify-center" style={{ color: accent }}>
-                                  <span className="h-6 w-6 opacity-80">{NAV_ICONS[cs.icon]}</span>
-                                </div>
-                              )}
-                            </div>
-                            <div className="p-2.5">
-                              <span className="block truncate text-[13px] font-semibold text-white/90 transition-colors group-hover:text-white">{cs.client}</span>
-                              <span
-                                className="mt-1.5 inline-flex w-fit items-center rounded-full px-2 py-0.5 text-[10px] font-medium"
-                                style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, color: accent }}
-                              >
-                                {cat}
-                              </span>
-                            </div>
+                            <span className="truncate text-[13.5px] font-semibold text-white/90 transition-colors group-hover:text-white">
+                              {cs.client}
+                            </span>
+                            <span className="truncate text-[11.5px] font-medium" style={{ color: accent }}>
+                              {cat}
+                            </span>
                           </Link>
                         );
                       })}
@@ -375,7 +353,7 @@ export function Nav({ dict, locale }: Props) {
                   >
                     <div>
                       <div className="text-[15px] font-semibold text-white/90">
-                        {locale === "es" ? "¿Tenés un proyecto parecido?" : "Have a similar project?"}
+                        {locale === "es" ? "¿Charlamos de tu proyecto?" : "Let's talk about your project?"}
                       </div>
                       <p className="mt-1.5 text-[12.5px] leading-relaxed text-white/50">
                         {locale === "es"
@@ -410,7 +388,7 @@ export function Nav({ dict, locale }: Props) {
                         onClick={() => setCasesOpen(false)}
                         className="flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
                       >
-                        {locale === "es" ? "Ver todas las soluciones" : "See all solutions"}
+                        {locale === "es" ? "Explorar Soluciones" : "Explore Solutions"}
                         <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
                           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>

@@ -20,25 +20,46 @@ interface Props {
 }
 
 const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
-  chatbots: [{
-    caseSlug: "soy-lidia",
-    image: "/images/case-studies/soy-lidia/hero.png",
-    imageAspect: "1600/1542",
-    imageAlt: "Soy LIDIA",
-    badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
-    heading: {
-      es: "LIDIA: el chatbot con IA que agenda turnos por WhatsApp, 24/7",
-      en: "LIDIA: the AI chatbot that books appointments over WhatsApp, 24/7",
+  chatbots: [
+    {
+      caseSlug: "soy-lidia",
+      image: "/images/case-studies/soy-lidia/hero.png",
+      imageAspect: "1600/1542",
+      imageAlt: "Soy LIDIA",
+      badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
+      heading: {
+        es: "LIDIA: el chatbot con IA que agenda turnos por WhatsApp, 24/7",
+        en: "LIDIA: the AI chatbot that books appointments over WhatsApp, 24/7",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos LIDIA, un chatbot con IA para consultorios y clínicas de salud: responde, agenda turnos, cobra señas y envía recordatorios automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+        en: "We designed and built LIDIA, an AI chatbot for health clinics and private practices: it replies, books appointments, charges deposits and sends reminders automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+      },
+      tags: {
+        es: ["Chatbot IA", "Agente Conversacional", "Software a Medida"],
+        en: ["AI Chatbot", "Conversational Agent", "Custom Software"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos LIDIA, un chatbot con IA para consultorios y clínicas de salud: responde, agenda turnos, cobra señas y envía recordatorios automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
-      en: "We designed and built LIDIA, an AI chatbot for health clinics and private practices: it replies, books appointments, charges deposits and sends reminders automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+    {
+      caseSlug: "alora-crm",
+      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      imageAspect: "1660/850",
+      imageAlt: "ALORA CRM — Chatbot IA por WhatsApp",
+      badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
+      heading: {
+        es: "El chatbot con IA de ALORA CRM que responde y agenda por WhatsApp",
+        en: "ALORA CRM's AI chatbot that replies and books over WhatsApp",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos el chatbot con IA de ALORA CRM: responde leads por WhatsApp con flujos guiados, agenda reuniones automáticamente y centraliza cada conversación en un mismo panel, sin salir del CRM. Hoy está disponible como marca blanca para otras empresas.",
+        en: "We designed and built ALORA CRM's AI chatbot: it replies to leads over WhatsApp with guided flows, books meetings automatically and centralizes every conversation in one panel, without leaving the CRM. Now available as a white-label product for other companies.",
+      },
+      tags: {
+        es: ["Chatbot IA", "WhatsApp Integrado", "Software a Medida"],
+        en: ["AI Chatbot", "Integrated WhatsApp", "Custom Software"],
+      },
     },
-    tags: {
-      es: ["Chatbot IA", "Agente Conversacional", "Software a Medida"],
-      en: ["AI Chatbot", "Conversational Agent", "Custom Software"],
-    },
-  }],
+  ],
   "atencion-cliente-ia": [{
     caseSlug: "soy-lidia",
     image: "/images/case-studies/soy-lidia/hero.png",
