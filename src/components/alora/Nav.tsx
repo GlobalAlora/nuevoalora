@@ -15,6 +15,28 @@ interface Props {
   locale: Locale;
 }
 
+// LIDIA and ALORA CRM show up across multiple solution pages, so in the nav
+// menu they get a multi-tag category line instead of a single category, plus
+// a fixed display order/name for the whole case-studies list.
+const CASE_STUDY_MENU_ORDER = ["soy-lidia", "alora-crm", "autodux", "distrisal", "voutier", "alkemia", "castro-yeso"];
+
+const CASE_STUDY_MENU_OVERRIDES: Record<string, { name: string; category: { es: string; en: string } }> = {
+  "soy-lidia": {
+    name: "LIDIA",
+    category: {
+      es: "Chatbot IA, Agente IA Conversacional, App Web y Desarrollo de Software",
+      en: "AI Chatbot, AI Conversational Agent, Web App and Custom Software",
+    },
+  },
+  "alora-crm": {
+    name: "Solución CRM",
+    category: {
+      es: "Chatbot IA, Agente IA Conversacional, App Web y Desarrollo de Software",
+      en: "AI Chatbot, AI Conversational Agent, Web App and Custom Software",
+    },
+  },
+};
+
 const SOLUTION_LINKS = {
   es: [
     { label: "Desarrollo de Software", slug: "desarrollo-software", desc: "Software a medida para resolver problemas reales.", icon: "code", accent: "var(--turquoise)" },
@@ -82,7 +104,9 @@ export function Nav({ dict, locale }: Props) {
   const pathname = usePathname();
   const otherLocale = locale === "es" ? "en" : "es";
   const solutions = SOLUTION_LINKS[locale] ?? SOLUTION_LINKS.es;
-  const caseStudies = CASE_STUDIES;
+  const caseStudies = [...CASE_STUDIES].sort(
+    (a, b) => CASE_STUDY_MENU_ORDER.indexOf(a.slug) - CASE_STUDY_MENU_ORDER.indexOf(b.slug)
+  );
   const homeHref = `/${locale}`;
   const casosHref = `/${locale}/casos-de-exito`;
   const blogHref = `/${locale}/blog`;
@@ -324,7 +348,9 @@ export function Nav({ dict, locale }: Props) {
                     </div>
                     <div className="grid grid-cols-2 gap-1.5">
                       {caseStudies.map((cs) => {
-                        const cat = cs.category[locale] ?? cs.category.es;
+                        const override = CASE_STUDY_MENU_OVERRIDES[cs.slug];
+                        const cat = override ? (override.category[locale] ?? override.category.es) : (cs.category[locale] ?? cs.category.es);
+                        const displayName = override ? override.name : cs.client;
                         const accent = cs.theme.primary;
                         return (
                           <Link
@@ -335,9 +361,9 @@ export function Nav({ dict, locale }: Props) {
                             style={{ borderLeft: `2.5px solid ${accent}`, background: "rgba(255,255,255,0.02)" }}
                           >
                             <span className="truncate text-[13.5px] font-semibold text-white/90 transition-colors group-hover:text-white">
-                              {cs.client}
+                              {displayName}
                             </span>
-                            <span className="truncate text-[11.5px] font-medium" style={{ color: accent }}>
+                            <span className={`text-[11.5px] font-medium leading-snug ${override ? "" : "truncate"}`} style={{ color: accent }}>
                               {cat}
                             </span>
                           </Link>
