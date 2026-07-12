@@ -13,23 +13,14 @@ import { SolutionGraphic } from "@/components/shared/SolutionGraphics";
 import { ProjectsSection } from "./ProjectsSection";
 import { SolutionContactForm } from "@/components/shared/SolutionContactForm";
 import { ICONS as FEATURE_ICONS } from "@/lib/icons";
+import { CaseStudyHighlight, type CaseStudyHighlightItem } from "./CaseStudyHighlight";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-const CASE_STUDY_HIGHLIGHT: Record<string, {
-  caseSlug: string;
-  image: string;
-  imageAspect: string;
-  imageAlt: string;
-  frame?: "browser" | "phone";
-  badge: { es: string; en: string };
-  heading: { es: string; en: string };
-  body: { es: string; en: string };
-  tags: { es: string[]; en: string[] };
-}> = {
-  chatbots: {
+const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
+  chatbots: [{
     caseSlug: "soy-lidia",
     image: "/images/case-studies/soy-lidia/hero.png",
     imageAspect: "1600/1542",
@@ -47,8 +38,8 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
       es: ["Chatbot IA", "Agente Conversacional", "Software a Medida"],
       en: ["AI Chatbot", "Conversational Agent", "Custom Software"],
     },
-  },
-  "atencion-cliente-ia": {
+  }],
+  "atencion-cliente-ia": [{
     caseSlug: "soy-lidia",
     image: "/images/case-studies/soy-lidia/hero.png",
     imageAspect: "1600/1542",
@@ -66,8 +57,8 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
       es: ["Agente Conversacional IA", "Chatbot IA", "Software a Medida"],
       en: ["AI Conversational Agent", "AI Chatbot", "Custom Software"],
     },
-  },
-  ecommerce: {
+  }],
+  ecommerce: [{
     caseSlug: "autodux",
     image: "/images/case-studies/autodux/hero.png",
     imageAspect: "1144/694",
@@ -85,8 +76,8 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
       es: ["Marketplace", "Ecommerce a Medida", "Software a Medida"],
       en: ["Marketplace", "Custom Ecommerce", "Custom Software"],
     },
-  },
-  "desarrollo-web": {
+  }],
+  "desarrollo-web": [{
     caseSlug: "alkemia",
     image: "/images/case-studies/alkemia/hero.png",
     imageAspect: "1400/697",
@@ -104,8 +95,8 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
       es: ["Sitio Institucional", "WordPress a Medida", "Bilingüe ES/EN"],
       en: ["Institutional Website", "Custom WordPress", "Bilingual ES/EN"],
     },
-  },
-  "desarrollo-software": {
+  }],
+  "desarrollo-software": [{
     caseSlug: "soy-lidia",
     image: "/images/case-studies/soy-lidia/hero.png",
     imageAspect: "1600/1542",
@@ -123,27 +114,49 @@ const CASE_STUDY_HIGHLIGHT: Record<string, {
       es: ["Software a Medida", "Sistema de Gestión", "Dashboard de Reportes"],
       en: ["Custom Software", "Management System", "Reporting Dashboard"],
     },
-  },
-  "aplicaciones-web": {
-    caseSlug: "alora-crm",
-    image: "/images/case-studies/alora-crm/mobile-pipeline.png",
-    imageAspect: "390/795",
-    imageAlt: "ALORA CRM en celular",
-    frame: "phone",
-    badge: { es: "Caso de Éxito · Aplicaciones Web", en: "Case Study · Web Applications" },
-    heading: {
-      es: "Un CRM web que funciona igual de bien en el celular que en el escritorio.",
-      en: "A web CRM that works just as well on mobile as on desktop.",
+  }],
+  "aplicaciones-web": [
+    {
+      caseSlug: "alora-crm",
+      image: "/images/case-studies/alora-crm/mobile-pipeline.png",
+      imageAspect: "390/795",
+      imageAlt: "ALORA CRM en celular",
+      frame: "phone",
+      badge: { es: "Caso de Éxito · Aplicaciones Web", en: "Case Study · Web Applications" },
+      heading: {
+        es: "Un CRM web que funciona igual de bien en el celular que en el escritorio.",
+        en: "A web CRM that works just as well on mobile as on desktop.",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos ALORA CRM, una aplicación web de gestión comercial 100% responsive: pipeline, fichas de leads y WhatsApp con IA integrado, funcionando igual en desktop y en celular. Hoy está disponible como marca blanca para otras empresas.",
+        en: "We designed and built ALORA CRM, a fully responsive sales management web app: pipeline, lead cards and WhatsApp with built-in AI, working the same on desktop and mobile. Now available as a white-label product for other companies.",
+      },
+      tags: {
+        es: ["Aplicación Web", "100% Responsive", "Software a Medida"],
+        en: ["Web Application", "Fully Responsive", "Custom Software"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos ALORA CRM, una aplicación web de gestión comercial 100% responsive: pipeline, fichas de leads y WhatsApp con IA integrado, funcionando igual en desktop y en celular. Hoy está disponible como marca blanca para otras empresas.",
-      en: "We designed and built ALORA CRM, a fully responsive sales management web app: pipeline, lead cards and WhatsApp with built-in AI, working the same on desktop and mobile. Now available as a white-label product for other companies.",
+    {
+      caseSlug: "soy-lidia",
+      image: "/images/case-studies/soy-lidia/hero-mobile.png",
+      imageAspect: "1280/1560",
+      imageAlt: "LIDIA en celular",
+      frame: "phone",
+      badge: { es: "Caso de Éxito · Aplicaciones Web", en: "Case Study · Web Applications" },
+      heading: {
+        es: "Una aplicación web con agenda, reportes y sitio propio, lista desde el celular.",
+        en: "A web application with scheduling, reports and its own site, ready from your phone.",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos LIDIA, una aplicación web completa para consultorios de salud: agenda multi-profesional, reserva web, reportes de negocio y una página propia generada automáticamente para cada clínica — todo 100% responsive. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+        en: "We designed and built LIDIA, a complete web application for health clinics: multi-professional scheduling, web booking, business reports and an automatically generated site for each clinic — all fully responsive. Now in use in Argentina, Uruguay, Spain and Chile.",
+      },
+      tags: {
+        es: ["Aplicación Web", "100% Responsive", "Multi-Dispositivo"],
+        en: ["Web Application", "Fully Responsive", "Multi-Device"],
+      },
     },
-    tags: {
-      es: ["Aplicación Web", "100% Responsive", "Software a Medida"],
-      en: ["Web Application", "Fully Responsive", "Custom Software"],
-    },
-  },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -819,136 +832,7 @@ export default async function SolutionPage({ params }: Props) {
       {caseStudy ? (
         <section className="py-12">
           <div className="mx-auto max-w-7xl px-6">
-            <div
-              className="relative overflow-hidden rounded-[28px] p-7 sm:p-10 lg:p-12"
-              style={{
-                background: "linear-gradient(155deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015))",
-                border: "1px solid rgba(255,255,255,0.12)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.09), 0 40px 100px -30px rgba(0,0,0,0.65)",
-              }}
-            >
-              {/* Corner glows — color and depth without flattening the card */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl opacity-30"
-                style={{ background: accent }}
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full blur-3xl opacity-25"
-                style={{ background: accent2 }}
-              />
-              {/* Gradient-traced border ring — the "techy circuit" edge */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-[28px]"
-                style={{
-                  padding: "1px",
-                  background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 55%, transparent), transparent 42%, transparent 58%, color-mix(in oklab, ${accent2} 50%, transparent))`,
-                  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                  WebkitMaskComposite: "xor",
-                  maskComposite: "exclude",
-                }}
-              />
-
-              <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
-                {/* Text */}
-                <div className="text-center lg:text-left">
-                  <div
-                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[12px] font-bold uppercase tracking-wider text-white"
-                    style={{
-                      background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
-                      boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 10px 24px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
-                    }}
-                  >
-                    <svg viewBox="0 0 32 32" fill="none" className="h-3.5 w-3.5">
-                      <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" />
-                    </svg>
-                    {caseStudy.badge[l]}
-                  </div>
-                  <h2
-                    className="mt-6 text-balance text-white"
-                    style={{ fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}
-                  >
-                    {caseStudy.heading[l]}
-                  </h2>
-                  <p className="mx-auto mt-5 text-pretty lg:mx-0" style={{ maxWidth: "560px", fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.7)" }}>
-                    {caseStudy.body[l]}
-                  </p>
-                  <div className="mt-6 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-                    {caseStudy.tags[l].map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full px-3 py-1 text-[11.5px] font-medium text-white/70"
-                        style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-8 flex justify-center lg:justify-start">
-                    <Link
-                      href={`/${l}/casos-de-exito/${caseStudy.caseSlug}`}
-                      className="group inline-flex items-center gap-1 rounded-full py-1.5 pl-6 pr-1.5 text-[14.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
-                      style={{
-                        background: "linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))",
-                        boxShadow: `0 1px 0 rgba(255,255,255,0.16) inset, 0 16px 36px -14px color-mix(in oklab, ${accent} 60%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 45%, transparent)`,
-                      }}
-                    >
-                      {l === "es" ? "Leer caso completo" : "Read full case study"}
-                      <span
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform group-hover:translate-x-0.5"
-                        style={{ background: `linear-gradient(135deg, ${accent}, ${accent2})` }}
-                      >
-                        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12h14M13 6l6 6-6 6" />
-                        </svg>
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Case study image */}
-                {caseStudy.frame === "phone" ? (
-                  <div className="flex justify-center">
-                    <div
-                      className="w-full max-w-[280px] overflow-hidden rounded-[36px] border-[6px]"
-                      style={{ borderColor: "rgba(255,255,255,0.14)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
-                    >
-                      <div className="relative w-full" style={{ aspectRatio: caseStudy.imageAspect }}>
-                        <Image
-                          src={caseStudy.image}
-                          alt={caseStudy.imageAlt}
-                          fill
-                          sizes="280px"
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    className="overflow-hidden rounded-2xl border"
-                    style={{ borderColor: "rgba(255,255,255,0.12)", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
-                  >
-                    <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
-                    </div>
-                    <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: caseStudy.imageAspect }}>
-                      <Image
-                        src={caseStudy.image}
-                        alt={caseStudy.imageAlt}
-                        fill
-                        sizes="(max-width: 1024px) 90vw, 480px"
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+            <CaseStudyHighlight items={caseStudy} l={l} accent={accent} accent2={accent2} />
           </div>
         </section>
       ) : (
