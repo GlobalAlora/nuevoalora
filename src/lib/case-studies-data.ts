@@ -225,6 +225,22 @@ export const CASE_STUDIES: CaseStudyData[] = [
         src: "/images/case-studies/soy-lidia/inbox.png",
         alt: { es: "Panel de control de conversaciones con alertas de seguridad", en: "Conversation control panel with safety alerts" },
       },
+      {
+        src: "/images/case-studies/soy-lidia/web-reports.png",
+        alt: { es: "Dashboard de reportes con ingresos, especialidades y horas pico", en: "Reporting dashboard with revenue, specialties and peak hours" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/web-team.png",
+        alt: { es: "Gestión de profesionales, horarios y obras sociales", en: "Management of professionals, schedules and insurance providers" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/web-locations.png",
+        alt: { es: "Gestión de sedes con dirección, contacto y equipo por sucursal", en: "Location management with address, contact and team per branch" },
+      },
+      {
+        src: "/images/case-studies/soy-lidia/web-calendar.png",
+        alt: { es: "Calendario mensual de turnos por profesional", en: "Monthly appointment calendar by professional" },
+      },
     ],
     location: { es: "Argentina, Uruguay, España y Chile", en: "Argentina, Uruguay, Spain and Chile" },
     industry: { es: "Salud y bienestar (consultorios y clínicas)", en: "Health and wellness (clinics and practices)" },

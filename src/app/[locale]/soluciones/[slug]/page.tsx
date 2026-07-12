@@ -138,8 +138,8 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/hero-mobile.png",
-      imageAspect: "1280/1560",
+      image: "/images/case-studies/soy-lidia/web-reports.png",
+      imageAspect: "390/973",
       imageAlt: "LIDIA en celular",
       frame: "phone",
       badge: { es: "Caso de Éxito · Aplicaciones Web", en: "Case Study · Web Applications" },
