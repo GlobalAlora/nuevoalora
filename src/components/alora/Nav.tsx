@@ -306,32 +306,62 @@ export function Nav({ dict, locale }: Props) {
                 >
                   {/* Case studies grid */}
                   <div className="p-6">
-                    <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35">
-                      {locale === "es" ? "Proyectos reales" : "Real projects"}
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                        {locale === "es" ? "Proyectos reales" : "Real projects"}
+                      </div>
+                      <Link
+                        href={casosHref}
+                        onClick={() => setCasesOpen(false)}
+                        className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-semibold text-white shadow-lg transition-all hover:scale-[1.03]"
+                        style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric))" }}
+                      >
+                        {locale === "es" ? "Ver todos los casos" : "See all case studies"}
+                        <svg viewBox="0 0 16 16" fill="none" width="11" height="11">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-3 gap-2.5">
                       {caseStudies.map((cs) => {
                         const cat = cs.category[locale] ?? cs.category.es;
-                        const industry = cs.industry[locale] ?? cs.industry.es;
                         const accent = cs.theme.primary;
+                        const accent2 = cs.theme.secondary ?? cs.theme.primary;
                         return (
                           <Link
                             key={cs.slug}
                             href={`/${locale}/casos-de-exito/${cs.slug}`}
                             onClick={() => setCasesOpen(false)}
-                            className="group flex flex-col gap-2 rounded-xl p-3.5 transition-colors hover:bg-white/[0.05]"
+                            className="group flex flex-col overflow-hidden rounded-xl transition-colors hover:bg-white/[0.05]"
                             style={{ border: "1px solid rgba(255,255,255,0.07)" }}
                           >
-                            <span>
-                              <span className="block text-[14px] font-semibold text-white/90 transition-colors group-hover:text-white">{cs.client}</span>
-                              <span className="mt-0.5 block text-[11.5px] text-white/40">{industry}</span>
-                            </span>
-                            <span
-                              className="inline-flex w-fit items-center rounded-full px-2.5 py-1 text-[11px] font-medium"
-                              style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, color: accent }}
+                            <div
+                              className="relative aspect-[16/10] w-full overflow-hidden"
+                              style={{ background: `linear-gradient(135deg, color-mix(in oklab, ${accent} 30%, #0b0d14), color-mix(in oklab, ${accent2} 20%, #0b0d14))` }}
                             >
-                              {cat}
-                            </span>
+                              {cs.heroImage ? (
+                                <Image
+                                  src={cs.heroImage}
+                                  alt={cs.client}
+                                  fill
+                                  sizes="200px"
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                              ) : (
+                                <div className="absolute inset-0 flex items-center justify-center" style={{ color: accent }}>
+                                  <span className="h-6 w-6 opacity-80">{NAV_ICONS[cs.icon]}</span>
+                                </div>
+                              )}
+                            </div>
+                            <div className="p-2.5">
+                              <span className="block truncate text-[13px] font-semibold text-white/90 transition-colors group-hover:text-white">{cs.client}</span>
+                              <span
+                                className="mt-1.5 inline-flex w-fit items-center rounded-full px-2 py-0.5 text-[10px] font-medium"
+                                style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, color: accent }}
+                              >
+                                {cat}
+                              </span>
+                            </div>
                           </Link>
                         );
                       })}
@@ -376,19 +406,9 @@ export function Nav({ dict, locale }: Props) {
                     </a>
                     <div className="mt-1 border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
                       <Link
-                        href={casosHref}
-                        onClick={() => setCasesOpen(false)}
-                        className="flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
-                      >
-                        {locale === "es" ? "Ver todos los casos de éxito" : "See all case studies"}
-                        <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </Link>
-                      <Link
                         href={`/${locale}/servicios`}
                         onClick={() => setCasesOpen(false)}
-                        className="mt-2 flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
+                        className="flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
                       >
                         {locale === "es" ? "Ver todas las soluciones" : "See all solutions"}
                         <svg viewBox="0 0 16 16" fill="none" width="12" height="12">

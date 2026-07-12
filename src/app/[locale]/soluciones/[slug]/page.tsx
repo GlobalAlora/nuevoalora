@@ -58,63 +58,143 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
       en: ["AI Conversational Agent", "AI Chatbot", "Custom Software"],
     },
   }],
-  ecommerce: [{
-    caseSlug: "autodux",
-    image: "/images/case-studies/autodux/hero.png",
-    imageAspect: "1144/694",
-    imageAlt: "Autodux",
-    badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
-    heading: {
-      es: "Autodux: el marketplace que centraliza la compra y venta de autos",
-      en: "Autodux: the marketplace centralizing car buying and selling",
+  ecommerce: [
+    {
+      caseSlug: "distrisal",
+      imageAspect: "16/10",
+      imageAlt: "Distri-Sal",
+      badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
+      heading: {
+        es: "Distri-Sal: el ecommerce mayorista integrado en tiempo real con su sistema de gestión",
+        en: "Distri-Sal: the wholesale ecommerce integrated in real time with its management system",
+      },
+      body: {
+        es: "Integramos el ecommerce de Distri-Sal con Centum, su sistema de gestión: productos, stock, precios y pedidos sincronizados en tiempo real, con listas de precios personalizadas por cada cliente mayorista. Hoy vende sin fricción operativa adicional.",
+        en: "We integrated Distri-Sal's ecommerce with Centum, its management system: products, stock, prices and orders synced in real time, with personalized price lists for each wholesale client. Now selling with no extra operational friction.",
+      },
+      tags: {
+        es: ["Ecommerce Mayorista", "Integración en Tiempo Real", "WooCommerce"],
+        en: ["Wholesale Ecommerce", "Real-Time Integration", "WooCommerce"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos Autodux, un marketplace de compra y venta de autos: publicaciones para particulares y agencias, buscador con filtros, panel de gestión y contacto directo por WhatsApp con cada vendedor. Hoy centraliza la compra y venta de autos en Comodoro Rivadavia, Argentina.",
-      en: "We designed and built Autodux, a car marketplace: listings for individuals and agencies, search with filters, a management panel and direct WhatsApp contact with every seller. Now centralizing car buying and selling in Comodoro Rivadavia, Argentina.",
+    {
+      caseSlug: "voutier",
+      imageAspect: "16/10",
+      imageAlt: "Voutier Repuestos",
+      badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
+      heading: {
+        es: "Voutier: el ecommerce de autopartes que reemplazó una plataforma con caídas de hasta 12 horas",
+        en: "Voutier: the auto parts ecommerce that replaced a platform with outages of up to 12 hours",
+      },
+      body: {
+        es: "Construimos una plataforma de ecommerce robusta para Voutier Repuestos en WordPress + WooCommerce, con filtros avanzados por marca, modelo y año, y un checkout sin fricción. Hoy opera de forma estable, incluso en los picos de ventas.",
+        en: "We built a robust ecommerce platform for Voutier Repuestos on WordPress + WooCommerce, with advanced filters by make, model and year, and a frictionless checkout. Now running stable, even during sales peaks.",
+      },
+      tags: {
+        es: ["Ecommerce a Medida", "WooCommerce", "Filtros Avanzados"],
+        en: ["Custom Ecommerce", "WooCommerce", "Advanced Filters"],
+      },
     },
-    tags: {
-      es: ["Marketplace", "Ecommerce a Medida", "Software a Medida"],
-      en: ["Marketplace", "Custom Ecommerce", "Custom Software"],
+  ],
+  "desarrollo-web": [
+    {
+      caseSlug: "alkemia",
+      image: "/images/case-studies/alkemia/hero.png",
+      imageAspect: "1400/697",
+      imageAlt: "ALKEMIA",
+      badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
+      heading: {
+        es: "ALKEMIA: el sitio institucional que construyó su presencia digital en tech e IA",
+        en: "ALKEMIA: the institutional website that built its digital presence in tech and AI",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos el nuevo sitio institucional de ALKEMIA en WordPress, bilingüe en español e inglés: arquitectura pensada para conversión, copywriting con posicionamiento tech y SEO técnico desde el lanzamiento. Hoy representa su marca ante una audiencia en LATAM y mercados internacionales.",
+        en: "We designed and built ALKEMIA's new institutional website in WordPress, bilingual in Spanish and English: a conversion-focused architecture, copywriting with a tech positioning, and technical SEO from launch. Now representing the brand for a LATAM and international audience.",
+      },
+      tags: {
+        es: ["Sitio Institucional", "WordPress a Medida", "Bilingüe ES/EN"],
+        en: ["Institutional Website", "Custom WordPress", "Bilingual ES/EN"],
+      },
     },
-  }],
-  "desarrollo-web": [{
-    caseSlug: "alkemia",
-    image: "/images/case-studies/alkemia/hero.png",
-    imageAspect: "1400/697",
-    imageAlt: "ALKEMIA",
-    badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
-    heading: {
-      es: "ALKEMIA: el sitio institucional que construyó su presencia digital en tech e IA",
-      en: "ALKEMIA: the institutional website that built its digital presence in tech and AI",
+    {
+      caseSlug: "castro-yeso",
+      image: "/images/case-studies/castro-yeso/hero.png",
+      imageAspect: "1063/635",
+      imageAlt: "Castro Yeso",
+      badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
+      heading: {
+        es: "Castro Yeso: el sitio one page que reemplazó una web tradicional por una que convierte",
+        en: "Castro Yeso: the one-page site that replaced a traditional website with one built to convert",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos un sitio one page en WordPress para Castro Yeso, 100% optimizado para conversión por WhatsApp: galería de trabajos reales, testimonios y SEO técnico desde el lanzamiento. Hoy capta clientes en la zona de Carrasco, El Pinar y Canelones.",
+        en: "We designed and built a one-page WordPress site for Castro Yeso, fully optimized for WhatsApp conversion: a gallery of real work, testimonials and technical SEO from launch. Now capturing clients across the Carrasco, El Pinar and Canelones area.",
+      },
+      tags: {
+        es: ["Sitio One Page", "WordPress a Medida", "Optimizado para WhatsApp"],
+        en: ["One-Page Website", "Custom WordPress", "WhatsApp Optimized"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos el nuevo sitio institucional de ALKEMIA en WordPress, bilingüe en español e inglés: arquitectura pensada para conversión, copywriting con posicionamiento tech y SEO técnico desde el lanzamiento. Hoy representa su marca ante una audiencia en LATAM y mercados internacionales.",
-      en: "We designed and built ALKEMIA's new institutional website in WordPress, bilingual in Spanish and English: a conversion-focused architecture, copywriting with a tech positioning, and technical SEO from launch. Now representing the brand for a LATAM and international audience.",
+  ],
+  "desarrollo-software": [
+    {
+      caseSlug: "soy-lidia",
+      image: "/images/case-studies/soy-lidia/hero.png",
+      imageAspect: "1600/1542",
+      imageAlt: "Soy LIDIA",
+      badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
+      heading: {
+        es: "LIDIA: el software a medida que digitalizó la gestión de consultorios de salud",
+        en: "LIDIA: the custom software that digitized health clinic management",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos LIDIA, un sistema de gestión a medida para consultorios y clínicas de salud: agenda multi-profesional, cobro de señas, reportes de negocio en tiempo real y una web propia generada automáticamente para cada clínica. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+        en: "We designed and built LIDIA, a custom management system for health clinics and private practices: multi-professional scheduling, deposit collection, real-time business reports and an automatically generated website for each clinic. Now in use in Argentina, Uruguay, Spain and Chile.",
+      },
+      tags: {
+        es: ["Software a Medida", "Sistema de Gestión", "Dashboard de Reportes"],
+        en: ["Custom Software", "Management System", "Reporting Dashboard"],
+      },
     },
-    tags: {
-      es: ["Sitio Institucional", "WordPress a Medida", "Bilingüe ES/EN"],
-      en: ["Institutional Website", "Custom WordPress", "Bilingual ES/EN"],
+    {
+      caseSlug: "alora-crm",
+      image: "/images/case-studies/alora-crm/hero.png",
+      imageAspect: "1400/613",
+      imageAlt: "ALORA CRM",
+      badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
+      heading: {
+        es: "Un CRM a medida con pipeline automatizado, IA integrada y dashboard en tiempo real",
+        en: "A custom CRM with an automated pipeline, built-in AI and a real-time dashboard",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos ALORA CRM, un software de gestión comercial a medida: pipeline por etapas 100% automatizado, WhatsApp con IA integrado y dashboard en tiempo real. Hoy está disponible como marca blanca para otras empresas.",
+        en: "We designed and built ALORA CRM, a custom sales management software: a fully automated stage pipeline, WhatsApp with built-in AI and a real-time dashboard. Now available as a white-label product for other companies.",
+      },
+      tags: {
+        es: ["Software a Medida", "Pipeline Automatizado", "Dashboard en Tiempo Real"],
+        en: ["Custom Software", "Automated Pipeline", "Real-Time Dashboard"],
+      },
     },
-  }],
-  "desarrollo-software": [{
-    caseSlug: "soy-lidia",
-    image: "/images/case-studies/soy-lidia/hero.png",
-    imageAspect: "1600/1542",
-    imageAlt: "Soy LIDIA",
-    badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
-    heading: {
-      es: "LIDIA: el software a medida que digitalizó la gestión de consultorios de salud",
-      en: "LIDIA: the custom software that digitized health clinic management",
+    {
+      caseSlug: "autodux",
+      image: "/images/case-studies/autodux/hero.png",
+      imageAspect: "1144/694",
+      imageAlt: "Autodux",
+      badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
+      heading: {
+        es: "Autodux: la plataforma de software a medida que centraliza la compra y venta de autos",
+        en: "Autodux: the custom software platform centralizing car buying and selling",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos Autodux, una plataforma de software a medida construida desde cero: publicaciones, buscador con filtros y paneles de gestión para agencias y particulares. Hoy centraliza la compra y venta de autos en Comodoro Rivadavia, Argentina.",
+        en: "We designed and built Autodux, a custom software platform built from scratch: listings, search with filters and management panels for agencies and individuals. Now centralizing car buying and selling in Comodoro Rivadavia, Argentina.",
+      },
+      tags: {
+        es: ["Software a Medida", "MVP Escalable", "Panel de Gestión"],
+        en: ["Custom Software", "Scalable MVP", "Management Panel"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos LIDIA, un sistema de gestión a medida para consultorios y clínicas de salud: agenda multi-profesional, cobro de señas, reportes de negocio en tiempo real y una web propia generada automáticamente para cada clínica. Hoy está en uso en Argentina, Uruguay, España y Chile.",
-      en: "We designed and built LIDIA, a custom management system for health clinics and private practices: multi-professional scheduling, deposit collection, real-time business reports and an automatically generated website for each clinic. Now in use in Argentina, Uruguay, Spain and Chile.",
-    },
-    tags: {
-      es: ["Software a Medida", "Sistema de Gestión", "Dashboard de Reportes"],
-      en: ["Custom Software", "Management System", "Reporting Dashboard"],
-    },
-  }],
+  ],
   "aplicaciones-web": [
     {
       caseSlug: "alora-crm",

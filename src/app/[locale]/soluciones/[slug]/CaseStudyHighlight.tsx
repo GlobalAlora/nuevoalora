@@ -4,10 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
+import { HeroGraphic } from "@/components/shared/HeroInteractive";
 
 export interface CaseStudyHighlightItem {
   caseSlug: string;
-  image: string;
+  image?: string;
   imageAspect: string;
   imageAlt: string;
   frame?: "browser" | "phone";
@@ -28,6 +29,9 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
   const [index, setIndex] = useState(0);
   const caseStudy = items[index];
   const hasMultiple = items.length > 1;
+  // Fixed frame size across all slides — keeps the card from resizing when the
+  // active item's image has a different native aspect ratio than the others.
+  const frameAspect = items[0].imageAspect;
 
   const go = (next: number) => setIndex((next + items.length) % items.length);
 
@@ -173,14 +177,16 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
               className="w-full max-w-[280px] overflow-hidden rounded-[36px] border-[6px]"
               style={{ borderColor: "rgba(255,255,255,0.14)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
             >
-              <div className="relative w-full" style={{ aspectRatio: caseStudy.imageAspect }}>
-                <Image
-                  src={caseStudy.image}
-                  alt={caseStudy.imageAlt}
-                  fill
-                  sizes="280px"
-                  className="object-cover"
-                />
+              <div className="relative w-full" style={{ aspectRatio: frameAspect }}>
+                {caseStudy.image && (
+                  <Image
+                    src={caseStudy.image}
+                    alt={caseStudy.imageAlt}
+                    fill
+                    sizes="280px"
+                    className="object-cover"
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -194,14 +200,22 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
               <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
               <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
             </div>
-            <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: caseStudy.imageAspect }}>
-              <Image
-                src={caseStudy.image}
-                alt={caseStudy.imageAlt}
-                fill
-                sizes="(max-width: 1024px) 90vw, 480px"
-                className="object-contain"
-              />
+            <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: frameAspect }}>
+              {caseStudy.image ? (
+                <Image
+                  src={caseStudy.image}
+                  alt={caseStudy.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 480px"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="aspect-square w-[70%] opacity-95">
+                    <HeroGraphic accent={accent} accent2={accent2} />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

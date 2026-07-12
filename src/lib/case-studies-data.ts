@@ -206,42 +206,8 @@ export const CASE_STUDIES: CaseStudyData[] = [
     theme: { primary: "var(--violet)", secondary: "var(--electric)" },
     heroImage: "/images/case-studies/soy-lidia/hero.png",
     heroImageAspect: "1600/1542",
-    heroImageMobile: "/images/case-studies/soy-lidia/hero-mobile.png",
-    heroImageMobileAspect: "1280/1560",
-    screenshots: [
-      {
-        src: "/images/case-studies/soy-lidia/calendar.png",
-        alt: { es: "Agenda multi-profesional sincronizada con Google Calendar", en: "Multi-professional agenda synced with Google Calendar" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/web-generada.png",
-        alt: { es: "Página web generada automáticamente para cada clínica", en: "Automatically generated website for each clinic" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/booking-steps.png",
-        alt: { es: "Reserva guiada en pasos como canal de respaldo", en: "Step-by-step guided booking as a backup channel" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/inbox.png",
-        alt: { es: "Panel de control de conversaciones con alertas de seguridad", en: "Conversation control panel with safety alerts" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/web-reports.png",
-        alt: { es: "Dashboard de reportes con ingresos, especialidades y horas pico", en: "Reporting dashboard with revenue, specialties and peak hours" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/web-team.png",
-        alt: { es: "Gestión de profesionales, horarios y obras sociales", en: "Management of professionals, schedules and insurance providers" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/web-locations.png",
-        alt: { es: "Gestión de sedes con dirección, contacto y equipo por sucursal", en: "Location management with address, contact and team per branch" },
-      },
-      {
-        src: "/images/case-studies/soy-lidia/web-calendar.png",
-        alt: { es: "Calendario mensual de turnos por profesional", en: "Monthly appointment calendar by professional" },
-      },
-    ],
+    heroImageMobile: "/images/case-studies/soy-lidia/web-reports.png",
+    heroImageMobileAspect: "390/973",
     location: { es: "Argentina, Uruguay, España y Chile", en: "Argentina, Uruguay, Spain and Chile" },
     industry: { es: "Salud y bienestar (consultorios y clínicas)", en: "Health and wellness (clinics and practices)" },
     category: { es: "Producto SaaS / Agente de IA", en: "SaaS Product / AI Agent" },
@@ -302,6 +268,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
           { icon: "portal", title: "Página web generada automáticamente", body: "Cada clínica recibe un sitio propio con su marca, mapa, obras sociales y botón de reserva, sin diseñador ni una línea de código." },
           { icon: "search", title: "Reserva web como canal de respaldo", body: "Un formulario guiado en pasos para cuando WhatsApp no es una opción, sincronizado con la misma agenda." },
           { icon: "chart", title: "Reportes de negocio en tiempo real", body: "Ingresos, conversión, ocupación y demanda por especialidad, exportables a CSV." },
+          { icon: "mobile", title: "Panel de gestión 100% responsive", body: "Reportes, turnos, equipo y sedes: todo el panel de LIDIA funciona igual de bien desde el celular, para gestionar la clínica sin depender de una computadora." },
         ],
       },
       en: {
@@ -316,6 +283,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
           { icon: "portal", title: "Automatically generated website", body: "Every clinic gets its own site with its brand, map, insurance providers and a booking button — no designer, no code." },
           { icon: "search", title: "Web booking as a backup channel", body: "A step-by-step guided form for when WhatsApp isn't an option, synced with the same schedule." },
           { icon: "chart", title: "Real-time business reports", body: "Revenue, conversion, occupancy and demand by specialty, exportable to CSV." },
+          { icon: "mobile", title: "Fully responsive management panel", body: "Reports, appointments, team and locations: the entire LIDIA panel works just as well from a phone, so the clinic can be managed without depending on a computer." },
         ],
       },
     },
@@ -335,6 +303,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
           "Generación automática de sitio web propio para cada clínica, sin diseñador ni desarrollo a medida",
           "Un segundo canal de reserva por web, como respaldo si WhatsApp o Meta fallan",
           "Dashboard de reportes con ingresos, conversión, ocupación y demanda por especialidad",
+          "Panel de gestión 100% responsive: extremadamente útil para revisar turnos, reportes y equipo desde el celular",
           "Hoy en uso en consultorios y clínicas de Argentina, Uruguay, España y Chile, con potencial de expansión a más mercados",
         ],
       },
@@ -348,6 +317,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
           "Automatic website generation for each clinic, no designer or custom development needed",
           "A second web booking channel as backup if WhatsApp or Meta go down",
           "A reporting dashboard with revenue, conversion, occupancy and demand by specialty",
+          "A fully responsive management panel: extremely useful for checking appointments, reports and team from a phone",
           "Now in use at clinics and practices across Argentina, Uruguay, Spain and Chile, with potential to expand into more markets",
         ],
       },
