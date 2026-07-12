@@ -29,9 +29,9 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
   const [index, setIndex] = useState(0);
   const caseStudy = items[index];
   const hasMultiple = items.length > 1;
-  // Fixed frame size across all slides — keeps the card from resizing when the
-  // active item's image has a different native aspect ratio than the others.
-  const frameAspect = items[0].imageAspect;
+  // Fixed phone-frame size across all slides — keeps the card from resizing
+  // when the active item's image has a different native aspect ratio.
+  const phoneFrameAspect = items[0].imageAspect;
 
   const go = (next: number) => setIndex((next + items.length) % items.length);
 
@@ -113,7 +113,7 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
         </div>
       )}
 
-      <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
+      <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-stretch lg:gap-14">
         {/* Text */}
         <div className="text-center lg:text-left">
           <div
@@ -175,12 +175,12 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
 
         {/* Case study image */}
         {caseStudy.frame === "phone" ? (
-          <div className="flex justify-center">
+          <div className="flex justify-center lg:items-center">
             <div
               className="w-full max-w-[280px] overflow-hidden rounded-[36px] border-[6px]"
               style={{ borderColor: "rgba(255,255,255,0.14)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
             >
-              <div className="relative w-full" style={{ aspectRatio: frameAspect }}>
+              <div className="relative w-full" style={{ aspectRatio: phoneFrameAspect }}>
                 {caseStudy.image && (
                   <Image
                     src={caseStudy.image}
@@ -195,31 +195,24 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
           </div>
         ) : (
           <div
-            className="overflow-hidden rounded-2xl border"
-            style={{ borderColor: "rgba(255,255,255,0.12)", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
+            className="relative h-[280px] w-full overflow-hidden rounded-2xl border lg:h-full"
+            style={{ borderColor: "rgba(255,255,255,0.12)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
           >
-            <div className="flex items-center gap-1.5 px-4 py-3" style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
-            </div>
-            <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: frameAspect }}>
-              {caseStudy.image ? (
-                <Image
-                  src={caseStudy.image}
-                  alt={caseStudy.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 480px"
-                  className="object-contain"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="aspect-square w-[70%] opacity-95">
-                    <HeroGraphic accent={accent} accent2={accent2} />
-                  </div>
+            {caseStudy.image ? (
+              <Image
+                src={caseStudy.image}
+                alt={caseStudy.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 90vw, 480px"
+                className="object-contain"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="aspect-square w-[60%] opacity-95">
+                  <HeroGraphic accent={accent} accent2={accent2} />
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         )}
       </div>

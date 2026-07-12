@@ -60,25 +60,46 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
       },
     },
   ],
-  "atencion-cliente-ia": [{
-    caseSlug: "soy-lidia",
-    image: "/images/case-studies/soy-lidia/hero.png",
-    imageAspect: "1600/1542",
-    imageAlt: "Soy LIDIA",
-    badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
-    heading: {
-      es: "LIDIA: el agente conversacional con IA que resuelve consultas por WhatsApp, 24/7",
-      en: "LIDIA: the AI conversational agent that resolves inquiries over WhatsApp, 24/7",
+  "atencion-cliente-ia": [
+    {
+      caseSlug: "soy-lidia",
+      image: "/images/case-studies/soy-lidia/hero.png",
+      imageAspect: "1600/1542",
+      imageAlt: "Soy LIDIA",
+      badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
+      heading: {
+        es: "LIDIA: el agente conversacional con IA que resuelve consultas por WhatsApp, 24/7",
+        en: "LIDIA: the AI conversational agent that resolves inquiries over WhatsApp, 24/7",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos LIDIA, un agente conversacional con IA para consultorios y clínicas de salud: entiende lenguaje natural, resuelve consultas reales, agenda turnos y cobra señas automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+        en: "We designed and built LIDIA, an AI conversational agent for health clinics and private practices: it understands natural language, resolves real queries, books appointments and charges deposits automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+      },
+      tags: {
+        es: ["Agente Conversacional IA", "Chatbot IA", "Software a Medida"],
+        en: ["AI Conversational Agent", "AI Chatbot", "Custom Software"],
+      },
     },
-    body: {
-      es: "Diseñamos y desarrollamos LIDIA, un agente conversacional con IA para consultorios y clínicas de salud: entiende lenguaje natural, resuelve consultas reales, agenda turnos y cobra señas automáticamente por WhatsApp, sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
-      en: "We designed and built LIDIA, an AI conversational agent for health clinics and private practices: it understands natural language, resolves real queries, books appointments and charges deposits automatically over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+    {
+      caseSlug: "alora-crm",
+      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      imageAspect: "1660/850",
+      imageAlt: "ALORA CRM — Agente Conversacional IA por WhatsApp",
+      badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
+      heading: {
+        es: "El agente conversacional con IA de ALORA CRM que entiende y resuelve por WhatsApp",
+        en: "ALORA CRM's AI conversational agent that understands and resolves over WhatsApp",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos el agente conversacional con IA de ALORA CRM: entiende lenguaje natural, resuelve consultas reales de cada lead por WhatsApp y centraliza toda la conversación en un mismo panel, sin salir del CRM. Hoy está disponible como marca blanca para otras empresas.",
+        en: "We designed and built ALORA CRM's AI conversational agent: it understands natural language, resolves each lead's real queries over WhatsApp and centralizes the entire conversation in one panel, without leaving the CRM. Now available as a white-label product for other companies.",
+      },
+      tags: {
+        es: ["Agente Conversacional IA", "WhatsApp Integrado", "Software a Medida"],
+        en: ["AI Conversational Agent", "Integrated WhatsApp", "Custom Software"],
+      },
     },
-    tags: {
-      es: ["Agente Conversacional IA", "Chatbot IA", "Software a Medida"],
-      en: ["AI Conversational Agent", "AI Chatbot", "Custom Software"],
-    },
-  }],
+  ],
   ecommerce: [
     {
       caseSlug: "distrisal",
