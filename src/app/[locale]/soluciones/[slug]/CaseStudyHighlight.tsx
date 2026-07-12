@@ -129,13 +129,13 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
             {caseStudy.badge[l]}
           </div>
           <h2
-            className="mt-6 text-balance text-white [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden"
+            className="mt-6 text-balance text-white"
             style={{ fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em", minHeight: "2.16em" }}
           >
             {caseStudy.heading[l]}
           </h2>
           <p
-            className="mx-auto mt-5 text-pretty lg:mx-0 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5] overflow-hidden"
+            className="mx-auto mt-5 text-pretty lg:mx-0"
             style={{ maxWidth: "560px", fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.7)", minHeight: "8.25em" }}
           >
             {caseStudy.body[l]}
@@ -177,8 +177,8 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
         {caseStudy.frame === "phone" ? (
           <div className="flex justify-center lg:items-center">
             <div
-              className="w-full max-w-[280px] overflow-hidden rounded-[36px] border-[6px]"
-              style={{ borderColor: "rgba(255,255,255,0.14)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
+              className="relative w-full max-w-[300px] overflow-hidden rounded-2xl border"
+              style={{ borderColor: "rgba(255,255,255,0.12)", background: "#0b0d14", boxShadow: "0 30px 70px -24px rgba(0,0,0,0.55)" }}
             >
               <div className="relative w-full" style={{ aspectRatio: phoneFrameAspect }}>
                 {caseStudy.image && (
@@ -186,7 +186,7 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
                     src={caseStudy.image}
                     alt={caseStudy.imageAlt}
                     fill
-                    sizes="280px"
+                    sizes="300px"
                     className="object-contain"
                   />
                 )}
