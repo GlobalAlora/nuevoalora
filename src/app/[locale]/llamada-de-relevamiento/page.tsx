@@ -22,7 +22,11 @@ const META: Record<string, { title: string; description: string }> = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const m = META[locale] ?? META.es;
-  return { title: m.title, description: m.description };
+  return {
+    title: m.title,
+    description: m.description,
+    alternates: { canonical: "https://www.globalalora.com/es/llamada-de-relevamiento" },
+  };
 }
 
 export default async function LlamadaPage({ params }: Props) {

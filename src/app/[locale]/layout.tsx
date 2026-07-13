@@ -44,7 +44,7 @@ export async function generateMetadata({
     openGraph: {
       title: dict.meta.home.title,
       description: dict.meta.home.description,
-      url: `https://globalalora.com/${locale}`,
+      url: `https://www.globalalora.com/${locale}`,
       siteName: "ALORA",
       locale: locale === "es" ? "es_AR" : "en_US",
       type: "website",

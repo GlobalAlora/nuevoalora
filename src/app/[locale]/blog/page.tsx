@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Artículos sobre desarrollo de software, inteligencia artificial, automatización y ecommerce para empresas en crecimiento."
       : "Articles about software development, artificial intelligence, automation and ecommerce for growing businesses.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/blog` },
     openGraph: {
       title: isEs ? "Insights de ALORA" : "ALORA Insights",
       description: isEs

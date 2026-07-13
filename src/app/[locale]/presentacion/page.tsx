@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Somos Bruno y Walo, fundadores de Alora. Conocé nuestro equipo y la metodología que aplicamos en cada proyecto, de principio a fin."
       : "We're Bruno and Walo, founders of Alora. Meet our team and the methodology we apply to every project, from start to finish.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/presentacion` },
   };
 }
 

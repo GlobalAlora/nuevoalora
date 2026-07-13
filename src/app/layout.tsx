@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://globalalora.com"),
+  metadataBase: new URL("https://www.globalalora.com"),
   title: {
     default: "ALORA — Tecnología, Automatización e IA",
     template: "%s — ALORA",
@@ -59,8 +59,8 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "ALORA",
-    url: "https://globalalora.com",
-    logo: "https://globalalora.com/logo-nav-white.png",
+    url: "https://www.globalalora.com",
+    logo: "https://www.globalalora.com/logo-nav-white.png",
     description: "Agencia de desarrollo de software, automatización e inteligencia artificial para empresas en Latinoamérica.",
     email: "info@globalalora.com",
     sameAs: [

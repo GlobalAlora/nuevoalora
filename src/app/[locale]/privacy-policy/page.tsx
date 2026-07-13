@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "Conocé cómo ALORA recopila, usa y protege tus datos personales."
       : "Learn how ALORA collects, uses and protects your personal data.",
     robots: { index: true },
+    alternates: { canonical: `https://www.globalalora.com/${locale}/privacy-policy` },
   };
 }
 

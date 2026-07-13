@@ -17,12 +17,12 @@ interface Props {
   params: Promise<{ locale: string }>;
 }
 
-const OG_IMAGE = "https://globalalora.com/api/og";
+const OG_IMAGE = "https://www.globalalora.com/api/og";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isEs = locale === "es";
-  const url = `https://globalalora.com/${locale}`;
+  const url = `https://www.globalalora.com/${locale}`;
   const title = isEs
     ? "ALORA — Tecnología, Automatización e IA para empresas"
     : "ALORA — Technology, Automation and AI for businesses";
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: {
       canonical: url,
-      languages: { es: "https://globalalora.com/es", en: "https://globalalora.com/en" },
+      languages: { es: "https://www.globalalora.com/es", en: "https://www.globalalora.com/en" },
     },
     openGraph: {
       title,

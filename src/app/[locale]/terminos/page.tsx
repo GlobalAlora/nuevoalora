@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Términos y condiciones de uso de los servicios de ALORA."
       : "Terms and conditions for using ALORA's services.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/terminos` },
   };
 }
 

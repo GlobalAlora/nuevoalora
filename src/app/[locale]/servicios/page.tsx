@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 
 interface Props { params: Promise<{ locale: string }> }
 
-const OG = "https://globalalora.com/api/og";
+const OG = "https://www.globalalora.com/api/og";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    alternates: { canonical: `https://www.globalalora.com/${locale}/servicios` },
     openGraph: { title, description, images: [{ url: OG, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", title, description, images: [OG] },
   };

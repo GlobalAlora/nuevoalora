@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Información sobre el uso de cookies en el sitio web de ALORA."
       : "Information about cookie usage on the ALORA website.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/cookies` },
   };
 }
 

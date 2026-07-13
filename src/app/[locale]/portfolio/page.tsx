@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: locale === "es"
       ? "Proyectos reales en producción: sitios web, ecommerce, aplicaciones con IA y más."
       : "Real projects in production: websites, ecommerce, AI-powered apps and more.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/portfolio` },
   };
 }
 

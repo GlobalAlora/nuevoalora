@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isEs
       ? "Lo que dicen los clientes que ya trabajaron con ALORA en sus proyectos de software, IA y automatización."
       : "What clients who've already worked with ALORA on their software, AI and automation projects have to say.",
+    alternates: { canonical: `https://www.globalalora.com/${locale}/resenas` },
   };
 }
 

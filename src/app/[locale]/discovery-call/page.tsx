@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Free Discovery Call — ALORA",
     description: "Schedule a 20-minute call to analyze your project and discover how we can help you grow with technology, automation and AI.",
+    alternates: { canonical: "https://www.globalalora.com/en/discovery-call" },
   };
 }
 
