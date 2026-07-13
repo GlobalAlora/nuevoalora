@@ -407,7 +407,7 @@ export function Chatbot({ dict, locale }: Props) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={onKey}
             placeholder={t.inputPlaceholder}
-            className="flex-1 rounded-xl px-4 py-2.5 text-[16px] text-white/90 placeholder:text-white/25 outline-none"
+            className="flex-1 rounded-xl px-4 py-2.5 text-[16px] text-white/90 placeholder:text-white/25 outline-none transition-[border-color,box-shadow] duration-150 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_15%,transparent)]"
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
           />
           <button
