@@ -114,16 +114,20 @@ async function sendToMailerLite(data: LeadData): Promise<void> {
 
 /**
  * Submit a lead to all active destinations in parallel.
- * All destinations are fire-and-forget: MailerLite's subscribe endpoint is
- * a browser-facing JSONP form (not a server-to-server API) and returns 403
- * when called directly from the server, so it can't be the thing gating
- * whether the user sees a successful submission.
+ * All destinations run independently (none can block or fail the others):
+ * MailerLite's subscribe endpoint is a browser-facing JSONP form (not a
+ * server-to-server API) and returns 403 when called directly from the
+ * server, so it can't be the thing gating whether the user sees a
+ * successful submission. Each destination logs its own failure instead of
+ * disappearing silently, and the whole batch is awaited (not fire-and-forget)
+ * so the serverless function doesn't get frozen mid-flight before the
+ * requests actually complete.
  */
 export async function submitLead(data: LeadData): Promise<void> {
-  void Promise.allSettled([
-    sendToClay(data),
-    sendToMake(data),
-    sendToAloraCRM(data),
-    sendToMailerLite(data),
+  await Promise.allSettled([
+    sendToClay(data).catch((err) => console.error("[leads] sendToClay failed", err)),
+    sendToMake(data).catch((err) => console.error("[leads] sendToMake failed", err)),
+    sendToAloraCRM(data).catch((err) => console.error("[leads] sendToAloraCRM failed", err)),
+    sendToMailerLite(data).catch((err) => console.error("[leads] sendToMailerLite failed", err)),
   ]);
 }
