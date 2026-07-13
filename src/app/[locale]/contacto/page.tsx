@@ -38,11 +38,7 @@ export default async function ContactPage({ params }: Props) {
   const dict = await getDictionary(l);
 
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
-  const whatsappUrl = buildWhatsAppHref(
-    `/${l}/contacto`,
-    l,
-    l === "es" ? "Hola! Me gustaría obtener más información sobre sus servicios." : "Hello! I would like to get more information about your services."
-  );
+  const whatsappUrl = buildWhatsAppHref(`/${l}/contacto`, l);
 
   return (
     <>

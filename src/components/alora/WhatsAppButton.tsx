@@ -5,18 +5,14 @@ import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 export function WhatsAppButton({ locale }: { locale: string }) {
   const pathname = usePathname();
-  const message = locale === "es"
-    ? "Hola! Soy Lidia, la asistente virtual de ALORA 👋 ¿En qué puedo ayudarte hoy?"
-    : "Hi! I'm Lidia, ALORA's virtual assistant 👋 How can I help you today?";
-
-  const href = buildWhatsAppHref(pathname, locale, message);
+  const href = buildWhatsAppHref(pathname, locale);
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Hablar con Lidia por WhatsApp"
+      aria-label={locale === "es" ? "Hablar por WhatsApp" : "Chat on WhatsApp"}
       className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform duration-200 hover:scale-110"
       style={{ background: "#25D366", boxShadow: "0 4px 20px rgba(37,211,102,0.4)" }}
     >

@@ -40,10 +40,7 @@ export function ExitIntentPopup({ locale }: { locale: string }) {
   if (!visible) return null;
 
   const isEs = locale === "es";
-  const waMsg = isEs
-    ? "Hola! Me interesa conocer más sobre sus servicios."
-    : "Hi! I'd like to learn more about your services.";
-  const waHref = buildWhatsAppHref(pathname, locale, waMsg);
+  const waHref = buildWhatsAppHref(pathname, locale);
   const bookHref = `/${locale}/${isEs ? "llamada-de-relevamiento" : "discovery-call"}`;
 
   return (
