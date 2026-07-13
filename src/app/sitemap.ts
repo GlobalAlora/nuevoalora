@@ -22,6 +22,8 @@ const ROUTES: { path: string; freq: Freq; priority: number }[] = [
   // ── Casos de éxito (slugs reales en case-studies-data.ts) ────────────
   { path: "/casos-de-exito",                                     freq: "monthly", priority: 0.9 },
   { path: "/casos-de-exito/autodux",                             freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/soy-lidia",                           freq: "monthly", priority: 0.8 },
+  { path: "/casos-de-exito/alora-crm",                           freq: "monthly", priority: 0.8 },
   { path: "/casos-de-exito/castro-yeso",                         freq: "monthly", priority: 0.8 },
   { path: "/casos-de-exito/alkemia",                             freq: "monthly", priority: 0.8 },
   { path: "/casos-de-exito/distrisal",                           freq: "monthly", priority: 0.8 },
