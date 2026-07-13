@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { solutionContactSchema, type SolutionContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
 
@@ -21,6 +21,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "error">("idle");
   const router = useRouter();
+  const pathname = usePathname();
 
   const {
     register,
@@ -36,7 +37,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
       const res = await fetch("/api/solution-contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, locale, slug, source }),
+        body: JSON.stringify({ ...data, locale, slug, source, landingPage: pathname }),
       });
       if (!res.ok) throw new Error("error");
       reset();

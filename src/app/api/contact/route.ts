@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
 
   const data = parsed.data;
   const locale = (raw as Record<string, unknown>).locale === "en" ? "en" : "es";
+  const landingPage = typeof (raw as Record<string, unknown>).landingPage === "string" ? (raw as Record<string, unknown>).landingPage as string : undefined;
 
   try {
     await submitLead({
@@ -29,6 +30,7 @@ export async function POST(req: NextRequest) {
       locale,
       formId: "contact-form",
       fuente: "contact-form",
+      landingPage,
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

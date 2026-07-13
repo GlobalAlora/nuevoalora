@@ -13,6 +13,7 @@ import { SolutionContactForm } from "@/components/shared/SolutionContactForm";
 import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { ScreenshotsCarousel } from "@/components/shared/ScreenshotsCarousel";
 import { FeatureShowcase } from "@/components/shared/FeatureShowcase";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { ICONS } from "@/lib/icons";
 
 interface Props {
@@ -55,6 +56,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const solution = cs.solution[l];
   const scope = cs.scopeDelivered[l];
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+  const whatsappUrl = buildWhatsAppHref(`/${l}/casos-de-exito/${slug}`, l);
 
   const accent = cs.theme.primary;
   const accent2 = cs.theme.secondary ?? cs.theme.primary;
@@ -429,7 +431,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 </Link>
 
                 <a
-                  href="https://wa.me/5491124629452"
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-way flex items-center gap-4 rounded-2xl p-4 transition-all duration-300"

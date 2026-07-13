@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
@@ -18,6 +18,7 @@ export function ContactForm({ dict, locale }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   const {
     register,
@@ -32,7 +33,7 @@ export function ContactForm({ dict, locale }: Props) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, locale }),
+        body: JSON.stringify({ ...data, locale, landingPage: pathname }),
       });
       if (!res.ok) throw new Error("error");
       router.push(`/${locale}/thank-you`);

@@ -9,6 +9,7 @@ import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
 import { ICONS as NAV_ICONS } from "@/lib/icons";
 import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 interface Props {
   dict: Dictionary;
@@ -56,8 +57,6 @@ const SOLUTION_LINKS = {
   ],
 };
 
-
-const WHATSAPP_URL = "https://wa.me/5491124629452";
 
 export function Nav({ dict, locale }: Props) {
   const [scrolled, setScrolled] = useState(false);
@@ -112,6 +111,7 @@ export function Nav({ dict, locale }: Props) {
   const blogHref = `/${locale}/blog`;
   const contactHref = `/${locale}/contacto`;
   const callHref = locale === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+  const WHATSAPP_URL = buildWhatsAppHref(pathname, locale);
 
   // Routes whose URL slug is translated per locale, so switching language
   // needs an explicit mapping instead of just swapping the /es|/en prefix.

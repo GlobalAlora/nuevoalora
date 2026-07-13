@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { SpotlightCard } from "@/components/shared/SpotlightCard";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -20,6 +21,7 @@ export default async function CallBookedPage({ params }: Props) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
   const l = locale as Locale;
+  const whatsappUrl = buildWhatsAppHref(`/${l}/call-booked`, l);
 
   const steps = l === "es"
     ? [
@@ -144,7 +146,7 @@ export default async function CallBookedPage({ params }: Props) {
                   ? "Usá el link de reprogramar o cancelar que te llegó en el mail de confirmación."
                   : "Use the reschedule or cancel link from your confirmation email."}
               </p>
-              <a href="https://wa.me/5491124629452" target="_blank" rel="noopener noreferrer"
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[13.5px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"
                 style={{ background: "#25D366", boxShadow: "0 8px 32px rgba(37,211,102,0.35)" }}>
                 {l === "es" ? "Hablar por WhatsApp" : "Chat on WhatsApp"}

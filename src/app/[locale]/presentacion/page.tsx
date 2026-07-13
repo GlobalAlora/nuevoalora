@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { FounderPhoto } from "@/components/shared/FounderPhoto";
 import { ICONS } from "@/lib/icons";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -26,7 +27,6 @@ const BRUNO_LINKEDIN = "https://www.linkedin.com/in/brunopiorno/";
 const BRUNO_EMAIL = "mailto:somosglobalalora@gmail.com";
 const WALO_LINKEDIN = "https://www.linkedin.com/in/walidjalil/";
 const WALO_EMAIL = "mailto:somosglobalalora@gmail.com";
-const WHATSAPP_URL = "https://wa.me/5491124629452";
 
 const BRUNO_PHOTO = "/images/team/bruno.jpg";
 const WALO_PHOTO = "/images/team/walo.jpg";
@@ -117,6 +117,7 @@ export default async function PresentacionPage({ params }: Props) {
   const dict = await getDictionary(l);
   const isEs = l === "es";
   const callHref = isEs ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+  const WHATSAPP_URL = buildWhatsAppHref(`/${l}/presentacion`, l);
 
   const expect = isEs ? EXPECT_ES : EXPECT_EN;
   const capabilities = isEs ? CAPABILITIES_ES : CAPABILITIES_EN;

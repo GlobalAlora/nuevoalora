@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 const STORAGE_KEY = "alora_exit_popup_seen";
-const WA_NUMBER = "5491124629452";
 
 export function ExitIntentPopup({ locale }: { locale: string }) {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (sessionStorage.getItem(STORAGE_KEY)) return;
@@ -41,7 +43,7 @@ export function ExitIntentPopup({ locale }: { locale: string }) {
   const waMsg = isEs
     ? "Hola! Me interesa conocer más sobre sus servicios."
     : "Hi! I'd like to learn more about your services.";
-  const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`;
+  const waHref = buildWhatsAppHref(pathname, locale, waMsg);
   const bookHref = `/${locale}/${isEs ? "llamada-de-relevamiento" : "discovery-call"}`;
 
   return (

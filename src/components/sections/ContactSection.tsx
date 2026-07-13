@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/forms/ContactForm";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 interface Props {
   dict: Dictionary;
@@ -9,6 +10,7 @@ interface Props {
 
 export function ContactSection({ dict, locale }: Props) {
   const { contact } = dict;
+  const whatsappUrl = buildWhatsAppHref(`/${locale}`, locale);
 
   return (
     <section id="contacto" className="relative isolate overflow-hidden py-24 text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
@@ -64,7 +66,7 @@ export function ContactSection({ dict, locale }: Props) {
             <div className="mt-8">
               <p className="mb-3 text-[12px] uppercase tracking-[0.2em] text-white/35">{contact.orContact}</p>
               <a
-                href="https://wa.me/541124629452"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white/75 transition-all hover:border-white/20 hover:text-white"

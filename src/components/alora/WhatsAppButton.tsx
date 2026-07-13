@@ -1,13 +1,15 @@
 "use client";
 
-const WA_NUMBER = "5491124629452";
+import { usePathname } from "next/navigation";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 export function WhatsAppButton({ locale }: { locale: string }) {
+  const pathname = usePathname();
   const message = locale === "es"
     ? "Hola! Soy Lidia, la asistente virtual de ALORA 👋 ¿En qué puedo ayudarte hoy?"
     : "Hi! I'm Lidia, ALORA's virtual assistant 👋 How can I help you today?";
 
-  const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+  const href = buildWhatsAppHref(pathname, locale, message);
 
   return (
     <a

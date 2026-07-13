@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
   const locale = extra.locale === "en" ? "en" : "es";
   const slug = typeof extra.slug === "string" ? extra.slug : "solution";
   const source = typeof extra.source === "string" ? extra.source : "solucion";
+  const landingPage = typeof extra.landingPage === "string" ? extra.landingPage : undefined;
 
   try {
     await submitLead({
@@ -31,6 +32,7 @@ export async function POST(req: NextRequest) {
       locale,
       formId: "solution-contact-form",
       fuente: `${source}-${slug}`,
+      landingPage,
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

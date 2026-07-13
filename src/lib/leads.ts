@@ -15,6 +15,8 @@ export interface LeadData {
   formId: string;
   fuente?: string;
   locale?: string;
+  /** Full path of the page the form was submitted from, e.g. "/es/soluciones/chatbots". */
+  landingPage?: string;
 }
 
 const CLAY_WEBHOOK =
@@ -42,6 +44,7 @@ async function sendToClay(data: LeadData): Promise<void> {
       telefono: data.telefono ?? "",
       empresa: data.empresa ?? "",
       consulta: data.mensaje,
+      landing_page: data.landingPage ?? "",
       fecha_ingreso: new Date().toISOString(),
     }),
   });
@@ -59,6 +62,7 @@ async function sendToMake(data: LeadData): Promise<void> {
       empresa: data.empresa ?? "",
       consulta: data.mensaje,
       fuente: data.fuente ?? data.formId,
+      landing_page: data.landingPage ?? "",
     }),
   });
 }
@@ -77,6 +81,7 @@ async function sendToAloraCRM(data: LeadData): Promise<void> {
       mensaje: data.mensaje,
       formId: data.formId,
       fuente: data.fuente ?? data.formId,
+      landing_page: data.landingPage ?? "",
     }),
   });
 }
@@ -94,6 +99,7 @@ async function sendToMailerLite(data: LeadData): Promise<void> {
     "fields[website]": data.website ?? "",
     "fields[company]": data.empresa ?? "",
     "fields[consulta]": data.mensaje,
+    "fields[landing_page]": data.landingPage ?? "",
     "ml-submit": "1",
   });
 

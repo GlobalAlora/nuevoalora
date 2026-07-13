@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 
 interface Props { params: Promise<{ locale: string }> }
@@ -37,7 +38,11 @@ export default async function ContactPage({ params }: Props) {
   const dict = await getDictionary(l);
 
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
-  const whatsappUrl = `https://api.whatsapp.com/send/?phone=${encodeURIComponent("+541124629452")}&text=${encodeURIComponent(l === "es" ? "Hola! Me gustaría obtener más información sobre sus servicios." : "Hello! I would like to get more information about your services.")}&type=phone_number&app_absent=0`;
+  const whatsappUrl = buildWhatsAppHref(
+    `/${l}/contacto`,
+    l,
+    l === "es" ? "Hola! Me gustaría obtener más información sobre sus servicios." : "Hello! I would like to get more information about your services."
+  );
 
   return (
     <>
