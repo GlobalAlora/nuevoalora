@@ -1010,6 +1010,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
     date: "2026-05-25",
     category: { es: "WhatsApp", en: "WhatsApp" },
     readTime: 8,
+    image: "/images/blog/chatbot-clinicas-turnos-whatsapp.png",
     content: {
       es: `
 ## El problema silencioso de las clínicas: los turnos que se pierden fuera del horario
@@ -1170,6 +1171,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
     date: "2026-05-22",
     category: { es: "Automatización", en: "Automation" },
     readTime: 9,
+    image: "/images/blog/automatizacion-ia-pymes-casos.png",
     content: {
       es: `
 ## El problema que frena a las PyMEs para crecer
@@ -1324,6 +1326,7 @@ Want to know which processes in your business you could automate first? At ALORA
     date: "2026-05-20",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 8,
+    image: "/images/blog/cuanto-cuesta-chatbot-ia.png",
     content: {
       es: `
 ## Por qué los precios de chatbots varían tanto
@@ -1484,6 +1487,7 @@ Want a real quote for your business? At ALORA we run free assessments before quo
     date: "2026-05-15",
     category: { es: "Automatización", en: "Automation" },
     readTime: 7,
+    image: "/images/blog/chatbot-whatsapp-para-empresas.png",
     content: {
       es: `
 ## ¿Qué es un chatbot de WhatsApp para empresas?
@@ -1704,6 +1708,7 @@ Schedule a [free 20-minute call](/en/contacto) to evaluate whether a WhatsApp ch
     date: "2026-04-20",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 6,
+    image: "/images/blog/ia-automatizacion-negocios.png",
     content: {
       es: `
 ## La mayoría está usando la IA mal
