@@ -7,7 +7,7 @@ import Image from "next/image";
 import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { getBlogPost, BLOG_POSTS } from "@/lib/blog-data";
+import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
 
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
@@ -60,6 +60,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   const htmlContent = renderMarkdown(post.content[langKey]);
   const faqItems = post.faq?.[langKey];
+  const relatedPosts = getRelatedPosts(slug, langKey);
+  const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
 
   const siteUrl = "https://www.globalalora.com";
   const pageUrl = `${siteUrl}/${l}/blog/${slug}`;
@@ -197,6 +199,45 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           )}
 
+          {/* Related posts */}
+          {relatedPosts.length > 0 && (
+            <div className="mt-14">
+              <h2 className="text-[22px] font-bold text-white mb-6" style={{ letterSpacing: "-0.025em" }}>
+                {isEs ? "Te puede interesar" : "You might also like"}
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {relatedPosts.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    href={`/${l}/blog/${rp.slug}`}
+                    className="group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    {rp.image ? (
+                      <div className="relative h-28 overflow-hidden">
+                        <Image
+                          src={rp.image}
+                          alt={rp.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-28" style={{ background: "radial-gradient(ellipse at 30% 50%, color-mix(in oklab, var(--turquoise) 16%, transparent), transparent 70%), oklch(0.15 0.015 260)" }} />
+                    )}
+                    <div className="flex flex-1 flex-col p-4">
+                      <span className="mb-2 text-[10.5px] font-semibold uppercase tracking-wider text-white/45">{rp.category}</span>
+                      <h3 className="text-[13.5px] font-semibold leading-snug text-white group-hover:text-[var(--turquoise)] transition-colors">
+                        {rp.title}
+                      </h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* CTA */}
           <div
             className="mt-16 rounded-2xl p-8 text-center"
@@ -210,16 +251,25 @@ export default async function BlogPostPage({ params }: Props) {
                 ? "Hablamos sobre tu proyecto y cómo podemos ayudarte."
                 : "Let's talk about your project and how we can help."}
             </p>
-            <Link
-              href={`/${l}/contacto`}
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
-              style={{
-                background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
-                boxShadow: "0 6px 24px color-mix(in oklab, var(--turquoise) 30%, transparent)",
-              }}
-            >
-              {isEs ? "Contactar a ALORA" : "Contact ALORA"}
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={callUrl}
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
+                style={{
+                  background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
+                  boxShadow: "0 6px 24px color-mix(in oklab, var(--turquoise) 30%, transparent)",
+                }}
+              >
+                {isEs ? "Reservar llamada gratuita" : "Book a free call"}
+              </Link>
+              <Link
+                href={`/${l}/contacto`}
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)" }}
+              >
+                {isEs ? "Contactar a ALORA" : "Contact ALORA"}
+              </Link>
+            </div>
           </div>
         </div>
       </main>

@@ -13,6 +13,8 @@ export interface BlogPost {
   image?: string;
   content: { es: string; en: string };
   faq?: { es: BlogFaqItem[]; en: BlogFaqItem[] };
+  /** Slugs of related posts to link at the end of the article, most relevant first. */
+  relatedSlugs?: string[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -29,6 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2024-11-15",
     category: { es: "Ecommerce", en: "Ecommerce" },
     readTime: 8,
+    relatedSlugs: ["landing-page-vs-sitio-web", "5-automatizaciones-email-marketing-ecommerce", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
 ## Introducción
@@ -173,6 +176,7 @@ There's no universal answer. The best platform is the one that best fits your ne
     date: "2024-12-08",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 6,
+    relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "agente-ia-atencion-cliente", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
 ## ¿Qué es un agente de IA?
@@ -296,6 +300,7 @@ At ALORA we design and implement custom AI agents for businesses of all sizes. I
     date: "2025-01-20",
     category: { es: "Automatización", en: "Automation" },
     readTime: 7,
+    relatedSlugs: ["automatizacion-ia-pymes-casos", "5-automatizaciones-email-marketing-ecommerce", "ia-automatizacion-negocios"],
     content: {
       es: `
 ## ¿Qué es Make?
@@ -452,6 +457,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 10,
     image: "/images/blog/chatbot-vs-agente-conversacional-ia.png",
+    relatedSlugs: ["que-es-un-agente-ia", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
     content: {
       es: `
 ## La confusión entre "chatbot" y "agente de IA"
@@ -643,6 +649,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 9,
     image: "/images/blog/mi-empresa-necesita-inteligencia-artificial.png",
+    relatedSlugs: ["que-es-un-agente-ia", "automatizacion-ia-pymes-casos", "ia-automatizacion-negocios"],
     content: {
       es: `
 ## No toda empresa necesita IA (y eso está bien)
@@ -822,6 +829,7 @@ At ALORA we help businesses identify where to apply AI for real impact, without 
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     image: "/images/blog/agente-ia-atencion-cliente.png",
     readTime: 7,
+    relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-clinicas-turnos-whatsapp", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
       es: `
 ## ¿Qué es un agente de IA para atención al cliente?
@@ -1011,6 +1019,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
     category: { es: "WhatsApp", en: "WhatsApp" },
     readTime: 8,
     image: "/images/blog/chatbot-clinicas-turnos-whatsapp.png",
+    relatedSlugs: ["chatbot-whatsapp-para-empresas", "agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia"],
     content: {
       es: `
 ## El problema silencioso de las clínicas: los turnos que se pierden fuera del horario
@@ -1172,6 +1181,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
     category: { es: "Automatización", en: "Automation" },
     readTime: 9,
     image: "/images/blog/automatizacion-ia-pymes-casos.png",
+    relatedSlugs: ["automatizacion-empresas-make", "ia-automatizacion-negocios", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
 ## El problema que frena a las PyMEs para crecer
@@ -1327,6 +1337,7 @@ Want to know which processes in your business you could automate first? At ALORA
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 8,
     image: "/images/blog/cuanto-cuesta-chatbot-ia.png",
+    relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
       es: `
 ## Por qué los precios de chatbots varían tanto
@@ -1488,6 +1499,7 @@ Want a real quote for your business? At ALORA we run free assessments before quo
     category: { es: "Automatización", en: "Automation" },
     readTime: 7,
     image: "/images/blog/chatbot-whatsapp-para-empresas.png",
+    relatedSlugs: ["chatbot-clinicas-turnos-whatsapp", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
     content: {
       es: `
 ## ¿Qué es un chatbot de WhatsApp para empresas?
@@ -1709,6 +1721,7 @@ Schedule a [free 20-minute call](/en/contacto) to evaluate whether a WhatsApp ch
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 6,
     image: "/images/blog/ia-automatizacion-negocios.png",
+    relatedSlugs: ["automatizacion-ia-pymes-casos", "mi-empresa-necesita-inteligencia-artificial", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
       es: `
 ## La mayoría está usando la IA mal
@@ -1909,6 +1922,7 @@ At Alora we build these automations with you, step by step. We don't sell you co
     date: "2026-03-25",
     category: { es: "Ecommerce", en: "Ecommerce" },
     readTime: 8,
+    relatedSlugs: ["tienda-nube-vs-woocommerce", "automatizacion-empresas-make", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
 ## Resumen breve
@@ -2271,6 +2285,7 @@ If you want to analyze what's missing in your store and how to implement strateg
     date: "2026-02-24",
     category: { es: "Desarrollo Web", en: "Web Development" },
     readTime: 8,
+    relatedSlugs: ["tienda-nube-vs-woocommerce", "guia-seo-tecnico-2026-atraer-clientes", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
 ## Introducción
@@ -2553,6 +2568,7 @@ If you're not sure which is the best option for your case, we can help you figur
     date: "2026-02-06",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 3,
+    relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "tendencias-seo-para-desarrolladores", "que-es-un-agente-ia"],
     content: {
       es: `
 ## El problema de la interpretación sin contexto
@@ -2643,6 +2659,7 @@ At ALORA we offer analysis, writing, implementation, and validation of llms.txt 
     date: "2026-01-21",
     category: { es: "SEO", en: "SEO" },
     readTime: 4,
+    relatedSlugs: ["tendencias-seo-para-desarrolladores", "llms-txt-contexto-para-interpretacion-ia", "landing-page-vs-sitio-web"],
     content: {
       es: `
 ## ¿Tu sitio web es un folleto digital o un vendedor incansable?
@@ -2729,6 +2746,7 @@ Let's book a free call to analyze your business model and define the digital pie
     date: "2025-09-04",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 6,
+    relatedSlugs: ["mejores-plugins-wordpress-2025", "guia-seo-tecnico-2026-atraer-clientes", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
 ## ¿Tu web en WordPress trabaja para vos o vos trabajás para ella?
@@ -2889,6 +2907,7 @@ Leave us your details and we'll contact you within 24 hours with a personalized 
     date: "2025-07-15",
     category: { es: "WordPress", en: "WordPress" },
     readTime: 3,
+    relatedSlugs: ["php-8-2-en-wordpress", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
 ## ¿Qué incluye WordPress 6.8.2?
@@ -2995,6 +3014,7 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
     date: "2025-06-17",
     category: { es: "SEO", en: "SEO" },
     readTime: 2,
+    relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "llms-txt-contexto-para-interpretacion-ia", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
 El SEO técnico es fundamental en proyectos modernos. Google prioriza la velocidad, accesibilidad y estructura semántica.
@@ -3069,6 +3089,7 @@ Leave us your details and we'll get back to you within 24 hours with a personali
     date: "2025-06-17",
     category: { es: "WordPress", en: "WordPress" },
     readTime: 3,
+    relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "php-8-2-en-wordpress", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
 Guía avanzada y actualizada para proteger tu sitio WordPress frente a amenazas modernas, plugins y ciberataques.
@@ -3157,6 +3178,7 @@ Google prioritizes secure sites (HTTPS, malware-free, spam-free). Compromised si
     date: "2025-06-17",
     category: { es: "WordPress", en: "WordPress" },
     readTime: 3,
+    relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
 ¿Conviene actualizar WordPress a PHP 8.2? ¡Definitivamente sí! PHP 8.2 es la versión más moderna y segura, y trae mejoras que pueden acelerar y proteger tu web. Pero hay detalles clave para evitar errores y aprovechar todo su potencial.
@@ -3255,6 +3277,7 @@ If you need help migrating your site safely, [let's talk](/en/contacto).
     date: "2025-06-17",
     category: { es: "WordPress", en: "WordPress" },
     readTime: 2,
+    relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "php-8-2-en-wordpress"],
     content: {
       es: `
 ¿Buscás potenciar tu web WordPress y no sabés qué plugins elegir? En 2025, la oferta es enorme, pero solo algunos realmente marcan la diferencia en SEO, velocidad y seguridad. Aquí tenés una selección probada y consejos para sacarles el máximo partido.
@@ -3316,6 +3339,7 @@ If you need help choosing and implementing the right plugins for your project, [
     category: { es: "CRM", en: "CRM" },
     readTime: 10,
     image: "/images/blog/que-es-un-crm-y-por-que-lo-necesita-tu-empresa.png",
+    relatedSlugs: ["agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia", "ia-automatizacion-negocios"],
     content: {
       es: `
 ## Introducción
@@ -3495,6 +3519,27 @@ If you're thinking about implementing or improving your company's CRM, [let's ta
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
+  slug: string;
+  title: string;
+  category: string;
+  readTime: number;
+  image?: string;
+}> {
+  const post = getBlogPost(slug);
+  if (!post?.relatedSlugs) return [];
+  return post.relatedSlugs
+    .map((s) => getBlogPost(s))
+    .filter((p): p is BlogPost => Boolean(p))
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title[locale],
+      category: p.category[locale],
+      readTime: p.readTime,
+      image: p.image,
+    }));
 }
 
 export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
