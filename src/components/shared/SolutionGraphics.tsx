@@ -133,7 +133,7 @@ function ChromeBar({ label, accent }: { label?: string; accent?: string }) {
       <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
       <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
       <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
-      {label && <span className="ml-2 text-[10.5px] text-white/35">{label}</span>}
+      {label && <span className="ml-2 text-[10.5px] text-white/50">{label}</span>}
       {accent && <span className="sg-live ml-auto flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-wider" style={{ color: accent }}><span className="h-1.5 w-1.5 rounded-full" style={{ background: accent }} />live</span>}
     </div>
   );
@@ -252,7 +252,7 @@ function WebBuilderGraphic({ accent, accent2, locale }: VariantProps) {
         </svg>
         <span className="absolute text-[12px] font-bold text-white">98</span>
       </div>
-      <span className="sg-float absolute -right-2 top-[52px] text-[8px] font-medium uppercase tracking-wider text-white/30">{t.score}</span>
+      <span className="sg-float absolute -right-2 top-[52px] text-[8px] font-medium uppercase tracking-wider text-white/50">{t.score}</span>
 
       {/* floating SEO badge */}
       <div
@@ -421,7 +421,7 @@ function ChatbotGraphic({ accent, accent2, locale }: VariantProps) {
             {[0, 1, 2].map((i) => (
               <span key={i} className="h-1.5 rounded-full transition-all" style={{ width: i === 1 ? "16px" : "6px", background: i === 1 ? accent : "rgba(255,255,255,0.18)" }} />
             ))}
-            <span className="ml-1.5 text-[10px] text-white/35">{t.step}</span>
+            <span className="ml-1.5 text-[10px] text-white/50">{t.step}</span>
           </div>
         </div>
       </SpotFrame>

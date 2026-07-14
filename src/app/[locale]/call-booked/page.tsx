@@ -75,7 +75,7 @@ export default async function CallBookedPage({ params }: Props) {
 
             <div className="mt-9 flex flex-col items-center gap-4 lg:items-start">
               <div className="flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
-                <span className="text-[12px] text-white/35">{l === "es" ? "Seguinos:" : "Follow us:"}</span>
+                <span className="text-[12px] text-white/50">{l === "es" ? "Seguinos:" : "Follow us:"}</span>
                 <a href="https://www.linkedin.com/company/aloraglobal" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[12px] text-white/55 transition-all hover:border-white/25 hover:text-white"
                   style={{ borderColor: "rgba(255,255,255,0.09)", background: "rgba(255,255,255,0.03)" }}>
@@ -95,7 +95,7 @@ export default async function CallBookedPage({ params }: Props) {
               </div>
 
               <Link href={`/${l}`}
-                className="inline-flex items-center gap-2 text-[13px] text-white/35 transition-colors hover:text-white/70">
+                className="inline-flex items-center gap-2 text-[13px] text-white/50 transition-colors hover:text-white/70">
                 ← {l === "es" ? "Volver al inicio" : "Back to home"}
               </Link>
             </div>
@@ -148,7 +148,7 @@ export default async function CallBookedPage({ params }: Props) {
               </p>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[13.5px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"
-                style={{ background: "#25D366", boxShadow: "0 8px 32px rgba(37,211,102,0.35)" }}>
+                style={{ background: "#0D8050", boxShadow: "0 8px 32px rgba(37,211,102,0.35)" }}>
                 {l === "es" ? "Hablar por WhatsApp" : "Chat on WhatsApp"}
               </a>
             </SpotlightCard>

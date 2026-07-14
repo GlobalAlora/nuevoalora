@@ -118,7 +118,7 @@ export function ExitIntentPopup({ locale }: { locale: string }) {
               {isEs ? "Reservar sesión gratuita" : "Book a free session"}
             </Link>
 
-            <p className="mb-3 text-[12px] text-white/35">
+            <p className="mb-3 text-[12px] text-white/50">
               {isEs ? "o escribinos directo" : "or message us directly"}
             </p>
 
@@ -127,7 +127,7 @@ export function ExitIntentPopup({ locale }: { locale: string }) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-full py-3 text-[15px] font-semibold text-white transition-all hover:scale-[1.02]"
-              style={{ background: "#25D366" }}
+              style={{ background: "#0D8050" }}
             >
               <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor">
                 <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.734 5.47 2.018 7.773L0 32l8.466-2.018A15.93 15.93 0 0 0 16 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm7.27 20.368c-.398-.2-2.355-1.162-2.72-1.294-.365-.133-.631-.2-.897.2-.266.398-1.03 1.294-1.263 1.56-.233.265-.465.3-.863.1-.398-.2-1.68-.619-3.2-1.974-1.183-1.055-1.981-2.358-2.214-2.756-.233-.398-.025-.613.175-.812.18-.179.398-.465.597-.698.2-.233.266-.398.398-.664.133-.266.067-.498-.033-.698-.1-.2-.897-2.16-1.228-2.956-.323-.775-.65-.67-.897-.682l-.763-.013c-.266 0-.697.1-.063 1.063.632.963 2.292 3.52 2.292 3.52s2.36 3.92 7.258 5.414c1.012.348 1.802.555 2.416.71.014.003 1.014.195 1.016.196.798.133 1.53.114 2.107-.013.644-.142 1.98-.81 2.261-1.592.282-.78.282-1.45.198-1.592-.083-.142-.315-.225-.664-.365z" />
@@ -137,7 +137,7 @@ export function ExitIntentPopup({ locale }: { locale: string }) {
 
             <button
               onClick={close}
-              className="mt-4 text-[12px] text-white/35 underline decoration-white/20 underline-offset-2 transition-colors hover:text-white/60"
+              className="mt-4 text-[12px] text-white/50 underline decoration-white/20 underline-offset-2 transition-colors hover:text-white/60"
             >
               {isEs ? "No gracias, me la pierdo" : "No thanks, I'll pass"}
             </button>

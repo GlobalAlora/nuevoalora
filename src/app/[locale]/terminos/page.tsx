@@ -32,7 +32,7 @@ export default async function TerminosPage({ params }: Props) {
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
         <div className="mx-auto max-w-3xl px-6">
           <div className="mb-10">
-            <p className="text-[11px] uppercase tracking-widest text-white/30 mb-3">Legal</p>
+            <p className="text-[11px] uppercase tracking-widest text-white/50 mb-3">Legal</p>
             <h1 className="text-[36px] font-bold text-white mb-4" style={{ letterSpacing: "-0.03em" }}>
               {isEs ? "Términos y Condiciones" : "Terms and Conditions"}
             </h1>

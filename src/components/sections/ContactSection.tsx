@@ -64,7 +64,7 @@ export function ContactSection({ dict, locale }: Props) {
 
             {/* Alt CTA — WhatsApp */}
             <div className="mt-8">
-              <p className="mb-3 text-[12px] uppercase tracking-[0.2em] text-white/35">{contact.orContact}</p>
+              <p className="mb-3 text-[12px] uppercase tracking-[0.2em] text-white/50">{contact.orContact}</p>
               <a
                 href={whatsappUrl}
                 target="_blank"

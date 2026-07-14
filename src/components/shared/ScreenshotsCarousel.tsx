@@ -45,7 +45,7 @@ export function ScreenshotsCarousel({ screenshots, locale, accent, accent2 }: Pr
           <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#ff5f57" }} />
           <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#febc2e" }} />
           <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#28c840" }} />
-          <span className="ml-3 truncate text-[12px] text-white/35">{screenshots[index].alt[locale]}</span>
+          <span className="ml-3 truncate text-[12px] text-white/50">{screenshots[index].alt[locale]}</span>
         </div>
 
         <div className="relative aspect-[8/5] w-full" style={{ background: "#0b0d14" }}>

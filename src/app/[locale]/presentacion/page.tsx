@@ -735,7 +735,7 @@ export default async function PresentacionPage({ params }: Props) {
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
-                style={{ background: "#25D366" }}>
+                style={{ background: "#0D8050" }}>
                 {isEs ? "Escribir por WhatsApp" : "Message us on WhatsApp"}
               </a>
             </div>

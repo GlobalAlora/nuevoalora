@@ -53,7 +53,7 @@ export function Footer({ dict, locale }: Props) {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Links column 1 — kept on the left so the floating chat widget never covers it */}
           <div>
-            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.servicesLabel}</h4>
+            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/50">{footer.servicesLabel}</h4>
             <ul className="flex flex-col gap-2.5">
               {footer.serviceLinks.map((link) => (
                 <li key={link.href}>
@@ -68,7 +68,7 @@ export function Footer({ dict, locale }: Props) {
 
           {/* Links column 2 — kept on the left so the floating chat widget never covers it */}
           <div>
-            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/35">{footer.companyLabel}</h4>
+            <h4 className="mb-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/50">{footer.companyLabel}</h4>
             <ul className="flex flex-col gap-2.5">
               {footer.companyLinks.map((link) => (
                 <li key={link.href}>
@@ -99,8 +99,8 @@ export function Footer({ dict, locale }: Props) {
                 className="h-8 w-auto"
               />
             </Link>
-            <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-white/45">{footer.tagline}</p>
-            <a href="mailto:info@globalalora.com" className="mt-5 inline-flex items-center gap-2 text-[13px] text-white/45 transition-colors hover:text-white/80">
+            <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-white/50">{footer.tagline}</p>
+            <a href="mailto:info@globalalora.com" className="mt-5 inline-flex items-center gap-2 text-[13px] text-white/50 transition-colors hover:text-white/80">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0">
                 <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
               </svg>
@@ -127,10 +127,10 @@ export function Footer({ dict, locale }: Props) {
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-          <p className="text-[12px] text-white/30">{footer.copy}</p>
+          <p className="text-[12px] text-white/50">{footer.copy}</p>
           <div className="flex gap-5">
-            <Link href={`/${locale}/privacy-policy`} className="text-[12px] text-white/30 transition-colors hover:text-white/60">{footer.privacy}</Link>
-            <Link href={`/${locale}/cookies`} className="text-[12px] text-white/30 transition-colors hover:text-white/60">{footer.cookies}</Link>
+            <Link href={`/${locale}/privacy-policy`} className="text-[12px] text-white/50 transition-colors hover:text-white/70">{footer.privacy}</Link>
+            <Link href={`/${locale}/cookies`} className="text-[12px] text-white/50 transition-colors hover:text-white/70">{footer.cookies}</Link>
           </div>
         </div>
       </div>

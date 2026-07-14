@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Back */}
           <Link
             href={`/${l}/blog`}
-            className="inline-flex items-center gap-2 text-[13px] text-white/35 hover:text-white/70 transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[13px] text-white/50 hover:text-white/70 transition-colors mb-8"
           >
             ← {isEs ? "Volver a Insights" : "Back to Insights"}
           </Link>
@@ -112,9 +112,9 @@ export default async function BlogPostPage({ params }: Props) {
               >
                 {post.category[langKey]}
               </span>
-              <span className="text-[12px] text-white/30">{post.readTime} min</span>
-              <span className="text-[12px] text-white/30">·</span>
-              <span className="text-[12px] text-white/30">{formatDate(post.date)}</span>
+              <span className="text-[12px] text-white/50">{post.readTime} min</span>
+              <span className="text-[12px] text-white/50">·</span>
+              <span className="text-[12px] text-white/50">{formatDate(post.date)}</span>
             </div>
 
             <h1 className="text-[30px] sm:text-[40px] font-bold text-white leading-tight mb-6" style={{ letterSpacing: "-0.035em" }}>

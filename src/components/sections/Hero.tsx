@@ -180,7 +180,7 @@ export function Hero({ dict, locale }: Props) {
               {Array.from({ length: 3 }).map((_, r) => (
                 <div key={r} className="flex items-center gap-12">
                   {hero.ticker.map((t, i) => (
-                    <span key={`${t}-${i}`} className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-white/35">
+                    <span key={`${t}-${i}`} className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-white/50">
                       <span className="inline-block h-[3px] w-[3px] rounded-full bg-white/30" />
                       {t}
                     </span>

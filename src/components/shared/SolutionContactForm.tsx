@@ -81,25 +81,25 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4" style={{ ["--focus-color" as string]: accent }}>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label style={labelBase}>{f.name} <span className="text-red-400/70">*</span></label>
-          <input {...register("nombre")} placeholder={f.namePlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="solution-nombre" style={labelBase}>{f.name} <span className="text-red-400/70">*</span></label>
+          <input id="solution-nombre" {...register("nombre")} placeholder={f.namePlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.nombre?.message)}
         </div>
         <div>
-          <label style={labelBase}>{f.email} <span className="text-red-400/70">*</span></label>
-          <input {...register("email")} type="email" placeholder={f.emailPlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="solution-email" style={labelBase}>{f.email} <span className="text-red-400/70">*</span></label>
+          <input id="solution-email" {...register("email")} type="email" placeholder={f.emailPlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.email?.message)}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label style={labelBase}>{f.company}</label>
-          <input {...register("empresa")} placeholder={f.companyPlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="solution-empresa" style={labelBase}>{f.company}</label>
+          <input id="solution-empresa" {...register("empresa")} placeholder={f.companyPlaceholder} style={inputBase} className={`form-field ${focusClass}`} />
         </div>
         <div>
-          <label style={labelBase}>{f.country} <span className="text-red-400/70">*</span></label>
-          <select {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`}>
+          <label htmlFor="solution-pais" style={labelBase}>{f.country} <span className="text-red-400/70">*</span></label>
+          <select id="solution-pais" {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`}>
             <option value="" style={optionStyle}>{f.countryPlaceholder}</option>
             {contact.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
           </select>
@@ -108,8 +108,8 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
       </div>
 
       <div>
-        <label style={labelBase}>{f.project} <span className="text-red-400/70">*</span></label>
-        <textarea {...register("mensaje")} rows={4} placeholder={f.projectPlaceholder} style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
+        <label htmlFor="solution-mensaje" style={labelBase}>{f.project} <span className="text-red-400/70">*</span></label>
+        <textarea id="solution-mensaje" {...register("mensaje")} rows={4} placeholder={f.projectPlaceholder} style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
         {fieldError(errors.mensaje?.message)}
       </div>
 

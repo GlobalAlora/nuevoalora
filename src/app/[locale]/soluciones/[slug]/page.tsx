@@ -447,7 +447,7 @@ export default async function SolutionPage({ params }: Props) {
       {sol.statBar && (
         <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
           <div className="mx-auto max-w-7xl px-6 py-10">
-            <div className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white/35">
+            <div className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white/50">
               {sol.statBar.label[l]}
             </div>
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
@@ -790,7 +790,7 @@ export default async function SolutionPage({ params }: Props) {
                   style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
                 >
                   <span className="text-[14px] font-medium text-white/70">{row.label}</span>
-                  <span className="text-[13.5px] text-white/35 line-through decoration-white/20">{row.before}</span>
+                  <span className="text-[13.5px] text-white/50 line-through decoration-white/20">{row.before}</span>
                   <span className="flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: accent }}>
                     <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
                       <path d="M3 8h10M9 4l4 4-4 4" stroke={accent} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -1307,7 +1307,7 @@ export default async function SolutionPage({ params }: Props) {
                   : "Schedule a 20-minute call and we'll analyze your project at no cost or commitment."}
             </p>
 
-            <div className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+            <div className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
               {dict.solutionForm.ways}
             </div>
             <div className="mt-4 flex flex-col gap-3">

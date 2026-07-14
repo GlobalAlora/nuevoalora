@@ -90,7 +90,7 @@ export function Process({ dict }: Props) {
               </div>
             ) : (
               <div key={`${step.n}-t`} className="step-node flex items-end justify-center pb-3" style={{ gridColumn: idx + 1, gridRow: 1, animationDelay: `${idx * 0.12}s` }}>
-                <span className="font-mono" style={{ fontSize: "11px", letterSpacing: "0.22em", color: `color-mix(in oklab, ${color} 65%, transparent)` }}>{step.n}</span>
+                <span className="font-mono" style={{ fontSize: "11px", letterSpacing: "0.22em", color: `color-mix(in oklab, ${color} 92%, transparent)` }}>{step.n}</span>
               </div>
             );
           })}
@@ -125,7 +125,7 @@ export function Process({ dict }: Props) {
               </div>
             ) : (
               <div key={`${step.n}-b`} className="step-node flex items-start justify-center pt-3" style={{ gridColumn: idx + 1, gridRow: 3, animationDelay: `${idx * 0.12}s` }}>
-                <span className="font-mono" style={{ fontSize: "11px", letterSpacing: "0.22em", color: `color-mix(in oklab, ${color} 65%, transparent)` }}>{step.n}</span>
+                <span className="font-mono" style={{ fontSize: "11px", letterSpacing: "0.22em", color: `color-mix(in oklab, ${color} 92%, transparent)` }}>{step.n}</span>
               </div>
             );
           })}

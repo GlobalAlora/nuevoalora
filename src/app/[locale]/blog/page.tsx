@@ -59,7 +59,7 @@ export default async function BlogPage({ params }: Props) {
         {/* Hero */}
         <div className="mx-auto max-w-7xl px-6 pb-16">
           <div className="mb-10 mx-auto max-w-2xl text-center">
-            <p className="text-[11px] uppercase tracking-widest text-white/30 mb-3">Insights</p>
+            <p className="text-[11px] uppercase tracking-widest text-white/50 mb-3">Insights</p>
             <h1
               className="whitespace-nowrap font-bold text-white mb-4"
               style={{ fontSize: "clamp(22px, 5vw, 48px)", letterSpacing: "-0.035em" }}
@@ -105,7 +105,7 @@ export default async function BlogPage({ params }: Props) {
                       >
                         {post.category}
                       </span>
-                      <span className="text-[12px] text-white/30">{post.readTime} min</span>
+                      <span className="text-[12px] text-white/50">{post.readTime} min</span>
                     </div>
 
                     <h2 className="text-[17px] font-semibold text-white leading-snug mb-3 group-hover:text-[var(--turquoise)] transition-colors" style={{ letterSpacing: "-0.02em" }}>
@@ -117,7 +117,7 @@ export default async function BlogPage({ params }: Props) {
                     </p>
 
                     <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
-                      <span className="text-[12px] text-white/30">{formatDate(post.date)}</span>
+                      <span className="text-[12px] text-white/50">{formatDate(post.date)}</span>
                       <span className="text-[13px] text-white/50 group-hover:text-white/80 transition-colors flex items-center gap-1">
                         {isEs ? "Leer" : "Read"} →
                       </span>

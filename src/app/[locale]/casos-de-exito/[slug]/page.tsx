@@ -412,7 +412,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   : "Let's set up a brief call to understand your project and see how we can help you build it."}
               </p>
 
-              <div className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+              <div className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
                 {dict.solutionForm.ways}
               </div>
               <div className="mt-4 flex flex-col gap-3">

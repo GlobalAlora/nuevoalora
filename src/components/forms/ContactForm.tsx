@@ -75,14 +75,14 @@ export function ContactForm({ dict, locale }: Props) {
       {/* Name + Email row */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label style={labelBase}>{contact.name} <span className="text-red-400/70">*</span></label>
-          <input {...register("nombre")} placeholder={contact.namePlaceholder} style={inputBase}
+          <label htmlFor="contact-nombre" style={labelBase}>{contact.name} <span className="text-red-400/70">*</span></label>
+          <input id="contact-nombre" {...register("nombre")} placeholder={contact.namePlaceholder} style={inputBase}
             className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
           {fieldError(errors.nombre?.message)}
         </div>
         <div>
-          <label style={labelBase}>{contact.email} <span className="text-red-400/70">*</span></label>
-          <input {...register("email")} type="email" placeholder={contact.emailPlaceholder} style={inputBase}
+          <label htmlFor="contact-email" style={labelBase}>{contact.email} <span className="text-red-400/70">*</span></label>
+          <input id="contact-email" {...register("email")} type="email" placeholder={contact.emailPlaceholder} style={inputBase}
             className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
           {fieldError(errors.email?.message)}
         </div>
@@ -91,8 +91,8 @@ export function ContactForm({ dict, locale }: Props) {
       {/* Country + Phone row */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label style={labelBase}>{contact.country} <span className="text-red-400/70">*</span></label>
-          <select {...register("pais")} style={{ ...inputBase, appearance: "none" }}
+          <label htmlFor="contact-pais" style={labelBase}>{contact.country} <span className="text-red-400/70">*</span></label>
+          <select id="contact-pais" {...register("pais")} style={{ ...inputBase, appearance: "none" }}
             className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]">
             <option value="" style={optionStyle}>{contact.countryPlaceholder}</option>
             {contact.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
@@ -100,8 +100,8 @@ export function ContactForm({ dict, locale }: Props) {
           {fieldError(errors.pais?.message)}
         </div>
         <div>
-          <label style={labelBase}>{contact.phone} <span className="text-red-400/70">*</span></label>
-          <input {...register("telefono")} type="tel" placeholder={contact.phonePlaceholder} style={inputBase}
+          <label htmlFor="contact-telefono" style={labelBase}>{contact.phone} <span className="text-red-400/70">*</span></label>
+          <input id="contact-telefono" {...register("telefono")} type="tel" placeholder={contact.phonePlaceholder} style={inputBase}
             className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
           {fieldError(errors.telefono?.message)}
         </div>
@@ -109,16 +109,16 @@ export function ContactForm({ dict, locale }: Props) {
 
       {/* Website (optional) */}
       <div>
-        <label style={labelBase}>{contact.website}</label>
-        <input {...register("website")} type="text" placeholder={contact.websitePlaceholder} style={inputBase}
+        <label htmlFor="contact-website" style={labelBase}>{contact.website}</label>
+        <input id="contact-website" {...register("website")} type="text" placeholder={contact.websitePlaceholder} style={inputBase}
           className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
         {fieldError(errors.website?.message)}
       </div>
 
       {/* Message */}
       <div>
-        <label style={labelBase}>{contact.message} <span className="text-red-400/70">*</span></label>
-        <textarea {...register("mensaje")} rows={3} placeholder={contact.messagePlaceholder}
+        <label htmlFor="contact-mensaje" style={labelBase}>{contact.message} <span className="text-red-400/70">*</span></label>
+        <textarea id="contact-mensaje" {...register("mensaje")} rows={3} placeholder={contact.messagePlaceholder}
           style={{ ...inputBase, resize: "vertical" }}
           className="placeholder:text-white/25 focus:border-[color-mix(in_oklab,var(--turquoise)_55%,transparent)] focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--turquoise)_10%,transparent)]" />
         {fieldError(errors.mensaje?.message)}

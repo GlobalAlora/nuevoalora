@@ -292,7 +292,7 @@ export function Chatbot({ dict, locale }: Props) {
               <span className="text-[11px] text-white/45">{t.online}</span>
             </div>
           </div>
-          <button onClick={() => setOpen(false)} className="ml-auto text-white/35 transition-colors hover:text-white/70">
+          <button onClick={() => setOpen(false)} aria-label={t.close} className="ml-auto text-white/50 transition-colors hover:text-white/70">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
           </button>
         </div>
@@ -336,6 +336,7 @@ export function Chatbot({ dict, locale }: Props) {
           <button
             onClick={handleSend}
             disabled={!input.trim() || isTyping}
+            aria-label={locale === "es" ? "Enviar mensaje" : "Send message"}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all disabled:opacity-40 hover:scale-105"
             style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric))" }}
           >

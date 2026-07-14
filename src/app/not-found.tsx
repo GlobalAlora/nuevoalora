@@ -77,11 +77,11 @@ export default function NotFound() {
           minWidth: "min(480px, 90vw)",
         }}
       >
-        <span className="text-white/30">$ </span>
+        <span className="text-white/50">$ </span>
         <span className="text-white/60">find . -name </span>
         <span className="text-white/90">&quot;esta-pagina&quot;</span>
         <br />
-        <span className="text-white/30 mt-1 block">
+        <span className="text-white/50 mt-1 block">
           {">"} {msg || "Buscando"}{".".repeat(dots)}
         </span>
         <span className="mt-1 block" style={{ color: "#f87171" }}>
