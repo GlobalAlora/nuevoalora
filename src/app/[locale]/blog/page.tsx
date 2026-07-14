@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPostsByLocale } from "@/lib/blog-data";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -53,8 +54,14 @@ export default async function BlogPage({ params }: Props) {
     "Automation": "var(--violet)",
   };
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: isEs ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: isEs ? "Insights" : "Insights", url: `https://www.globalalora.com/${l}/blog` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
         {/* Hero */}

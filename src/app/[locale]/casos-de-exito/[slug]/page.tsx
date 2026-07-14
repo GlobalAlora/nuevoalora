@@ -14,6 +14,7 @@ import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { ScreenshotsCarousel } from "@/components/shared/ScreenshotsCarousel";
 import { FeatureShowcase } from "@/components/shared/FeatureShowcase";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { ICONS } from "@/lib/icons";
 
 interface Props {
@@ -62,8 +63,15 @@ export default async function CaseStudyPage({ params }: Props) {
   const accent2 = cs.theme.secondary ?? cs.theme.primary;
   const SECTION_BG = "oklch(0.13 0.015 260)";
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: l === "es" ? "Casos de Éxito" : "Success Stories", url: `https://www.globalalora.com/${l}/casos-de-exito` },
+    { name: cs.client, url: `https://www.globalalora.com/${l}/casos-de-exito/${slug}` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: SECTION_BG }}>
         {/* Ambient glows */}

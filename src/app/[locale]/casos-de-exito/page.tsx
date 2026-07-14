@@ -8,6 +8,7 @@ import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { CASE_STUDIES } from "@/lib/case-studies-data";
 import { HeroGraphic } from "@/components/shared/HeroInteractive";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -35,8 +36,14 @@ export default async function CasosDeExitoPage({ params }: Props) {
   const l = locale as Locale;
   const dict = await getDictionary(l);
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: l === "es" ? "Casos de Éxito" : "Success Stories", url: `https://www.globalalora.com/${l}/casos-de-exito` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
         <section className="relative overflow-hidden">

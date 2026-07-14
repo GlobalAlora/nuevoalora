@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -197,8 +198,14 @@ export default async function ServicesPage({ params }: Props) {
   const services = SERVICES[l] ?? SERVICES.es;
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: l === "es" ? "Soluciones" : "Solutions", url: `https://www.globalalora.com/${l}/servicios` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
         {/* Hero */}

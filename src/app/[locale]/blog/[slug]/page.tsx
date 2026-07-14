@@ -8,6 +8,7 @@ import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
@@ -90,9 +91,16 @@ export default async function BlogPostPage({ params }: Props) {
       }
     : null;
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: isEs ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: "Insights", url: `https://www.globalalora.com/${l}/blog` },
+    { name: post.title[langKey], url: pageUrl },
+  ]);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}

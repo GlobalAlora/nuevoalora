@@ -15,6 +15,7 @@ import { SolutionContactForm } from "@/components/shared/SolutionContactForm";
 import { ICONS as FEATURE_ICONS } from "@/lib/icons";
 import { CaseStudyHighlight, type CaseStudyHighlightItem } from "./CaseStudyHighlight";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -325,8 +326,15 @@ export default async function SolutionPage({ params }: Props) {
   const SECTION_BG = "oklch(0.13 0.015 260)";
   const caseStudy = CASE_STUDY_HIGHLIGHT[sol.slug];
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
+    { name: l === "es" ? "Soluciones" : "Solutions", url: `https://www.globalalora.com/${l}/servicios` },
+    { name: h.badge, url: `https://www.globalalora.com/${l}/soluciones/${slug}` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: SECTION_BG }}>
       {/* Ambient glows */}
