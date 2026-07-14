@@ -252,12 +252,12 @@ export default async function BlogPostPage({ params }: Props) {
             style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
           >
             <h2 className="text-[22px] font-bold text-white mb-2" style={{ letterSpacing: "-0.03em" }}>
-              {isEs ? "¿Listo para aplicarlo en tu empresa?" : "Ready to apply this to your business?"}
+              {isEs ? "Hablemos de tu proyecto." : "Let's talk about your project."}
             </h2>
             <p className="text-white/50 mb-6 text-[14px]">
               {isEs
-                ? "Hablamos sobre tu proyecto y cómo podemos ayudarte."
-                : "Let's talk about your project and how we can help."}
+                ? "Contanos qué necesitás y te respondemos en menos de 24 horas."
+                : "Tell us what you need and we'll get back to you within 24 hours."}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
