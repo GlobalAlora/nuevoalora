@@ -1,41 +1,24 @@
 import type { MetadataRoute } from "next";
+import { SOLUTIONS } from "@/lib/solutions-data";
+import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { BLOG_POSTS } from "@/lib/blog-data";
 
 const BASE = "https://www.globalalora.com";
 const LOCALES = ["es", "en"] as const;
 type Freq = "weekly" | "monthly" | "yearly";
 
-const ROUTES: { path: string; freq: Freq; priority: number }[] = [
+const STATIC_ROUTES: { path: string; freq: Freq; priority: number }[] = [
   // ── Home ─────────────────────────────────────────────────────────────────
   { path: "",                                                    freq: "weekly",  priority: 1.0 },
 
   // ── Servicios ────────────────────────────────────────────────────────────
   { path: "/servicios",                                          freq: "monthly", priority: 0.9 },
 
-  // ── Soluciones (slugs reales en solutions-data.ts) ────────────────────
-  { path: "/soluciones/desarrollo-web",                          freq: "monthly", priority: 0.9 },
-  { path: "/soluciones/desarrollo-software",                     freq: "monthly", priority: 0.9 },
-  { path: "/soluciones/aplicaciones-web",                        freq: "monthly", priority: 0.9 },
-  { path: "/soluciones/ecommerce",                               freq: "monthly", priority: 0.9 },
-  { path: "/soluciones/chatbots",                                freq: "monthly", priority: 0.9 },
-  { path: "/soluciones/atencion-cliente-ia",                     freq: "monthly", priority: 0.9 },
-
-  // ── Casos de éxito (slugs reales en case-studies-data.ts) ────────────
+  // ── Casos de éxito (listado) ───────────────────────────────────────────
   { path: "/casos-de-exito",                                     freq: "monthly", priority: 0.9 },
-  { path: "/casos-de-exito/autodux",                             freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/soy-lidia",                           freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/alora-crm",                           freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/castro-yeso",                         freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/alkemia",                             freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/distrisal",                           freq: "monthly", priority: 0.8 },
-  { path: "/casos-de-exito/voutier",                             freq: "monthly", priority: 0.8 },
 
-  // ── Blog (slugs reales en blog-data.ts) ──────────────────────────────
+  // ── Blog (listado) ────────────────────────────────────────────────────
   { path: "/blog",                                               freq: "weekly",  priority: 0.8 },
-  { path: "/blog/tienda-nube-vs-woocommerce",                    freq: "monthly", priority: 0.8 },
-  { path: "/blog/que-es-un-agente-ia",                           freq: "monthly", priority: 0.8 },
-  { path: "/blog/automatizacion-empresas-make",                  freq: "monthly", priority: 0.8 },
-  { path: "/blog/chatbot-vs-agente-conversacional-ia",           freq: "monthly", priority: 0.8 },
-  { path: "/blog/mi-empresa-necesita-inteligencia-artificial",   freq: "monthly", priority: 0.8 },
 
   // ── Portafolio / Reseñas / Presentación ──────────────────────────────
   { path: "/portfolio",                                          freq: "monthly", priority: 0.8 },
@@ -54,6 +37,15 @@ const ROUTES: { path: string; freq: Freq; priority: number }[] = [
 
   // Excluidas intencionalmente (conversión, no indexar):
   // /thank-you, /call-booked
+];
+
+// Soluciones, casos de éxito y posts del blog se derivan directamente de sus
+// archivos de datos, así el sitemap nunca queda desactualizado al agregar contenido.
+const ROUTES: { path: string; freq: Freq; priority: number }[] = [
+  ...STATIC_ROUTES,
+  ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9 })),
+  ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8 })),
+  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8 })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

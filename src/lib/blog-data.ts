@@ -3294,6 +3294,194 @@ If you need help choosing and implementing the right plugins for your project, [
 `,
     },
   },
+  {
+    slug: "que-es-un-crm-y-por-que-lo-necesita-tu-empresa",
+    title: {
+      es: "Qué es un CRM y por qué tu empresa lo necesita (con ejemplos e IA incluida)",
+      en: "What is a CRM and why your business needs one (with examples and AI included)",
+    },
+    excerpt: {
+      es: "Qué es un CRM, para qué sirve, qué funciones no le pueden faltar y cómo se ve en empresas chicas, medianas y grandes. Incluye el rol de la IA y cómo los construimos en ALORA.",
+      en: "What a CRM is, what it's for, the features it can't be without, and what it looks like in small, medium and large businesses. Includes the role of AI and how we build them at ALORA.",
+    },
+    date: "2026-07-14",
+    category: { es: "CRM", en: "CRM" },
+    readTime: 10,
+    content: {
+      es: `
+## Introducción
+
+Todo negocio que crece llega al mismo punto: los contactos de clientes están repartidos entre planillas de Excel, el WhatsApp personal de un vendedor, la memoria de alguien del equipo y, en el mejor de los casos, un montón de emails sueltos. Funciona mientras sos chico. Deja de funcionar apenas empezás a escalar. Ahí es donde entra un **CRM**.
+
+## ¿Qué es un CRM?
+
+CRM son las siglas de **Customer Relationship Management** (gestión de la relación con el cliente). En la práctica, es el sistema central donde tu empresa guarda y organiza toda la información de sus clientes y leads: quiénes son, en qué etapa están, qué hablaron con vos, qué compraron, y qué sigue.
+
+No es solo una base de datos de contactos. Un CRM conecta ventas, marketing y atención al cliente en un mismo lugar, para que cualquier persona del equipo pueda ver el historial completo de una relación comercial sin tener que preguntarle a nadie más.
+
+## ¿Para qué sirve un CRM?
+
+Un buen CRM le resuelve a tu empresa problemas muy concretos:
+
+- **Centraliza la información**: todos los datos de clientes y leads viven en un solo lugar, accesible para todo el equipo.
+- **Ordena el proceso de ventas**: cada oportunidad tiene una etapa clara (nuevo lead, contactado, propuesta enviada, cerrado), así nadie se pierde en el camino.
+- **Evita que se pierdan oportunidades**: cada lead queda registrado con seguimiento, en vez de depender de que alguien se acuerde de responder.
+- **Mejora la atención al cliente**: quien atiende a un cliente tiene a mano todo su historial, sin hacerlo repetir la misma información dos veces.
+- **Da visibilidad real del negocio**: reportes y métricas sobre cuántos leads entran, cuántos se convierten y en cuánto tiempo, en vez de estimaciones a ojo.
+
+## ¿Qué tiene que tener un buen CRM?
+
+No todos los CRM son iguales, pero hay funciones que consideramos no negociables:
+
+- **Gestión de contactos y empresas**: ficha completa de cada cliente o lead, con historial de interacciones.
+- **Pipeline visual de ventas**: tablero tipo Kanban donde se ve en qué etapa está cada oportunidad.
+- **Automatizaciones**: recordatorios, asignación automática de leads, respuestas o tareas que se disparan solas según lo que pasa.
+- **Integraciones**: con WhatsApp, email, redes sociales, formularios de la web y las herramientas que ya usa el equipo.
+- **Reportes y dashboards**: métricas claras de ventas, conversión y desempeño del equipo, en tiempo real.
+- **Acceso multiusuario con permisos**: que cada persona vea lo que le corresponde, sin pisarse entre equipos.
+- **Buena experiencia de uso**: si el equipo no lo usa porque es complicado, no sirve de nada tenerlo.
+
+## CRM según el tamaño de tu empresa
+
+### Empresas pequeñas
+
+Acá el CRM suele resolver el primer gran salto: dejar de depender del Excel y la memoria. Con un CRM simple, un equipo chico ya puede ordenar sus leads, saber a quién le tiene que escribir hoy, y no perder ninguna oportunidad por falta de seguimiento. El foco está en simplicidad y rapidez de adopción.
+
+### Empresas medianas
+
+Cuando el equipo de ventas crece y hay varias personas atendiendo leads al mismo tiempo, el CRM pasa a ser el lugar donde se coordina todo: asignación automática de leads, reportes por vendedor, integraciones con WhatsApp Business y con las herramientas de marketing. Acá empieza a valer la pena personalizar el pipeline a la forma real en que vende esa empresa.
+
+### Empresas grandes
+
+En organizaciones grandes, el CRM se conecta con otros sistemas (ERP, facturación, atención al cliente, BI) y necesita soportar procesos de venta más complejos, con múltiples equipos, aprobaciones y reportes ejecutivos. Acá la clave es que el CRM se adapte a la estructura de la empresa, no al revés — por eso muchas veces conviene un desarrollo a medida en lugar de forzar una plataforma genérica.
+
+## La importancia de la IA en un CRM moderno
+
+La inteligencia artificial es lo que separa a un CRM tradicional de uno realmente útil hoy. En un CRM con IA:
+
+- **Los leads se califican solos**: la IA analiza el comportamiento y los datos del contacto para priorizar los que tienen más probabilidad de cerrar.
+- **Las respuestas se agilizan**: agentes conversacionales pueden atender consultas 24/7 por WhatsApp o chat, cargando automáticamente esa conversación como un lead nuevo en el CRM.
+- **Se generan resúmenes automáticos**: en vez de leer todo el historial de un cliente, la IA te da el resumen de dónde quedó esa relación.
+- **Se detectan patrones**: qué tipo de leads convierten mejor, en qué momento del proceso se caen las oportunidades, qué vendedor necesita apoyo.
+- **Se automatizan tareas repetitivas**: seguimientos, recordatorios y actualizaciones que antes requerían que alguien se acuerde de hacerlas a mano.
+
+Un CRM con IA bien implementada no reemplaza al equipo de ventas: le saca de encima el trabajo repetitivo para que se enfoque en lo que un humano hace mejor, cerrar la venta.
+
+## Cómo desarrollamos CRMs en ALORA
+
+En ALORA construimos CRMs a medida, pensados para cómo trabaja realmente cada empresa, no al revés. Nuestro proceso incluye:
+
+- **Relevamiento del proceso de ventas real** de tu equipo, para diseñar un pipeline que refleje cómo vendés, no una plantilla genérica.
+- **Integración nativa con WhatsApp, email y los canales** por donde ya te escriben tus clientes, para que ningún lead se pierda entre plataformas.
+- **Agentes de IA conectados al CRM**, que califican leads, responden consultas iniciales y cargan la información automáticamente en el sistema.
+- **Dashboards y reportes a medida**, con las métricas que tu equipo realmente necesita mirar, no las que trae por defecto una plataforma genérica.
+- **Escalabilidad real**: el sistema crece con tu empresa, desde un equipo de ventas chico hasta operaciones con múltiples áreas conectadas.
+
+Un ejemplo de esto es [ALORA CRM](/es/casos-de-exito/alora-crm), el sistema que desarrollamos con IA integrada para calificación de leads y atención conversacional. Si te interesa ver cómo se aplica esto en desarrollo de software a medida, podés conocer más en [nuestra solución de desarrollo de software](/es/soluciones/desarrollo-software).
+
+## Conclusión
+
+Un CRM no es un lujo de empresa grande: es la herramienta que le permite a cualquier negocio, chico o grande, dejar de perder oportunidades por desorganización. La diferencia entre uno genérico y uno bien pensado —con IA integrada y adaptado a tu forma real de vender— es la diferencia entre una herramienta que tu equipo usa todos los días y una que termina abandonada a los tres meses.
+
+Si estás pensando en implementar o mejorar el CRM de tu empresa, [hablemos](/es/contacto) y vemos qué necesita tu negocio específicamente.
+      `,
+      en: `
+## Introduction
+
+Every growing business hits the same wall: customer contacts scattered across spreadsheets, a salesperson's personal WhatsApp, someone's memory, and — in the best case — a pile of loose emails. It works while you're small. It stops working the moment you start to scale. That's where a **CRM** comes in.
+
+## What is a CRM?
+
+CRM stands for **Customer Relationship Management**. In practice, it's the central system where your company stores and organizes all of its customer and lead information: who they are, what stage they're at, what you've talked about, what they've bought, and what comes next.
+
+It's not just a contacts database. A CRM connects sales, marketing and customer service in one place, so anyone on the team can see the full history of a business relationship without having to ask someone else.
+
+## What is a CRM for?
+
+A good CRM solves very concrete problems for your business:
+
+- **Centralizes information**: all customer and lead data lives in one place, accessible to the whole team.
+- **Organizes the sales process**: every opportunity has a clear stage (new lead, contacted, proposal sent, closed), so nothing falls through the cracks.
+- **Prevents lost opportunities**: every lead is tracked with follow-up, instead of relying on someone remembering to reply.
+- **Improves customer service**: whoever's handling a customer has their full history on hand, without making them repeat the same information twice.
+- **Gives real visibility into the business**: reports and metrics on how many leads come in, how many convert, and how long it takes — instead of guesswork.
+
+## What should a good CRM have?
+
+Not all CRMs are the same, but there are features we consider non-negotiable:
+
+- **Contact and company management**: a complete profile for every customer or lead, with interaction history.
+- **Visual sales pipeline**: a Kanban-style board showing exactly what stage each opportunity is at.
+- **Automations**: reminders, automatic lead assignment, and tasks or replies that trigger themselves based on what happens.
+- **Integrations**: with WhatsApp, email, social media, web forms, and the tools your team already uses.
+- **Reports and dashboards**: clear, real-time metrics on sales, conversion, and team performance.
+- **Multi-user access with permissions**: so each person sees what's relevant to them, without teams stepping on each other.
+- **A good user experience**: if the team doesn't use it because it's too complicated, having it is pointless.
+
+## CRM by company size
+
+### Small businesses
+
+Here, a CRM usually solves the first big leap: no longer depending on spreadsheets and memory. With a simple CRM, a small team can already organize its leads, know who to follow up with today, and avoid losing an opportunity to lack of follow-through. The focus is on simplicity and fast adoption.
+
+### Medium businesses
+
+Once the sales team grows and several people are handling leads at the same time, the CRM becomes the place where everything gets coordinated: automatic lead assignment, per-salesperson reports, integrations with WhatsApp Business and marketing tools. This is where it starts to pay off to customize the pipeline to match how that business actually sells.
+
+### Large enterprises
+
+In large organizations, the CRM connects to other systems (ERP, billing, customer service, BI) and needs to support more complex sales processes, with multiple teams, approvals, and executive-level reporting. The key here is that the CRM adapts to the company's structure, not the other way around — which is often why a custom build makes more sense than forcing a generic platform to fit.
+
+## The importance of AI in a modern CRM
+
+Artificial intelligence is what separates a traditional CRM from one that's genuinely useful today. In an AI-powered CRM:
+
+- **Leads qualify themselves**: AI analyzes contact behavior and data to prioritize the ones most likely to close.
+- **Responses speed up**: conversational AI agents can handle inquiries 24/7 over WhatsApp or chat, automatically loading that conversation as a new lead into the CRM.
+- **Summaries generate automatically**: instead of reading through a customer's entire history, AI gives you a summary of where that relationship stands.
+- **Patterns get detected**: which types of leads convert best, where in the process opportunities tend to drop off, which salesperson needs support.
+- **Repetitive tasks get automated**: follow-ups, reminders and updates that used to require someone remembering to do them by hand.
+
+A well-implemented AI-powered CRM doesn't replace the sales team — it takes the repetitive work off their plate so they can focus on what a human does best: closing the sale.
+
+## How we build CRMs at ALORA
+
+At ALORA we build custom CRMs designed around how each business actually works, not the other way around. Our process includes:
+
+- **Mapping your team's real sales process**, to design a pipeline that reflects how you actually sell, not a generic template.
+- **Native integration with WhatsApp, email, and the channels** your customers already use to reach you, so no lead gets lost between platforms.
+- **AI agents connected to the CRM**, that qualify leads, answer initial inquiries, and load that information into the system automatically.
+- **Custom dashboards and reports**, with the metrics your team actually needs to watch, not whatever a generic platform ships with by default.
+- **Real scalability**: the system grows with your company, from a small sales team to operations with multiple connected areas.
+
+One example of this is [ALORA CRM](/en/casos-de-exito/alora-crm), the system we built with AI integrated for lead qualification and conversational support. If you're curious how this applies to custom software development, you can learn more in [our software development solution](/en/soluciones/desarrollo-software).
+
+## Conclusion
+
+A CRM isn't a luxury reserved for big companies — it's the tool that lets any business, small or large, stop losing opportunities to disorganization. The difference between a generic one and a well-thought-out one — with AI built in and adapted to how you actually sell — is the difference between a tool your team uses every day and one that's abandoned after three months.
+
+If you're thinking about implementing or improving your company's CRM, [let's talk](/en/contacto) and figure out exactly what your business needs.
+      `,
+    },
+    faq: {
+      es: [
+        { q: "¿Qué diferencia hay entre un CRM y una simple base de datos de contactos?", a: "Una base de datos solo almacena información. Un CRM además organiza el proceso de venta y atención en etapas, automatiza tareas, y le da visibilidad al equipo sobre el estado de cada relación comercial en tiempo real." },
+        { q: "¿Mi empresa es muy chica para necesitar un CRM?", a: "No. Incluso con un solo vendedor, un CRM simple evita perder leads por falta de seguimiento y deja de depender de la memoria o de un Excel desordenado." },
+        { q: "¿Conviene un CRM genérico (tipo plataforma paga) o uno a medida?", a: "Depende de la complejidad de tu proceso de ventas. Un CRM genérico es rápido de implementar y suficiente para procesos simples; uno a medida vale la pena cuando tu forma de vender no encaja en una plantilla estándar o necesitás integraciones muy específicas." },
+        { q: "¿Cómo se integra la inteligencia artificial en un CRM?", a: "Principalmente de tres formas: calificando leads automáticamente según su comportamiento, atendiendo consultas iniciales por WhatsApp o chat con agentes conversacionales, y generando resúmenes o reportes que antes requerían revisión manual." },
+        { q: "¿Cuánto tiempo lleva implementar un CRM a medida?", a: "Depende del alcance, pero un primer sistema funcional con pipeline, integraciones básicas y carga de leads suele estar listo en semanas, no meses." },
+        { q: "¿Un CRM con IA reemplaza a mi equipo de ventas?", a: "No. Automatiza el trabajo repetitivo (calificar leads, responder consultas básicas, generar reportes) para que el equipo de ventas se enfoque en cerrar oportunidades, que es donde más valor aporta una persona." },
+      ],
+      en: [
+        { q: "What's the difference between a CRM and a simple contacts database?", a: "A database only stores information. A CRM also organizes the sales and support process into stages, automates tasks, and gives the team real-time visibility into the status of every business relationship." },
+        { q: "Is my business too small to need a CRM?", a: "No. Even with a single salesperson, a simple CRM prevents lost leads due to missed follow-up and removes the dependence on memory or a messy spreadsheet." },
+        { q: "Is a generic CRM (a paid platform) better than a custom-built one?", a: "It depends on how complex your sales process is. A generic CRM is quick to set up and enough for simple processes; a custom one pays off when your way of selling doesn't fit a standard template or you need very specific integrations." },
+        { q: "How does artificial intelligence get integrated into a CRM?", a: "Mainly in three ways: automatically qualifying leads based on their behavior, handling initial inquiries over WhatsApp or chat with conversational agents, and generating summaries or reports that used to require manual review." },
+        { q: "How long does it take to implement a custom CRM?", a: "It depends on scope, but a first working system with a pipeline, basic integrations, and lead capture is usually ready in weeks, not months." },
+        { q: "Does an AI-powered CRM replace my sales team?", a: "No. It automates the repetitive work (qualifying leads, answering basic inquiries, generating reports) so the sales team can focus on closing opportunities, which is where a person adds the most value." },
+      ],
+    },
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
