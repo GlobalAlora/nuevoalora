@@ -451,6 +451,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
     date: "2026-07-09",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 10,
+    image: "/images/blog/chatbot-vs-agente-conversacional-ia.png",
     content: {
       es: `
 ## La confusión entre "chatbot" y "agente de IA"
@@ -641,6 +642,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
     date: "2026-07-09",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 9,
+    image: "/images/blog/mi-empresa-necesita-inteligencia-artificial.png",
     content: {
       es: `
 ## No toda empresa necesita IA (y eso está bien)
@@ -818,6 +820,7 @@ At ALORA we help businesses identify where to apply AI for real impact, without 
     },
     date: "2026-05-27",
     category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    image: "/images/blog/agente-ia-atencion-cliente.png",
     readTime: 7,
     content: {
       es: `
@@ -3307,6 +3310,7 @@ If you need help choosing and implementing the right plugins for your project, [
     date: "2026-07-14",
     category: { es: "CRM", en: "CRM" },
     readTime: 10,
+    image: "/images/blog/que-es-un-crm-y-por-que-lo-necesita-tu-empresa.png",
     content: {
       es: `
 ## Introducción
@@ -3495,6 +3499,7 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
   date: string;
   category: string;
   readTime: number;
+  image?: string;
 }> {
   return BLOG_POSTS
     .slice()
@@ -3506,5 +3511,6 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
       date: p.date,
       category: p.category[locale],
       readTime: p.readTime,
+      image: p.image,
     }));
 }

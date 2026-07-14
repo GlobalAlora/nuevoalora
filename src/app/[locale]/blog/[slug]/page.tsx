@@ -3,6 +3,7 @@ import { hasLocale, getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt[l],
       type: "article",
       publishedTime: post.date,
+      images: post.image ? [{ url: post.image, width: 1200, height: 630 }] : undefined,
     },
   };
 }
@@ -125,6 +127,20 @@ export default async function BlogPostPage({ params }: Props) {
               {post.excerpt[langKey]}
             </p>
           </div>
+
+          {/* Cover image */}
+          {post.image && (
+            <div className="relative mb-10 h-64 sm:h-80 overflow-hidden rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <Image
+                src={post.image}
+                alt={post.title[langKey]}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
 
           {/* Divider */}
           <div className="border-t border-white/[0.07] mb-10" />
