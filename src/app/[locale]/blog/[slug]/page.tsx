@@ -9,6 +9,7 @@ import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { TrackedLink } from "@/components/shared/TrackedLink";
 
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
@@ -260,8 +261,10 @@ export default async function BlogPostPage({ params }: Props) {
                 : "Tell us what you need and we'll get back to you within 24 hours."}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
+              <TrackedLink
                 href={callUrl}
+                event="book_call_click"
+                eventParams={{ landing_page: `/${l}/blog/${slug}` }}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
                 style={{
                   background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
@@ -269,7 +272,7 @@ export default async function BlogPostPage({ params }: Props) {
                 }}
               >
                 {isEs ? "Reservar llamada gratuita" : "Book a free call"}
-              </Link>
+              </TrackedLink>
               <Link
                 href={`/${l}/contacto`}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"

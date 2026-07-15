@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, usePathname } from "next/navigation";
 import { solutionContactSchema, type SolutionContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
+import { trackEvent } from "@/lib/analytics";
 
 interface Props {
   dict: Dictionary;
@@ -40,6 +41,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
         body: JSON.stringify({ ...data, locale, slug, source, landingPage: pathname }),
       });
       if (!res.ok) throw new Error("error");
+      trackEvent("generate_lead", { form_id: "solution-contact-form", solution_slug: slug, landing_page: pathname });
       reset();
       router.push(`/${locale}/thank-you`);
     } catch {

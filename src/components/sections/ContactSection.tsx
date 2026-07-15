@@ -2,6 +2,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
 
 interface Props {
   dict: Dictionary;
@@ -65,8 +66,9 @@ export function ContactSection({ dict, locale }: Props) {
             {/* Alt CTA — WhatsApp */}
             <div className="mt-8">
               <p className="mb-3 text-[12px] uppercase tracking-[0.2em] text-white/50">{contact.orContact}</p>
-              <a
+              <WhatsAppLink
                 href={whatsappUrl}
+                landingPage={`/${locale}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white/75 transition-all hover:border-white/20 hover:text-white"
@@ -76,7 +78,7 @@ export function ContactSection({ dict, locale }: Props) {
                   <path d="M12 0C5.373 0 0 5.373 0 12c0 2.135.561 4.135 1.535 5.865L0 24l6.343-1.657A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.5-5.408-1.383l-.387-.229-4.004 1.048 1.07-3.896-.255-.404A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
                 </svg>
                 WhatsApp
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
 

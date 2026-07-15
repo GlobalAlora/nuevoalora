@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
+import { FireAnalyticsEvent } from "@/components/shared/FireAnalyticsEvent";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -37,6 +39,7 @@ export default async function CallBookedPage({ params }: Props) {
 
   return (
     <main className="relative min-h-screen overflow-hidden text-white" style={{ background: "oklch(0.11 0.016 260)" }}>
+      <FireAnalyticsEvent event="schedule" params={{ landing_page: `/${l}/call-booked` }} />
       {/* Deep ambient background */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute -left-[10%] -top-[15%] h-[600px] w-[600px] rounded-full blur-3xl opacity-[0.16]"
@@ -146,11 +149,11 @@ export default async function CallBookedPage({ params }: Props) {
                   ? "Usá el link de reprogramar o cancelar que te llegó en el mail de confirmación."
                   : "Use the reschedule or cancel link from your confirmation email."}
               </p>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
+              <WhatsAppLink href={whatsappUrl} landingPage={`/${l}/call-booked`} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[13.5px] font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"
                 style={{ background: "#0D8050", boxShadow: "0 8px 32px rgba(37,211,102,0.35)" }}>
                 {l === "es" ? "Hablar por WhatsApp" : "Chat on WhatsApp"}
-              </a>
+              </WhatsAppLink>
             </SpotlightCard>
           </div>
         </div>

@@ -9,6 +9,7 @@ import { SpotlightCard } from "@/components/shared/SpotlightCard";
 import { FounderPhoto } from "@/components/shared/FounderPhoto";
 import { ICONS } from "@/lib/icons";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -733,11 +734,11 @@ export default async function PresentacionPage({ params }: Props) {
                 style={{ background: "linear-gradient(135deg, var(--turquoise), var(--electric))", boxShadow: "0 8px 32px color-mix(in oklab, var(--turquoise) 35%, transparent)" }}>
                 {isEs ? "Solicitar reunión" : "Request a meeting"}
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+              <WhatsAppLink href={WHATSAPP_URL} landingPage={`/${l}/presentacion`} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
                 style={{ background: "#0D8050" }}>
                 {isEs ? "Escribir por WhatsApp" : "Message us on WhatsApp"}
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
         </div>

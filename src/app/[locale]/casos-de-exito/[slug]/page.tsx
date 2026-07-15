@@ -15,6 +15,7 @@ import { ScreenshotsCarousel } from "@/components/shared/ScreenshotsCarousel";
 import { FeatureShowcase } from "@/components/shared/FeatureShowcase";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
 import { ICONS } from "@/lib/icons";
 
 interface Props {
@@ -438,8 +439,9 @@ export default async function CaseStudyPage({ params }: Props) {
                   </span>
                 </Link>
 
-                <a
+                <WhatsAppLink
                   href={whatsappUrl}
+                  landingPage={`/${l}/casos-de-exito/${slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-way flex items-center gap-4 rounded-2xl p-4 transition-all duration-300"
@@ -454,7 +456,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     <span className="block text-[14.5px] font-semibold text-white/90">{dict.solutionForm.wayWhatsapp}</span>
                     <span className="block text-[12.5px] leading-snug text-white/45">{dict.solutionForm.wayWhatsappBody}</span>
                   </span>
-                </a>
+                </WhatsAppLink>
 
                 <a
                   href="#case-study-form"

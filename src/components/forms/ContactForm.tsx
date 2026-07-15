@@ -7,6 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 interface Props {
   dict: Dictionary;
@@ -36,6 +37,7 @@ export function ContactForm({ dict, locale }: Props) {
         body: JSON.stringify({ ...data, locale, landingPage: pathname }),
       });
       if (!res.ok) throw new Error("error");
+      trackEvent("generate_lead", { form_id: "contact-form", landing_page: pathname });
       router.push(`/${locale}/thank-you`);
     } catch {
       setError(contact.errorGeneral ?? "Error al enviar. Por favor intentá de nuevo.");
