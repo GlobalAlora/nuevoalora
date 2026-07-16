@@ -791,8 +791,8 @@ export const SOLUTIONS: SolutionData[] = [
       en: "We develop online stores for different industries, always with the same criteria: clarity, trust and a focus on selling.",
     },
     projects: [
-      { name: "Nutriac", url: "https://nutriac.com.ar", image: "/images/nutriac.png", es: "Ecommerce 100% custom de productos nutricionales con integración de pagos local.", en: "100% custom nutritional products ecommerce with local payment integration." },
       { name: "Mimi Kids", url: "https://mimikids.com.ar", image: "/images/case-studies/mimikids/hero-v2.png", es: "Tienda artesanal de portachupetes personalizados con flujo de personalización, panel de administración propio y pagos con MercadoPago.", en: "Handmade personalized pacifier clip store with customization flow, custom admin panel and MercadoPago payments." },
+      { name: "Nutriac", url: "https://nutriac.com.ar", image: "/images/nutriac.png", es: "Ecommerce 100% custom de productos nutricionales con integración de pagos local.", en: "100% custom nutritional products ecommerce with local payment integration." },
     ],
     whyUsExtra: {
       heading: { es: "Una tienda online hecha por gente que entiende de ventas, no solo de diseño", en: "An online store built by people who understand sales, not just design" },
