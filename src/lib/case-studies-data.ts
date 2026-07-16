@@ -52,6 +52,7 @@ export interface CaseStudyData {
   }
   duration: { es: string; en: string }
   cta: { es: string; en: string }
+  testimonial?: { quote: string; name: string; role: string }
 }
 
 export const CASE_STUDIES: CaseStudyData[] = [
@@ -1065,6 +1066,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     duration: { es: "45 días", en: "45 days" },
     cta: { es: "Quiero mi tienda online", en: "I want my online store" },
+    testimonial: {
+      quote: "Tenía mi emprendimiento funcionando por Instagram pero necesitaba dar el salto a una tienda de verdad. El equipo entendió desde el primer día que Mimi Kids no es solo una tienda, es un proyecto con identidad propia. La plataforma quedó exactamente como lo imaginé: mis clientas pueden personalizar todo, yo gestiono los pedidos desde el panel sin necesitar ayuda de nadie, y los emails automáticos me ahorran un montón de tiempo. Fue una inversión que valió cada peso.",
+      name: "Cami",
+      role: "Fundadora de Mimi Kids",
+    },
   },
 ];
 
