@@ -9,7 +9,7 @@ export interface PortfolioProject {
 }
 
 /** Projects that should always sort first, in this exact order, wherever they appear. */
-export const PROJECT_PRIORITY = ["autodux", "alkemia", "distrisal", "voutier", "soy-lidia", "lidia-superadmin", "crm-alora", "crm-lidia"];
+export const PROJECT_PRIORITY = ["autodux", "mimikids", "alkemia", "distrisal", "voutier", "soy-lidia", "lidia-superadmin", "crm-alora", "crm-lidia"];
 
 export function sortByPriority<T extends { slug: string }>(items: T[]): T[] {
   return items.slice().sort((a, b) => {
@@ -32,6 +32,15 @@ export const PORTFOLIO: PortfolioProject[] = [
     tags: ["App", "Web"],
     es: { desc: "Marketplace de compra y venta de autos a medida, para centralizar un mercado fragmentado en Comodoro Rivadavia." },
     en: { desc: "Custom car marketplace that centralized a fragmented market in Comodoro Rivadavia." },
+  },
+  {
+    slug: "mimikids",
+    client: "Mimi Kids",
+    url: "https://mimikids.com.ar/",
+    image: "/images/case-studies/mimikids/hero.png",
+    tags: ["E-commerce"],
+    es: { desc: "Tienda online con personalización de productos, panel de administración propio y pagos con MercadoPago para una marca artesanal de portachupetes." },
+    en: { desc: "Online store with product customization, custom admin panel and MercadoPago payments for a handmade pacifier clip brand." },
   },
   {
     slug: "distrisal",
