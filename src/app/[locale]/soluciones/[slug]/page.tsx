@@ -352,9 +352,65 @@ export default async function SolutionPage({ params }: Props) {
     { name: h.badge, url: `https://www.globalalora.com/${l}/soluciones/${slug}` },
   ]);
 
+  const processSteps = sol.process[l].map((s) => `${s.title}: ${s.body}`).join(" → ");
+  const featuresList = sol.features[l].join(", ");
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Qué incluye el servicio de ${h.badge} de ALORA?`
+          : `What does ALORA's ${h.badge} service include?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `${h.sub} Incluye: ${featuresList}.`
+            : `${h.sub} Includes: ${featuresList}.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Cómo es el proceso de trabajo para ${h.badge}?`
+          : `What is the work process for ${h.badge}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: processSteps,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Por qué elegir ALORA para ${h.badge}?`
+          : `Why choose ALORA for ${h.badge}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `ALORA es una agencia de tecnología con base en Buenos Aires especializada en ${h.badge}. Trabajamos como socios de negocio: entendemos adquisición, operaciones y conversión antes de escribir una línea de código. Tenemos proyectos en producción en Argentina, México, Colombia, Chile, España y Uruguay.`
+            : `ALORA is a technology agency based in Buenos Aires specializing in ${h.badge}. We work as business partners: we understand acquisition, operations and conversion before writing a line of code. We have projects live in Argentina, Mexico, Colombia, Chile, Spain and Uruguay.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Cuánto cuesta el servicio de ${h.badge}?`
+          : `How much does ${h.badge} service cost?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `El costo varía según el alcance y complejidad del proyecto. En ALORA trabajamos con presupuesto a medida para cada cliente. Podés agendar una llamada gratuita de 20 minutos en https://www.globalalora.com/es/llamada-de-relevamiento para recibir una propuesta sin compromiso.`
+            : `The cost varies depending on the scope and complexity of the project. At ALORA we work with custom quotes for each client. You can book a free 20-minute call at https://www.globalalora.com/en/discovery-call to receive a no-commitment proposal.`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: SECTION_BG }}>
       {/* Ambient glows */}
