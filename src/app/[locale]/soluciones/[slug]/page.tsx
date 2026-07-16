@@ -1338,6 +1338,36 @@ export default async function SolutionPage({ params }: Props) {
         )}
       </section>
 
+      {/* FAQ section */}
+      <section className="mx-auto max-w-3xl px-6 py-20">
+        <h2 className="mb-10 text-center text-[22px] font-bold tracking-tight text-white">
+          {l === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
+        </h2>
+        <dl className="space-y-4">
+          {faqSchema.mainEntity.map((item, i) => (
+            <details
+              key={i}
+              className="group rounded-2xl border px-6 py-5 transition-colors open:border-white/20"
+              style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                <dt className="text-[15px] font-medium text-white/90 group-open:text-white">
+                  {item.name}
+                </dt>
+                <span aria-hidden className="shrink-0 text-white/30 transition-transform group-open:rotate-45">
+                  <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                    <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <dd className="mt-4 text-[14px] leading-relaxed text-white/60">
+                {item.acceptedAnswer.text}
+              </dd>
+            </details>
+          ))}
+        </dl>
+      </section>
+
       {/* CTA section */}
       <section className="relative overflow-hidden border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div
