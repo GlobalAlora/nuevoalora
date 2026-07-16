@@ -140,6 +140,25 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
         en: ["Custom Ecommerce", "WooCommerce", "Advanced Filters"],
       },
     },
+    {
+      caseSlug: "mimikids",
+      image: "/images/case-studies/mimikids/hero-v2.png",
+      imageAspect: "1914/942",
+      imageAlt: "Mimi Kids",
+      badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
+      heading: {
+        es: "Mimi Kids: de emprendimiento artesanal a tienda online con personalización y pagos integrados",
+        en: "Mimi Kids: from handmade business to online store with customization and integrated payments",
+      },
+      body: {
+        es: "Construimos la tienda completa de Mimi Kids desde cero: catálogo de portachupetes personalizables, flujo de personalización integrado al carrito, panel de administración propio y pagos con MercadoPago. Cami gestiona todo sin depender de nadie.",
+        en: "We built the complete Mimi Kids store from scratch: customizable pacifier clip catalog, customization flow integrated into the cart, custom admin panel and MercadoPago payments. Cami manages everything on her own.",
+      },
+      tags: {
+        es: ["Ecommerce a Medida", "Personalización de Producto", "Next.js + Supabase"],
+        en: ["Custom Ecommerce", "Product Customization", "Next.js + Supabase"],
+      },
+    },
   ],
   "desarrollo-web": [
     {
