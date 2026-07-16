@@ -131,6 +131,12 @@ const en: Dictionary = {
         name: "Fernando Celaya",
         role: "Starley – Manager",
       },
+      {
+        quote: "I had my business running through Instagram but I needed to take the leap to a real store. The team understood from day one that Mimi Kids isn't just a shop — it has its own identity. The platform turned out exactly as I imagined: my customers can customize everything, I manage orders from the panel without needing help from anyone, and the automatic emails save me so much time. It was an investment that was worth every penny.",
+        tags: ["Custom store", "Own admin panel", "Real automation"],
+        name: "Cami",
+        role: "Founder of Mimi Kids",
+      },
     ],
   },
   process: {

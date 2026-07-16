@@ -189,6 +189,12 @@ const es: Dictionary = {
         name: "Fernando Celaya",
         role: "Starley – Gerente",
       },
+      {
+        quote: "Tenía mi emprendimiento funcionando por Instagram pero necesitaba dar el salto a una tienda de verdad. El equipo entendió desde el primer día que Mimi Kids no es solo una tienda, es un proyecto con identidad propia. La plataforma quedó exactamente como lo imaginé: mis clientas pueden personalizar todo, yo gestiono los pedidos desde el panel sin necesitar ayuda de nadie, y los emails automáticos me ahorran un montón de tiempo. Fue una inversión que valió cada peso.",
+        tags: ["Tienda a medida", "Panel propio", "Automatización real"],
+        name: "Cami",
+        role: "Fundadora de Mimi Kids",
+      },
     ],
   },
   process: {
