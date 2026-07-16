@@ -37,7 +37,7 @@ export const PORTFOLIO: PortfolioProject[] = [
     slug: "mimikids",
     client: "Mimi Kids",
     url: "https://mimikids.com.ar/",
-    image: "/images/case-studies/mimikids/hero.png",
+    image: "/images/case-studies/mimikids/hero-v2.png",
     tags: ["E-commerce"],
     es: { desc: "Tienda online con personalización de productos, panel de administración propio y pagos con MercadoPago para una marca artesanal de portachupetes." },
     en: { desc: "Online store with product customization, custom admin panel and MercadoPago payments for a handmade pacifier clip brand." },

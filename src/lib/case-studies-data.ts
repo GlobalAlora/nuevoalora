@@ -949,7 +949,7 @@ export const CASE_STUDIES: CaseStudyData[] = [
     icon: "cart",
     url: "https://mimikids.com.ar/",
     theme: { primary: "#e8758a", secondary: "#f4a7b9" },
-    heroImage: "/images/case-studies/mimikids/hero.png",
+    heroImage: "/images/case-studies/mimikids/hero-v2.png",
     heroImageAspect: "1914/942",
     heroImageMobile: "/images/case-studies/mimikids/hero-mobile.png",
     heroImageMobileAspect: "391/860",
