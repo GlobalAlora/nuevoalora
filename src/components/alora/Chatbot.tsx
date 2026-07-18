@@ -201,7 +201,7 @@ export function Chatbot({ dict, locale }: Props) {
       const conv = newHistory.map((m) => `${m.from === "user" ? "Cliente" : "Bot"}: ${m.text}`).join("\n\n");
       void sendEmailJS({ lead_contact: `Email: ${email}\nTeléfono: ${phone}`, lead_type: "Chatbot completo", conversation: conv, user_message: text, date: new Date().toLocaleString("es-AR") });
       void sendWebhooks({ nombre: name, email, telefono: phone, locale, conversationId: conversationId.current, source: "chatbot", landingPage: pathname });
-      trackEvent("generate_lead", { form_id: "chatbot", landing_page: pathname });
+      trackEvent("chatbot_lead", { landing_page: pathname });
       return;
     }
 
