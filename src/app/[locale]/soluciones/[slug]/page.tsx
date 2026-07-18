@@ -17,6 +17,8 @@ import { CaseStudyHighlight, type CaseStudyHighlightItem } from "./CaseStudyHigh
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
+import { RelatedContentGrid } from "@/components/shared/RelatedContentGrid";
+import { getRelatedBlogPostsForSolution } from "@/lib/related-content";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -345,6 +347,7 @@ export default async function SolutionPage({ params }: Props) {
   const accent2 = sol.theme.secondary ?? sol.theme.primary;
   const SECTION_BG = "oklch(0.13 0.015 260)";
   const caseStudy = CASE_STUDY_HIGHLIGHT[sol.slug];
+  const relatedBlogPosts = getRelatedBlogPostsForSolution(sol.slug, l);
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
@@ -1366,6 +1369,11 @@ export default async function SolutionPage({ params }: Props) {
             </details>
           ))}
         </dl>
+
+        <RelatedContentGrid
+          heading={l === "es" ? "Te puede interesar" : "You might also like"}
+          items={relatedBlogPosts}
+        />
       </section>
 
       {/* CTA section */}

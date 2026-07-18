@@ -16,6 +16,8 @@ import { FeatureShowcase } from "@/components/shared/FeatureShowcase";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
+import { RelatedContentGrid } from "@/components/shared/RelatedContentGrid";
+import { getRelatedSolutionForCaseStudy, getRelatedBlogPostsForCaseStudy } from "@/lib/related-content";
 import { ICONS } from "@/lib/icons";
 
 interface Props {
@@ -59,6 +61,8 @@ export default async function CaseStudyPage({ params }: Props) {
   const scope = cs.scopeDelivered[l];
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
   const whatsappUrl = buildWhatsAppHref(`/${l}/casos-de-exito/${slug}`, l);
+  const relatedSolutions = getRelatedSolutionForCaseStudy(slug, l);
+  const relatedBlogPosts = getRelatedBlogPostsForCaseStudy(slug, l);
 
   const accent = cs.theme.primary;
   const accent2 = cs.theme.secondary ?? cs.theme.primary;
@@ -414,6 +418,18 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Related */}
+        <section className="mx-auto max-w-3xl px-6 py-4">
+          <RelatedContentGrid
+            heading={l === "es" ? "Solución relacionada" : "Related solution"}
+            items={relatedSolutions}
+          />
+          <RelatedContentGrid
+            heading={l === "es" ? "Te puede interesar" : "You might also like"}
+            items={relatedBlogPosts}
+          />
+        </section>
 
         {/* CTA final */}
         <section className="relative overflow-hidden border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
