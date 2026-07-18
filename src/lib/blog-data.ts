@@ -1178,7 +1178,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
       en: "12+ real AI use cases for small businesses, organized by business area: sales, customer service, operations, marketing and HR. What to automate first, which tools to use, and what results to expect.",
     },
     date: "2026-07-18",
-    category: { es: "Automatización", en: "Automation" },
+    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
     readTime: 14,
     image: "/images/blog/automatizacion-ia-pymes-casos.png",
     relatedSlugs: ["automatizacion-empresas-make", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "mi-empresa-necesita-inteligencia-artificial"],
