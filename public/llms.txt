@@ -39,6 +39,7 @@ Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Node.js, P
 - [Tienda Nube vs WooCommerce](https://www.globalalora.com/es/blog/tienda-nube-vs-woocommerce)
 - [Qué es un agente de IA](https://www.globalalora.com/es/blog/que-es-un-agente-ia)
 - [Automatización con Make](https://www.globalalora.com/es/blog/automatizacion-empresas-make)
+- [Casos de uso de IA en PyMEs, por área de negocio](https://www.globalalora.com/es/blog/automatizacion-ia-pymes-casos)
 
 ## Mercados
 
