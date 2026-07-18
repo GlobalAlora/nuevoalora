@@ -419,18 +419,6 @@ export default async function CaseStudyPage({ params }: Props) {
           </section>
         )}
 
-        {/* Related */}
-        <section className="mx-auto max-w-3xl px-6 py-4">
-          <RelatedContentGrid
-            heading={l === "es" ? "Solución relacionada" : "Related solution"}
-            items={relatedSolutions}
-          />
-          <RelatedContentGrid
-            heading={l === "es" ? "Te puede interesar" : "You might also like"}
-            items={relatedBlogPosts}
-          />
-        </section>
-
         {/* CTA final */}
         <section className="relative overflow-hidden border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div
@@ -530,6 +518,18 @@ export default async function CaseStudyPage({ params }: Props) {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Related */}
+        <section className="mx-auto max-w-3xl px-6 py-16">
+          <RelatedContentGrid
+            heading={l === "es" ? "Solución relacionada" : "Related solution"}
+            items={relatedSolutions}
+          />
+          <RelatedContentGrid
+            heading={l === "es" ? "Te puede interesar" : "You might also like"}
+            items={relatedBlogPosts}
+          />
         </section>
       </main>
       <Footer dict={dict} locale={l} />

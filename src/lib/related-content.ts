@@ -10,12 +10,15 @@ export interface RelatedCard {
   image?: string;
 }
 
+// Only ~9 posts have a cover image today. Keep these lists limited to posts
+// that do — blogCard() also guards this, but curating the list avoids
+// reaching for an off-topic post just to fill a slot.
 const SOLUTION_BLOG_POSTS: Record<string, string[]> = {
-  "desarrollo-web": ["landing-page-vs-sitio-web", "guia-seo-tecnico-2026-atraer-clientes", "como-usar-ia-en-wordpress-para-atraer-clientes"],
-  "aplicaciones-web": ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "automatizacion-empresas-make", "ia-automatizacion-negocios"],
-  "ecommerce": ["tienda-nube-vs-woocommerce", "5-automatizaciones-email-marketing-ecommerce"],
+  "desarrollo-web": ["mi-empresa-necesita-inteligencia-artificial", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
+  "aplicaciones-web": ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "ia-automatizacion-negocios", "automatizacion-ia-pymes-casos"],
+  "ecommerce": [],
   "chatbots": ["cuanto-cuesta-chatbot-ia", "chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas"],
-  "atencion-cliente-ia": ["agente-ia-atencion-cliente", "que-es-un-agente-ia", "chatbot-vs-agente-conversacional-ia"],
+  "atencion-cliente-ia": ["agente-ia-atencion-cliente", "chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas"],
   "desarrollo-software": ["mi-empresa-necesita-inteligencia-artificial", "ia-automatizacion-negocios", "automatizacion-ia-pymes-casos"],
 };
 
@@ -30,27 +33,38 @@ const CASE_STUDY_SOLUTION: Record<string, string> = {
   mimikids: "ecommerce",
 };
 
+// No solution page has its own heroImage — reuse the most representative
+// case study screenshot instead of falling back to a blank gradient card.
+const SOLUTION_CARD_IMAGE: Record<string, string> = {
+  "desarrollo-web": "/images/case-studies/alkemia/hero.png",
+  "aplicaciones-web": "/images/case-studies/autodux/hero.png",
+  "ecommerce": "/images/case-studies/mimikids/hero-v2.png",
+  "chatbots": "/images/case-studies/soy-lidia/hero.png",
+  "atencion-cliente-ia": "/images/case-studies/alora-crm/hero.png",
+  "desarrollo-software": "/images/case-studies/alora-crm/hero.png",
+};
+
 const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
-  autodux: ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "automatizacion-empresas-make"],
+  autodux: ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "ia-automatizacion-negocios"],
   "soy-lidia": ["cuanto-cuesta-chatbot-ia", "chatbot-clinicas-turnos-whatsapp", "agente-ia-atencion-cliente"],
   "alora-crm": ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "agente-ia-atencion-cliente"],
-  "castro-yeso": ["landing-page-vs-sitio-web", "guia-seo-tecnico-2026-atraer-clientes"],
-  alkemia: ["landing-page-vs-sitio-web", "tendencias-seo-para-desarrolladores"],
-  distrisal: ["tienda-nube-vs-woocommerce", "automatizacion-empresas-make"],
-  voutier: ["tienda-nube-vs-woocommerce", "5-automatizaciones-email-marketing-ecommerce"],
-  mimikids: ["tienda-nube-vs-woocommerce", "5-automatizaciones-email-marketing-ecommerce"],
+  "castro-yeso": ["chatbot-whatsapp-para-empresas", "mi-empresa-necesita-inteligencia-artificial"],
+  alkemia: ["mi-empresa-necesita-inteligencia-artificial", "ia-automatizacion-negocios"],
+  distrisal: [],
+  voutier: [],
+  mimikids: [],
 };
 
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
   const post = getBlogPost(slug);
-  if (!post) return null;
+  if (!post || !post.image) return null;
   return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale], image: post.image };
 }
 
 function solutionCard(slug: string, locale: Locale): RelatedCard | null {
   const sol = getSolution(slug);
   if (!sol) return null;
-  return { href: `/${locale}/soluciones/${slug}`, title: sol.hero[locale].badge, eyebrow: locale === "es" ? "Solución" : "Solution", image: sol.heroImage };
+  return { href: `/${locale}/soluciones/${slug}`, title: sol.hero[locale].badge, eyebrow: locale === "es" ? "Solución" : "Solution", image: SOLUTION_CARD_IMAGE[slug] };
 }
 
 export function getRelatedBlogPostsForSolution(slug: string, locale: Locale): RelatedCard[] {
