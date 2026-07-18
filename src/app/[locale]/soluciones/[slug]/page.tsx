@@ -1532,12 +1532,17 @@ export default async function SolutionPage({ params }: Props) {
       </section>
 
       {/* Related */}
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <RelatedContentGrid
-          heading={l === "es" ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
-          items={relatedBlogPosts}
-        />
-      </section>
+      {relatedBlogPosts.length > 0 && (
+        <section className="border-t py-20" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+          <div className="mx-auto max-w-4xl px-6">
+            <RelatedContentGrid
+              heading={l === "es" ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
+              items={relatedBlogPosts}
+              align="center"
+            />
+          </div>
+        </section>
+      )}
 
     </main>
       <Footer dict={dict} locale={l} />

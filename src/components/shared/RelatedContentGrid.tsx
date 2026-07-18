@@ -5,22 +5,29 @@ import type { RelatedCard } from "@/lib/related-content";
 interface Props {
   heading: string;
   items: RelatedCard[];
+  /** "center" is meant for a page's dedicated closing section; "left" (default) matches the blog article's inline block. */
+  align?: "left" | "center";
 }
 
-export function RelatedContentGrid({ heading, items }: Props) {
+export function RelatedContentGrid({ heading, items, align = "left" }: Props) {
   if (items.length === 0) return null;
 
+  const centered = align === "center";
+
   return (
-    <div className="mt-14">
+    <div className={centered ? "text-center" : "mt-14"}>
       <h2 className="text-[22px] font-bold text-white mb-6" style={{ letterSpacing: "-0.025em" }}>
         {heading}
       </h2>
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div
+        className={centered ? "grid gap-4 justify-center" : "grid gap-4 sm:grid-cols-3"}
+        style={centered ? { gridTemplateColumns: "repeat(auto-fit, minmax(220px, 260px))" } : undefined}
+      >
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1"
+            className="group flex flex-col overflow-hidden rounded-xl text-left transition-all duration-300 hover:-translate-y-1"
             style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
           >
             {item.image ? (
