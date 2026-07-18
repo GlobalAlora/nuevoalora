@@ -527,7 +527,7 @@ export default async function CaseStudyPage({ params }: Props) {
             items={relatedSolutions}
           />
           <RelatedContentGrid
-            heading={l === "es" ? "Te puede interesar" : "You might also like"}
+            heading={l === "es" ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
             items={relatedBlogPosts}
           />
         </section>

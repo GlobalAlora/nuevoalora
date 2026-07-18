@@ -1534,7 +1534,7 @@ export default async function SolutionPage({ params }: Props) {
       {/* Related */}
       <section className="mx-auto max-w-3xl px-6 py-16">
         <RelatedContentGrid
-          heading={l === "es" ? "Te puede interesar" : "You might also like"}
+          heading={l === "es" ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
           items={relatedBlogPosts}
         />
       </section>

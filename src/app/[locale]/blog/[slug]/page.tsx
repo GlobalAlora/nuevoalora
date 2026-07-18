@@ -212,7 +212,7 @@ export default async function BlogPostPage({ params }: Props) {
           {relatedPosts.length > 0 && (
             <div className="mt-14">
               <h2 className="text-[22px] font-bold text-white mb-6" style={{ letterSpacing: "-0.025em" }}>
-                {isEs ? "Te puede interesar" : "You might also like"}
+                {isEs ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
               </h2>
               <div className="grid gap-4 sm:grid-cols-3">
                 {relatedPosts.map((rp) => (
