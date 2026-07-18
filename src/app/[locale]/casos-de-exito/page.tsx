@@ -127,6 +127,7 @@ export default async function CasosDeExitoPage({ params }: Props) {
                               src={cs.heroImage}
                               alt={cs.client}
                               fill
+                              priority={i === 0}
                               sizes="(max-width: 1024px) 90vw, 480px"
                               className="object-cover"
                             />

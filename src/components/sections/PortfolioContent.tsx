@@ -118,7 +118,7 @@ export function PortfolioContent() {
 
         {/* Projects grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((project) => (
+          {visible.map((project, i) => (
             <article key={project.slug} id={project.slug}
               className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1.5"
               style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", backdropFilter: "blur(8px)" }}>
@@ -131,6 +131,7 @@ export function PortfolioContent() {
               <div className="relative h-[210px] overflow-hidden bg-[oklch(0.12_0.01_260)]">
                 {project.image ? (
                   <Image src={project.image} alt={project.client} fill
+                    priority={i === 0}
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     onError={() => {}} />

@@ -150,7 +150,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   style={{ borderColor: "rgba(255,255,255,0.08)", boxShadow: `0 25px 60px -20px color-mix(in oklab, ${accent} 35%, transparent)` }}
                 >
                   <div className="relative w-full" style={{ background: "#0b0d14", aspectRatio: cs.heroImageMobileAspect ?? "9/16" }}>
-                    <Image src={cs.heroImageMobile} alt={`${cs.client} — mobile`} fill className="object-contain" sizes="280px" />
+                    <Image src={cs.heroImageMobile} alt={`${cs.client} — mobile`} fill priority className="object-contain" sizes="280px" />
                   </div>
                 </div>
               </div>

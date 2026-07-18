@@ -83,7 +83,7 @@ export default async function BlogPage({ params }: Props) {
 
           {/* Posts grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => {
+            {posts.map((post, i) => {
               const color = categoryColors[post.category] ?? "var(--turquoise)";
               return (
                 <Link
@@ -99,6 +99,7 @@ export default async function BlogPage({ params }: Props) {
                         src={post.image}
                         alt={post.title}
                         fill
+                        priority={i === 0}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
