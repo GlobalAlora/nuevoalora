@@ -95,6 +95,7 @@ export function Chatbot({ dict, locale }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const conversationId = useRef(`chat_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`);
+  const hasEngaged = useRef(false);
 
   const botMsg = useCallback((text: string) => {
     setMessages((prev) => [...prev, { from: "bot", text }]);
@@ -148,6 +149,10 @@ export function Chatbot({ dict, locale }: Props) {
     if (!text || isTyping) return;
     setInput("");
     addUserMsg(text);
+    if (!hasEngaged.current) {
+      hasEngaged.current = true;
+      trackEvent("chatbot_engaged", { landing_page: pathname });
+    }
     const newHistory: Message[] = [...messages, { from: "user", text }];
 
     // Career intent
