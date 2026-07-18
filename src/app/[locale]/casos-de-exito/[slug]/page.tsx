@@ -393,6 +393,28 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Testimonial */}
+        {cs.testimonial && (
+          <section className="mx-auto max-w-3xl px-6 py-16">
+            <div
+              className="relative rounded-2xl p-8"
+              style={{ background: `color-mix(in oklab, ${accent} 8%, rgba(255,255,255,0.03))`, border: `1px solid color-mix(in oklab, ${accent} 25%, rgba(255,255,255,0.08))` }}
+            >
+              <svg viewBox="0 0 40 30" fill="none" width="40" height="30" className="mb-5 opacity-40" style={{ color: accent }}>
+                <path d="M0 30V18C0 8.4 5.6 2.4 16.8 0l2.4 3.6C13.6 5.2 10.4 8.4 9.6 13.2H16V30H0zm22 0V18C22 8.4 27.6 2.4 38.8 0l2.4 3.6C35.6 5.2 32.4 8.4 31.6 13.2H38V30H22z" fill="currentColor" />
+              </svg>
+              <p className="text-[16px] leading-relaxed text-white/80 italic">"{cs.testimonial.quote}"</p>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="h-px flex-1 opacity-10" style={{ background: accent }} />
+                <div className="text-right">
+                  <p className="text-[14px] font-semibold text-white/90">{cs.testimonial.name}</p>
+                  <p className="text-[12px] text-white/45">{cs.testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* CTA final */}
         <section className="relative overflow-hidden border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div

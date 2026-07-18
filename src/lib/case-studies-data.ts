@@ -52,6 +52,7 @@ export interface CaseStudyData {
   }
   duration: { es: string; en: string }
   cta: { es: string; en: string }
+  testimonial?: { quote: string; name: string; role: string }
 }
 
 export const CASE_STUDIES: CaseStudyData[] = [
@@ -941,6 +942,135 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     duration: { es: "60 días", en: "60 days" },
     cta: { es: "Quiero un ecommerce estable y escalable", en: "I want a stable, scalable ecommerce" },
+  },
+  {
+    slug: "mimikids",
+    client: "Mimi Kids",
+    icon: "cart",
+    url: "https://mimikids.com.ar/",
+    theme: { primary: "#e8758a", secondary: "#f4a7b9" },
+    heroImage: "/images/case-studies/mimikids/hero-v2.png",
+    heroImageAspect: "1914/942",
+    heroImageMobile: "/images/case-studies/mimikids/hero-mobile.png",
+    heroImageMobileAspect: "391/860",
+    location: { es: "Trenque Lauquen, Argentina", en: "Trenque Lauquen, Argentina" },
+    industry: { es: "Ecommerce · Productos para bebés", en: "Ecommerce · Baby products" },
+    category: { es: "Ecommerce / Desarrollo a medida", en: "Ecommerce / Custom Development" },
+    meta: {
+      es: {
+        title: "Caso de éxito: Mimi Kids | ALORA",
+        desc: "Cómo llevamos a Mimi Kids del taller artesanal a una tienda online completa con personalización de productos, panel de administración y pagos integrados.",
+      },
+      en: {
+        title: "Case study: Mimi Kids | ALORA",
+        desc: "How we took Mimi Kids from a handmade workshop to a full online store with product customization, admin panel and integrated payments.",
+      },
+    },
+    hero: {
+      es: {
+        badge: "Caso de éxito",
+        title: "De idea a tienda online en tiempo récord",
+        sub: "Cami llegó con un emprendimiento artesanal de portachupetes personalizados. Construimos la tienda completa: catálogo interactivo, flujo de personalización, panel de administración y pagos con MercadoPago.",
+      },
+      en: {
+        badge: "Case study",
+        title: "From idea to online store in record time",
+        sub: "Cami came to us with a handmade pacifier clip business. We built the full store: interactive catalog, customization flow, admin panel and MercadoPago payments.",
+      },
+    },
+    challenge: {
+      es: {
+        heading: "Un emprendimiento artesanal que necesitaba dar el salto digital sin perder su identidad.",
+        body: "Cami hacía portachupetes únicos a mano en Trenque Lauquen y los vendía por Instagram. Sin tienda online, cada venta era manual: pedidos por mensaje, cobros por transferencia y sin forma de escalar. Necesitaba una tienda que reflejara la calidez de su marca y automatizara el proceso de compra — sin convertirse en una plataforma fría y genérica.",
+        points: [
+          { icon: "chat", text: "Ventas 100% manuales por Instagram: sin carrito, sin pagos online y sin automatización" },
+          { icon: "puzzle", text: "Producto 100% personalizable: nombre del bebé, colores y materiales — imposible de gestionar sin un flujo digital" },
+          { icon: "layers", text: "Sin panel de administración: Cami no podía ver pedidos ni actualizar el catálogo sin ayuda técnica" },
+          { icon: "target", text: "La identidad artesanal y personal de la marca tenía que preservarse en cada pantalla" },
+        ],
+      },
+      en: {
+        heading: "A handmade business that needed to go digital without losing its identity.",
+        body: "Cami made unique handmade pacifier clips in Trenque Lauquen and sold them through Instagram. With no online store, every sale was manual: orders by message, payment by transfer and no way to scale. She needed a store that reflected the warmth of her brand and automated the buying process — without becoming a cold, generic platform.",
+        points: [
+          { icon: "chat", text: "100% manual sales through Instagram: no cart, no online payments and no automation" },
+          { icon: "puzzle", text: "100% customizable product: baby name, colors and materials — impossible to manage without a digital flow" },
+          { icon: "layers", text: "No admin panel: Cami couldn't view orders or update the catalog without technical help" },
+          { icon: "target", text: "The handmade, personal identity of the brand had to be preserved on every screen" },
+        ],
+      },
+    },
+    solution: {
+      es: {
+        heading: "Una tienda completa, pensada para el flujo real de trabajo de Cami.",
+        intro: "Diseñamos cada pantalla entendiendo cómo Cami trabaja y cómo sus clientes compran: personalización natural, gestión simple y notificaciones automáticas en cada paso.",
+        items: [
+          { icon: "layers", title: "Catálogo con galería y modelos de referencia", body: "Los clientes ven cada producto con zoom, galería de fotos reales y modelos de referencia para inspirarse antes de personalizar.", highlight: true },
+          { icon: "controls", title: "Flujo de personalización integrado al carrito", body: "El cliente elige nombre, colores y materiales directamente en la ficha del producto. Todo queda registrado en el pedido sin pasos extra." },
+          { icon: "shield", title: "Panel de administración propio", body: "Cami gestiona productos, modelos, pedidos y estados en tiempo real desde un panel diseñado para ella — sin depender de nadie." },
+          { icon: "plug", title: "Pagos con MercadoPago", body: "Checkout integrado con MercadoPago para cobros online seguros. Adiós a las transferencias manuales." },
+          { icon: "chat", title: "Emails automáticos en cada etapa", body: "El cliente recibe notificaciones automáticas en cada cambio de estado: confirmación, producción, envío y entrega." },
+          { icon: "structure", title: "Diseño que refleja la marca", body: "Paleta rosada, tipografía suave y fotografía real de productos. Una tienda que se siente tan artesanal como los productos que vende." },
+        ],
+      },
+      en: {
+        heading: "A complete store built around Cami's real workflow.",
+        intro: "We designed every screen by understanding how Cami works and how her customers buy: natural customization, simple management and automatic notifications at every step.",
+        items: [
+          { icon: "layers", title: "Catalog with gallery and reference models", body: "Customers see each product with zoom, real photo gallery and reference models to inspire them before customizing.", highlight: true },
+          { icon: "controls", title: "Customization flow integrated into the cart", body: "The customer chooses name, colors and materials directly on the product page. Everything is recorded in the order with no extra steps." },
+          { icon: "shield", title: "Custom admin panel", body: "Cami manages products, models, orders and statuses in real time from a panel designed for her — without depending on anyone." },
+          { icon: "plug", title: "MercadoPago payments", body: "Checkout integrated with MercadoPago for secure online payments. No more manual bank transfers." },
+          { icon: "chat", title: "Automatic emails at every stage", body: "The customer receives automatic notifications at each status change: confirmation, production, shipping and delivery." },
+          { icon: "structure", title: "Design that reflects the brand", body: "Pink palette, soft typography and real product photography. A store that feels as handmade as the products it sells." },
+        ],
+      },
+    },
+    techStack: [
+      { name: "Next.js 16", icon: "code", body: { es: "App Router, TypeScript y Tailwind CSS.", en: "App Router, TypeScript and Tailwind CSS." } },
+      { name: "Supabase", icon: "cloud", body: { es: "Base de datos PostgreSQL y storage de imágenes.", en: "PostgreSQL database and image storage." } },
+      { name: "NextAuth v5", icon: "shield", body: { es: "Autenticación del panel de administración.", en: "Admin panel authentication." } },
+      { name: "Resend", icon: "chat", body: { es: "Emails transaccionales automáticos.", en: "Automatic transactional emails." } },
+      { name: "MercadoPago", icon: "plug", body: { es: "Pagos online integrados al checkout.", en: "Online payments integrated into checkout." } },
+      { name: "Vercel", icon: "speed", body: { es: "Deploy continuo y hosting.", en: "Continuous deployment and hosting." } },
+    ],
+    scopeDelivered: {
+      es: {
+        heading: "Una tienda lista para vender desde el día uno",
+        intro: "De la idea al ecommerce en producción, con personalización de productos, pagos integrados y un panel de gestión que Cami usa sola.",
+        items: [
+          "Tienda online completa con catálogo, galería de modelos y ficha de producto con zoom",
+          "Flujo de personalización: nombre del bebé, colores y materiales integrados al carrito",
+          "Panel de administración: gestión de productos, modelos, pedidos y estados en tiempo real",
+          "Emails automáticos al cliente en confirmación, producción, envío y entrega",
+          "Checkout con MercadoPago para cobros online sin fricción",
+          "Sección 'Quiénes somos' con carrusel de fotos reales del taller",
+          "Diseño responsivo adaptado a móvil, donde llega la mayoría del tráfico de Instagram",
+          "QA completo antes del lanzamiento: navegación, carrito, personalización, pagos y emails",
+        ],
+      },
+      en: {
+        heading: "A store ready to sell from day one",
+        intro: "From idea to production ecommerce, with product customization, integrated payments and a management panel that Cami uses on her own.",
+        items: [
+          "Complete online store with catalog, model gallery and product page with zoom",
+          "Customization flow: baby name, colors and materials integrated into the cart",
+          "Admin panel: real-time management of products, models, orders and statuses",
+          "Automatic emails to the customer at confirmation, production, shipping and delivery",
+          "MercadoPago checkout for frictionless online payments",
+          "'About us' section with real workshop photo carousel",
+          "Responsive design optimized for mobile, where most Instagram traffic arrives",
+          "Full QA before launch: navigation, cart, customization, payments and emails",
+        ],
+      },
+    },
+    duration: { es: "45 días", en: "45 days" },
+    cta: { es: "Quiero mi tienda online", en: "I want my online store" },
+    testimonial: {
+      quote: "Tenía mi emprendimiento funcionando por Instagram pero necesitaba dar el salto a una tienda de verdad. El equipo entendió desde el primer día que Mimi Kids no es solo una tienda, es un proyecto con identidad propia. La plataforma quedó exactamente como lo imaginé: mis clientas pueden personalizar todo, yo gestiono los pedidos desde el panel sin necesitar ayuda de nadie, y los emails automáticos me ahorran un montón de tiempo. Fue una inversión que valió cada peso.",
+      name: "Cami",
+      role: "Fundadora de Mimi Kids",
+    },
   },
 ];
 

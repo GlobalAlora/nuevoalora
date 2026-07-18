@@ -140,6 +140,25 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
         en: ["Custom Ecommerce", "WooCommerce", "Advanced Filters"],
       },
     },
+    {
+      caseSlug: "mimikids",
+      image: "/images/case-studies/mimikids/hero-v2.png",
+      imageAspect: "1914/942",
+      imageAlt: "Mimi Kids",
+      badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
+      heading: {
+        es: "Mimi Kids: de emprendimiento artesanal a tienda online con personalización y pagos integrados",
+        en: "Mimi Kids: from handmade business to online store with customization and integrated payments",
+      },
+      body: {
+        es: "Construimos la tienda completa de Mimi Kids desde cero: catálogo de portachupetes personalizables, flujo de personalización integrado al carrito, panel de administración propio y pagos con MercadoPago. Cami gestiona todo sin depender de nadie.",
+        en: "We built the complete Mimi Kids store from scratch: customizable pacifier clip catalog, customization flow integrated into the cart, custom admin panel and MercadoPago payments. Cami manages everything on her own.",
+      },
+      tags: {
+        es: ["Ecommerce a Medida", "Personalización de Producto", "Next.js + Supabase"],
+        en: ["Custom Ecommerce", "Product Customization", "Next.js + Supabase"],
+      },
+    },
   ],
   "desarrollo-web": [
     {
@@ -333,9 +352,65 @@ export default async function SolutionPage({ params }: Props) {
     { name: h.badge, url: `https://www.globalalora.com/${l}/soluciones/${slug}` },
   ]);
 
+  const processSteps = sol.process[l].map((s) => `${s.title}: ${s.body}`).join(" → ");
+  const featuresList = sol.features[l].join(", ");
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Qué incluye el servicio de ${h.badge} de ALORA?`
+          : `What does ALORA's ${h.badge} service include?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `${h.sub} Incluye: ${featuresList}.`
+            : `${h.sub} Includes: ${featuresList}.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Cómo es el proceso de trabajo para ${h.badge}?`
+          : `What is the work process for ${h.badge}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: processSteps,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Por qué elegir ALORA para ${h.badge}?`
+          : `Why choose ALORA for ${h.badge}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `ALORA es una agencia de tecnología con base en Buenos Aires especializada en ${h.badge}. Trabajamos como socios de negocio: entendemos adquisición, operaciones y conversión antes de escribir una línea de código. Tenemos proyectos en producción en Argentina, México, Colombia, Chile, España y Uruguay.`
+            : `ALORA is a technology agency based in Buenos Aires specializing in ${h.badge}. We work as business partners: we understand acquisition, operations and conversion before writing a line of code. We have projects live in Argentina, Mexico, Colombia, Chile, Spain and Uruguay.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: l === "es"
+          ? `¿Cuánto cuesta el servicio de ${h.badge}?`
+          : `How much does ${h.badge} service cost?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: l === "es"
+            ? `El costo varía según el alcance y complejidad del proyecto. En ALORA trabajamos con presupuesto a medida para cada cliente. Podés agendar una llamada gratuita de 20 minutos en https://www.globalalora.com/es/llamada-de-relevamiento para recibir una propuesta sin compromiso.`
+            : `The cost varies depending on the scope and complexity of the project. At ALORA we work with custom quotes for each client. You can book a free 20-minute call at https://www.globalalora.com/en/discovery-call to receive a no-commitment proposal.`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white" style={{ background: SECTION_BG }}>
       {/* Ambient glows */}
@@ -1261,6 +1336,36 @@ export default async function SolutionPage({ params }: Props) {
             </div>
           </div>
         )}
+      </section>
+
+      {/* FAQ section */}
+      <section className="mx-auto max-w-3xl px-6 py-20">
+        <h2 className="mb-10 text-center text-[22px] font-bold tracking-tight text-white">
+          {l === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
+        </h2>
+        <dl className="space-y-4">
+          {faqSchema.mainEntity.map((item, i) => (
+            <details
+              key={i}
+              className="group rounded-2xl border px-6 py-5 transition-colors open:border-white/20"
+              style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                <dt className="text-[15px] font-medium text-white/90 group-open:text-white">
+                  {item.name}
+                </dt>
+                <span aria-hidden className="shrink-0 text-white/30 transition-transform group-open:rotate-45">
+                  <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                    <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <dd className="mt-4 text-[14px] leading-relaxed text-white/60">
+                {item.acceptedAnswer.text}
+              </dd>
+            </details>
+          ))}
+        </dl>
       </section>
 
       {/* CTA section */}

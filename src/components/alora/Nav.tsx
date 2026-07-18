@@ -511,8 +511,12 @@ export function Nav({ dict, locale }: Props) {
       {/* Mobile menu */}
       {mobileOpen && (
         <div
-          className="border-t border-white/[0.06] px-6 py-4 md:hidden"
-          style={{ background: "rgba(8,10,18,.97)" }}
+          className="overflow-y-auto border-t border-white/[0.06] px-6 py-4 md:hidden"
+          style={{
+            background: "rgba(8,10,18,.97)",
+            maxHeight: "calc(100dvh - 5rem)",
+            WebkitOverflowScrolling: "touch",
+          }}
         >
           <nav className="flex flex-col gap-1">
             <Link href={homeHref} onClick={() => setMobileOpen(false)} className="py-3 text-[15px] text-white/80 transition-colors hover:text-white">
