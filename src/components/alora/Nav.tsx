@@ -21,7 +21,7 @@ interface Props {
 // LIDIA and ALORA CRM show up across multiple solution pages, so in the nav
 // menu they get a multi-tag category line instead of a single category, plus
 // a fixed display order/name for the whole case-studies list.
-const CASE_STUDY_MENU_ORDER = ["soy-lidia", "alora-crm", "autodux", "distrisal", "voutier", "alkemia", "castro-yeso"];
+const CASE_STUDY_MENU_ORDER = ["soy-lidia", "alora-crm", "autodux", "distrisal", "mimikids", "voutier", "alkemia", "castro-yeso"];
 
 const CASE_STUDY_MENU_OVERRIDES: Record<string, { name: string; category: { es: string; en: string } }> = {
   "soy-lidia": {
