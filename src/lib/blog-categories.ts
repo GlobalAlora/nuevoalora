@@ -12,7 +12,6 @@ export interface BlogCategory {
 
 export const BLOG_CATEGORIES: BlogCategory[] = [
   { es: "Desarrollo Web", en: "Web Development", color: "var(--turquoise)", solutionSlug: "desarrollo-web" },
-  { es: "Aplicaciones Web", en: "Web Applications", color: "var(--electric)", solutionSlug: "aplicaciones-web" },
   { es: "Ecommerce", en: "Ecommerce", color: "var(--violet)", solutionSlug: "ecommerce" },
   { es: "Inteligencia Artificial", en: "Artificial Intelligence", color: "var(--electric)", solutionSlug: "chatbots" },
   { es: "Desarrollo de Software", en: "Software Development", color: "var(--turquoise)", solutionSlug: "desarrollo-software" },
