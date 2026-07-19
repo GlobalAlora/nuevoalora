@@ -101,7 +101,7 @@ export function BlogContent({ posts, locale: l }: Props) {
                   }}
                 >
                   <span className="text-[40px] opacity-30 group-hover:opacity-50 transition-opacity">
-                    {post.category[0].includes("Chatbot") || post.category[0].includes("Agentes") || post.category[0].includes("Conversational") ? "💬" :
+                    {post.category[0].includes("Inteligencia") || post.category[0].includes("Artificial") ? "💬" :
                      post.category[0].includes("Ecommerce") ? "🛍️" :
                      post.category[0].includes("Software") ? "⚙️" : "🌐"}
                   </span>
