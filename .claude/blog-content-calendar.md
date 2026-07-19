@@ -10,7 +10,7 @@ explicitly flag that the backlog needs refilling.
 
 ## Topics
 
-### 1. IA para atención al cliente por industria — status: pending
+### 1. IA para atención al cliente por industria — status: done (published 2026-07-20, slug: ia-atencion-cliente-por-industria)
 **Ángulo:** No es un explicador general de qué es un agente de IA — eso ya
 existe en `agente-ia-atencion-cliente` (linkear ahí, no repetir la
 definición). El foco 100% en un catálogo por rubro: salud/consultorios,
