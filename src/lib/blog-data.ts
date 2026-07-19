@@ -1017,7 +1017,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
       en: "Clinics lose patients every day simply because they can't handle appointment requests outside business hours. Here's how a WhatsApp chatbot recovers between 8 and 12 appointments a week and cuts no-shows by up to 35%.",
     },
     date: "2026-05-25",
-    category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
+    category: { es: ["Inteligencia Artificial", "Desarrollo de Software"], en: ["Artificial Intelligence", "Software Development"] },
     readTime: 8,
     image: "/images/blog/chatbot-clinicas-turnos-whatsapp.png",
     relatedSlugs: ["chatbot-whatsapp-para-empresas", "agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia"],
