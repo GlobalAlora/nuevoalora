@@ -178,6 +178,7 @@ There's no universal answer. The best platform is the one that best fits your ne
     date: "2024-12-08",
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 6,
+    image: "/images/blog/que-es-un-agente-ia.png",
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "agente-ia-atencion-cliente", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
@@ -302,6 +303,7 @@ At ALORA we design and implement custom AI agents for businesses of all sizes. I
     date: "2025-01-20",
     category: { es: ["Desarrollo de Software"], en: ["Software Development"] },
     readTime: 7,
+    image: "/images/blog/automatizacion-empresas-make.png",
     relatedSlugs: ["automatizacion-ia-pymes-casos", "5-automatizaciones-email-marketing-ecommerce", "ia-automatizacion-negocios"],
     content: {
       es: `
@@ -2010,6 +2012,7 @@ At Alora we build these automations with you, step by step. We don't sell you co
     date: "2026-03-25",
     category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
+    image: "/images/blog/5-automatizaciones-email-marketing-ecommerce.png",
     relatedSlugs: ["tienda-nube-vs-woocommerce", "automatizacion-empresas-make", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
@@ -2373,6 +2376,7 @@ If you want to analyze what's missing in your store and how to implement strateg
     date: "2026-02-24",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 8,
+    image: "/images/blog/landing-page-vs-sitio-web.png",
     relatedSlugs: ["tienda-nube-vs-woocommerce", "guia-seo-tecnico-2026-atraer-clientes", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
@@ -2656,6 +2660,7 @@ If you're not sure which is the best option for your case, we can help you figur
     date: "2026-02-06",
     category: { es: ["Desarrollo Web", "Inteligencia Artificial"], en: ["Web Development", "Artificial Intelligence"] },
     readTime: 3,
+    image: "/images/blog/llms-txt-contexto-para-interpretacion-ia.png",
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "tendencias-seo-para-desarrolladores", "que-es-un-agente-ia"],
     content: {
       es: `
@@ -2747,6 +2752,7 @@ At ALORA we offer analysis, writing, implementation, and validation of llms.txt 
     date: "2026-01-21",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 4,
+    image: "/images/blog/guia-seo-tecnico-2026-atraer-clientes.png",
     relatedSlugs: ["tendencias-seo-para-desarrolladores", "llms-txt-contexto-para-interpretacion-ia", "landing-page-vs-sitio-web"],
     content: {
       es: `
@@ -2834,6 +2840,7 @@ Let's book a free call to analyze your business model and define the digital pie
     date: "2025-09-04",
     category: { es: ["Desarrollo Web", "Inteligencia Artificial"], en: ["Web Development", "Artificial Intelligence"] },
     readTime: 6,
+    image: "/images/blog/como-usar-ia-en-wordpress-para-atraer-clientes.png",
     relatedSlugs: ["mejores-plugins-wordpress-2025", "guia-seo-tecnico-2026-atraer-clientes", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
@@ -2995,6 +3002,7 @@ Leave us your details and we'll contact you within 24 hours with a personalized 
     date: "2025-07-15",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
+    image: "/images/blog/wordpress-6-8-2-version-mantenimiento.png",
     relatedSlugs: ["php-8-2-en-wordpress", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3102,6 +3110,7 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
     date: "2025-06-17",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
+    image: "/images/blog/tendencias-seo-para-desarrolladores.png",
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "llms-txt-contexto-para-interpretacion-ia", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
@@ -3177,6 +3186,7 @@ Leave us your details and we'll get back to you within 24 hours with a personali
     date: "2025-06-17",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
+    image: "/images/blog/mejorar-seguridad-wordpress-2025.png",
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "php-8-2-en-wordpress", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3266,6 +3276,7 @@ Google prioritizes secure sites (HTTPS, malware-free, spam-free). Compromised si
     date: "2025-06-17",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
+    image: "/images/blog/php-8-2-en-wordpress.png",
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3365,6 +3376,7 @@ If you need help migrating your site safely, [let's talk](/en/contacto).
     date: "2025-06-17",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
+    image: "/images/blog/mejores-plugins-wordpress-2025.png",
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "php-8-2-en-wordpress"],
     content: {
       es: `
