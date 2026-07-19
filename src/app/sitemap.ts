@@ -7,7 +7,7 @@ const BASE = "https://www.globalalora.com";
 const LOCALES = ["es", "en"] as const;
 type Freq = "weekly" | "monthly" | "yearly";
 
-const STATIC_ROUTES: { path: string; freq: Freq; priority: number }[] = [
+const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: string }[] = [
   // ── Home ─────────────────────────────────────────────────────────────────
   { path: "",                                                    freq: "weekly",  priority: 1.0 },
 
@@ -41,20 +41,21 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number }[] = [
 
 // Soluciones, casos de éxito y posts del blog se derivan directamente de sus
 // archivos de datos, así el sitemap nunca queda desactualizado al agregar contenido.
-const ROUTES: { path: string; freq: Freq; priority: number }[] = [
+const ROUTES: { path: string; freq: Freq; priority: number; image?: string }[] = [
   ...STATIC_ROUTES,
-  ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9 })),
-  ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8 })),
-  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8 })),
+  ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9, image: s.heroImage })),
+  ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8, image: c.heroImage })),
+  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8, image: p.image })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.flatMap(({ path, freq, priority }) =>
+  return ROUTES.flatMap(({ path, freq, priority, image }) =>
     LOCALES.map((locale) => ({
       url: `${BASE}/${locale}${path}`,
       lastModified: new Date(),
       changeFrequency: freq,
       priority,
+      images: image ? [`${BASE}${image}`] : undefined,
       alternates: {
         languages: Object.fromEntries(
           LOCALES.map((l) => [l, `${BASE}/${l}${path}`])
