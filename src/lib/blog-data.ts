@@ -32,6 +32,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2024-11-15",
     category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
+    image: "/images/blog/tienda-nube-vs-woocommerce.png",
     relatedSlugs: ["landing-page-vs-sitio-web", "5-automatizaciones-email-marketing-ecommerce", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
