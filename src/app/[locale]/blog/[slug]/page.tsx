@@ -8,6 +8,7 @@ import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
+import { getCategoryColor } from "@/lib/blog-categories";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { TrackedLink } from "@/components/shared/TrackedLink";
 
@@ -118,13 +119,19 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Header */}
           <div className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <span
-                className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
-                style={{ color: "var(--turquoise)", background: "color-mix(in oklab, var(--turquoise) 12%, transparent)" }}
-              >
-                {post.category[langKey]}
-              </span>
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              {post.category[langKey].map((cat) => {
+                const color = getCategoryColor(cat);
+                return (
+                  <span
+                    key={cat}
+                    className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
+                    style={{ color, background: `color-mix(in oklab, ${color} 12%, transparent)` }}
+                  >
+                    {cat}
+                  </span>
+                );
+              })}
               <span className="text-[12px] text-white/50">{post.readTime} min</span>
               <span className="text-[12px] text-white/50">·</span>
               <span className="text-[12px] text-white/50">{formatDate(post.date)}</span>
@@ -236,7 +243,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <div className="h-28" style={{ background: "radial-gradient(ellipse at 30% 50%, color-mix(in oklab, var(--turquoise) 16%, transparent), transparent 70%), oklch(0.15 0.015 260)" }} />
                     )}
                     <div className="flex flex-1 flex-col p-4">
-                      <span className="mb-2 text-[10.5px] font-semibold uppercase tracking-wider text-white/45">{rp.category}</span>
+                      <span className="mb-2 text-[10.5px] font-semibold uppercase tracking-wider text-white/45">{rp.category[0]}</span>
                       <h3 className="text-[13.5px] font-semibold leading-snug text-white group-hover:text-[var(--turquoise)] transition-colors">
                         {rp.title}
                       </h3>

@@ -35,7 +35,7 @@ const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
   const post = getBlogPost(slug);
   if (!post || !post.image) return null;
-  return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale], image: post.image };
+  return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale][0], image: post.image };
 }
 
 export function getRelatedBlogPostsForSolution(slug: string, locale: Locale): RelatedCard[] {

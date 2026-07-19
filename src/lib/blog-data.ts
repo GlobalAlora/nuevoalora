@@ -8,7 +8,8 @@ export interface BlogPost {
   title: { es: string; en: string };
   excerpt: { es: string; en: string };
   date: string;
-  category: { es: string; en: string };
+  /** One or more solution categories this post belongs to — first is primary. */
+  category: { es: string[]; en: string[] };
   readTime: number;
   image?: string;
   content: { es: string; en: string };
@@ -29,7 +30,7 @@ export const BLOG_POSTS: BlogPost[] = [
       en: "We compare the two most popular ecommerce platforms in Latin America to help you make the best decision for your business.",
     },
     date: "2024-11-15",
-    category: { es: "Ecommerce", en: "Ecommerce" },
+    category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
     relatedSlugs: ["landing-page-vs-sitio-web", "5-automatizaciones-email-marketing-ecommerce", "automatizacion-ia-pymes-casos"],
     content: {
@@ -174,7 +175,7 @@ There's no universal answer. The best platform is the one that best fits your ne
       en: "AI agents are the next evolution of chatbots. Learn what they are, how they work, and what use cases they have in real businesses.",
     },
     date: "2024-12-08",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Agentes Conversacionales IA"], en: ["AI Conversational Agents"] },
     readTime: 6,
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "agente-ia-atencion-cliente", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
@@ -298,7 +299,7 @@ At ALORA we design and implement custom AI agents for businesses of all sizes. I
       en: "Make (formerly Integromat) is the most powerful visual automation tool on the market. Discover how to use it to eliminate repetitive tasks and connect your systems.",
     },
     date: "2025-01-20",
-    category: { es: "Automatización", en: "Automation" },
+    category: { es: ["Aplicaciones Web"], en: ["Web Applications"] },
     readTime: 7,
     relatedSlugs: ["automatizacion-ia-pymes-casos", "5-automatizaciones-email-marketing-ecommerce", "ia-automatizacion-negocios"],
     content: {
@@ -454,7 +455,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
       en: "Everyone uses 'chatbot' and 'AI agent' as if they were interchangeable — they're not. We break down the technical and business difference, with real examples, so you pick the right technology.",
     },
     date: "2026-07-09",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Chatbots IA", "Agentes Conversacionales IA"], en: ["AI Chatbots", "AI Conversational Agents"] },
     readTime: 10,
     image: "/images/blog/chatbot-vs-agente-conversacional-ia.png",
     relatedSlugs: ["que-es-un-agente-ia", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
@@ -646,7 +647,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
       en: "Not every business needs AI, and not every AI use case fits every business. Here's a concrete method to know if it's the right time, and where in your business to apply it first.",
     },
     date: "2026-07-09",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Desarrollo de Software"], en: ["Software Development"] },
     readTime: 9,
     image: "/images/blog/mi-empresa-necesita-inteligencia-artificial.png",
     relatedSlugs: ["que-es-un-agente-ia", "automatizacion-ia-pymes-casos", "ia-automatizacion-negocios"],
@@ -826,7 +827,7 @@ At ALORA we help businesses identify where to apply AI for real impact, without 
       en: "An AI agent for customer service understands natural language and resolves real inquiries, unlike a decision-tree chatbot. Here's how it works, what it can and can't do, and when it makes sense to implement one.",
     },
     date: "2026-05-27",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Agentes Conversacionales IA"], en: ["AI Conversational Agents"] },
     image: "/images/blog/agente-ia-atencion-cliente.png",
     readTime: 7,
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-clinicas-turnos-whatsapp", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
@@ -1016,7 +1017,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
       en: "Clinics lose patients every day simply because they can't handle appointment requests outside business hours. Here's how a WhatsApp chatbot recovers between 8 and 12 appointments a week and cuts no-shows by up to 35%.",
     },
     date: "2026-05-25",
-    category: { es: "WhatsApp", en: "WhatsApp" },
+    category: { es: ["Chatbots IA", "Agentes Conversacionales IA"], en: ["AI Chatbots", "AI Conversational Agents"] },
     readTime: 8,
     image: "/images/blog/chatbot-clinicas-turnos-whatsapp.png",
     relatedSlugs: ["chatbot-whatsapp-para-empresas", "agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia"],
@@ -1178,7 +1179,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
       en: "12+ real AI use cases for small businesses, organized by business area: sales, customer service, operations, marketing and HR. What to automate first, which tools to use, and what results to expect.",
     },
     date: "2026-07-18",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Aplicaciones Web"], en: ["Web Applications"] },
     readTime: 14,
     image: "/images/blog/automatizacion-ia-pymes-casos.png",
     relatedSlugs: ["automatizacion-empresas-make", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "mi-empresa-necesita-inteligencia-artificial"],
@@ -1420,7 +1421,7 @@ Want to know which processes in your business you could automate first? At ALORA
       en: "An honest breakdown of real AI chatbot pricing in 2026: SaaS models, custom development, hidden costs, and how to calculate ROI before you invest.",
     },
     date: "2026-05-20",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Chatbots IA"], en: ["AI Chatbots"] },
     readTime: 8,
     image: "/images/blog/cuanto-cuesta-chatbot-ia.png",
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
@@ -1582,7 +1583,7 @@ Want a real quote for your business? At ALORA we run free assessments before quo
       en: "Everything you need to know to implement an AI-powered WhatsApp chatbot: the difference between the app and the API, real use cases, and the concrete steps to launch it.",
     },
     date: "2026-05-15",
-    category: { es: "Automatización", en: "Automation" },
+    category: { es: ["Chatbots IA"], en: ["AI Chatbots"] },
     readTime: 7,
     image: "/images/blog/chatbot-whatsapp-para-empresas.png",
     relatedSlugs: ["chatbot-clinicas-turnos-whatsapp", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
@@ -1804,7 +1805,7 @@ Schedule a [free 20-minute call](/en/contacto) to evaluate whether a WhatsApp ch
       en: "How to use artificial intelligence to automate real business processes: contact forms, customer service, lead follow-up, and more.",
     },
     date: "2026-04-20",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Aplicaciones Web"], en: ["Web Applications"] },
     readTime: 6,
     image: "/images/blog/ia-automatizacion-negocios.png",
     relatedSlugs: ["automatizacion-ia-pymes-casos", "mi-empresa-necesita-inteligencia-artificial", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
@@ -2006,7 +2007,7 @@ At Alora we build these automations with you, step by step. We don't sell you co
       en: "Automations aren't isolated emails: they're systems that trigger based on user behavior and work constantly to increase sales and customer loyalty.",
     },
     date: "2026-03-25",
-    category: { es: "Ecommerce", en: "Ecommerce" },
+    category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
     relatedSlugs: ["tienda-nube-vs-woocommerce", "automatizacion-empresas-make", "automatizacion-ia-pymes-casos"],
     content: {
@@ -2369,7 +2370,7 @@ If you want to analyze what's missing in your store and how to implement strateg
       en: "The difference between a landing page and a website isn't technical, it's strategic. We explain when to use each one and how to combine them to sell more.",
     },
     date: "2026-02-24",
-    category: { es: "Desarrollo Web", en: "Web Development" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 8,
     relatedSlugs: ["tienda-nube-vs-woocommerce", "guia-seo-tecnico-2026-atraer-clientes", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
@@ -2652,7 +2653,7 @@ If you're not sure which is the best option for your case, we can help you figur
       en: "Discover what the llms.txt file is, what information it should include, and why it's key for AI systems to correctly understand who you are and what you offer.",
     },
     date: "2026-02-06",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "tendencias-seo-para-desarrolladores", "que-es-un-agente-ia"],
     content: {
@@ -2743,7 +2744,7 @@ At ALORA we offer analysis, writing, implementation, and validation of llms.txt 
       en: "The technical SEO strategies transforming websites into lead-generation machines this year: Core Web Vitals, structured data, and mobile-first design.",
     },
     date: "2026-01-21",
-    category: { es: "SEO", en: "SEO" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 4,
     relatedSlugs: ["tendencias-seo-para-desarrolladores", "llms-txt-contexto-para-interpretacion-ia", "landing-page-vs-sitio-web"],
     content: {
@@ -2830,7 +2831,7 @@ Let's book a free call to analyze your business model and define the digital pie
       en: "4 practical ways to use AI in WordPress to power up your website, attract more clients, and free up time to grow your business.",
     },
     date: "2025-09-04",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 6,
     relatedSlugs: ["mejores-plugins-wordpress-2025", "guia-seo-tecnico-2026-atraer-clientes", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
@@ -2991,7 +2992,7 @@ Leave us your details and we'll contact you within 24 hours with a personalized 
       en: "Discover what's new and fixed in the latest WordPress 6.8.2 maintenance release, and why you should update.",
     },
     date: "2025-07-15",
-    category: { es: "WordPress", en: "WordPress" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     relatedSlugs: ["php-8-2-en-wordpress", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
@@ -3098,7 +3099,7 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
       en: "The key technical SEO practices every developer should know to stand out on Google in 2025.",
     },
     date: "2025-06-17",
-    category: { es: "SEO", en: "SEO" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "llms-txt-contexto-para-interpretacion-ia", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
@@ -3173,7 +3174,7 @@ Leave us your details and we'll get back to you within 24 hours with a personali
       en: "An advanced, up-to-date guide to protecting your WordPress site against modern threats, vulnerable plugins, and cyberattacks.",
     },
     date: "2025-06-17",
-    category: { es: "WordPress", en: "WordPress" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "php-8-2-en-wordpress", "mejores-plugins-wordpress-2025"],
     content: {
@@ -3262,7 +3263,7 @@ Google prioritizes secure sites (HTTPS, malware-free, spam-free). Compromised si
       en: "Discover all the advantages of using PHP 8.2 in WordPress, how to upgrade without risks, and what to keep in mind for SEO and plugins.",
     },
     date: "2025-06-17",
-    category: { es: "WordPress", en: "WordPress" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
@@ -3361,7 +3362,7 @@ If you need help migrating your site safely, [let's talk](/en/contacto).
       en: "A proven selection of the plugins that genuinely make a difference in SEO, speed, and security for your WordPress site.",
     },
     date: "2025-06-17",
-    category: { es: "WordPress", en: "WordPress" },
+    category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "php-8-2-en-wordpress"],
     content: {
@@ -3422,7 +3423,7 @@ If you need help choosing and implementing the right plugins for your project, [
       en: "What a CRM is, what it's for, the features it can't be without, and what it looks like in small, medium and large businesses. Includes the role of AI and how we build them at ALORA.",
     },
     date: "2026-07-14",
-    category: { es: "CRM", en: "CRM" },
+    category: { es: ["Aplicaciones Web"], en: ["Web Applications"] },
     readTime: 10,
     image: "/images/blog/que-es-un-crm-y-por-que-lo-necesita-tu-empresa.png",
     relatedSlugs: ["agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia", "ia-automatizacion-negocios"],
@@ -3612,7 +3613,7 @@ If you're thinking about implementing or improving your company's CRM, [let's ta
       en: "A real catalog of what artificial intelligence can do for customer service today in healthcare, retail, ecommerce, restaurants, real estate, professional services, tourism and education — with concrete examples by sector, not generic promises.",
     },
     date: "2026-07-20",
-    category: { es: "Inteligencia Artificial", en: "Artificial Intelligence" },
+    category: { es: ["Agentes Conversacionales IA"], en: ["AI Conversational Agents"] },
     readTime: 13,
     image: "/images/blog/ia-atencion-cliente-por-industria.png",
     relatedSlugs: ["agente-ia-atencion-cliente", "chatbot-vs-agente-conversacional-ia", "cuanto-cuesta-chatbot-ia"],
@@ -3808,7 +3809,7 @@ export function getBlogPost(slug: string): BlogPost | undefined {
 export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
   slug: string;
   title: string;
-  category: string;
+  category: string[];
   readTime: number;
   image?: string;
 }> {
@@ -3831,7 +3832,7 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
   title: string;
   excerpt: string;
   date: string;
-  category: string;
+  category: string[];
   readTime: number;
   image?: string;
 }> {

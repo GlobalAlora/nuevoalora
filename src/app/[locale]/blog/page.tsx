@@ -3,11 +3,11 @@ import { hasLocale, getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { getBlogPostsByLocale } from "@/lib/blog-data";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { BlogContent } from "./BlogContent";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -37,23 +37,6 @@ export default async function BlogPage({ params }: Props) {
   const isEs = l === "es";
   const posts = getBlogPostsByLocale(l);
 
-  const formatDate = (dateStr: string) => {
-    const date = new Date(`${dateStr}T12:00:00`);
-    return date.toLocaleDateString(isEs ? "es-AR" : "en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  const categoryColors: Record<string, string> = {
-    "Ecommerce": "var(--turquoise)",
-    "Inteligencia Artificial": "var(--electric)",
-    "Artificial Intelligence": "var(--electric)",
-    "Automatización": "var(--violet)",
-    "Automation": "var(--violet)",
-  };
-
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: isEs ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
     { name: isEs ? "Insights" : "Insights", url: `https://www.globalalora.com/${l}/blog` },
@@ -81,73 +64,7 @@ export default async function BlogPage({ params }: Props) {
             </p>
           </div>
 
-          {/* Posts grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => {
-              const color = categoryColors[post.category] ?? "var(--turquoise)";
-              return (
-                <Link
-                  key={post.slug}
-                  href={`/${l}/blog/${post.slug}`}
-                  className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
-                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-                >
-                  {/* Cover image (falls back to gradient placeholder) */}
-                  {post.image ? (
-                    <div className="relative h-44 overflow-hidden">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        priority={i === 0}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="h-44 flex items-center justify-center"
-                      style={{
-                        background: `radial-gradient(ellipse at 30% 50%, color-mix(in oklab, ${color} 18%, transparent), transparent 70%), oklch(0.15 0.015 260)`,
-                      }}
-                    >
-                      <span className="text-[40px] opacity-30 group-hover:opacity-50 transition-opacity">
-                        {post.category.toLowerCase().includes("ia") || post.category.toLowerCase().includes("artif") ? "🤖" :
-                         post.category.toLowerCase().includes("auto") ? "⚡" : "🛍️"}
-                      </span>
-                    </div>
-                  )}
-
-                  <div className="flex flex-col flex-1 p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span
-                        className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
-                        style={{ color, background: `color-mix(in oklab, ${color} 12%, transparent)` }}
-                      >
-                        {post.category}
-                      </span>
-                      <span className="text-[12px] text-white/50">{post.readTime} min</span>
-                    </div>
-
-                    <h2 className="text-[17px] font-semibold text-white leading-snug mb-3 group-hover:text-[var(--turquoise)] transition-colors" style={{ letterSpacing: "-0.02em" }}>
-                      {post.title}
-                    </h2>
-
-                    <p className="text-[13px] text-white/50 leading-relaxed flex-1 mb-4">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-3 border-t border-white/[0.06]">
-                      <span className="text-[12px] text-white/50">{formatDate(post.date)}</span>
-                      <span className="text-[13px] text-white/50 group-hover:text-white/80 transition-colors flex items-center gap-1">
-                        {isEs ? "Leer" : "Read"} →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <BlogContent posts={posts} locale={l} />
         </div>
 
         {/* CTA */}
