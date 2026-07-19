@@ -34,7 +34,7 @@ export function RelatedContentGrid({ heading, items, align = "left" }: Props) {
               <div className="relative h-28 overflow-hidden">
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.imageAlt ?? item.title}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

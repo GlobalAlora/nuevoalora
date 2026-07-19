@@ -12,6 +12,8 @@ export interface BlogPost {
   category: { es: string[]; en: string[] };
   readTime: number;
   image?: string;
+  /** Descriptive alt text for `image` — what the cover actually depicts, not a repeat of the title. */
+  imageAlt?: { es: string; en: string };
   content: { es: string; en: string };
   faq?: { es: BlogFaqItem[]; en: BlogFaqItem[] };
   /** Slugs of related posts to link at the end of the article, most relevant first. */
@@ -33,6 +35,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
     image: "/images/blog/tienda-nube-vs-woocommerce.png",
+    imageAlt: { es: "Comparación visual entre Tienda Nube y WooCommerce, separadas por un ícono VS", en: "Visual comparison between Tienda Nube and WooCommerce, split by a VS icon" },
     relatedSlugs: ["landing-page-vs-sitio-web", "5-automatizaciones-email-marketing-ecommerce", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
@@ -179,6 +182,7 @@ There's no universal answer. The best platform is the one that best fits your ne
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 6,
     image: "/images/blog/que-es-un-agente-ia.png",
+    imageAlt: { es: "Ícono de robot junto al texto ¿Qué es un agente de IA?", en: "Robot icon next to the text What is an AI agent?" },
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "agente-ia-atencion-cliente", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
@@ -304,6 +308,7 @@ At ALORA we design and implement custom AI agents for businesses of all sizes. I
     category: { es: ["Desarrollo de Software"], en: ["Software Development"] },
     readTime: 7,
     image: "/images/blog/automatizacion-empresas-make.png",
+    imageAlt: { es: "Ícono de rayo junto al texto Automatizá sin código, con Make.com", en: "Lightning bolt icon next to the text Automate without code, with Make.com" },
     relatedSlugs: ["automatizacion-ia-pymes-casos", "5-automatizaciones-email-marketing-ecommerce", "ia-automatizacion-negocios"],
     content: {
       es: `
@@ -461,6 +466,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 10,
     image: "/images/blog/chatbot-vs-agente-conversacional-ia.png",
+    imageAlt: { es: "Comparación visual entre Chatbot y Agente IA, separados por un ícono VS", en: "Visual comparison between Chatbot and AI Agent, split by a VS icon" },
     relatedSlugs: ["que-es-un-agente-ia", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
     content: {
       es: `
@@ -653,6 +659,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 9,
     image: "/images/blog/mi-empresa-necesita-inteligencia-artificial.png",
+    imageAlt: { es: "Signo de pregunta grande junto al texto ¿Tu empresa necesita IA?", en: "Large question mark next to the text Does your company need AI?" },
     relatedSlugs: ["que-es-un-agente-ia", "automatizacion-ia-pymes-casos", "ia-automatizacion-negocios"],
     content: {
       es: `
@@ -832,6 +839,7 @@ At ALORA we help businesses identify where to apply AI for real impact, without 
     date: "2026-05-27",
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     image: "/images/blog/agente-ia-atencion-cliente.png",
+    imageAlt: { es: "Ícono de auriculares dentro de un círculo con ondas, representando disponibilidad 24/7", en: "Headset icon inside a circle with pulse rings, representing 24/7 availability" },
     readTime: 7,
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-clinicas-turnos-whatsapp", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
@@ -1023,6 +1031,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
     category: { es: ["Inteligencia Artificial", "Desarrollo de Software"], en: ["Artificial Intelligence", "Software Development"] },
     readTime: 8,
     image: "/images/blog/chatbot-clinicas-turnos-whatsapp.png",
+    imageAlt: { es: "Calendario con turnos médicos confirmados automáticamente por WhatsApp", en: "Calendar showing medical appointments automatically confirmed via WhatsApp" },
     relatedSlugs: ["chatbot-whatsapp-para-empresas", "agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia"],
     content: {
       es: `
@@ -1185,6 +1194,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 14,
     image: "/images/blog/automatizacion-ia-pymes-casos.png",
+    imageAlt: { es: "Diagrama de red con un ícono de IA en el centro conectado a 8 íconos de áreas de negocio", en: "Network diagram with an AI icon at the center connected to 8 business-area icons" },
     relatedSlugs: ["automatizacion-empresas-make", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
@@ -1427,6 +1437,7 @@ Want to know which processes in your business you could automate first? At ALORA
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 8,
     image: "/images/blog/cuanto-cuesta-chatbot-ia.png",
+    imageAlt: { es: "Tarjetas de precios de un chatbot con IA, plan básico y desarrollo a medida", en: "Pricing cards for an AI chatbot, basic plan and custom development" },
     relatedSlugs: ["chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
       es: `
@@ -1589,6 +1600,7 @@ Want a real quote for your business? At ALORA we run free assessments before quo
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 7,
     image: "/images/blog/chatbot-whatsapp-para-empresas.png",
+    imageAlt: { es: "Conversación de WhatsApp con burbujas de chat entre cliente y empresa", en: "WhatsApp conversation with chat bubbles between customer and business" },
     relatedSlugs: ["chatbot-clinicas-turnos-whatsapp", "cuanto-cuesta-chatbot-ia", "agente-ia-atencion-cliente"],
     content: {
       es: `
@@ -1811,6 +1823,7 @@ Schedule a [free 20-minute call](/en/contacto) to evaluate whether a WhatsApp ch
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 6,
     image: "/images/blog/ia-automatizacion-negocios.png",
+    imageAlt: { es: "Ícono de cohete junto al texto Tu competencia ya usa IA para vender más", en: "Rocket icon next to the text Your competitors are already using AI to sell more" },
     relatedSlugs: ["automatizacion-ia-pymes-casos", "mi-empresa-necesita-inteligencia-artificial", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
     content: {
       es: `
@@ -2013,6 +2026,7 @@ At Alora we build these automations with you, step by step. We don't sell you co
     category: { es: ["Ecommerce"], en: ["Ecommerce"] },
     readTime: 8,
     image: "/images/blog/5-automatizaciones-email-marketing-ecommerce.png",
+    imageAlt: { es: "Número 5 grande junto a una pila de sobres de email", en: "Large number 5 next to a stack of email envelopes" },
     relatedSlugs: ["tienda-nube-vs-woocommerce", "automatizacion-empresas-make", "automatizacion-ia-pymes-casos"],
     content: {
       es: `
@@ -2377,6 +2391,7 @@ If you want to analyze what's missing in your store and how to implement strateg
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 8,
     image: "/images/blog/landing-page-vs-sitio-web.png",
+    imageAlt: { es: "Comparación visual entre Landing Page y Sitio Web, separadas por un ícono VS", en: "Visual comparison between Landing Page and Website, split by a VS icon" },
     relatedSlugs: ["tienda-nube-vs-woocommerce", "guia-seo-tecnico-2026-atraer-clientes", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
@@ -2661,6 +2676,7 @@ If you're not sure which is the best option for your case, we can help you figur
     category: { es: ["Desarrollo Web", "Inteligencia Artificial"], en: ["Web Development", "Artificial Intelligence"] },
     readTime: 3,
     image: "/images/blog/llms-txt-contexto-para-interpretacion-ia.png",
+    imageAlt: { es: "Ícono de archivo llms.txt junto al texto Para que la IA entienda tu negocio", en: "llms.txt file icon next to the text So AI understands your business" },
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "tendencias-seo-para-desarrolladores", "que-es-un-agente-ia"],
     content: {
       es: `
@@ -2753,6 +2769,7 @@ At ALORA we offer analysis, writing, implementation, and validation of llms.txt 
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 4,
     image: "/images/blog/guia-seo-tecnico-2026-atraer-clientes.png",
+    imageAlt: { es: "Ícono de trofeo junto al texto Guía de SEO técnico 2026", en: "Trophy icon next to the text Technical SEO Guide 2026" },
     relatedSlugs: ["tendencias-seo-para-desarrolladores", "llms-txt-contexto-para-interpretacion-ia", "landing-page-vs-sitio-web"],
     content: {
       es: `
@@ -2841,6 +2858,7 @@ Let's book a free call to analyze your business model and define the digital pie
     category: { es: ["Desarrollo Web", "Inteligencia Artificial"], en: ["Web Development", "Artificial Intelligence"] },
     readTime: 6,
     image: "/images/blog/como-usar-ia-en-wordpress-para-atraer-clientes.png",
+    imageAlt: { es: "Ícono de WordPress y un ícono de IA unidos por un signo más", en: "WordPress icon and an AI icon joined by a plus sign" },
     relatedSlugs: ["mejores-plugins-wordpress-2025", "guia-seo-tecnico-2026-atraer-clientes", "mi-empresa-necesita-inteligencia-artificial"],
     content: {
       es: `
@@ -3003,6 +3021,7 @@ Leave us your details and we'll contact you within 24 hours with a personalized 
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     image: "/images/blog/wordpress-6-8-2-version-mantenimiento.png",
+    imageAlt: { es: "Ícono de actualización junto al texto WordPress 6.8.2", en: "Update icon next to the text WordPress 6.8.2" },
     relatedSlugs: ["php-8-2-en-wordpress", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3111,6 +3130,7 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
     image: "/images/blog/tendencias-seo-para-desarrolladores.png",
+    imageAlt: { es: "Ícono de gráfico de tendencia ascendente junto al texto Tendencias SEO para developers", en: "Rising trend chart icon next to the text SEO trends for developers" },
     relatedSlugs: ["guia-seo-tecnico-2026-atraer-clientes", "llms-txt-contexto-para-interpretacion-ia", "como-usar-ia-en-wordpress-para-atraer-clientes"],
     content: {
       es: `
@@ -3187,6 +3207,7 @@ Leave us your details and we'll get back to you within 24 hours with a personali
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     image: "/images/blog/mejorar-seguridad-wordpress-2025.png",
+    imageAlt: { es: "Ícono de candado junto al texto Seguridad en WordPress", en: "Lock icon next to the text WordPress security" },
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "php-8-2-en-wordpress", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3277,6 +3298,7 @@ Google prioritizes secure sites (HTTPS, malware-free, spam-free). Compromised si
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 3,
     image: "/images/blog/php-8-2-en-wordpress.png",
+    imageAlt: { es: "Insignia PHP 8.2 junto al texto Novedades en WordPress", en: "PHP 8.2 badge next to the text What's new in WordPress" },
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "mejores-plugins-wordpress-2025"],
     content: {
       es: `
@@ -3377,6 +3399,7 @@ If you need help migrating your site safely, [let's talk](/en/contacto).
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },
     readTime: 2,
     image: "/images/blog/mejores-plugins-wordpress-2025.png",
+    imageAlt: { es: "Grilla de íconos de plugins junto al texto Los mejores plugins", en: "Grid of plugin icons next to the text The best plugins" },
     relatedSlugs: ["wordpress-6-8-2-version-mantenimiento", "mejorar-seguridad-wordpress-2025", "php-8-2-en-wordpress"],
     content: {
       es: `
@@ -3439,6 +3462,7 @@ If you need help choosing and implementing the right plugins for your project, [
     category: { es: ["Desarrollo de Software", "Inteligencia Artificial"], en: ["Software Development", "Artificial Intelligence"] },
     readTime: 10,
     image: "/images/blog/que-es-un-crm-y-por-que-lo-necesita-tu-empresa.png",
+    imageAlt: { es: "Palabra CRM en grande junto a un pipeline de ventas con sus etapas", en: "The word CRM in large type next to a sales pipeline with its stages" },
     relatedSlugs: ["agente-ia-atencion-cliente", "cuanto-cuesta-chatbot-ia", "ia-automatizacion-negocios"],
     content: {
       es: `
@@ -3629,6 +3653,7 @@ If you're thinking about implementing or improving your company's CRM, [let's ta
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 13,
     image: "/images/blog/ia-atencion-cliente-por-industria.png",
+    imageAlt: { es: "Grilla de íconos de distintos rubros junto al texto La misma IA, cualquier rubro", en: "Grid of icons from different industries next to the text The same AI, any industry" },
     relatedSlugs: ["agente-ia-atencion-cliente", "chatbot-vs-agente-conversacional-ia", "cuanto-cuesta-chatbot-ia"],
     content: {
       es: `
@@ -3825,6 +3850,7 @@ export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
   category: string[];
   readTime: number;
   image?: string;
+  imageAlt?: string;
 }> {
   const post = getBlogPost(slug);
   if (!post?.relatedSlugs) return [];
@@ -3837,6 +3863,7 @@ export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
       category: p.category[locale],
       readTime: p.readTime,
       image: p.image,
+      imageAlt: p.imageAlt?.[locale],
     }));
 }
 
@@ -3848,6 +3875,7 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
   category: string[];
   readTime: number;
   image?: string;
+  imageAlt?: string;
 }> {
   return BLOG_POSTS
     .slice()
@@ -3860,5 +3888,6 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
       category: p.category[locale],
       readTime: p.readTime,
       image: p.image,
+      imageAlt: p.imageAlt?.[locale],
     }));
 }

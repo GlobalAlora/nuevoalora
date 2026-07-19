@@ -14,6 +14,7 @@ interface Post {
   category: string[];
   readTime: number;
   image?: string;
+  imageAlt?: string;
 }
 
 interface Props {
@@ -86,7 +87,7 @@ export function BlogContent({ posts, locale: l }: Props) {
                 <div className="relative h-44 overflow-hidden">
                   <Image
                     src={post.image}
-                    alt={post.title}
+                    alt={post.imageAlt ?? post.title}
                     fill
                     priority={i === 0}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

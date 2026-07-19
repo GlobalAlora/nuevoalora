@@ -36,6 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       images: post.image ? [{ url: post.image, width: 1200, height: 630 }] : undefined,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title[l],
+      description: post.excerpt[l],
+      images: post.image ? [post.image] : undefined,
+    },
   };
 }
 
@@ -74,6 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title[langKey],
     description: post.excerpt[langKey],
+    image: post.image ? [`${siteUrl}${post.image}`] : undefined,
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
@@ -151,7 +158,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="relative mb-10 h-64 sm:h-80 overflow-hidden rounded-2xl border" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
               <Image
                 src={post.image}
-                alt={post.title[langKey]}
+                alt={post.imageAlt?.[langKey] ?? post.title[langKey]}
                 fill
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="object-cover"
@@ -233,7 +240,7 @@ export default async function BlogPostPage({ params }: Props) {
                       <div className="relative h-28 overflow-hidden">
                         <Image
                           src={rp.image}
-                          alt={rp.title}
+                          alt={rp.imageAlt ?? rp.title}
                           fill
                           sizes="(max-width: 640px) 100vw, 33vw"
                           className="object-cover transition-transform duration-500 group-hover:scale-105"

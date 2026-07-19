@@ -7,11 +7,9 @@ export interface RelatedCard {
   title: string;
   eyebrow: string;
   image?: string;
+  imageAlt?: string;
 }
 
-// Only ~9 posts have a cover image today. Keep these lists limited to posts
-// that do — blogCard() also guards this, but curating the list avoids
-// reaching for an off-topic post just to fill a slot.
 const SOLUTION_BLOG_POSTS: Record<string, string[]> = {
   "desarrollo-web": ["mi-empresa-necesita-inteligencia-artificial", "que-es-un-crm-y-por-que-lo-necesita-tu-empresa"],
   "aplicaciones-web": ["que-es-un-crm-y-por-que-lo-necesita-tu-empresa", "ia-automatizacion-negocios", "automatizacion-ia-pymes-casos"],
@@ -35,7 +33,7 @@ const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
   const post = getBlogPost(slug);
   if (!post || !post.image) return null;
-  return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale][0], image: post.image };
+  return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale][0], image: post.image, imageAlt: post.imageAlt?.[locale] };
 }
 
 export function getRelatedBlogPostsForSolution(slug: string, locale: Locale): RelatedCard[] {
