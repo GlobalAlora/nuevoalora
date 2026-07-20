@@ -79,18 +79,19 @@ export function BlogContent({ posts, locale: l }: Props) {
             onChange={(e) => onQueryChange(e.target.value)}
             placeholder={isEs ? "Buscar en el blog..." : "Search the blog..."}
             aria-label={isEs ? "Buscar en el blog" : "Search the blog"}
-            className="w-full rounded-full py-2.5 pl-11 pr-4 text-[14px] text-white placeholder:text-white/40 outline-none transition-colors focus:border-white/25"
+            className="w-full rounded-full py-2.5 pl-11 pr-4 text-[14px] text-white placeholder:text-white/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--turquoise)]"
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
           />
         </div>
       </div>
 
       {/* Category filters */}
-      <div className="mb-8 flex flex-wrap justify-center gap-2.5">
+      <div className="mb-8 flex flex-wrap justify-center gap-2.5" role="group" aria-label={isEs ? "Filtrar por categoría" : "Filter by category"}>
         <button
           type="button"
           onClick={() => setActive(null)}
-          className="rounded-full px-4 py-1.5 text-[12.5px] font-semibold transition-colors"
+          aria-pressed={active === null}
+          className="rounded-full px-4 py-1.5 text-[12.5px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           style={
             active === null
               ? { color: "#05070c", background: "#fff" }
@@ -107,18 +108,25 @@ export function BlogContent({ posts, locale: l }: Props) {
               key={name}
               type="button"
               onClick={() => setActive(isActive ? null : name)}
-              className="rounded-full px-4 py-1.5 text-[12.5px] font-semibold transition-colors"
-              style={
-                isActive
+              aria-pressed={isActive}
+              className="rounded-full px-4 py-1.5 text-[12.5px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{
+                outlineColor: color,
+                ...(isActive
                   ? { color: "#05070c", background: color }
-                  : { color, background: `color-mix(in oklab, ${color} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${color} 30%, transparent)` }
-              }
+                  : { color, background: `color-mix(in oklab, ${color} 12%, transparent)`, border: `1px solid color-mix(in oklab, ${color} 30%, transparent)` }),
+              }}
             >
               {name}
             </button>
           );
         })}
       </div>
+      <p className="sr-only" role="status" aria-live="polite">
+        {isEs
+          ? `${visible.length} ${visible.length === 1 ? "resultado" : "resultados"}`
+          : `${visible.length} ${visible.length === 1 ? "result" : "results"}`}
+      </p>
 
       {/* Posts grid */}
       {visible.length === 0 ? (
