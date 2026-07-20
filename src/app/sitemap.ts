@@ -7,6 +7,13 @@ const BASE = "https://www.globalalora.com";
 const LOCALES = ["es", "en"] as const;
 type Freq = "weekly" | "monthly" | "yearly";
 
+// Solutions, case studies and static pages don't carry a per-item "last
+// updated" date today, so instead of stamping every route with the moment
+// the sitemap happens to be requested (which told Google everything changes
+// on every crawl), routes without real data use this fixed reference date.
+// Bump it by hand when a real, meaningful update goes out.
+const SITE_LAST_REVIEWED = "2026-07-20";
+
 const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: string }[] = [
   // ── Home ─────────────────────────────────────────────────────────────────
   { path: "",                                                    freq: "weekly",  priority: 1.0 },
@@ -41,18 +48,18 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: strin
 
 // Soluciones, casos de éxito y posts del blog se derivan directamente de sus
 // archivos de datos, así el sitemap nunca queda desactualizado al agregar contenido.
-const ROUTES: { path: string; freq: Freq; priority: number; image?: string }[] = [
-  ...STATIC_ROUTES,
-  ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9, image: s.heroImage })),
-  ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8, image: c.heroImage })),
-  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8, image: p.image })),
+const ROUTES: { path: string; freq: Freq; priority: number; image?: string; lastModified: string }[] = [
+  ...STATIC_ROUTES.map((r) => ({ ...r, lastModified: SITE_LAST_REVIEWED })),
+  ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9, image: s.heroImage, lastModified: SITE_LAST_REVIEWED })),
+  ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8, image: c.heroImage, lastModified: SITE_LAST_REVIEWED })),
+  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8, image: p.image, lastModified: p.date })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.flatMap(({ path, freq, priority, image }) =>
+  return ROUTES.flatMap(({ path, freq, priority, image, lastModified }) =>
     LOCALES.map((locale) => ({
       url: `${BASE}/${locale}${path}`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: freq,
       priority,
       images: image ? [`${BASE}${image}`] : undefined,
