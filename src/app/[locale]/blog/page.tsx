@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { hasLocale, getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import type { Metadata } from "next";
@@ -64,7 +65,9 @@ export default async function BlogPage({ params }: Props) {
             </p>
           </div>
 
-          <BlogContent posts={posts} locale={l} />
+          <Suspense fallback={null}>
+            <BlogContent posts={posts} locale={l} />
+          </Suspense>
         </div>
 
         {/* CTA */}

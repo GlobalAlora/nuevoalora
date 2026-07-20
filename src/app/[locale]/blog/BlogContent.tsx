@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
 import { BLOG_CATEGORIES, getCategoryColor } from "@/lib/blog-categories";
+
+function normalize(s: string): string {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+}
 
 interface Post {
   slug: string;
@@ -25,9 +30,34 @@ interface Props {
 export function BlogContent({ posts, locale: l }: Props) {
   const isEs = l === "es";
   const [active, setActive] = useState<string | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(() => searchParams.get("q") ?? "");
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onQueryChange = (value: string) => {
+    setQuery(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (value.trim()) params.set("q", value.trim());
+      else params.delete("q");
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    }, 300);
+  };
+
+  useEffect(() => {
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current); };
+  }, []);
 
   const filters = BLOG_CATEGORIES.map((c) => (isEs ? c.es : c.en));
-  const visible = active ? posts.filter((p) => p.category.includes(active)) : posts;
+  const byCategory = active ? posts.filter((p) => p.category.includes(active)) : posts;
+  const normalizedQuery = normalize(query.trim());
+  const visible = normalizedQuery
+    ? byCategory.filter((p) => normalize(p.title).includes(normalizedQuery) || normalize(p.excerpt).includes(normalizedQuery))
+    : byCategory;
 
   const formatDate = (dateStr: string) => {
     const date = new Date(`${dateStr}T12:00:00`);
@@ -36,6 +66,25 @@ export function BlogContent({ posts, locale: l }: Props) {
 
   return (
     <>
+      {/* Search */}
+      <div className="mb-6 mx-auto max-w-md">
+        <div className="relative">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40">
+            <circle cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M14 14l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          </svg>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => onQueryChange(e.target.value)}
+            placeholder={isEs ? "Buscar en el blog..." : "Search the blog..."}
+            aria-label={isEs ? "Buscar en el blog" : "Search the blog"}
+            className="w-full rounded-full py-2.5 pl-11 pr-4 text-[14px] text-white placeholder:text-white/40 outline-none transition-colors focus:border-white/25"
+            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+          />
+        </div>
+      </div>
+
       {/* Category filters */}
       <div className="mb-8 flex flex-wrap justify-center gap-2.5">
         <button
@@ -72,6 +121,11 @@ export function BlogContent({ posts, locale: l }: Props) {
       </div>
 
       {/* Posts grid */}
+      {visible.length === 0 ? (
+        <p className="py-16 text-center text-[14px] text-white/50">
+          {isEs ? "No encontramos posts que coincidan con tu búsqueda." : "No posts match your search."}
+        </p>
+      ) : (
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((post, i) => {
           const primaryColor = getCategoryColor(post.category[0]);
@@ -145,6 +199,7 @@ export function BlogContent({ posts, locale: l }: Props) {
           );
         })}
       </div>
+      )}
     </>
   );
 }

@@ -36,10 +36,19 @@ Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Node.js, P
 
 ## Blog — Contenido sobre tecnología e IA
 
-- [Tienda Nube vs WooCommerce](https://www.globalalora.com/es/blog/tienda-nube-vs-woocommerce)
-- [Qué es un agente de IA](https://www.globalalora.com/es/blog/que-es-un-agente-ia)
-- [Automatización con Make](https://www.globalalora.com/es/blog/automatizacion-empresas-make)
+Más de 20 artículos organizados en 5 categorías: Desarrollo Web, Aplicaciones Web, Ecommerce, Inteligencia Artificial y Desarrollo de Software. Índice completo y buscador en https://www.globalalora.com/es/blog (parámetro `?q=` para búsqueda directa).
+
+Piezas más completas por tema:
+
+- [IA para atención al cliente por industria](https://www.globalalora.com/es/blog/ia-atencion-cliente-por-industria) — catálogo de casos de uso reales en 8 rubros
+- [Agente de IA para atención al cliente](https://www.globalalora.com/es/blog/agente-ia-atencion-cliente) — qué es, cómo funciona, cuándo conviene
 - [Casos de uso de IA en PyMEs, por área de negocio](https://www.globalalora.com/es/blog/automatizacion-ia-pymes-casos)
+- [Cuánto cuesta un chatbot con IA](https://www.globalalora.com/es/blog/cuanto-cuesta-chatbot-ia) — precios reales 2026
+- [Chatbot vs Agente Conversacional de IA](https://www.globalalora.com/es/blog/chatbot-vs-agente-conversacional-ia) — la diferencia real
+- [Qué es un CRM y por qué tu empresa lo necesita](https://www.globalalora.com/es/blog/que-es-un-crm-y-por-que-lo-necesita-tu-empresa) — con IA incluida
+- [Guía de SEO técnico 2026](https://www.globalalora.com/es/blog/guia-seo-tecnico-2026-atraer-clientes)
+- [Tienda Nube vs WooCommerce](https://www.globalalora.com/es/blog/tienda-nube-vs-woocommerce)
+- [llms.txt: cómo ayudar a las IAs a interpretar tu empresa](https://www.globalalora.com/es/blog/llms-txt-contexto-para-interpretacion-ia)
 
 ## Mercados
 
