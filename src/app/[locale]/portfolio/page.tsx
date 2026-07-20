@@ -12,10 +12,10 @@ interface Props { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === "es" ? "Casos de éxito — ALORA" : "Case Studies — ALORA",
+    title: locale === "es" ? "Proyectos en producción — ALORA" : "Projects in Production — ALORA",
     description: locale === "es"
-      ? "Proyectos reales en producción: sitios web, ecommerce, aplicaciones con IA y más."
-      : "Real projects in production: websites, ecommerce, AI-powered apps and more.",
+      ? "Sistemas reales que ya están operando y acompañando el crecimiento de nuestros clientes: sitios web, ecommerce, aplicaciones con IA y más."
+      : "Real systems already running and supporting our clients' growth: websites, ecommerce, AI-powered apps and more.",
     alternates: { canonical: `https://www.globalalora.com/${locale}/portfolio` },
   };
 }
