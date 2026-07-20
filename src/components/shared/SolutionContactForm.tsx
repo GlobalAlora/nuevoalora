@@ -56,7 +56,7 @@ export function SolutionContactForm({ dict, locale, slug, accent, accent2, sourc
     border: "1px solid rgba(255,255,255,0.12)",
     borderRadius: "10px",
     color: "rgba(255,255,255,0.92)",
-    fontSize: "14px",
+    fontSize: "16px",
     padding: "10px 14px",
     width: "100%",
     outline: "none",

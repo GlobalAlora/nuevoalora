@@ -511,9 +511,9 @@ export function Nav({ dict, locale }: Props) {
       {/* Mobile menu */}
       {mobileOpen && (
         <div
-          className="overflow-y-auto border-t border-white/[0.06] px-6 py-4 md:hidden"
+          className="relative overflow-y-auto border-t border-white/[0.06] px-6 py-4 md:hidden"
           style={{
-            background: "rgba(8,10,18,.97)",
+            background: "#080a12",
             maxHeight: "calc(100dvh - 5rem)",
             WebkitOverflowScrolling: "touch",
           }}

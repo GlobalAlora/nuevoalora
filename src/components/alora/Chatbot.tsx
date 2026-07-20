@@ -105,9 +105,11 @@ export function Chatbot({ dict, locale }: Props) {
     botMsg(t.welcome);
   }, [locale, t.welcome, botMsg]);
 
-  // Auto-open after 3s
+  // Auto-open after 3s — skipped on mobile, where the panel covers most of
+  // the viewport (hero CTAs, nav) instead of sitting in a small corner widget.
   useEffect(() => {
     if (hasAutoOpened) return;
+    if (window.innerWidth < 768) return;
     const id = setTimeout(() => { setOpen(true); setHasAutoOpened(true); }, 3000);
     return () => clearTimeout(id);
   }, [hasAutoOpened]);
@@ -337,7 +339,7 @@ export function Chatbot({ dict, locale }: Props) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={onKey}
             placeholder={t.inputPlaceholder}
-            className="flex-1 rounded-xl px-4 py-2.5 text-[13.5px] text-white/90 placeholder:text-white/25 outline-none"
+            className="flex-1 rounded-xl px-4 py-2.5 text-[16px] text-white/90 placeholder:text-white/25 outline-none"
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
           />
           <button

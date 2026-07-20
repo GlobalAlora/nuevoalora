@@ -50,7 +50,7 @@ export function ContactForm({ dict, locale }: Props) {
     border: "1px solid rgba(255,255,255,0.1)",
     borderRadius: "10px",
     color: "rgba(255,255,255,0.9)",
-    fontSize: "14.5px",
+    fontSize: "16px",
     padding: "8px 14px",
     width: "100%",
     outline: "none",

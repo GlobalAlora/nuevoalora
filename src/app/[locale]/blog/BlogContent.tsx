@@ -79,7 +79,7 @@ export function BlogContent({ posts, locale: l }: Props) {
             onChange={(e) => onQueryChange(e.target.value)}
             placeholder={isEs ? "Buscar en el blog..." : "Search the blog..."}
             aria-label={isEs ? "Buscar en el blog" : "Search the blog"}
-            className="w-full rounded-full py-2.5 pl-11 pr-4 text-[14px] text-white placeholder:text-white/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--turquoise)]"
+            className="w-full rounded-full py-2.5 pl-11 pr-4 text-[16px] text-white placeholder:text-white/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--turquoise)]"
             style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
           />
         </div>
