@@ -106,13 +106,16 @@ export function Chatbot({ dict, locale }: Props) {
   }, [locale, t.welcome, botMsg]);
 
   // Auto-open after 3s — skipped on mobile, where the panel covers most of
-  // the viewport (hero CTAs, nav) instead of sitting in a small corner widget.
+  // the viewport (hero CTAs, nav) instead of sitting in a small corner
+  // widget, and skipped on /contacto, where the panel visually overlaps the
+  // contact form's own submit button at common desktop widths.
   useEffect(() => {
     if (hasAutoOpened) return;
     if (window.innerWidth < 768) return;
+    if (pathname?.includes("/contacto")) return;
     const id = setTimeout(() => { setOpen(true); setHasAutoOpened(true); }, 3000);
     return () => clearTimeout(id);
-  }, [hasAutoOpened]);
+  }, [hasAutoOpened, pathname]);
 
   // Scroll to bottom
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, isTyping]);
