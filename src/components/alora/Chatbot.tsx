@@ -105,20 +105,29 @@ export function Chatbot({ dict, locale }: Props) {
     botMsg(t.welcome);
   }, [locale, t.welcome, botMsg]);
 
+  // Pages with their own contact form: the auto-opening panel visually
+  // overlaps that form's submit button at common desktop widths.
+  const isFormPage = (p: string | null) =>
+    !!p && (p.includes("/contacto") || p.includes("/soluciones/") || p.includes("/casos-de-exito/"));
+
   // Auto-open after 3s — skipped on mobile, where the panel covers most of
   // the viewport (hero CTAs, nav) instead of sitting in a small corner
-  // widget, and skipped on any page with its own contact form (/contacto,
-  // /soluciones/*, /casos-de-exito/*), where the panel visually overlaps
-  // that form's own submit button at common desktop widths.
+  // widget, and skipped on form pages per isFormPage above.
   useEffect(() => {
     if (hasAutoOpened) return;
     if (window.innerWidth < 768) return;
-    if (pathname?.includes("/contacto")) return;
-    if (pathname?.includes("/soluciones/")) return;
-    if (pathname?.includes("/casos-de-exito/")) return;
+    if (isFormPage(pathname)) return;
     const id = setTimeout(() => { setOpen(true); setHasAutoOpened(true); }, 3000);
     return () => clearTimeout(id);
   }, [hasAutoOpened, pathname]);
+
+  // Also close it if it was already open (e.g. from Home) and the visitor
+  // client-side-navigates into a form page — the panel doesn't unmount
+  // between routes, so without this it stays open and keeps covering the
+  // form's submit button.
+  useEffect(() => {
+    if (isFormPage(pathname)) setOpen(false);
+  }, [pathname]);
 
   // Scroll to bottom
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, isTyping]);
