@@ -78,7 +78,7 @@ async function sendWebhooks(data: Record<string, string>) {
   }).catch(() => {});
 }
 
-type Step = "chat" | "offer" | "name" | "email" | "phone" | "done";
+type Step = "chat" | "offer" | "name" | "email" | "phone" | "confirm_phone" | "done";
 
 export function Chatbot({ dict, locale }: Props) {
   const t = dict.chatbot;
@@ -235,13 +235,26 @@ export function Chatbot({ dict, locale }: Props) {
           : "Could you share your phone number? Just the digits is fine 😊");
         return;
       }
-      const name  = userData.name;
-      const email = userData.email;
-      const phone = text;
-      setUserData((p) => ({ ...p, phone }));
+      setUserData((p) => ({ ...p, phone: text }));
+      botMsg(locale === "es"
+        ? `Tu número es *${text}* — ¿está bien? (Sí / No)`
+        : `Your number is *${text}* — is that correct? (Yes / No)`);
+      setStep("confirm_phone");
+      return;
+    }
+
+    if (step === "confirm_phone") {
+      if (isNegative(text, locale)) {
+        botMsg(locale === "es"
+          ? "Sin problema, ¿cuál es tu número correcto?"
+          : "No problem, what's your correct number?");
+        setStep("phone");
+        return;
+      }
+      // Affirmative or anything else → confirm and send
+      const { name, email, phone } = userData;
       setStep("done");
       botMsg(t.thankYou);
-      // Send lead
       const conv = newHistory.map((m) => `${m.from === "user" ? "Cliente" : "Bot"}: ${m.text}`).join("\n\n");
       void sendEmailJS({ lead_contact: `Email: ${email}\nTeléfono: ${phone}`, lead_type: "Chatbot completo", conversation: conv, user_message: text, date: new Date().toLocaleString("es-AR") });
       void sendWebhooks({ nombre: name, email, telefono: phone, locale, conversationId: conversationId.current, source: "chatbot", landingPage: pathname });
