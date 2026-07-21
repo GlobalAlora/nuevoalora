@@ -105,35 +105,24 @@ export function Chatbot({ dict, locale }: Props) {
     botMsg(t.welcome);
   }, [locale, t.welcome, botMsg]);
 
-  // Pages with their own contact form: the auto-opening panel visually
-  // overlaps that form's submit button at common desktop widths. Home
-  // renders the same ContactSection/ContactForm as /contacto, just further
-  // down the page, so it carries the same risk once scrolled to.
-  const isFormPage = (p: string | null) =>
-    !!p &&
-    (p.includes("/contacto") ||
-      p.includes("/soluciones/") ||
-      p.includes("/casos-de-exito/") ||
-      /^\/(es|en)\/?$/.test(p));
-
-  // Auto-open after 3s — skipped on mobile, where the panel covers most of
-  // the viewport (hero CTAs, nav) instead of sitting in a small corner
-  // widget, and skipped on form pages per isFormPage above.
+  // Auto-open after 5s on the first page of the visit — skipped on mobile,
+  // where the panel covers most of the viewport (hero CTAs, nav) instead of
+  // sitting in a small corner widget. Only once per browser session: a
+  // sessionStorage flag (not just in-memory state) makes sure it doesn't
+  // pop again on a later page even after a full navigation/reload, since it
+  // already got its one chance to greet the visitor.
+  const AUTO_OPENED_KEY = "alora_chatbot_autoopened";
   useEffect(() => {
     if (hasAutoOpened) return;
     if (window.innerWidth < 768) return;
-    if (isFormPage(pathname)) return;
-    const id = setTimeout(() => { setOpen(true); setHasAutoOpened(true); }, 3000);
+    if (sessionStorage.getItem(AUTO_OPENED_KEY)) return;
+    const id = setTimeout(() => {
+      setOpen(true);
+      setHasAutoOpened(true);
+      sessionStorage.setItem(AUTO_OPENED_KEY, "1");
+    }, 5000);
     return () => clearTimeout(id);
   }, [hasAutoOpened, pathname]);
-
-  // Also close it if it was already open (e.g. from Home) and the visitor
-  // client-side-navigates into a form page — the panel doesn't unmount
-  // between routes, so without this it stays open and keeps covering the
-  // form's submit button.
-  useEffect(() => {
-    if (isFormPage(pathname)) setOpen(false);
-  }, [pathname]);
 
   // Scroll to bottom
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, isTyping]);
