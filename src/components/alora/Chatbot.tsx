@@ -201,6 +201,14 @@ export function Chatbot({ dict, locale }: Props) {
     }
 
     if (step === "name") {
+      const looksLikePhone = /^[\+\d][\d\s\-().]{5,}$/.test(text.trim());
+      const looksLikeEmail = /[^\s@]+@[^\s@]+\.[^\s@]+/.test(text);
+      if (looksLikePhone || looksLikeEmail) {
+        botMsg(locale === "es"
+          ? "Eso parece un teléfono o email 😊 ¿Podés escribirme solo tu nombre?"
+          : "That looks like a phone or email 😊 Could you share just your name?");
+        return;
+      }
       setUserData((p) => ({ ...p, name: text }));
       botMsg(t.askEmail);
       setStep("email");
@@ -220,6 +228,13 @@ export function Chatbot({ dict, locale }: Props) {
     }
 
     if (step === "phone") {
+      const looksLikePhone = /^[\+\d][\d\s\-().]{5,}$/.test(text.trim());
+      if (!looksLikePhone) {
+        botMsg(locale === "es"
+          ? "¿Podés escribirme tu número de teléfono? Solo los números está bien 😊"
+          : "Could you share your phone number? Just the digits is fine 😊");
+        return;
+      }
       const name  = userData.name;
       const email = userData.email;
       const phone = text;
