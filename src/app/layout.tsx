@@ -123,8 +123,18 @@ export default async function RootLayout({
         {children}
 
         {/*
-          All tracking scripts load afterInteractive — deferred until after
-          hydration so they never block first paint / LCP on mobile.
+          gtag-init and meta-pixel-init use beforeInteractive: they only
+          define the window.gtag/window.fbq functions our own code calls
+          directly (trackEvent in src/lib/analytics.ts). afterInteractive
+          left a real race — a page whose analytics event fires immediately
+          on mount (e.g. /call-booked's "schedule") could run before these
+          scripts loaded, silently dropping the direct-to-GA4/Meta call
+          (the GTM dataLayer push still went through, since that's just a
+          plain array push with no such ordering requirement). Per Next's
+          docs, beforeInteractive scripts execute before any first-party
+          code runs but don't block hydration, so this has no perf cost.
+          gtm-init and the external gtag/js loader don't need this: nothing
+          in our code calls a function they define synchronously.
         */}
         <Script
           id="gtm-init"
@@ -135,7 +145,7 @@ export default async function RootLayout({
         />
         <Script
           id="meta-pixel-init"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`,
           }}
@@ -146,7 +156,7 @@ export default async function RootLayout({
         />
         <Script
           id="gtag-init"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
