@@ -124,6 +124,18 @@ export function Chatbot({ dict, locale }: Props) {
     return () => clearTimeout(id);
   }, [hasAutoOpened, pathname]);
 
+  // Close the chat the instant a visitor focuses any field in a page's own
+  // contact form — the panel is fixed bottom-right and can otherwise sit on
+  // top of that form's submit button. The chat's own input isn't inside a
+  // <form> element, so this never fires from typing a chat message.
+  useEffect(() => {
+    const handleFocusIn = (e: FocusEvent) => {
+      if ((e.target as HTMLElement | null)?.closest("form")) setOpen(false);
+    };
+    document.addEventListener("focusin", handleFocusIn);
+    return () => document.removeEventListener("focusin", handleFocusIn);
+  }, []);
+
   // Scroll to bottom
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, isTyping]);
 
