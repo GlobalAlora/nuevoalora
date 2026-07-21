@@ -106,9 +106,15 @@ export function Chatbot({ dict, locale }: Props) {
   }, [locale, t.welcome, botMsg]);
 
   // Pages with their own contact form: the auto-opening panel visually
-  // overlaps that form's submit button at common desktop widths.
+  // overlaps that form's submit button at common desktop widths. Home
+  // renders the same ContactSection/ContactForm as /contacto, just further
+  // down the page, so it carries the same risk once scrolled to.
   const isFormPage = (p: string | null) =>
-    !!p && (p.includes("/contacto") || p.includes("/soluciones/") || p.includes("/casos-de-exito/"));
+    !!p &&
+    (p.includes("/contacto") ||
+      p.includes("/soluciones/") ||
+      p.includes("/casos-de-exito/") ||
+      /^\/(es|en)\/?$/.test(p));
 
   // Auto-open after 3s — skipped on mobile, where the panel covers most of
   // the viewport (hero CTAs, nav) instead of sitting in a small corner
