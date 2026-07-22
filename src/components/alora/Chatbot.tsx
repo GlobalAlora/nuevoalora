@@ -228,6 +228,20 @@ export function Chatbot({ dict, locale }: Props) {
     }
 
     if (step === "phone") {
+      const textNorm = normalizeText(text);
+      const hasDigits = /\d/.test(text);
+      const noPhone = (!hasDigits && isNegative(text, locale))
+        || /no tengo|sin n[uú]mero|no.*whatsapp|don'?t have|no phone/i.test(textNorm);
+      if (noPhone) {
+        const { name, email } = userData;
+        setStep("done");
+        botMsg(t.thankYou);
+        const conv = newHistory.map((m) => `${m.from === "user" ? "Cliente" : "Bot"}: ${m.text}`).join("\n\n");
+        void sendEmailJS({ lead_contact: `Email: ${email}`, lead_type: "Chatbot sin teléfono", conversation: conv, user_message: text, date: new Date().toLocaleString("es-AR") });
+        void sendWebhooks({ nombre: name, email, telefono: "", locale, conversationId: conversationId.current, source: "chatbot", fuente: "chatbot", landingPage: pathname });
+        trackEvent("chatbot_lead", { landing_page: pathname });
+        return;
+      }
       const looksLikePhone = /^[\+\d][\d\s\-().]{5,}$/.test(text.trim());
       if (!looksLikePhone) {
         botMsg(locale === "es"
