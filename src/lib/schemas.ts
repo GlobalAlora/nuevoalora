@@ -39,9 +39,12 @@ export type SolutionContactFormData = z.infer<typeof solutionContactSchema>;
 
 export const reviewSchema = z.object({
   nombre: z.string().min(2, "Mínimo 2 caracteres"),
+  cargo: z.string().optional(),
   empresa: z.string().optional(),
   rating: z.number({ message: "Elegí una calificación" }).int().min(1, "Elegí una calificación").max(5),
-  resena: z.string().min(20, "Mínimo 20 caracteres").max(1500, "Máximo 1500 caracteres"),
+  equipo: z.string().min(10, "Mínimo 10 caracteres").max(500, "Máximo 500 caracteres"),
+  loQueMasGusto: z.string().min(10, "Mínimo 10 caracteres").max(500, "Máximo 500 caracteres"),
+  recomendaria: z.string().min(10, "Mínimo 10 caracteres").max(500, "Máximo 500 caracteres"),
   privacy: z.literal(true, { message: "Debes aceptar para continuar" }),
 });
 

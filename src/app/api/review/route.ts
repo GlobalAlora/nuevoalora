@@ -19,6 +19,15 @@ export async function POST(req: NextRequest) {
   const data = parsed.data;
   const extra = raw as Record<string, unknown>;
   const locale = extra.locale === "en" ? "en" : "es";
+  const isEs = locale === "es";
+
+  const resena = [
+    `${isEs ? "Cómo se sintió con el equipo" : "How it felt working with the team"}: ${data.equipo}`,
+    `${isEs ? "Lo que más le gustó" : "What they liked most"}: ${data.loQueMasGusto}`,
+    `${isEs ? "Recomendación" : "Recommendation"}: ${data.recomendaria}`,
+  ].join("\n\n");
+
+  const empresa = [data.cargo, data.empresa].filter(Boolean).join(" — ");
 
   try {
     const res = await fetch(REVIEWS_ENDPOINT, {
@@ -26,9 +35,9 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         nombre: data.nombre,
-        empresa: data.empresa ?? "",
+        empresa,
         rating: data.rating,
-        resena: data.resena,
+        resena,
         locale,
       }),
     });

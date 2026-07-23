@@ -8,6 +8,10 @@ export function WhatsAppButton({ locale }: { locale: string }) {
   const pathname = usePathname();
   const href = buildWhatsAppHref(pathname, locale);
 
+  // The review-writing page asks for an honest, unhurried testimonial —
+  // a WhatsApp escape hatch right next to it undercuts that.
+  if (pathname?.includes("/escribir-resena")) return null;
+
   return (
     <WhatsAppLink
       href={href}

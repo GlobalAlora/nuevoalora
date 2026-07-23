@@ -291,6 +291,10 @@ export function Chatbot({ dict, locale }: Props) {
 
   const onKey = (e: React.KeyboardEvent) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } };
 
+  // The review-writing page asks for an honest, unhurried testimonial —
+  // an unsolicited chat popup right next to it undercuts that.
+  if (pathname?.includes("/escribir-resena")) return null;
+
   return (
     <>
       {/* Floating button */}

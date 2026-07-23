@@ -52,7 +52,7 @@ export function ReviewForm({ dict, locale }: Props) {
     border: "1px solid rgba(255,255,255,0.1)",
     borderRadius: "10px",
     color: "rgba(255,255,255,0.9)",
-    fontSize: "14.5px",
+    fontSize: "16px",
     padding: "8px 14px",
     width: "100%",
     outline: "none",
@@ -100,9 +100,14 @@ export function ReviewForm({ dict, locale }: Props) {
           {fieldError(errors.nombre?.message)}
         </div>
         <div>
-          <label htmlFor="review-empresa" style={labelBase}>{f.company}</label>
-          <input id="review-empresa" {...register("empresa")} placeholder={f.companyPlaceholder} style={inputBase} className={focusClass} />
+          <label htmlFor="review-cargo" style={labelBase}>{f.cargo}</label>
+          <input id="review-cargo" {...register("cargo")} placeholder={f.cargoPlaceholder} style={inputBase} className={focusClass} />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="review-empresa" style={labelBase}>{f.company}</label>
+        <input id="review-empresa" {...register("empresa")} placeholder={f.companyPlaceholder} style={inputBase} className={focusClass} />
       </div>
 
       <div>
@@ -133,16 +138,42 @@ export function ReviewForm({ dict, locale }: Props) {
       </div>
 
       <div>
-        <label htmlFor="review-resena" style={labelBase}>{f.review} <span className="text-red-400/70">*</span></label>
+        <label htmlFor="review-equipo" style={labelBase}>{f.equipo} <span className="text-red-400/70">*</span></label>
         <textarea
-          id="review-resena"
-          {...register("resena")}
-          rows={4}
-          placeholder={f.reviewPlaceholder}
+          id="review-equipo"
+          {...register("equipo")}
+          rows={3}
+          placeholder={f.equipoPlaceholder}
           style={{ ...inputBase, resize: "vertical" }}
           className={focusClass}
         />
-        {fieldError(errors.resena?.message)}
+        {fieldError(errors.equipo?.message)}
+      </div>
+
+      <div>
+        <label htmlFor="review-gusto" style={labelBase}>{f.loQueMasGusto} <span className="text-red-400/70">*</span></label>
+        <textarea
+          id="review-gusto"
+          {...register("loQueMasGusto")}
+          rows={3}
+          placeholder={f.loQueMasGustoPlaceholder}
+          style={{ ...inputBase, resize: "vertical" }}
+          className={focusClass}
+        />
+        {fieldError(errors.loQueMasGusto?.message)}
+      </div>
+
+      <div>
+        <label htmlFor="review-recomendaria" style={labelBase}>{f.recomendaria} <span className="text-red-400/70">*</span></label>
+        <textarea
+          id="review-recomendaria"
+          {...register("recomendaria")}
+          rows={3}
+          placeholder={f.recomendariaPlaceholder}
+          style={{ ...inputBase, resize: "vertical" }}
+          className={focusClass}
+        />
+        {fieldError(errors.recomendaria?.message)}
       </div>
 
       <label className="flex cursor-pointer items-start gap-3">
