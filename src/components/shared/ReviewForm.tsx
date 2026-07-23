@@ -27,6 +27,8 @@ export function ReviewForm({ dict, locale }: Props) {
   } = useForm<ReviewFormData>({ resolver: zodResolver(reviewSchema) });
 
   const rating = watch("rating");
+  const resenaLength = watch("resena")?.length ?? 0;
+  const RESENA_MIN = 400;
 
   const onSubmit = async (data: ReviewFormData) => {
     setSubmitting(true);
@@ -149,7 +151,15 @@ export function ReviewForm({ dict, locale }: Props) {
           style={{ ...inputBase, resize: "vertical" }}
           className={focusClass}
         />
-        {fieldError(errors.resena?.message)}
+        <div className="mt-1 flex items-center justify-between gap-3">
+          {fieldError(errors.resena?.message)}
+          <span
+            className="ml-auto shrink-0 text-[11.5px] tabular-nums"
+            style={{ color: resenaLength >= RESENA_MIN ? "var(--turquoise)" : "rgba(255,255,255,0.35)" }}
+          >
+            {resenaLength}/{RESENA_MIN}
+          </span>
+        </div>
       </div>
 
       <label className="flex cursor-pointer items-start gap-3">

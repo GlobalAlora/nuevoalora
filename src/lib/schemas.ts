@@ -42,7 +42,7 @@ export const reviewSchema = z.object({
   cargo: z.string().min(2, "Mínimo 2 caracteres"),
   empresa: z.string().optional(),
   rating: z.number({ message: "Elegí una calificación" }).int().min(1, "Elegí una calificación").max(5),
-  resena: z.string().min(20, "Mínimo 20 caracteres").max(1500, "Máximo 1500 caracteres"),
+  resena: z.string().min(400, "¡Epa! Nos encantaría saber un poco más — te faltan algunas palabritas 😊").max(1500, "Máximo 1500 caracteres"),
   privacy: z.literal(true, { message: "Debes aceptar para continuar" }),
 });
 
