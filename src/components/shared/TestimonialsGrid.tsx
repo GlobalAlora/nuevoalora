@@ -10,7 +10,7 @@ const ACCENTS = ["var(--turquoise)", "var(--electric)", "var(--violet)", "var(--
 export function TestimonialsGrid({ testimonials }: Props) {
   return (
     <>
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-6">
         {testimonials.items.map((t, i) => {
           const color = ACCENTS[i % ACCENTS.length];
           const initials = t.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
@@ -18,13 +18,13 @@ export function TestimonialsGrid({ testimonials }: Props) {
             <SpotlightCard
               key={t.name}
               accent={color}
-              className="flex flex-col gap-4 rounded-2xl p-7"
+              className="flex flex-col gap-5 rounded-2xl p-7 sm:p-8"
               style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))", border: "1px solid rgba(255,255,255,0.07)" }}
             >
               <svg viewBox="0 0 32 32" fill="none" className="h-7 w-7" style={{ color, opacity: 0.5 }}>
                 <path d="M9 10c-3 0-5 2.3-5 5.4C4 18.7 6.4 21 9.5 21S15 18.7 15 15.6c0-2.5-1.6-4.6-3.9-5.3.3-1.6 1.6-3 3.4-3.3V9c-3 .3-5.5 2.5-5.5 1zM22 10c-3 0-5 2.3-5 5.4 0 3.3 2.4 5.6 5.5 5.6S28 18.7 28 15.6c0-2.5-1.6-4.6-3.9-5.3.3-1.6 1.6-3 3.4-3.3V9c-3 .3-5.5 2.5-5.5 1z" fill="currentColor" />
               </svg>
-              <p className="text-[14.5px] leading-relaxed text-white/72">{t.quote}</p>
+              <p className="text-[15px] leading-[1.7] text-white/72">{t.quote}</p>
               <div className="flex flex-wrap gap-2">
                 {t.tags.map((tag) => (
                   <span key={tag} className="rounded-full px-3 py-1 text-[11.5px] font-medium"
@@ -33,7 +33,7 @@ export function TestimonialsGrid({ testimonials }: Props) {
                   </span>
                 ))}
               </div>
-              <div className="mt-1 flex items-center gap-3">
+              <div className="mt-2 flex items-center gap-3 border-t pt-5" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[13px] font-semibold text-white"
                   style={{ background: `linear-gradient(135deg, ${color}, ${ACCENTS[(i + 1) % ACCENTS.length]})` }}>
                   {initials}
