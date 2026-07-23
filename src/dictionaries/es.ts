@@ -24,6 +24,15 @@ export interface Dictionary {
     sectionIndex: string; sectionLabel: string; heading: string; body: string;
     items: { quote: string; tags: string[]; name: string; role: string }[];
   };
+  reviewForm: {
+    heading: string; body: string;
+    name: string; namePlaceholder: string;
+    company: string; companyPlaceholder: string;
+    rating: string;
+    review: string; reviewPlaceholder: string;
+    privacyText: string; privacyLink: string;
+    submit: string; sending: string; success: string; errorGeneral: string;
+  };
   process: {
     sectionIndex: string; sectionLabel: string; headingLine1: string; headingLine2: string;
     steps: { n: string; title: string; body: string }[];
@@ -196,6 +205,23 @@ const es: Dictionary = {
         role: "Fundadora de Mimi Kids",
       },
     ],
+  },
+  reviewForm: {
+    heading: "¿Ya trabajaste con nosotros?",
+    body: "Contanos cómo fue tu experiencia. La leemos nosotros antes de publicarla — no aparece automáticamente.",
+    name: "Nombre",
+    namePlaceholder: "Tu nombre",
+    company: "Empresa / rol",
+    companyPlaceholder: "Opcional",
+    rating: "Calificación",
+    review: "Tu reseña",
+    reviewPlaceholder: "Contanos cómo fue trabajar con nosotros...",
+    privacyText: "Acepto que ALORA pueda publicar esta reseña en su sitio web.",
+    privacyLink: "Política de privacidad",
+    submit: "Enviar reseña",
+    sending: "Enviando...",
+    success: "¡Gracias! Recibimos tu reseña y la vamos a revisar antes de publicarla.",
+    errorGeneral: "Error al enviar. Por favor intentá de nuevo.",
   },
   process: {
     sectionIndex: "06",

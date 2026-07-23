@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SpotlightCard } from "@/components/shared/SpotlightCard";
+import { ReviewForm } from "@/components/shared/ReviewForm";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -99,6 +100,20 @@ export default async function ResenasPage({ params }: Props) {
                 </SpotlightCard>
               );
             })}
+          </div>
+
+          {/* Leave a review */}
+          <div id="dejar-resena" className="mx-auto mt-16 max-w-xl rounded-2xl p-8"
+            style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}>
+            <h2 className="text-balance text-center font-bold text-white" style={{ fontSize: "clamp(22px, 2.6vw, 30px)", letterSpacing: "-0.03em" }}>
+              {dict.reviewForm.heading}
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-center text-[14px] leading-relaxed text-white/50">
+              {dict.reviewForm.body}
+            </p>
+            <div className="mt-8">
+              <ReviewForm dict={dict} locale={l} />
+            </div>
           </div>
 
           {/* CTA */}
