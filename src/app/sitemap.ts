@@ -30,6 +30,7 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: strin
   // ── Portafolio / Reseñas / Presentación ──────────────────────────────
   { path: "/portfolio",                                          freq: "monthly", priority: 0.8 },
   { path: "/resenas",                                            freq: "monthly", priority: 0.7 },
+  { path: "/escribir-resena",                                    freq: "monthly", priority: 0.5 },
   { path: "/presentacion",                                       freq: "monthly", priority: 0.7 },
 
   // ── Contacto / Booking ────────────────────────────────────────────────
