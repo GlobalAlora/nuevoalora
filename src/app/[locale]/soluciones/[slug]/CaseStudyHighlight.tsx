@@ -88,12 +88,17 @@ export function CaseStudyHighlight({ items, l, accent, accent2 }: Props) {
                 type="button"
                 aria-label={`${l === "es" ? "Ver caso" : "View case"} ${i + 1}`}
                 onClick={() => setIndex(i)}
-                className="h-2 rounded-full transition-all duration-300"
-                style={{
-                  width: i === index ? "22px" : "8px",
-                  background: i === index ? `linear-gradient(90deg, ${accent}, ${accent2})` : "rgba(255,255,255,0.18)",
-                }}
-              />
+                className="flex h-6 min-w-6 items-center justify-center"
+              >
+                <span
+                  aria-hidden
+                  className="h-2 rounded-full transition-all duration-300"
+                  style={{
+                    width: i === index ? "22px" : "8px",
+                    background: i === index ? `linear-gradient(90deg, ${accent}, ${accent2})` : "rgba(255,255,255,0.18)",
+                  }}
+                />
+              </button>
             ))}
           </div>
           <button

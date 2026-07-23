@@ -494,7 +494,7 @@ export default async function SolutionPage({ params }: Props) {
               <a
                 href="#que-construimos"
                 className="group mt-6 inline-flex items-center gap-1.5 text-[14px] font-medium transition-colors"
-                style={{ color: `color-mix(in oklab, ${accent} 75%, transparent)` }}
+                style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}
               >
                 {sol.heroSecondaryCta[l]}
                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
@@ -570,7 +570,7 @@ export default async function SolutionPage({ params }: Props) {
         <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
           <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="mx-auto max-w-[760px] text-center">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {sol.appExplainer.label[l]}
               </div>
               <h2
@@ -663,7 +663,7 @@ export default async function SolutionPage({ params }: Props) {
         <section id="que-construimos" className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-[960px] text-center">
             {sol.whatWeBuild.label && (
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {sol.whatWeBuild.label[l]}
               </div>
             )}
@@ -741,7 +741,7 @@ export default async function SolutionPage({ params }: Props) {
         <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[3fr_2fr] lg:items-center">
             <div>
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {sol.approach.label[l]}
               </div>
               <h2
@@ -821,7 +821,7 @@ export default async function SolutionPage({ params }: Props) {
         <section className="mx-auto max-w-5xl px-6 py-20">
           <div className="mx-auto max-w-[820px] text-center">
             {sol.useCases.label && (
-              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {sol.useCases.label[l]}
               </div>
             )}
@@ -853,7 +853,7 @@ export default async function SolutionPage({ params }: Props) {
           <div className="mx-auto max-w-4xl px-6 py-20">
             <div className="mx-auto max-w-[760px] text-center">
               {sol.beforeAfter.label && (
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                   {sol.beforeAfter.label[l]}
                 </div>
               )}
@@ -923,7 +923,7 @@ export default async function SolutionPage({ params }: Props) {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="mx-auto max-w-[820px] text-center">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
-            <span style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+            <span style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
               {sol.featuresLabel ? sol.featuresLabel[l] : (l === "es" ? "Qué incluye" : "What's included")}
             </span>
           </div>
@@ -1051,7 +1051,7 @@ export default async function SolutionPage({ params }: Props) {
           <section className="border-y py-20" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
             <div className="mx-auto max-w-7xl px-6">
               <div className="mx-auto max-w-[820px] text-center">
-                <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+                <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                   {l === "es" ? "Proyectos reales" : "Real projects"}
                 </div>
                 <h2
@@ -1083,7 +1083,7 @@ export default async function SolutionPage({ params }: Props) {
       {sol.whyUsExtra && (
         <section className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-[980px] text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+            <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
               {l === "es" ? "Por qué ALORA" : "Why ALORA"}
             </div>
             <h2
@@ -1144,7 +1144,7 @@ export default async function SolutionPage({ params }: Props) {
         <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
           <div className="mx-auto max-w-6xl px-6 py-20">
             <div className="mx-auto max-w-2xl text-center">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+              <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {l === "es" ? "Testimonios" : "Testimonials"}
               </div>
               <h2
@@ -1209,7 +1209,7 @@ export default async function SolutionPage({ params }: Props) {
       {/* Process — single-line stepper, alternating labels above/below */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-[820px] text-center">
-          <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 70%, transparent)` }}>
+          <div className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
             {sol.processLabel ? sol.processLabel[l] : (l === "es" ? "Proceso" : "Process")}
           </div>
           <h2
@@ -1332,7 +1332,7 @@ export default async function SolutionPage({ params }: Props) {
               </svg>
             </span>
             <div className="relative z-10">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: `color-mix(in oklab, ${accent} 75%, transparent)` }}>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {l === "es" ? "Principio de trabajo" : "Work principle"}
               </div>
               <p className="mt-1.5 text-[14.5px] leading-relaxed text-white/75">{sol.workPrinciple[l]}</p>
@@ -1346,7 +1346,7 @@ export default async function SolutionPage({ params }: Props) {
         <h2 className="mb-10 text-center text-[22px] font-bold tracking-tight text-white">
           {l === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
         </h2>
-        <dl className="space-y-4">
+        <div className="space-y-4">
           {faqSchema.mainEntity.map((item, i) => (
             <details
               key={i}
@@ -1354,21 +1354,21 @@ export default async function SolutionPage({ params }: Props) {
               style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                <dt className="text-[15px] font-medium text-white/90 group-open:text-white">
+                <span className="text-[15px] font-medium text-white/90 group-open:text-white">
                   {item.name}
-                </dt>
+                </span>
                 <span aria-hidden className="shrink-0 text-white/30 transition-transform group-open:rotate-45">
                   <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
                     <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
                   </svg>
                 </span>
               </summary>
-              <dd className="mt-4 text-[14px] leading-relaxed text-white/60">
+              <div className="mt-4 text-[14px] leading-relaxed text-white/60">
                 {item.acceptedAnswer.text}
-              </dd>
+              </div>
             </details>
           ))}
-        </dl>
+        </div>
       </section>
 
       {/* CTA section */}
@@ -1406,7 +1406,7 @@ export default async function SolutionPage({ params }: Props) {
           {/* Left: pitch + 3 ways to reach us */}
           <div className="flex flex-col lg:h-full">
             <div className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em]">
-              <span style={{ color: `color-mix(in oklab, ${accent} 75%, transparent)` }}>
+              <span style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                 {l === "es" ? "Empecemos" : "Let's start"}
               </span>
             </div>

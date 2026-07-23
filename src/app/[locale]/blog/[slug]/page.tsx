@@ -177,8 +177,8 @@ export default async function BlogPostPage({ params }: Props) {
             .prose-custom h3 { color: #fff; font-size: 18px; font-weight: 600; margin-top: 28px; margin-bottom: 12px; }
             .prose-custom p { color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 16px; margin-top: 16px; }
             .prose-custom strong { color: #fff; }
-            .prose-custom a { color: var(--turquoise); }
-            .prose-custom a:hover { text-decoration: underline; }
+            .prose-custom a { color: var(--turquoise); text-decoration: underline; text-underline-offset: 2px; }
+            .prose-custom a:hover { color: #fff; }
             .prose-custom ul, .prose-custom ol { color: rgba(255,255,255,0.7); margin: 16px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
             .prose-custom ul { list-style: disc; }
             .prose-custom ol { list-style: decimal; }
