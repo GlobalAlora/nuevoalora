@@ -3,14 +3,16 @@ import type { Dictionary } from "@/dictionaries/es";
 
 interface Props {
   testimonials: Dictionary["testimonials"];
+  /** Set to false inside narrower containers, where 2 columns leave each card too cramped. */
+  twoColumn?: boolean;
 }
 
 const ACCENTS = ["var(--turquoise)", "var(--electric)", "var(--violet)", "var(--turquoise)"];
 
-export function TestimonialsGrid({ testimonials }: Props) {
+export function TestimonialsGrid({ testimonials, twoColumn = true }: Props) {
   return (
     <>
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-6">
+      <div className={`grid grid-cols-1 gap-8 ${twoColumn ? "lg:grid-cols-2 lg:gap-6" : ""}`}>
         {testimonials.items.map((t, i) => {
           const color = ACCENTS[i % ACCENTS.length];
           const initials = t.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();

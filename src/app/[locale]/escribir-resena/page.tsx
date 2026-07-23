@@ -73,7 +73,7 @@ export default async function EscribirResenaPage({ params }: Props) {
               </div>
             </div>
             <div className="mt-8">
-              <TestimonialsGrid testimonials={testimonials} />
+              <TestimonialsGrid testimonials={testimonials} twoColumn={false} />
             </div>
             <div className="mt-8 text-center">
               <Link href={resenasHref} className="text-[13.5px] font-medium text-white/50 underline transition-colors hover:text-white/80">
