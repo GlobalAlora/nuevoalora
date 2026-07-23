@@ -30,9 +30,7 @@ export interface Dictionary {
     cargo: string; cargoPlaceholder: string;
     company: string; companyPlaceholder: string;
     rating: string;
-    equipo: string; equipoPlaceholder: string;
-    loQueMasGusto: string; loQueMasGustoPlaceholder: string;
-    recomendaria: string; recomendariaPlaceholder: string;
+    review: string; reviewPlaceholder: string;
     privacyText: string; privacyLink: string;
     submit: string; sending: string; success: string; errorGeneral: string;
   };
@@ -215,17 +213,13 @@ const es: Dictionary = {
     name: "Nombre",
     namePlaceholder: "Tu nombre",
     cargo: "Cargo en la empresa",
-    cargoPlaceholder: "Opcional",
+    cargoPlaceholder: "Ej: Gerente de Marketing",
     company: "Nombre de la empresa",
-    companyPlaceholder: "Opcional",
+    companyPlaceholder: "Tu empresa",
     rating: "Calificá tu experiencia con nosotros",
-    equipo: "¿Cómo te sentiste trabajando con el equipo?",
-    equipoPlaceholder: "Comunicación, tiempos de respuesta, trato...",
-    loQueMasGusto: "¿Qué es lo que más te gustó de trabajar con nosotros?",
-    loQueMasGustoPlaceholder: "Lo que más te sorprendió o valoraste...",
-    recomendaria: "¿Nos recomendarías? ¿Por qué?",
-    recomendariaPlaceholder: "A quién se lo recomendarías y en qué caso...",
-    privacyText: "Acepto que ALORA pueda publicar esta reseña en su sitio web.",
+    review: "Contanos tu experiencia",
+    reviewPlaceholder: "Nos encantaría saber cómo te sentiste con el equipo, qué es lo que más te gustó de trabajar con nosotros, si nos recomendarías, y todo lo que quieras contarle al mundo sobre cómo trabajamos en ALORA.",
+    privacyText: "Acepto que ALORA pueda publicar esta reseña completa o un extracto en su sitio web.",
     privacyLink: "Política de privacidad",
     submit: "Enviar reseña",
     sending: "Enviando...",
