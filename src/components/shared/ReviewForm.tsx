@@ -107,7 +107,7 @@ export function ReviewForm({ dict, locale }: Props) {
       </div>
 
       <div>
-        <label htmlFor="review-empresa" style={labelBase}>{f.company} <span className="text-red-400/70">*</span></label>
+        <label htmlFor="review-empresa" style={labelBase}>{f.company}</label>
         <input id="review-empresa" {...register("empresa")} placeholder={f.companyPlaceholder} style={inputBase} className={focusClass} />
         {fieldError(errors.empresa?.message)}
       </div>

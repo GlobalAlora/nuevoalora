@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
   // The external CRM's "empresa" field predates the cargo/company split —
   // fold both into it so that side doesn't need updating.
-  const empresa = `${data.cargo} — ${data.empresa}`;
+  const empresa = [data.cargo, data.empresa].filter(Boolean).join(" — ");
 
   try {
     const res = await fetch(REVIEWS_ENDPOINT, {
