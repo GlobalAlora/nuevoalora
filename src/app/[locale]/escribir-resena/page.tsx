@@ -54,9 +54,11 @@ export default async function EscribirResenaPage({ params }: Props) {
             <h1 className="text-balance font-bold text-white" style={{ fontSize: "clamp(30px, 4vw, 44px)", letterSpacing: "-0.035em", lineHeight: 1.08 }}>
               {dict.reviewForm.heading}
             </h1>
-            <p className="mx-auto mt-4 max-w-md text-[16px] leading-relaxed text-white/55 md:max-w-none md:whitespace-nowrap">
-              {dict.reviewForm.body}
-            </p>
+            <div className="mt-4 flex justify-center">
+              <p className="max-w-md text-[16px] leading-relaxed text-white/55 md:max-w-none md:whitespace-nowrap">
+                {dict.reviewForm.body}
+              </p>
+            </div>
           </div>
 
           {/* Form */}

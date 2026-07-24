@@ -28,7 +28,7 @@ export function ReviewForm({ dict, locale }: Props) {
 
   const rating = watch("rating");
   const resenaLength = watch("resena")?.length ?? 0;
-  const RESENA_MIN = 400;
+  const RESENA_MIN = 300;
 
   const onSubmit = async (data: ReviewFormData) => {
     setSubmitting(true);
