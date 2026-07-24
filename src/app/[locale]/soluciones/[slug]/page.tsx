@@ -698,6 +698,72 @@ export default async function SolutionPage({ params }: Props) {
         </section>
       )}
 
+      {/* Channels — same AI, every channel, one consistent message */}
+      {sol.channels && (
+        <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+          <div className="mx-auto max-w-7xl px-6 py-20">
+            <div className="mx-auto max-w-[960px] text-center">
+              {sol.channels.label && (
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
+                  {sol.channels.label[l]}
+                </div>
+              )}
+              <h2
+                className="text-balance text-white"
+                style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
+              >
+                {sol.channels.heading[l]}
+              </h2>
+              <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
+                {sol.channels.intro[l]}
+              </p>
+            </div>
+            <div className="mt-11 flex flex-wrap justify-center gap-5">
+              {sol.channels.items[l].map((item, i) => (
+                <div
+                  key={i}
+                  className="feature-card group relative flex w-full flex-col gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1.5 sm:w-[calc(50%-10px)] lg:w-[calc((100%-24px)/3)]"
+                  style={{
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                    style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${accent} 22%, transparent), transparent 70%)` }}
+                  />
+                  <span
+                    className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`, color: accent, animationDelay: `${i * 0.2}s` }}
+                  >
+                    {FEATURE_ICONS[item.icon]}
+                  </span>
+                  <div className="relative z-10 flex-1">
+                    <h3 className="text-[16px] font-semibold leading-snug text-white/90">{item.title}</h3>
+                    <p className="mt-1.5 text-[13.5px] leading-relaxed text-white/55">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {sol.channels.closing && (
+              <div
+                className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-3 rounded-2xl p-5 text-center"
+                style={{
+                  background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
+                  border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
+                }}
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" className="shrink-0" style={{ color: accent }}>
+                  <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z" fill="currentColor" />
+                </svg>
+                <p className="text-[15px] font-medium leading-snug text-white/90">{sol.channels.closing[l]}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* What we build */}
       {sol.whatWeBuild && (
         <section id="que-construimos" className="mx-auto max-w-7xl px-6 py-20">
@@ -881,6 +947,58 @@ export default async function SolutionPage({ params }: Props) {
               >
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: accent }} />
                 <span className="text-[14.5px] leading-snug text-white/75">{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Industry examples */}
+      {sol.industryExamples && (
+        <section className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mx-auto max-w-[960px] text-center">
+            {sol.industryExamples.label && (
+              <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
+                {sol.industryExamples.label[l]}
+              </div>
+            )}
+            <h2
+              className="text-balance text-white"
+              style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
+            >
+              {sol.industryExamples.heading[l]}
+            </h2>
+            {sol.industryExamples.intro && (
+              <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
+                {sol.industryExamples.intro[l]}
+              </p>
+            )}
+          </div>
+          <div className="mt-11 flex flex-wrap justify-center gap-5">
+            {sol.industryExamples.items[l].map((item, i) => (
+              <div
+                key={i}
+                className="feature-card group relative flex w-full flex-col gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1.5 sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)]"
+                style={{
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
+                }}
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                  style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${accent} 22%, transparent), transparent 70%)` }}
+                />
+                <span
+                  className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                  style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`, color: accent, animationDelay: `${i * 0.2}s` }}
+                >
+                  {FEATURE_ICONS[item.icon]}
+                </span>
+                <div className="relative z-10 flex-1">
+                  <h3 className="text-[16px] font-semibold leading-snug text-white/90">{item.title}</h3>
+                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-white/55">{item.body}</p>
+                </div>
               </div>
             ))}
           </div>

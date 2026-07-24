@@ -57,6 +57,21 @@ export interface SolutionData {
     intro: { es: string; en: string }
     items: { es: IconBlock[]; en: IconBlock[] }
   }
+  /** The literal channels the same AI operates on — web, WhatsApp, phone voice, etc. */
+  channels?: {
+    label?: { es: string; en: string }
+    heading: { es: string; en: string }
+    intro: { es: string; en: string }
+    items: { es: IconBlock[]; en: IconBlock[] }
+    closing?: { es: string; en: string }
+  }
+  /** Concrete examples of the solution applied to different kinds of businesses. */
+  industryExamples?: {
+    label?: { es: string; en: string }
+    heading: { es: string; en: string }
+    intro?: { es: string; en: string }
+    items: { es: IconBlock[]; en: IconBlock[] }
+  }
   approach?: {
     label: { es: string; en: string }
     heading: { es: string; en: string }
@@ -1734,6 +1749,30 @@ export const SOLUTIONS: SolutionData[] = [
         },
       },
     },
+    channels: {
+      label: { es: "Un solo mensaje, en cada canal", en: "One message, every channel" },
+      heading: { es: "Un mismo asistente de IA, disfrazado de web, WhatsApp y teléfono", en: "The same AI assistant, wearing a different channel each time" },
+      intro: {
+        es: "No son tres sistemas distintos que hay que mantener sincronizados. Es una sola IA que se adapta a cada canal, pero responde siempre lo mismo.",
+        en: "These aren't three separate systems you need to keep in sync. It's one AI that adapts to each channel, but always says the same thing.",
+      },
+      items: {
+        es: [
+          { icon: "portal", title: "Asistente en tu sitio web", body: "Un widget de chat en tu web que responde consultas en tiempo real, sin que el visitante tenga que salir del sitio." },
+          { icon: "chat", title: "Asistente en WhatsApp", body: "El mismo sistema, disponible en el canal que tu cliente ya usa todos los días para escribirte." },
+          { icon: "headset", title: "Asistente telefónico con voz", body: "Literalmente atiende llamadas: un agente de voz que conversa de forma natural, no un menú automático." },
+        ],
+        en: [
+          { icon: "portal", title: "Assistant on your website", body: "A chat widget on your site that answers questions in real time, without the visitor leaving the page." },
+          { icon: "chat", title: "Assistant on WhatsApp", body: "The same system, available on the channel your customer already uses every day to reach out." },
+          { icon: "headset", title: "Phone assistant with a real voice", body: "It literally answers calls: a voice agent that holds a natural conversation, not an automated menu." },
+        ],
+      },
+      closing: {
+        es: "Una sola IA. Un solo mensaje para todo el mundo — sin importar por dónde te escriban.",
+        en: "One AI. One message for the entire world — no matter where they reach out.",
+      },
+    },
     whatWeBuild: {
       label: { es: "Qué construimos", en: "What we build" },
       heading: { es: "Un sistema de IA que atiende, no una lista de respuestas automáticas", en: "An AI system that takes care of people, not a list of canned replies" },
@@ -1813,6 +1852,30 @@ export const SOLUTIONS: SolutionData[] = [
           "Supports customers after the purchase: help, exchanges, returns",
           "Hands off to a human with full context when needed",
           "Works over WhatsApp, phone and web at the same time",
+        ],
+      },
+    },
+    industryExamples: {
+      label: { es: "Para cualquier tipo de negocio", en: "For any kind of business" },
+      heading: { es: "Ejemplos de cómo se aplica según tu rubro", en: "Examples of how it applies to your industry" },
+      intro: {
+        es: "La misma IA se entrena con la realidad de cada negocio. Estos son algunos ejemplos, no los únicos.",
+        en: "The same AI is trained on each business's own reality. These are some examples, not the only ones.",
+      },
+      items: {
+        es: [
+          { icon: "cart", title: "Local físico / retail", body: "Consultas de stock por talle o color, ubicación y horarios del local, y reserva de un producto para retirar en tienda." },
+          { icon: "cloud", title: "Ecommerce", body: "Estado de pedidos y envíos, políticas de cambio y devolución, y recomendaciones antes de comprar." },
+          { icon: "target", title: "Venta de servicios", body: "Cotizaciones, disponibilidad de agenda y seguimiento de un proyecto en curso, para agencias, estudios y consultoras." },
+          { icon: "shield", title: "Salud y turnos", body: "Consultas antes de reservar, gestión de turnos y recordatorios automáticos para clínicas y consultorios." },
+          { icon: "structure", title: "Gastronomía y hotelería", body: "Disponibilidad de mesas o habitaciones, horarios y consultas frecuentes, atendidas al instante." },
+        ],
+        en: [
+          { icon: "cart", title: "Physical retail store", body: "Stock questions by size or color, store location and hours, and reserving a product for in-store pickup." },
+          { icon: "cloud", title: "Ecommerce", body: "Order and shipment status, exchange and return policies, and recommendations before buying." },
+          { icon: "target", title: "Selling services", body: "Quotes, calendar availability and progress updates on an ongoing project, for agencies, studios and consultancies." },
+          { icon: "shield", title: "Healthcare and appointments", body: "Questions before booking, appointment management and automatic reminders for clinics and private practices." },
+          { icon: "structure", title: "Restaurants and hospitality", body: "Table or room availability, hours and frequent questions, answered instantly." },
         ],
       },
     },
