@@ -12,10 +12,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.globalalora.com"),
-  title: {
-    default: "ALORA — Tecnología, Automatización e IA",
-    template: "%s — ALORA",
-  },
+  // No `template` here on purpose: every page's own title already includes
+  // "ALORA" itself (e.g. "X | ALORA"), so a template would double it up
+  // into "X | ALORA — ALORA" in the browser tab and search results.
+  title: "ALORA — Tecnología, Automatización e IA",
   description:
     "Ecosistemas digitales que integran software, automatización e IA para convertir el crecimiento en capacidad operativa.",
   robots: { index: true, follow: true },

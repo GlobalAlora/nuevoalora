@@ -28,10 +28,10 @@ export async function generateMetadata({
   const alternates = getAlternates("");
 
   return {
-    title: {
-      default: dict.meta.home.title,
-      template: `%s — ALORA`,
-    },
+    // No `template`: every page's own title already includes "ALORA"
+    // itself (e.g. "X | ALORA"), so a template here would double it up
+    // into "X | ALORA — ALORA" in the browser tab and search results.
+    title: dict.meta.home.title,
     description: dict.meta.home.description,
     alternates: {
       canonical: `/${locale}`,

@@ -361,12 +361,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!sol) return {};
   const l = hasLocale(locale) ? (locale as Locale) : "es";
   const m = sol.meta[l];
+  const ogImage = `/api/og?title=${encodeURIComponent(sol.hero[l].badge)}`;
   return {
     title: m.title,
     description: m.desc,
     alternates: {
       canonical: `https://www.globalalora.com/${l}/soluciones/${slug}`,
       languages: { es: `/es/soluciones/${slug}`, en: `/en/soluciones/${slug}` },
+    },
+    openGraph: {
+      title: m.title,
+      description: m.desc,
+      url: `https://www.globalalora.com/${l}/soluciones/${slug}`,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: m.title,
+      description: m.desc,
+      images: [ogImage],
     },
   };
 }
@@ -1066,7 +1079,45 @@ export default async function SolutionPage({ params }: Props) {
             </p>
           )}
         </div>
-        {sol.featuresDetailed ? (
+        {sol.featuresDetailed && sol.featuresLayout === "checklist" ? (
+          <div className="mt-11">
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2">
+              {sol.featuresDetailed[l].map((f, i) => (
+                <div key={i} className="flex items-start gap-3.5 border-t py-4" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg [&_svg]:h-[18px] [&_svg]:w-[18px]"
+                    style={{ background: `color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 32%, transparent)`, color: i % 2 === 0 ? accent : accent2 }}
+                  >
+                    {FEATURE_ICONS[f.icon]}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-[14.5px] font-semibold leading-snug text-white/92">{f.title}</h3>
+                    <p className="mt-0.5 text-[13px] leading-relaxed text-white/55">{f.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {sol.featuresConclusion && (
+              <div
+                className="relative mx-auto mt-8 flex max-w-2xl items-center gap-3 overflow-hidden rounded-2xl p-5 text-center sm:text-left"
+                style={{
+                  background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
+                  border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
+                }}
+              >
+                <span
+                  className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                  style={{ background: `color-mix(in oklab, ${accent} 20%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)`, color: accent }}
+                >
+                  <svg viewBox="0 0 32 32" fill="none" className="h-5 w-5">
+                    <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" fillOpacity=".9" />
+                  </svg>
+                </span>
+                <p className="relative z-10 text-[14.5px] font-medium leading-relaxed text-white/90">{sol.featuresConclusion[l]}</p>
+              </div>
+            )}
+          </div>
+        ) : sol.featuresDetailed ? (
           <div className="mt-11 flex flex-wrap justify-center gap-5">
             {sol.featuresDetailed[l].map((f, i) => {
               const color = i % 2 === 0 ? accent : accent2;
@@ -1139,25 +1190,6 @@ export default async function SolutionPage({ params }: Props) {
                 <p className="relative z-10 text-[15px] font-medium leading-relaxed text-white/90">
                   {sol.featuresConclusion[l]}
                 </p>
-              </div>
-            )}
-            {sol.featuresHighlights && (
-              <div className="mx-auto mt-1 flex w-full max-w-4xl flex-wrap justify-center gap-2.5">
-                {sol.featuresHighlights[l].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 rounded-full py-2 pl-2.5 pr-4"
-                    style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}
-                  >
-                    <span
-                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full [&_svg]:h-3.5 [&_svg]:w-3.5"
-                      style={{ background: `color-mix(in oklab, ${accent} 18%, transparent)`, color: accent }}
-                    >
-                      {FEATURE_ICONS[h.icon]}
-                    </span>
-                    <span className="text-[12.5px] font-medium leading-snug text-white/75">{h.label}</span>
-                  </div>
-                ))}
               </div>
             )}
           </div>

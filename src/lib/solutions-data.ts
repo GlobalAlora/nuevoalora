@@ -119,8 +119,8 @@ export interface SolutionData {
   featuresHeading?: { es: string; en: string }
   featuresIntro?: { es: string; en: string }
   featuresDetailed?: { es: IconBlock[]; en: IconBlock[] }
-  /** Compact icon+label chips shown below featuresDetailed — for commitments that don't need a full card's worth of body text. */
-  featuresHighlights?: { es: { icon: string; label: string }[]; en: { icon: string; label: string }[] }
+  /** "checklist" renders a compact two-column list (better for a long, equally-weighted set of items); default renders the big icon-card grid. */
+  featuresLayout?: "cards" | "checklist"
   featuresConclusion?: { es: string; en: string }
   projects?: SolutionProject[]
   projectsIntro?: { es: string; en: string }
@@ -1944,6 +1944,7 @@ export const SOLUTIONS: SolutionData[] = [
     },
     featuresLabel: { es: "Qué incluye", en: "What's included" },
     featuresHeading: { es: "Qué incluye el servicio de atención y experiencia de cliente con IA", en: "What our AI customer care & experience service includes" },
+    featuresLayout: "checklist",
     featuresDetailed: {
       es: [
         { icon: "search", title: "Mapeo de todo el recorrido del cliente", body: "Relevamos qué necesita tu cliente en preventa, venta y posventa, y qué de eso puede resolver la IA." },
@@ -1954,6 +1955,11 @@ export const SOLUTIONS: SolutionData[] = [
         { icon: "cart", title: "Gestión de pedidos, turnos y confirmaciones", body: "Confirma, agenda, cambia y cancela, con aviso automático por mail y calendario." },
         { icon: "controls", title: "Derivación inteligente a humanos", body: "Deriva con contexto completo cuando la consulta lo requiere." },
         { icon: "speed", title: "Analytics de toda la experiencia", body: "Medimos qué necesita tu cliente en cada etapa y qué tan bien se resuelve." },
+        { icon: "layers", title: "Centro de IA centralizado", body: "Todo lo que pasa en cada canal se ve conectado, desde un mismo lugar." },
+        { icon: "chart", title: "CRM con pipeline completo", body: "Visión holística de todo el proceso: leads, oportunidades y clientes, no solo conversaciones sueltas." },
+        { icon: "spark", title: "100% a medida", body: "Construido para tu negocio real. Nada de soluciones enlatadas ni plantillas genéricas." },
+        { icon: "shield", title: "La propiedad es tuya", body: "El sistema y su propiedad intelectual quedan para tu negocio, no para nosotros." },
+        { icon: "target", title: "Autogestión total", body: "No dependés de nosotros para actualizar, ajustar o hacer crecer el sistema." },
       ],
       en: [
         { icon: "search", title: "Mapping the customer's entire journey", body: "We identify what your customer needs in pre-sale, sale and post-sale, and what the AI can resolve." },
@@ -1964,22 +1970,11 @@ export const SOLUTIONS: SolutionData[] = [
         { icon: "cart", title: "Order, appointment and confirmation management", body: "Confirms, books, changes and cancels, with automatic email and calendar notice." },
         { icon: "controls", title: "Smart handoff to humans", body: "Hands off with full context when the query requires it." },
         { icon: "speed", title: "Full-experience analytics", body: "We measure what your customer needs at every stage and how well it gets resolved." },
-      ],
-    },
-    featuresHighlights: {
-      es: [
-        { icon: "portal", label: "Centro de IA centralizado, todo en un mismo lugar" },
-        { icon: "chart", label: "CRM con pipeline completo, visión holística del proceso" },
-        { icon: "spark", label: "100% a medida, nada de soluciones enlatadas" },
-        { icon: "shield", label: "La propiedad intelectual queda para tu negocio" },
-        { icon: "controls", label: "Totalmente autogestionable, sin depender de nosotros" },
-      ],
-      en: [
-        { icon: "portal", label: "Centralized AI hub, everything in one connected place" },
-        { icon: "chart", label: "Full CRM with pipeline, a holistic view of the process" },
-        { icon: "spark", label: "100% custom-built, never off-the-shelf" },
-        { icon: "shield", label: "The intellectual property stays with your business" },
-        { icon: "controls", label: "Fully self-manageable, no dependency on us" },
+        { icon: "layers", title: "Centralized AI hub", body: "Everything happening on every channel is connected, visible from one place." },
+        { icon: "chart", title: "Full CRM with pipeline", body: "A holistic view of the whole process: leads, opportunities and clients, not just loose conversations." },
+        { icon: "spark", title: "100% custom-built", body: "Built for your real business. Never an off-the-shelf solution or a generic template." },
+        { icon: "shield", title: "The ownership is yours", body: "The system and its intellectual property stay with your business, not with us." },
+        { icon: "target", title: "Full self-management", body: "No dependency on us to update, adjust or grow the system." },
       ],
     },
     featuresConclusion: {

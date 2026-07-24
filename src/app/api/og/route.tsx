@@ -4,6 +4,9 @@ import type { NextRequest } from "next/server";
 export const runtime = "edge";
 
 export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const customTitle = searchParams.get("title")?.slice(0, 120) || null;
+
   const logoUrl = new URL("/logo-nav-white.png", req.url).toString();
   const logoData = await fetch(logoUrl).then((r) => r.arrayBuffer());
   const logoSrc = `data:image/png;base64,${Buffer.from(logoData).toString("base64")}`;
@@ -79,20 +82,21 @@ export async function GET(req: NextRequest) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={logoSrc} alt="ALORA" width={380} height={103} style={{ objectFit: "contain" }} />
 
-        {/* Tagline */}
+        {/* Tagline — the page's own title when provided, otherwise the site tagline */}
         <div
           style={{
             marginTop: 36,
-            fontSize: 26,
-            color: "rgba(255,255,255,0.50)",
+            fontSize: customTitle ? 32 : 26,
+            fontWeight: customTitle ? 600 : 400,
+            color: customTitle ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.50)",
             letterSpacing: "-0.01em",
             fontFamily: "sans-serif",
             textAlign: "center",
-            maxWidth: 720,
-            lineHeight: 1.4,
+            maxWidth: 820,
+            lineHeight: 1.35,
           }}
         >
-          Tecnología que convierte el crecimiento en capacidad operativa
+          {customTitle ?? "Tecnología que convierte el crecimiento en capacidad operativa"}
         </div>
 
         {/* Domain */}
