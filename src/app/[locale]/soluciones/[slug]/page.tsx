@@ -10,6 +10,8 @@ import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { HeroGraphic, HeroInteractiveBackground } from "@/components/shared/HeroInteractive";
 import { SolutionGraphic } from "@/components/shared/SolutionGraphics";
+import { ChannelsHub } from "@/components/shared/ChannelsHub";
+import { IndustryShowcase } from "@/components/shared/IndustryShowcase";
 import { ProjectsSection } from "./ProjectsSection";
 import { SolutionContactForm } from "@/components/shared/SolutionContactForm";
 import { ICONS as FEATURE_ICONS } from "@/lib/icons";
@@ -113,12 +115,12 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
       imageAlt: "Soy LIDIA",
       badge: { es: "Caso de Éxito · Atención y Experiencia de Cliente IA", en: "Case Study · AI Customer Care & Experience" },
       heading: {
-        es: "LIDIA: la IA que atiende pacientes por WhatsApp antes, durante y después del turno",
-        en: "LIDIA: the AI that takes care of patients over WhatsApp before, during and after their appointment",
+        es: "LIDIA: preventa, venta y posventa resueltos por la misma IA, sin intervención humana",
+        en: "LIDIA: pre-sale, sale and post-sale, resolved by the same AI, with no human intervention",
       },
       body: {
-        es: "Diseñamos y desarrollamos LIDIA para consultorios y clínicas de salud: responde consultas antes de reservar, agenda el turno y cobra la seña, y después envía recordatorios y confirmaciones automáticas, todo por WhatsApp y sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
-        en: "We designed and built LIDIA for health clinics and private practices: it answers questions before booking, schedules the appointment and charges the deposit, then sends automatic reminders and confirmations afterward — all over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+        es: "Diseñamos y desarrollamos LIDIA: responde consultas antes de que decidan reservar, gestiona la operación del día a día y hace el seguimiento después, todo automatizado. Hoy está en uso en Argentina, Uruguay, España y Chile — la misma arquitectura que ahora extendemos a voz telefónica y web para otros rubros.",
+        en: "We designed and built LIDIA: it answers questions before people decide to book, manages the day-to-day operation and follows up afterward, all automated. Now in use in Argentina, Uruguay, Spain and Chile — the same architecture we're now extending to phone voice and web for other industries.",
       },
       tags: {
         es: ["Preventa, venta y posventa", "WhatsApp Integrado", "Software a Medida"],
@@ -700,9 +702,9 @@ export default async function SolutionPage({ params }: Props) {
 
       {/* Channels — same AI, every channel, one consistent message */}
       {sol.channels && (
-        <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <div className="mx-auto max-w-[960px] text-center">
+        <section className="border-y overflow-hidden" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1fr_1fr]">
+            <div>
               {sol.channels.label && (
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: `color-mix(in oklab, ${accent} 92%, transparent)` }}>
                   {sol.channels.label[l]}
@@ -714,52 +716,41 @@ export default async function SolutionPage({ params }: Props) {
               >
                 {sol.channels.heading[l]}
               </h2>
-              <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
+              <p className="mt-5 text-pretty" style={{ fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
                 {sol.channels.intro[l]}
               </p>
-            </div>
-            <div className="mt-11 flex flex-wrap justify-center gap-5">
-              {sol.channels.items[l].map((item, i) => (
+              <div className="mt-7 flex flex-col gap-3">
+                {sol.channels.items[l].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg [&_svg]:h-4 [&_svg]:w-4"
+                      style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`, color: accent }}
+                    >
+                      {FEATURE_ICONS[item.icon]}
+                    </span>
+                    <div>
+                      <h3 className="text-[14.5px] font-semibold leading-snug text-white/90">{item.title}</h3>
+                      <p className="mt-0.5 text-[13px] leading-relaxed text-white/55">{item.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {sol.channels.closing && (
                 <div
-                  key={i}
-                  className="feature-card group relative flex w-full flex-col gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1.5 sm:w-[calc(50%-10px)] lg:w-[calc((100%-24px)/3)]"
+                  className="mt-7 flex items-center gap-3 rounded-2xl p-4"
                   style={{
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
+                    background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
+                    border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
                   }}
                 >
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${accent} 22%, transparent), transparent 70%)` }}
-                  />
-                  <span
-                    className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                    style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`, color: accent, animationDelay: `${i * 0.2}s` }}
-                  >
-                    {FEATURE_ICONS[item.icon]}
-                  </span>
-                  <div className="relative z-10 flex-1">
-                    <h3 className="text-[16px] font-semibold leading-snug text-white/90">{item.title}</h3>
-                    <p className="mt-1.5 text-[13.5px] leading-relaxed text-white/55">{item.body}</p>
-                  </div>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" className="shrink-0" style={{ color: accent }}>
+                    <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z" fill="currentColor" />
+                  </svg>
+                  <p className="text-[14.5px] font-medium leading-snug text-white/90">{sol.channels.closing[l]}</p>
                 </div>
-              ))}
+              )}
             </div>
-            {sol.channels.closing && (
-              <div
-                className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-3 rounded-2xl p-5 text-center"
-                style={{
-                  background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
-                  border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
-                }}
-              >
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" className="shrink-0" style={{ color: accent }}>
-                  <path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z" fill="currentColor" />
-                </svg>
-                <p className="text-[15px] font-medium leading-snug text-white/90">{sol.channels.closing[l]}</p>
-              </div>
-            )}
+            <ChannelsHub accent={accent} accent2={accent2} locale={l === "en" ? "en" : "es"} />
           </div>
         </section>
       )}
@@ -974,34 +965,7 @@ export default async function SolutionPage({ params }: Props) {
               </p>
             )}
           </div>
-          <div className="mt-11 flex flex-wrap justify-center gap-5">
-            {sol.industryExamples.items[l].map((item, i) => (
-              <div
-                key={i}
-                className="feature-card group relative flex w-full flex-col gap-4 overflow-hidden rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1.5 sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)]"
-                style={{
-                  background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
-                }}
-              >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                  style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${accent} 22%, transparent), transparent 70%)` }}
-                />
-                <span
-                  className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                  style={{ background: `color-mix(in oklab, ${accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 32%, transparent)`, color: accent, animationDelay: `${i * 0.2}s` }}
-                >
-                  {FEATURE_ICONS[item.icon]}
-                </span>
-                <div className="relative z-10 flex-1">
-                  <h3 className="text-[16px] font-semibold leading-snug text-white/90">{item.title}</h3>
-                  <p className="mt-1.5 text-[13.5px] leading-relaxed text-white/55">{item.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <IndustryShowcase items={sol.industryExamples.items[l]} accent={accent} accent2={accent2} />
         </section>
       )}
 

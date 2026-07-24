@@ -46,11 +46,10 @@ const T = {
       tag3: "Recuerda el contexto",
     },
     experience: {
-      label: "WhatsApp · Teléfono · Web",
-      msg1: "¿Tienen stock del modelo azul? ¿Y hasta qué hora abren hoy?",
-      msg2: "¡Sí, quedan 4 unidades! Hoy abrimos hasta las 20hs 🙌",
-      msg3: "Genial, ya te había comprado uno la semana pasada, ¿cómo hago un cambio de talle?",
-      msg4: "Sin problema, te genero la guía de cambio ahora mismo por acá.",
+      caption: "Un mismo asistente, en cada canal",
+      web: { label: "Sitio web", q: "¿Tienen stock del modelo azul?", a: "Sí, quedan 4 unidades disponibles ahora mismo." },
+      whatsapp: { label: "WhatsApp", q: "¿Hasta qué hora abren hoy?", a: "Hoy abrimos hasta las 20hs 🙌" },
+      phone: { label: "Teléfono", status: "Llamada en curso", transcript: "\"...te reservo el producto para que lo retires hoy?\"", badge: "Voz real" },
       contextLabel: "Una sola IA, todo el recorrido",
       tag1: "Preventa: responde antes de comprar",
       tag2: "Venta: acompaña la compra",
@@ -87,11 +86,10 @@ const T = {
       tag3: "Remembers the context",
     },
     experience: {
-      label: "WhatsApp · Phone · Web",
-      msg1: "Do you have the blue model in stock? And what time do you close today?",
-      msg2: "Yes, 4 units left! We're open until 8pm today 🙌",
-      msg3: "Great, I actually bought one last week — how do I exchange it for a different size?",
-      msg4: "No problem, I'll send you the exchange link right now.",
+      caption: "The same assistant, on every channel",
+      web: { label: "Website", q: "Do you have the blue model in stock?", a: "Yes, 4 units available right now." },
+      whatsapp: { label: "WhatsApp", q: "What time do you close today?", a: "We're open until 8pm today 🙌" },
+      phone: { label: "Phone", status: "Call in progress", transcript: "\"...want me to hold it for pickup today?\"", badge: "Real voice" },
       contextLabel: "One AI, the whole journey",
       tag1: "Pre-sale: answers before they buy",
       tag2: "Sale: supports the purchase",
@@ -538,39 +536,86 @@ function ExperienceGraphic({ accent, accent2, locale }: VariantProps) {
   return (
     <div className="relative">
       <GlowBg accent={accent} accent2={accent2} />
-      <SpotFrame accent={accent}>
-        <ChromeBar label={t.label} accent={accent2} />
-        <div className="flex flex-col gap-2.5 p-5">
-          <div className="flex items-start gap-2">
-            <Avatar color={accent} bot={false} />
-            <div className="max-w-[80%] rounded-2xl rounded-tl-sm px-3.5 py-2.5" style={{ background: "rgba(255,255,255,0.07)" }}>
-              <span className="text-[11px] leading-snug text-white/80">{t.msg1}</span>
+      <div className="sg-float relative flex flex-col gap-3">
+        <div className="mb-0.5 flex items-center gap-1.5 pl-1">
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: accent }} />
+          <span className="text-[10.5px] font-semibold uppercase tracking-wider text-white/50">{t.caption}</span>
+        </div>
+
+        {/* Website widget */}
+        <div className="flex items-center gap-3 rounded-2xl border p-3.5" style={{ borderColor: "rgba(255,255,255,0.1)", background: "linear-gradient(160deg, oklch(0.18 0.02 260), oklch(0.13 0.014 260))" }}>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: `color-mix(in oklab, ${accent} 18%, transparent)`, color: accent }}>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" /><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="currentColor" strokeWidth="1.6" /><circle cx="6" cy="6.3" r="0.6" fill="currentColor" /></svg>
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-wide text-white/45">{t.web.label}</span>
+              <span className="ml-auto flex items-center gap-1 text-[8.5px] font-semibold uppercase text-white/35">
+                <span className="h-1.5 w-1.5 rounded-full sg-live-dot" style={{ background: accent }} />
+                24/7
+              </span>
             </div>
-          </div>
-          <div className="ml-auto flex items-start gap-2">
-            <div className="max-w-[82%] rounded-2xl rounded-tr-sm px-3.5 py-2.5" style={{ background: `color-mix(in oklab, ${accent} 26%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)` }}>
-              <span className="text-[11px] leading-snug text-white/95">{t.msg2}</span>
-            </div>
-            <Avatar color={accent} bot />
-          </div>
-          <div className="flex items-start gap-2">
-            <Avatar color={accent} bot={false} />
-            <div className="max-w-[78%] rounded-2xl rounded-tl-sm px-3.5 py-2.5" style={{ background: "rgba(255,255,255,0.07)" }}>
-              <span className="text-[11px] leading-snug text-white/80">{t.msg3}</span>
-            </div>
-          </div>
-          <div className="ml-auto flex items-start gap-2">
-            <div className="max-w-[78%] rounded-2xl rounded-tr-sm px-3.5 py-2.5" style={{ background: `color-mix(in oklab, ${accent} 26%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)` }}>
-              <span className="text-[11px] leading-snug text-white/95">{t.msg4}</span>
-            </div>
-            <Avatar color={accent} bot />
+            <p className="mt-0.5 truncate text-[11.5px] text-white/70">{t.web.q}</p>
+            <p className="truncate text-[11.5px] font-medium" style={{ color: accent }}>{t.web.a}</p>
           </div>
         </div>
-      </SpotFrame>
+
+        {/* WhatsApp */}
+        <div className="flex items-center gap-3 rounded-2xl border p-3.5" style={{ borderColor: "rgba(255,255,255,0.1)", background: "linear-gradient(160deg, oklch(0.18 0.02 260), oklch(0.13 0.014 260))" }}>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: "color-mix(in oklab, #25D366 22%, transparent)", color: "#25D366" }}>
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2z" /></svg>
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-wide text-white/45">{t.whatsapp.label}</span>
+              <span className="ml-auto flex items-center gap-1 text-[8.5px] font-semibold uppercase text-white/35">
+                <span className="h-1.5 w-1.5 rounded-full sg-live-dot" style={{ background: "#25D366" }} />
+                24/7
+              </span>
+            </div>
+            <p className="mt-0.5 truncate text-[11.5px] text-white/70">{t.whatsapp.q}</p>
+            <p className="truncate text-[11.5px] font-medium text-[#25D366]">{t.whatsapp.a}</p>
+          </div>
+        </div>
+
+        {/* Phone call — the novel one, given the most visual weight */}
+        <div
+          className="relative overflow-hidden rounded-2xl border p-3.5"
+          style={{ borderColor: `color-mix(in oklab, ${accent2} 45%, transparent)`, background: `linear-gradient(160deg, color-mix(in oklab, ${accent2} 16%, oklch(0.18 0.02 260)), oklch(0.13 0.014 260))` }}
+        >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -right-6 -top-8 h-24 w-24 rounded-full blur-2xl opacity-40"
+            style={{ background: accent2 }}
+          />
+          <div className="relative flex items-center gap-3">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sg-phone-pulse" style={{ background: `color-mix(in oklab, ${accent2} 26%, transparent)`, color: accent2 }}>
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor" />
+              </svg>
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: accent2 }}>{t.phone.label}</span>
+                <span className="ml-auto rounded-full px-1.5 py-0.5 text-[7.5px] font-bold uppercase tracking-wide" style={{ background: accent2, color: "oklch(0.15 0.02 260)" }}>{t.phone.badge}</span>
+              </div>
+              <p className="mt-0.5 truncate text-[11px] italic text-white/80">{t.phone.transcript}</p>
+            </div>
+          </div>
+          <div className="relative mt-2.5 flex items-center gap-2 pl-12">
+            <span className="text-[9.5px] font-medium" style={{ color: accent2 }}>{t.phone.status}</span>
+            <div className="flex items-center gap-[2.5px]">
+              {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+                <span key={i} className="sg-wave-bar w-[2.5px] rounded-full" style={{ background: accent2, animationDelay: `${i * 0.11}s` }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* floating panel — the same conversation spans pre-sale, sale and post-sale, not just one stage */}
       <div
-        className="sg-float absolute -right-6 top-8 w-[188px] rounded-xl border p-3"
+        className="sg-float absolute -right-5 -top-6 w-[178px] rounded-xl border p-3"
         style={{ borderColor: "rgba(255,255,255,0.12)", background: "oklch(0.17 0.02 260)", boxShadow: `0 20px 50px -12px color-mix(in oklab, ${accent} 45%, transparent)` }}
       >
         <div className="mb-2 flex items-center gap-1.5">
@@ -598,6 +643,20 @@ function ExperienceGraphic({ accent, accent2, locale }: VariantProps) {
           />
         </div>
       </div>
+
+      <style>{`
+        @keyframes sg-live-dot-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        .sg-live-dot { animation: sg-live-dot-pulse 1.8s ease-in-out infinite; }
+        @keyframes sg-phone-pulse-anim {
+          0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, ${accent2} 55%, transparent); }
+          50% { box-shadow: 0 0 0 6px transparent; }
+        }
+        .sg-phone-pulse { animation: sg-phone-pulse-anim 1.8s ease-in-out infinite; }
+        @keyframes sg-wave-bar-anim {
+          0%, 100% { height: 4px; opacity: 0.6; } 50% { height: 14px; opacity: 1; }
+        }
+        .sg-wave-bar { animation: sg-wave-bar-anim 0.9s ease-in-out infinite; }
+      `}</style>
     </div>
   );
 }
