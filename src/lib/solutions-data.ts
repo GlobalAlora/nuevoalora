@@ -13,6 +13,13 @@ export interface IconBlock {
   href?: string
 }
 
+export interface IndustryExample {
+  icon: string
+  title: string
+  question: string
+  answer: string
+}
+
 export interface SolutionTheme {
   /** CSS color expression, e.g. "var(--turquoise)" or a color-mix() blend of two brand vars */
   primary: string
@@ -70,7 +77,7 @@ export interface SolutionData {
     label?: { es: string; en: string }
     heading: { es: string; en: string }
     intro?: { es: string; en: string }
-    items: { es: IconBlock[]; en: IconBlock[] }
+    items: { es: IndustryExample[]; en: IndustryExample[] }
   }
   approach?: {
     label: { es: string; en: string }
@@ -1864,18 +1871,18 @@ export const SOLUTIONS: SolutionData[] = [
       },
       items: {
         es: [
-          { icon: "cart", title: "Local físico / retail", body: "Consultas de stock por talle o color, ubicación y horarios del local, y reserva de un producto para retirar en tienda." },
-          { icon: "cloud", title: "Ecommerce", body: "Estado de pedidos y envíos, políticas de cambio y devolución, y recomendaciones antes de comprar." },
-          { icon: "target", title: "Venta de servicios", body: "Cotizaciones, disponibilidad de agenda y seguimiento de un proyecto en curso, para agencias, estudios y consultoras." },
-          { icon: "shield", title: "Salud y turnos", body: "Consultas antes de reservar, gestión de turnos y recordatorios automáticos para clínicas y consultorios." },
-          { icon: "structure", title: "Gastronomía y hotelería", body: "Disponibilidad de mesas o habitaciones, horarios y consultas frecuentes, atendidas al instante." },
+          { icon: "cart", title: "Local físico / retail", question: "¿Tienen el buzo negro en talle L?", answer: "Sí, quedan 3 unidades. Te lo puedo reservar para que lo retires hoy en el local." },
+          { icon: "cloud", title: "Ecommerce", question: "Hice un pedido ayer, ¿ya salió?", answer: "Tu pedido #4821 salió esta mañana, llega en 2-3 días hábiles. Te paso el seguimiento." },
+          { icon: "target", title: "Venta de servicios", question: "¿Cuánto sale una landing page como la de ustedes?", answer: "Depende del alcance, pero te puedo dar un rango ahora y coordinar una llamada para cotizarlo bien." },
+          { icon: "shield", title: "Salud y turnos", question: "¿Tienen turno para el jueves a la tarde?", answer: "Sí, hay lugar a las 16:30. ¿Te lo reservo con una seña de $5.000?" },
+          { icon: "structure", title: "Gastronomía y hotelería", question: "¿Tienen mesa para 4 personas hoy a las 21hs?", answer: "Sí, tenemos disponibilidad. ¿A nombre de quién hago la reserva?" },
         ],
         en: [
-          { icon: "cart", title: "Physical retail store", body: "Stock questions by size or color, store location and hours, and reserving a product for in-store pickup." },
-          { icon: "cloud", title: "Ecommerce", body: "Order and shipment status, exchange and return policies, and recommendations before buying." },
-          { icon: "target", title: "Selling services", body: "Quotes, calendar availability and progress updates on an ongoing project, for agencies, studios and consultancies." },
-          { icon: "shield", title: "Healthcare and appointments", body: "Questions before booking, appointment management and automatic reminders for clinics and private practices." },
-          { icon: "structure", title: "Restaurants and hospitality", body: "Table or room availability, hours and frequent questions, answered instantly." },
+          { icon: "cart", title: "Physical retail store", question: "Do you have the black hoodie in size L?", answer: "Yes, 3 units left. I can reserve it so you can pick it up in-store today." },
+          { icon: "cloud", title: "Ecommerce", question: "I placed an order yesterday, has it shipped yet?", answer: "Your order #4821 shipped this morning, arriving in 2-3 business days. Here's the tracking link." },
+          { icon: "target", title: "Selling services", question: "How much does a landing page like yours cost?", answer: "It depends on scope, but I can give you a range now and set up a call to quote it properly." },
+          { icon: "shield", title: "Healthcare and appointments", question: "Do you have an opening Thursday afternoon?", answer: "Yes, there's a slot at 4:30pm. Want me to book it with a $50 deposit?" },
+          { icon: "structure", title: "Restaurants and hospitality", question: "Do you have a table for 4 today at 9pm?", answer: "Yes, we have availability. What name should I put the reservation under?" },
         ],
       },
     },
