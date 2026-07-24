@@ -1748,12 +1748,12 @@ export const SOLUTIONS: SolutionData[] = [
         variant: "journey",
         columns: {
           es: [
-            { icon: "search", tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse." },
+            { icon: "search", tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Stock, precios, ubicación, horarios de atención, qué profesionales o rubros atendés, turnos disponibles, obras sociales o coberturas que aceptás — todo lo que un cliente potencial pregunta antes de decidirse, sea cual sea tu negocio." },
             { icon: "cart", tag: "VENTA", title: "Acompaña el proceso de compra", body: "Confirma pedidos, coordina turnos o citas cuando hace falta, envía confirmaciones por mail y calendario, y resuelve dudas de último momento." },
             { icon: "shield", tag: "POSVENTA", title: "Sostiene la relación después de la compra", body: "Seguimiento de pedidos, soporte técnico, cambios, devoluciones y consultas para una próxima compra — sin perder al cliente después de la primera venta." },
           ],
           en: [
-            { icon: "search", tag: "PRE-SALE", title: "Answers before they decide to buy", body: "Stock, pricing, store location, hours and availability — everything a potential customer asks before making up their mind." },
+            { icon: "search", tag: "PRE-SALE", title: "Answers before they decide to buy", body: "Stock, pricing, location, hours, which professionals or specialties you offer, open appointment slots, insurance providers you accept — everything a potential customer asks before deciding, whatever your business." },
             { icon: "cart", tag: "SALE", title: "Supports the purchase process", body: "Confirms orders, coordinates appointments when needed, sends email and calendar confirmations, and resolves last-minute questions." },
             { icon: "shield", tag: "POST-SALE", title: "Keeps the relationship going after the sale", body: "Order tracking, technical support, exchanges, returns and questions ahead of a next purchase — without losing the customer after the first sale." },
           ],
