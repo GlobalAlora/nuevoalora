@@ -48,6 +48,7 @@ const SOLUTION_LINKS = {
     { label: "Ecommerce", slug: "ecommerce", desc: "Tiendas online listas para vender y escalar.", icon: "cart", accent: "var(--violet)" },
     { label: "Chatbots IA", slug: "chatbots", desc: "Flujos guiados que cualifican leads y agendan llamadas.", icon: "chat", accent: "var(--electric)" },
     { label: "Agentes Conversacionales IA", slug: "atencion-cliente-ia", desc: "Conversaciones reales con tus clientes, las 24 horas.", icon: "headset", accent: "var(--violet)" },
+    { label: "Atención y Experiencia de Cliente IA", slug: "experiencia-cliente-ia", desc: "Preventa, venta y posventa por WhatsApp, teléfono y web.", icon: "layers", accent: "var(--turquoise)" },
   ],
   en: [
     { label: "Software Development", slug: "desarrollo-software", desc: "Custom software to solve real business problems.", icon: "code", accent: "var(--turquoise)" },
@@ -56,6 +57,7 @@ const SOLUTION_LINKS = {
     { label: "Ecommerce", slug: "ecommerce", desc: "Online stores ready to sell and scale.", icon: "cart", accent: "var(--violet)" },
     { label: "AI Chatbots", slug: "chatbots", desc: "Guided flows that qualify leads and book calls.", icon: "chat", accent: "var(--electric)" },
     { label: "AI Conversational Agents", slug: "atencion-cliente-ia", desc: "Real conversations with your customers, 24/7.", icon: "headset", accent: "var(--violet)" },
+    { label: "AI Customer Care & Experience", slug: "experiencia-cliente-ia", desc: "Pre-sale, sale and post-sale over WhatsApp, phone and web.", icon: "layers", accent: "var(--turquoise)" },
   ],
 };
 

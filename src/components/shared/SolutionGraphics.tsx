@@ -45,6 +45,17 @@ const T = {
       tag2: "Sin opciones prearmadas",
       tag3: "Recuerda el contexto",
     },
+    experience: {
+      label: "WhatsApp · Teléfono · Web",
+      msg1: "¿Tienen stock del modelo azul? ¿Y hasta qué hora abren hoy?",
+      msg2: "¡Sí, quedan 4 unidades! Hoy abrimos hasta las 20hs 🙌",
+      msg3: "Genial, ya te había comprado uno la semana pasada, ¿cómo hago un cambio de talle?",
+      msg4: "Sin problema, te genero la guía de cambio ahora mismo por acá.",
+      contextLabel: "Una sola IA, todo el recorrido",
+      tag1: "Preventa: responde antes de comprar",
+      tag2: "Venta: acompaña la compra",
+      tag3: "Posventa: sigue después de comprar",
+    },
   },
   en: {
     codeEditor: {
@@ -74,6 +85,17 @@ const T = {
       tag1: "Understands combined questions",
       tag2: "No pre-set menu options",
       tag3: "Remembers the context",
+    },
+    experience: {
+      label: "WhatsApp · Phone · Web",
+      msg1: "Do you have the blue model in stock? And what time do you close today?",
+      msg2: "Yes, 4 units left! We're open until 8pm today 🙌",
+      msg3: "Great, I actually bought one last week — how do I exchange it for a different size?",
+      msg4: "No problem, I'll send you the exchange link right now.",
+      contextLabel: "One AI, the whole journey",
+      tag1: "Pre-sale: answers before they buy",
+      tag2: "Sale: supports the purchase",
+      tag3: "Post-sale: stays after they buy",
     },
   },
 };
@@ -511,6 +533,75 @@ function AgentGraphic({ accent, accent2, locale }: VariantProps) {
   );
 }
 
+function ExperienceGraphic({ accent, accent2, locale }: VariantProps) {
+  const t = T[locale].experience;
+  return (
+    <div className="relative">
+      <GlowBg accent={accent} accent2={accent2} />
+      <SpotFrame accent={accent}>
+        <ChromeBar label={t.label} accent={accent2} />
+        <div className="flex flex-col gap-2.5 p-5">
+          <div className="flex items-start gap-2">
+            <Avatar color={accent} bot={false} />
+            <div className="max-w-[80%] rounded-2xl rounded-tl-sm px-3.5 py-2.5" style={{ background: "rgba(255,255,255,0.07)" }}>
+              <span className="text-[11px] leading-snug text-white/80">{t.msg1}</span>
+            </div>
+          </div>
+          <div className="ml-auto flex items-start gap-2">
+            <div className="max-w-[82%] rounded-2xl rounded-tr-sm px-3.5 py-2.5" style={{ background: `color-mix(in oklab, ${accent} 26%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)` }}>
+              <span className="text-[11px] leading-snug text-white/95">{t.msg2}</span>
+            </div>
+            <Avatar color={accent} bot />
+          </div>
+          <div className="flex items-start gap-2">
+            <Avatar color={accent} bot={false} />
+            <div className="max-w-[78%] rounded-2xl rounded-tl-sm px-3.5 py-2.5" style={{ background: "rgba(255,255,255,0.07)" }}>
+              <span className="text-[11px] leading-snug text-white/80">{t.msg3}</span>
+            </div>
+          </div>
+          <div className="ml-auto flex items-start gap-2">
+            <div className="max-w-[78%] rounded-2xl rounded-tr-sm px-3.5 py-2.5" style={{ background: `color-mix(in oklab, ${accent} 26%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)` }}>
+              <span className="text-[11px] leading-snug text-white/95">{t.msg4}</span>
+            </div>
+            <Avatar color={accent} bot />
+          </div>
+        </div>
+      </SpotFrame>
+
+      {/* floating panel — the same conversation spans pre-sale, sale and post-sale, not just one stage */}
+      <div
+        className="sg-float absolute -right-6 top-8 w-[188px] rounded-xl border p-3"
+        style={{ borderColor: "rgba(255,255,255,0.12)", background: "oklch(0.17 0.02 260)", boxShadow: `0 20px 50px -12px color-mix(in oklab, ${accent} 45%, transparent)` }}
+      >
+        <div className="mb-2 flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z" fill={accent2} /></svg>
+          <span className="text-[8.5px] font-semibold uppercase tracking-wider text-white/45">{t.contextLabel}</span>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <ContextTag
+            color={accent}
+            delay="0s"
+            text={t.tag1}
+            icon={<svg viewBox="0 0 24 24" width="10" height="10" fill="none"><circle cx="10" cy="10" r="6" stroke="currentColor" strokeWidth="2" /><line x1="15" y1="15" x2="20" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>}
+          />
+          <ContextTag
+            color={accent2}
+            delay="0.5s"
+            text={t.tag2}
+            icon={<svg viewBox="0 0 24 24" width="10" height="10" fill="none"><path d="M4 5h2l2 11h10l2-8H7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><circle cx="10" cy="19" r="1.4" fill="currentColor" /><circle cx="17" cy="19" r="1.4" fill="currentColor" /></svg>}
+          />
+          <ContextTag
+            color="#28c840"
+            delay="1s"
+            text={t.tag3}
+            icon={<svg viewBox="0 0 24 24" width="10" height="10" fill="none"><path d="M12 20s-7-4.35-7-9.5A4.5 4.5 0 0112 7a4.5 4.5 0 017 3.5C19 15.65 12 20 12 20z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function variantFor(slug: string, accent: string, accent2: string, locale: "es" | "en") {
   const p: VariantProps = { accent, accent2, locale };
   switch (slug) {
@@ -526,6 +617,8 @@ function variantFor(slug: string, accent: string, accent2: string, locale: "es" 
       return <ChatbotGraphic {...p} />;
     case "atencion-cliente-ia":
       return <AgentGraphic {...p} />;
+    case "experiencia-cliente-ia":
+      return <ExperienceGraphic {...p} />;
     default:
       return null;
   }

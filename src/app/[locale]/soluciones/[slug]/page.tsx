@@ -105,6 +105,46 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
       },
     },
   ],
+  "experiencia-cliente-ia": [
+    {
+      caseSlug: "soy-lidia",
+      image: "/images/case-studies/soy-lidia/hero.png",
+      imageAspect: "1600/1542",
+      imageAlt: "Soy LIDIA",
+      badge: { es: "Caso de Éxito · Atención y Experiencia de Cliente IA", en: "Case Study · AI Customer Care & Experience" },
+      heading: {
+        es: "LIDIA: la IA que atiende pacientes por WhatsApp antes, durante y después del turno",
+        en: "LIDIA: the AI that takes care of patients over WhatsApp before, during and after their appointment",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos LIDIA para consultorios y clínicas de salud: responde consultas antes de reservar, agenda el turno y cobra la seña, y después envía recordatorios y confirmaciones automáticas, todo por WhatsApp y sin intervención humana. Hoy está en uso en Argentina, Uruguay, España y Chile.",
+        en: "We designed and built LIDIA for health clinics and private practices: it answers questions before booking, schedules the appointment and charges the deposit, then sends automatic reminders and confirmations afterward — all over WhatsApp, with no human intervention. Now in use in Argentina, Uruguay, Spain and Chile.",
+      },
+      tags: {
+        es: ["Preventa, venta y posventa", "WhatsApp Integrado", "Software a Medida"],
+        en: ["Pre-sale, sale and post-sale", "Integrated WhatsApp", "Custom Software"],
+      },
+    },
+    {
+      caseSlug: "alora-crm",
+      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      imageAspect: "1660/850",
+      imageAlt: "ALORA CRM — Atención y Experiencia de Cliente IA por WhatsApp",
+      badge: { es: "Caso de Éxito · Atención y Experiencia de Cliente IA", en: "Case Study · AI Customer Care & Experience" },
+      heading: {
+        es: "El sistema de IA de ALORA CRM que acompaña al lead desde la consulta hasta el cierre",
+        en: "ALORA CRM's AI system that supports the lead from first question to close",
+      },
+      body: {
+        es: "Diseñamos y desarrollamos el sistema de IA de ALORA CRM: responde las primeras consultas de un lead por WhatsApp, lo acompaña durante la negociación y centraliza toda la conversación en un mismo panel, sin salir del CRM. Hoy está disponible como marca blanca para otras empresas.",
+        en: "We designed and built ALORA CRM's AI system: it answers a lead's first questions over WhatsApp, supports them through the negotiation and centralizes the entire conversation in one panel, without leaving the CRM. Now available as a white-label product for other companies.",
+      },
+      tags: {
+        es: ["Preventa y venta", "WhatsApp Integrado", "Software a Medida"],
+        en: ["Pre-sale and sale", "Integrated WhatsApp", "Custom Software"],
+      },
+    },
+  ],
   ecommerce: [
     {
       caseSlug: "distrisal",

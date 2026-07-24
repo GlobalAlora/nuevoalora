@@ -16,6 +16,7 @@ const SOLUTION_BLOG_POSTS: Record<string, string[]> = {
   "ecommerce": [],
   "chatbots": ["cuanto-cuesta-chatbot-ia", "chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas"],
   "atencion-cliente-ia": ["agente-ia-atencion-cliente", "chatbot-vs-agente-conversacional-ia", "chatbot-whatsapp-para-empresas"],
+  "experiencia-cliente-ia": ["ia-atencion-cliente-por-industria", "agente-ia-atencion-cliente", "chatbot-vs-agente-conversacional-ia"],
   "desarrollo-software": ["mi-empresa-necesita-inteligencia-artificial", "ia-automatizacion-negocios", "automatizacion-ia-pymes-casos"],
 };
 

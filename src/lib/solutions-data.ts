@@ -1678,6 +1678,287 @@ export const SOLUTIONS: SolutionData[] = [
     },
     cta: { es: "Contanos qué necesitás construir", en: "Tell us what you need to build" },
   },
+
+  {
+    slug: "experiencia-cliente-ia",
+    theme: { primary: "var(--turquoise)", secondary: "var(--electric)" },
+    meta: {
+      es: { title: "Atención y Experiencia de Cliente con IA | ALORA", desc: "IA que atiende a tus clientes por WhatsApp, teléfono y web, antes, durante y después de la compra." },
+      en: { title: "AI Customer Care & Experience | ALORA", desc: "AI that takes care of your customers over WhatsApp, phone and web, before, during and after the sale." },
+    },
+    hero: {
+      es: {
+        badge: "Atención y Experiencia de Cliente con IA",
+        headline: "IA que atiende a tus clientes en cada etapa, por el canal que elijan",
+        headlineLines: ["IA que atiende a tus clientes", "en cada etapa, por el", "canal que elijan"],
+        sub: "Un mismo sistema de IA que acompaña a tu cliente antes, durante y después de la compra — por WhatsApp, por teléfono o por web — resolviendo lo que necesite en el momento, sin cambiar de canal ni repetir su consulta.",
+      },
+      en: {
+        badge: "AI Customer Care & Experience",
+        headline: "AI that takes care of your customers at every stage, on the channel they choose",
+        headlineLines: ["AI that takes care of your", "customers at every stage,", "on their channel of choice"],
+        sub: "One AI system that supports your customer before, during and after the sale — over WhatsApp, phone or web — resolving whatever they need in the moment, without switching channels or repeating themselves.",
+      },
+    },
+    heroNote: { es: "Llamada online de 20 minutos", en: "20-minute online call" },
+    appExplainer: {
+      label: { es: "Atención y Experiencia de Cliente con IA", en: "AI Customer Care & Experience" },
+      heading: { es: "¿Qué es la atención y experiencia de cliente con IA?", en: "What is AI customer care & experience?" },
+      intro: {
+        es: "Chatbots y agentes conversacionales son la tecnología. Esto es el resultado: una experiencia completa, sostenida por IA, en cada etapa de la relación con tu cliente.",
+        en: "Chatbots and conversational agents are the technology. This is the outcome: a complete experience, powered by AI, at every stage of your relationship with your customer.",
+      },
+      definition: {
+        title: {
+          es: "Todo el recorrido del cliente, cubierto por un mismo sistema",
+          en: "Your customer's entire journey, covered by one system",
+        },
+        body: {
+          es: "Mientras un chatbot guía hacia una acción puntual y un agente conversacional resuelve una consulta genuina, la atención y experiencia de cliente con IA conecta ambas capacidades — y suma voz telefónica — para acompañar a la persona desde que todavía es un lead hasta después de haber comprado, sin que tenga que cambiar de canal ni repetir lo que ya dijo.",
+          en: "While a chatbot guides toward a specific action and a conversational agent resolves a genuine query, AI customer care & experience connects both capabilities — and adds phone voice — to support the person from when they're still a lead through well after they've bought, without switching channels or repeating themselves.",
+        },
+      },
+      comparison: {
+        heading: { es: "Preventa, venta y posventa: una sola IA para las tres etapas", en: "Pre-sale, sale and post-sale: one AI for all three stages" },
+        columns: {
+          es: [
+            { tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse.", highlight: true },
+            { tag: "VENTA", title: "Acompaña el proceso de compra", body: "Confirma pedidos, coordina turnos o citas cuando hace falta, envía confirmaciones por mail y calendario, y resuelve dudas de último momento." },
+            { tag: "POSVENTA", title: "Sostiene la relación después de la compra", body: "Seguimiento de pedidos, soporte técnico, cambios, devoluciones y consultas para una próxima compra — sin perder al cliente después de la primera venta." },
+          ],
+          en: [
+            { tag: "PRE-SALE", title: "Answers before they decide to buy", body: "Stock, pricing, store location, hours and availability — everything a potential customer asks before making up their mind.", highlight: true },
+            { tag: "SALE", title: "Supports the purchase process", body: "Confirms orders, coordinates appointments when needed, sends email and calendar confirmations, and resolves last-minute questions." },
+            { tag: "POST-SALE", title: "Keeps the relationship going after the sale", body: "Order tracking, technical support, exchanges, returns and questions ahead of a next purchase — without losing the customer after the first sale." },
+          ],
+        },
+      },
+    },
+    whatWeBuild: {
+      label: { es: "Qué construimos", en: "What we build" },
+      heading: { es: "Un sistema de IA que atiende, no una lista de respuestas automáticas", en: "An AI system that takes care of people, not a list of canned replies" },
+      intro: {
+        es: "Diseñado para cubrir todo lo que tu cliente necesita, en la etapa en la que esté, sin que tenga que cambiar de canal ni repetir lo que ya dijo.",
+        en: "Built to cover everything your customer needs, whatever stage they're at, without switching channels or repeating themselves.",
+      },
+      items: {
+        es: [
+          { icon: "layers", title: "Cobertura preventa, venta y posventa", body: "El mismo sistema acompaña al cliente antes de comprar, durante la compra y después, sin cortes entre etapas." },
+          { icon: "chat", title: "WhatsApp como canal principal", body: "Atiende por el canal que tu cliente ya usa todos los días, sin apps nuevas que instalar." },
+          { icon: "headset", title: "Atención telefónica con voz natural", body: 'Un agente de voz que conversa como una persona, no un menú de "marque 1 para...".' },
+          { icon: "portal", title: "Base de conocimiento de tu negocio real", body: "Stock, precios, ubicación, horarios y políticas — todo lo que tu cliente pregunta, con información real." },
+          { icon: "cart", title: "Gestión de pedidos, turnos y seguimiento", body: "Confirma pedidos, agenda o cambia citas cuando corresponde, y avisa el estado de un envío, con confirmación por mail y calendario." },
+          { icon: "controls", title: "Derivación inteligente a humanos", body: "Cuando la situación lo requiere, deriva con todo el contexto de la conversación, sin que el cliente repita nada." },
+        ],
+        en: [
+          { icon: "layers", title: "Pre-sale, sale and post-sale coverage", body: "The same system supports the customer before, during and after the purchase, with no gaps between stages." },
+          { icon: "chat", title: "WhatsApp as the primary channel", body: "Takes care of people on the channel they already use every day, no new apps to install." },
+          { icon: "headset", title: "Phone support with a natural voice", body: 'A voice agent that talks like a person, not a "press 1 for..." menu.' },
+          { icon: "portal", title: "Knowledge base built on your real business", body: "Stock, pricing, location, hours and policies — everything your customer asks, backed by real information." },
+          { icon: "cart", title: "Order, appointment and tracking management", body: "Confirms orders, books or changes appointments when relevant, and reports shipment status, with email and calendar confirmation." },
+          { icon: "controls", title: "Smart handoff to humans", body: "When the situation calls for it, hands off with the full context of the conversation, with nothing to repeat." },
+        ],
+      },
+    },
+    approach: {
+      label: { es: "Nuestro enfoque", en: "Our approach" },
+      heading: { es: "Pensado para resolver lo que el cliente necesite, no lo que anticipamos nosotros", en: "Built to resolve what the customer needs, not what we assumed" },
+      body: {
+        es: "No armamos un sistema que solo sabe responder cinco preguntas. Construimos un sistema entrenado con la información real y completa de tu negocio, capaz de resolver la enorme variedad de cosas que un cliente puede necesitar en cualquier momento de su relación con vos.",
+        en: "We don't build a system that only knows how to answer five questions. We build one trained on your business's real, complete information, capable of resolving the huge variety of things a customer might need at any point in their relationship with you.",
+      },
+      bullets: {
+        es: ["Cubre preventa, venta y posventa con el mismo sistema", "Atiende por WhatsApp, teléfono y web sin perder contexto", "Entrenado con la información real de tu negocio, no respuestas genéricas"],
+        en: ["Covers pre-sale, sale and post-sale with the same system", "Supports WhatsApp, phone and web without losing context", "Trained on your business's real information, not generic answers"],
+      },
+      cards: {
+        es: [
+          { icon: "target", title: "Foco en tu negocio real", body: "Conoce tu stock, tus precios, tu ubicación y tus políticas reales, no respuestas genéricas de manual." },
+          { icon: "mobile", title: "Un solo sistema, todos los canales", body: "WhatsApp, teléfono y web comparten el mismo cerebro — el cliente no repite su consulta al cambiar de canal." },
+          { icon: "controls", title: "Editable y autogestionable", body: "Ajustá la información y el tono vos mismo, sin depender de nosotros para cada cambio." },
+          { icon: "spark", title: "Desarrollo AI-first", body: "Combinamos prácticas sólidas con procesos acelerados por IA para construir más rápido." },
+        ],
+        en: [
+          { icon: "target", title: "Focus on your real business", body: "Knows your real stock, prices, location and policies, not generic textbook answers." },
+          { icon: "mobile", title: "One system, every channel", body: "WhatsApp, phone and web share the same brain — the customer never repeats themselves when switching channels." },
+          { icon: "controls", title: "Editable and self-manageable", body: "Adjust the information and tone yourself, without depending on us for every change." },
+          { icon: "spark", title: "AI-first development", body: "We combine solid practices with AI-accelerated processes to build faster." },
+        ],
+      },
+    },
+    useCases: {
+      label: { es: "Todo lo que puede resolver", en: "Everything it can resolve" },
+      heading: { es: "Mucho más que agendar un turno", en: "Much more than booking an appointment" },
+      items: {
+        es: [
+          "Responde consultas de stock y disponibilidad en el momento",
+          "Indica ubicación, horarios y cómo llegar a tu local",
+          "Da precios, promociones y condiciones de pago",
+          "Agenda, cambia o cancela turnos y citas, con confirmación por mail y calendario",
+          "Informa el estado de un pedido o envío",
+          "Resuelve dudas frecuentes sobre productos o servicios",
+          "Atiende llamadas telefónicas con una voz natural, no un menú de opciones",
+          "Acompaña después de la compra: soporte, cambios, devoluciones",
+          "Deriva a un humano con todo el contexto cuando hace falta",
+          "Funciona en WhatsApp, teléfono y web al mismo tiempo",
+        ],
+        en: [
+          "Answers stock and availability questions on the spot",
+          "Gives store location, hours and directions",
+          "Shares pricing, promotions and payment terms",
+          "Books, changes or cancels appointments, with email and calendar confirmation",
+          "Reports the status of an order or shipment",
+          "Resolves frequent questions about products or services",
+          "Handles phone calls with a natural voice, not a menu of options",
+          "Supports customers after the purchase: help, exchanges, returns",
+          "Hands off to a human with full context when needed",
+          "Works over WhatsApp, phone and web at the same time",
+        ],
+      },
+    },
+    featuresLabel: { es: "Qué incluye", en: "What's included" },
+    featuresHeading: { es: "Qué incluye el servicio de atención y experiencia de cliente con IA", en: "What our AI customer care & experience service includes" },
+    featuresDetailed: {
+      es: [
+        { icon: "search", title: "Mapeo de todo el recorrido del cliente", body: "Relevamos qué necesita tu cliente en preventa, venta y posventa, y qué de eso puede resolver la IA." },
+        { icon: "design", title: "Entrenamiento con tu marca y tono", body: "El sistema responde con la voz y personalidad de tu negocio, en cada canal." },
+        { icon: "portal", title: "Base de conocimiento completa", body: "Cargamos stock, precios, ubicación, horarios, políticas y todo lo que el sistema necesita saber." },
+        { icon: "chat", title: "Integración con WhatsApp y web", body: "Funciona en los canales donde ya está tu cliente, sin fricción." },
+        { icon: "headset", title: "Agente de voz para llamadas telefónicas", body: "Atiende llamadas con una conversación natural, no un menú de opciones fijo." },
+        { icon: "cart", title: "Gestión de pedidos, turnos y confirmaciones", body: "Confirma, agenda, cambia y cancela, con aviso automático por mail y calendario." },
+        { icon: "controls", title: "Derivación inteligente a humanos", body: "Deriva con contexto completo cuando la consulta lo requiere." },
+        { icon: "speed", title: "Analytics de toda la experiencia", body: "Medimos qué necesita tu cliente en cada etapa y qué tan bien se resuelve." },
+      ],
+      en: [
+        { icon: "search", title: "Mapping the customer's entire journey", body: "We identify what your customer needs in pre-sale, sale and post-sale, and what the AI can resolve." },
+        { icon: "design", title: "Training with your brand and tone", body: "The system responds with your business's voice and personality, on every channel." },
+        { icon: "portal", title: "Complete knowledge base", body: "We load stock, pricing, location, hours, policies and everything the system needs to know." },
+        { icon: "chat", title: "WhatsApp and web integration", body: "Works on the channels your customer already uses, with no friction." },
+        { icon: "headset", title: "Voice agent for phone calls", body: "Handles calls with a natural conversation, not a fixed menu of options." },
+        { icon: "cart", title: "Order, appointment and confirmation management", body: "Confirms, books, changes and cancels, with automatic email and calendar notice." },
+        { icon: "controls", title: "Smart handoff to humans", body: "Hands off with full context when the query requires it." },
+        { icon: "speed", title: "Full-experience analytics", body: "We measure what your customer needs at every stage and how well it gets resolved." },
+      ],
+    },
+    featuresConclusion: {
+      es: "Todo lo necesario para que tu cliente reciba la misma calidad de atención antes, durante y después de comprarte, sin importar el canal.",
+      en: "Everything you need for your customer to get the same quality of care before, during and after buying from you, no matter the channel.",
+    },
+    whyUsExtra: {
+      heading: { es: "Un sistema que acompaña a tu cliente, no un bot genérico", en: "A system that supports your customer, not a generic bot" },
+      intro: {
+        es: "No entrenamos una IA con respuestas de manual. La entrenamos con la realidad de tu negocio para que resuelva de verdad, en cada etapa.",
+        en: "We don't train an AI with textbook answers. We train it with your business's reality so it genuinely resolves things, at every stage.",
+      },
+      reasons: {
+        es: [
+          { tag: "ENFOQUE", label: "Cada respuesta se basa en la información real de tu negocio, no en un genérico" },
+          { tag: "VELOCIDAD", label: "Procesos ágiles, sin vueltas ni demoras innecesarias" },
+          { tag: "CERCANÍA", label: "Comunicación directa con el equipo que entrena tu sistema" },
+          { tag: "CALIDAD", label: "Conversaciones probadas y ajustadas, no una IA suelta sin supervisión" },
+          { tag: "AUTONOMÍA", label: "Te dejamos el control total para actualizar conocimiento y tono" },
+          { tag: "ACOMPAÑAMIENTO", label: "Seguimos cerca después del lanzamiento, no desaparecemos" },
+        ],
+        en: [
+          { tag: "FOCUS", label: "Every answer is based on your business's real information, not something generic" },
+          { tag: "SPEED", label: "Agile processes, no unnecessary detours or delays" },
+          { tag: "PROXIMITY", label: "Direct communication with the team training your system" },
+          { tag: "QUALITY", label: "Tested, tuned conversations, not an unsupervised AI running loose" },
+          { tag: "AUTONOMY", label: "Full control handed to you to update knowledge and tone" },
+          { tag: "SUPPORT", label: "We stay close after launch, we don't disappear" },
+        ],
+      },
+    },
+    testimonials: {
+      es: [
+        {
+          quote: "Trabajar con Alora fue una excelente experiencia. Desarrollaron tanto el sitio web institucional como un sistema de ranking profesional totalmente a medida, que hoy nos permite gestionar jugadores, estadísticas y puntos de forma clara y eficiente. La plataforma es rápida, fácil de usar y nos dio un salto de calidad en la organización del Tenis de Mesa. Siempre hubo buena comunicación, compromiso y predisposición para adaptar el sistema a nuestras necesidades reales.",
+          tags: ["Sistema integral", "Gestión eficiente", "Fácil de usar"],
+          name: "Alejandro",
+          role: "Presidente de la Comisión de Tenis de Mesa",
+        },
+        {
+          quote: "Desde Fundación por Nuestros Niños agradecemos el proceso compartido en la creación de nuestra página web. Ha sido una experiencia muy linda, que además nos permitió revisar aspectos muy importantes de nuestra institución. Era una deuda pendiente para nuestra ONG que lleva más de 28 años trabajando por la niñez de Salta. Gracias por la calidez, compromiso, profesionalismo y paciencia del equipo de Alora. ¡Esperamos mantener nuestra alianza por el bien común!",
+          tags: ["Proceso colaborativo", "Impacto social", "Equipo comprometido"],
+          name: "Verónica Figueroa",
+          role: "Fundación por Nuestros Niños – Presidenta del Consejo de Administración",
+        },
+        {
+          quote: "Fue un placer trabajar con Bruno y su equipo. Desde los procesos y canales de comunicación, el manejo de los tiempos y la seriedad con la que abordaron el trabajo. Dedicaron tiempo para entender la esencia del proyecto, hacer las sugerencias pertinentes y tener la predisposición para resolver cada situación. Quedé muy conforme con el trabajo realizado y los recomiendo.",
+          tags: ["Proceso claro", "Comunicación abierta", "Resultados impecables"],
+          name: "Rulo de Viaje",
+          role: "Creador de la comunidad Club Rulo de Viaje",
+        },
+        {
+          quote: "Durante este tiempo, el trabajo fue muy profesional, con excelente predisposición y cumplimiento en los plazos. La comunicación fue siempre clara y resolutiva. Destaco el compromiso y la eficiencia.",
+          tags: ["Profesionalismo constante", "Comunicación clara", "Compromiso y eficiencia"],
+          name: "Fernando Celaya",
+          role: "Starley – Gerente",
+        },
+      ],
+      en: [
+        {
+          quote: "Working with Alora was an excellent experience. They developed both our institutional website and a fully custom professional ranking system, which now lets us manage players, statistics and points clearly and efficiently. The platform is fast, easy to use, and gave our table tennis organization a real leap in quality. There was always good communication, commitment and willingness to adapt the system to our real needs.",
+          tags: ["Comprehensive system", "Efficient management", "Easy to use"],
+          name: "Alejandro",
+          role: "President of the Table Tennis Commission",
+        },
+        {
+          quote: "At Fundación por Nuestros Niños we're grateful for the process we shared in creating our website. It's been a wonderful experience that also let us revisit some very important aspects of our organization. It was a pending debt for our NGO, which has worked for more than 28 years for the children of Salta. Thank you for the warmth, commitment, professionalism and patience of the Alora team. We hope to keep our alliance for the common good!",
+          tags: ["Collaborative process", "Social impact", "Committed team"],
+          name: "Verónica Figueroa",
+          role: "Fundación por Nuestros Niños – Chair of the Board",
+        },
+        {
+          quote: "It was a pleasure working with Bruno and his team — the processes and communication channels, how they managed timelines, and the seriousness with which they approached the work. They took the time to understand the essence of the project, made relevant suggestions, and were always willing to resolve any situation. I was very happy with the work delivered and I recommend them.",
+          tags: ["Clear process", "Open communication", "Flawless results"],
+          name: "Rulo de Viaje",
+          role: "Founder of the Club Rulo de Viaje community",
+        },
+        {
+          quote: "During this time, the work was very professional, with great responsiveness and on-time delivery. Communication was always clear and effective. I'd highlight the commitment and efficiency.",
+          tags: ["Consistent professionalism", "Clear communication", "Commitment and efficiency"],
+          name: "Fernando Celaya",
+          role: "Starley – Manager",
+        },
+      ],
+    },
+    features: {
+      es: ["Cobertura preventa, venta y posventa", "WhatsApp, teléfono y web", "Base de conocimiento con tu información real", "Agente de voz para llamadas", "Gestión de turnos, pedidos y seguimiento", "Analytics de toda la experiencia"],
+      en: ["Pre-sale, sale and post-sale coverage", "WhatsApp, phone and web", "Knowledge base with your real information", "Voice agent for calls", "Appointment, order and tracking management", "Full-experience analytics"],
+    },
+    process: {
+      es: [
+        { n: "01", title: "Llamada de relevamiento", body: "Una primera llamada para entender tu negocio y todo el recorrido de tu cliente." },
+        { n: "02", title: "Mapeo del recorrido completo", body: "Identificamos qué necesita tu cliente en preventa, venta y posventa." },
+        { n: "03", title: "Entrenamiento y base de conocimiento", body: "Cargamos la información real de tu negocio y definimos el tono del sistema." },
+        { n: "04", title: "Desarrollo e integración multicanal", body: "Construimos el sistema e integramos WhatsApp, teléfono y web." },
+        { n: "05", title: "Pruebas y ajustes", body: "Validamos conversaciones reales en cada canal y ajustamos el comportamiento." },
+        { n: "06", title: "Activación y monitoreo", body: "Publicamos el sistema y medimos su desempeño para mejorarlo." },
+      ],
+      en: [
+        { n: "01", title: "Discovery call", body: "A first call to understand your business and your customer's entire journey." },
+        { n: "02", title: "Full journey mapping", body: "We identify what your customer needs in pre-sale, sale and post-sale." },
+        { n: "03", title: "Training and knowledge base", body: "We load your business's real information and define the system's tone." },
+        { n: "04", title: "Multi-channel development and integration", body: "We build the system and integrate WhatsApp, phone and web." },
+        { n: "05", title: "Testing and adjustments", body: "We validate real conversations on every channel and adjust behavior." },
+        { n: "06", title: "Activation and monitoring", body: "We deploy the system and measure its performance to improve it." },
+      ],
+    },
+    processLabel: { es: "Metodología", en: "Methodology" },
+    processHeading: { es: "Un método claro, conectado y medible en cada etapa.", en: "A clear, connected and measurable method at every stage." },
+    workPrinciple: { es: "Trabajamos con procesos claros, comunicación directa y solo los pasos necesarios para lograr resultados reales.", en: "We work with clear processes, direct communication and only the steps needed to achieve real results." },
+    finalCta: {
+      heading: { es: "¿Hablamos de la experiencia de tu cliente?", en: "Should we talk about your customer's experience?" },
+      body: {
+        es: "Coordinemos una llamada breve para entender el recorrido de tu cliente y ver cómo la IA puede acompañarlo en cada etapa.",
+        en: "Let's set up a brief call to understand your customer's journey and see how AI can support them at every stage.",
+      },
+      ctaLabel: { es: "Agendar una llamada de 20 minutos", en: "Schedule a 20-minute call" },
+      ctaNote: { es: "Respondemos en menos de 24 horas, sin compromiso.", en: "We respond within 24 hours, no strings attached." },
+    },
+    cta: { es: "Quiero mejorar la experiencia de mis clientes", en: "I want to improve my customers' experience" },
+  },
 ]
 
 export function getSolution(slug: string): SolutionData | undefined {

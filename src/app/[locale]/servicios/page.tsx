@@ -73,6 +73,13 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M32 30v1a4 4 0 01-4 4h-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
+  layers: (
+    <svg viewBox="0 0 40 40" fill="none" className="h-6 w-6">
+      <path d="M20 6L6 14l14 8 14-8-14-8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="currentColor" fillOpacity=".08" />
+      <path d="M6 20l14 8 14-8" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M6 26l14 8 14-8" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeOpacity=".5" />
+    </svg>
+  ),
 };
 
 const SERVICES = {
@@ -131,6 +138,15 @@ const SERVICES = {
       desc: "Agentes de IA que sostienen conversaciones reales con tus clientes, entienden lenguaje natural y resuelven consultas de verdad.",
       tags: ["Conversación real", "Multi-canal", "Automatización"],
     },
+    {
+      slug: "experiencia-cliente-ia",
+      icon: "layers",
+      accent: "var(--turquoise)",
+      accent2: "var(--electric)",
+      title: "Atención y Experiencia de Cliente IA",
+      desc: "IA que atiende a tus clientes por WhatsApp, teléfono y web, en preventa, venta y posventa, sin cambiar de canal ni repetir la consulta.",
+      tags: ["Preventa, venta y posventa", "WhatsApp y voz", "Multi-canal"],
+    },
   ],
   en: [
     {
@@ -186,6 +202,15 @@ const SERVICES = {
       title: "AI Conversational Agents",
       desc: "AI agents that hold real conversations with your customers, understand natural language and genuinely resolve queries.",
       tags: ["Real conversation", "Multi-channel", "Automation"],
+    },
+    {
+      slug: "experiencia-cliente-ia",
+      icon: "layers",
+      accent: "var(--turquoise)",
+      accent2: "var(--electric)",
+      title: "AI Customer Care & Experience",
+      desc: "AI that takes care of your customers over WhatsApp, phone and web, across pre-sale, sale and post-sale, without switching channels or repeating themselves.",
+      tags: ["Pre-sale, sale, post-sale", "WhatsApp and voice", "Multi-channel"],
     },
   ],
 };
