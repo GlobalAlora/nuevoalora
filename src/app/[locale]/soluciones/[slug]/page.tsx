@@ -12,6 +12,7 @@ import { HeroGraphic, HeroInteractiveBackground } from "@/components/shared/Hero
 import { SolutionGraphic } from "@/components/shared/SolutionGraphics";
 import { ChannelsHub } from "@/components/shared/ChannelsHub";
 import { IndustryShowcase } from "@/components/shared/IndustryShowcase";
+import { JourneyTimeline } from "@/components/shared/JourneyTimeline";
 import { ProjectsSection } from "./ProjectsSection";
 import { SolutionContactForm } from "@/components/shared/SolutionContactForm";
 import { ICONS as FEATURE_ICONS } from "@/lib/icons";
@@ -662,6 +663,9 @@ export default async function SolutionPage({ params }: Props) {
             <h3 className="mx-auto mt-14 max-w-2xl text-balance text-center text-white" style={{ fontSize: "clamp(19px, 2vw, 24px)", fontWeight: 650, letterSpacing: "-0.02em" }}>
               {sol.appExplainer.comparison.heading[l]}
             </h3>
+            {sol.appExplainer.comparison.variant === "journey" ? (
+              <JourneyTimeline stages={sol.appExplainer.comparison.columns[l]} accent={accent} accent2={accent2} />
+            ) : (
             <div className="mt-8 flex flex-wrap justify-center gap-5">
               {sol.appExplainer.comparison.columns[l].map((col, i, arr) => (
                 <div
@@ -696,6 +700,7 @@ export default async function SolutionPage({ params }: Props) {
                 </div>
               ))}
             </div>
+            )}
           </div>
         </section>
       )}

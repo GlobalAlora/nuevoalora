@@ -53,9 +53,11 @@ export interface SolutionData {
     definition: { title: { es: string; en: string }; body: { es: string; en: string } }
     comparison: {
       heading: { es: string; en: string }
+      /** "journey" renders an animated connected timeline (sequential stages); default renders comparison cards (contrasting options). */
+      variant?: "journey" | "compare"
       columns: {
-        es: { tag: string; title: string; body: string; highlight?: boolean; href?: string; linkLabel?: string }[]
-        en: { tag: string; title: string; body: string; highlight?: boolean; href?: string; linkLabel?: string }[]
+        es: { tag: string; title: string; body: string; icon?: string; highlight?: boolean; href?: string; linkLabel?: string }[]
+        en: { tag: string; title: string; body: string; icon?: string; highlight?: boolean; href?: string; linkLabel?: string }[]
       }
     }
   }
@@ -1743,16 +1745,17 @@ export const SOLUTIONS: SolutionData[] = [
       },
       comparison: {
         heading: { es: "Preventa, venta y posventa: una sola IA para las tres etapas", en: "Pre-sale, sale and post-sale: one AI for all three stages" },
+        variant: "journey",
         columns: {
           es: [
-            { tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse." },
-            { tag: "VENTA", title: "Acompaña el proceso de compra", body: "Confirma pedidos, coordina turnos o citas cuando hace falta, envía confirmaciones por mail y calendario, y resuelve dudas de último momento." },
-            { tag: "POSVENTA", title: "Sostiene la relación después de la compra", body: "Seguimiento de pedidos, soporte técnico, cambios, devoluciones y consultas para una próxima compra — sin perder al cliente después de la primera venta." },
+            { icon: "search", tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse." },
+            { icon: "cart", tag: "VENTA", title: "Acompaña el proceso de compra", body: "Confirma pedidos, coordina turnos o citas cuando hace falta, envía confirmaciones por mail y calendario, y resuelve dudas de último momento." },
+            { icon: "shield", tag: "POSVENTA", title: "Sostiene la relación después de la compra", body: "Seguimiento de pedidos, soporte técnico, cambios, devoluciones y consultas para una próxima compra — sin perder al cliente después de la primera venta." },
           ],
           en: [
-            { tag: "PRE-SALE", title: "Answers before they decide to buy", body: "Stock, pricing, store location, hours and availability — everything a potential customer asks before making up their mind.", highlight: true },
-            { tag: "SALE", title: "Supports the purchase process", body: "Confirms orders, coordinates appointments when needed, sends email and calendar confirmations, and resolves last-minute questions." },
-            { tag: "POST-SALE", title: "Keeps the relationship going after the sale", body: "Order tracking, technical support, exchanges, returns and questions ahead of a next purchase — without losing the customer after the first sale." },
+            { icon: "search", tag: "PRE-SALE", title: "Answers before they decide to buy", body: "Stock, pricing, store location, hours and availability — everything a potential customer asks before making up their mind." },
+            { icon: "cart", tag: "SALE", title: "Supports the purchase process", body: "Confirms orders, coordinates appointments when needed, sends email and calendar confirmations, and resolves last-minute questions." },
+            { icon: "shield", tag: "POST-SALE", title: "Keeps the relationship going after the sale", body: "Order tracking, technical support, exchanges, returns and questions ahead of a next purchase — without losing the customer after the first sale." },
           ],
         },
       },
