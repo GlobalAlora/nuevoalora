@@ -16,8 +16,9 @@ export interface IconBlock {
 export interface IndustryExample {
   icon: string
   title: string
-  question: string
-  answer: string
+  web: { q: string; a: string }
+  whatsapp: { q: string; a: string }
+  phone: { transcript: string }
 }
 
 export interface SolutionTheme {
@@ -1744,7 +1745,7 @@ export const SOLUTIONS: SolutionData[] = [
         heading: { es: "Preventa, venta y posventa: una sola IA para las tres etapas", en: "Pre-sale, sale and post-sale: one AI for all three stages" },
         columns: {
           es: [
-            { tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse.", highlight: true },
+            { tag: "PREVENTA", title: "Responde antes de que decidan comprar", body: "Consultas de stock, precios, ubicación del local, horarios y disponibilidad — todo lo que un cliente potencial pregunta antes de decidirse." },
             { tag: "VENTA", title: "Acompaña el proceso de compra", body: "Confirma pedidos, coordina turnos o citas cuando hace falta, envía confirmaciones por mail y calendario, y resuelve dudas de último momento." },
             { tag: "POSVENTA", title: "Sostiene la relación después de la compra", body: "Seguimiento de pedidos, soporte técnico, cambios, devoluciones y consultas para una próxima compra — sin perder al cliente después de la primera venta." },
           ],
@@ -1834,7 +1835,7 @@ export const SOLUTIONS: SolutionData[] = [
     },
     useCases: {
       label: { es: "Todo lo que puede resolver", en: "Everything it can resolve" },
-      heading: { es: "Mucho más que agendar un turno", en: "Much more than booking an appointment" },
+      heading: { es: "Todo lo que resuelve en una sola conversación", en: "Everything it resolves in a single conversation" },
       items: {
         es: [
           "Responde consultas de stock y disponibilidad en el momento",
@@ -1871,18 +1872,68 @@ export const SOLUTIONS: SolutionData[] = [
       },
       items: {
         es: [
-          { icon: "cart", title: "Local físico / retail", question: "¿Tienen el buzo negro en talle L?", answer: "Sí, quedan 3 unidades. Te lo puedo reservar para que lo retires hoy en el local." },
-          { icon: "cloud", title: "Ecommerce", question: "Hice un pedido ayer, ¿ya salió?", answer: "Tu pedido #4821 salió esta mañana, llega en 2-3 días hábiles. Te paso el seguimiento." },
-          { icon: "target", title: "Venta de servicios", question: "¿Cuánto sale una landing page como la de ustedes?", answer: "Depende del alcance, pero te puedo dar un rango ahora y coordinar una llamada para cotizarlo bien." },
-          { icon: "shield", title: "Salud y turnos", question: "¿Tienen turno para el jueves a la tarde?", answer: "Sí, hay lugar a las 16:30. ¿Te lo reservo con una seña de $5.000?" },
-          { icon: "structure", title: "Gastronomía y hotelería", question: "¿Tienen mesa para 4 personas hoy a las 21hs?", answer: "Sí, tenemos disponibilidad. ¿A nombre de quién hago la reserva?" },
+          {
+            icon: "cart", title: "Local físico / retail",
+            web: { q: "¿Tienen el buzo negro en talle L?", a: "Sí, quedan 3 unidades en talle L." },
+            whatsapp: { q: "¿Hasta qué hora abren hoy?", a: "Hoy abrimos hasta las 20hs 🙌" },
+            phone: { transcript: "\"...te lo reservo para que lo retires hoy en el local?\"" },
+          },
+          {
+            icon: "cloud", title: "Ecommerce",
+            web: { q: "¿Cuándo llega mi pedido #4821?", a: "Llega en 2-3 días hábiles, ya está en camino." },
+            whatsapp: { q: "¿Puedo cambiarlo por otro talle?", a: "Sí, te paso el link para generar el cambio." },
+            phone: { transcript: "\"...tu reembolso ya está procesado, en 5 días hábiles lo ves reflejado.\"" },
+          },
+          {
+            icon: "target", title: "Venta de servicios",
+            web: { q: "¿Cuánto sale una landing page como la de ustedes?", a: "Depende del alcance, te paso un rango orientativo ahora." },
+            whatsapp: { q: "¿En qué etapa está mi proyecto?", a: "Estamos en diseño, entrega estimada la próxima semana." },
+            phone: { transcript: "\"...coordinamos una llamada de 20 minutos para cotizarlo bien?\"" },
+          },
+          {
+            icon: "shield", title: "Salud y turnos",
+            web: { q: "¿Atienden la obra social Swiss Medical?", a: "Sí, trabajamos con esa obra social." },
+            whatsapp: { q: "¿Tienen turno para el jueves a la tarde?", a: "Sí, hay lugar a las 16:30." },
+            phone: { transcript: "\"...te confirmo el turno con una seña de $5.000?\"" },
+          },
+          {
+            icon: "structure", title: "Gastronomía y hotelería",
+            web: { q: "¿Tienen mesa para 4 personas hoy a las 21hs?", a: "Sí, tenemos disponibilidad a esa hora." },
+            whatsapp: { q: "¿Hacen delivery a mi zona?", a: "Sí, llegamos a tu zona en 30-40 minutos." },
+            phone: { transcript: "\"...perfecto, a nombre de quién hago la reserva de la mesa?\"" },
+          },
         ],
         en: [
-          { icon: "cart", title: "Physical retail store", question: "Do you have the black hoodie in size L?", answer: "Yes, 3 units left. I can reserve it so you can pick it up in-store today." },
-          { icon: "cloud", title: "Ecommerce", question: "I placed an order yesterday, has it shipped yet?", answer: "Your order #4821 shipped this morning, arriving in 2-3 business days. Here's the tracking link." },
-          { icon: "target", title: "Selling services", question: "How much does a landing page like yours cost?", answer: "It depends on scope, but I can give you a range now and set up a call to quote it properly." },
-          { icon: "shield", title: "Healthcare and appointments", question: "Do you have an opening Thursday afternoon?", answer: "Yes, there's a slot at 4:30pm. Want me to book it with a $50 deposit?" },
-          { icon: "structure", title: "Restaurants and hospitality", question: "Do you have a table for 4 today at 9pm?", answer: "Yes, we have availability. What name should I put the reservation under?" },
+          {
+            icon: "cart", title: "Physical retail store",
+            web: { q: "Do you have the black hoodie in size L?", a: "Yes, 3 units left in size L." },
+            whatsapp: { q: "What time do you close today?", a: "We're open until 8pm today 🙌" },
+            phone: { transcript: "\"...want me to hold it for pickup at the store today?\"" },
+          },
+          {
+            icon: "cloud", title: "Ecommerce",
+            web: { q: "When does my order #4821 arrive?", a: "It arrives in 2-3 business days, already on its way." },
+            whatsapp: { q: "Can I exchange it for a different size?", a: "Yes, here's the link to start the exchange." },
+            phone: { transcript: "\"...your refund is already processed, it'll show up in 5 business days.\"" },
+          },
+          {
+            icon: "target", title: "Selling services",
+            web: { q: "How much does a landing page like yours cost?", a: "It depends on scope, here's a rough range." },
+            whatsapp: { q: "What stage is my project at?", a: "We're in the design stage, estimated delivery next week." },
+            phone: { transcript: "\"...want to set up a 20-minute call to quote it properly?\"" },
+          },
+          {
+            icon: "shield", title: "Healthcare and appointments",
+            web: { q: "Do you take Swiss Medical insurance?", a: "Yes, we work with that insurance provider." },
+            whatsapp: { q: "Do you have an opening Thursday afternoon?", a: "Yes, there's a slot at 4:30pm." },
+            phone: { transcript: "\"...want me to confirm it with a $50 deposit?\"" },
+          },
+          {
+            icon: "structure", title: "Restaurants and hospitality",
+            web: { q: "Do you have a table for 4 today at 9pm?", a: "Yes, we have availability at that time." },
+            whatsapp: { q: "Do you deliver to my area?", a: "Yes, we deliver to your area in 30-40 minutes." },
+            phone: { transcript: "\"...perfect, what name should I put the table reservation under?\"" },
+          },
         ],
       },
     },
@@ -1915,27 +1966,27 @@ export const SOLUTIONS: SolutionData[] = [
       en: "Everything you need for your customer to get the same quality of care before, during and after buying from you, no matter the channel.",
     },
     whyUsExtra: {
-      heading: { es: "Un sistema que acompaña a tu cliente, no un bot genérico", en: "A system that supports your customer, not a generic bot" },
+      heading: { es: "Un equipo que se compromete con tu negocio, no un proveedor más", en: "A team that commits to your business, not just another vendor" },
       intro: {
-        es: "No entrenamos una IA con respuestas de manual. La entrenamos con la realidad de tu negocio para que resuelva de verdad, en cada etapa.",
-        en: "We don't train an AI with textbook answers. We train it with your business's reality so it genuinely resolves things, at every stage.",
+        es: "No tercerizamos el desarrollo ni desaparecemos después de entregar. Construimos con vos y seguimos cerca.",
+        en: "We don't outsource development or disappear after delivery. We build with you and stay close.",
       },
       reasons: {
         es: [
-          { tag: "ENFOQUE", label: "Cada respuesta se basa en la información real de tu negocio, no en un genérico" },
-          { tag: "VELOCIDAD", label: "Procesos ágiles, sin vueltas ni demoras innecesarias" },
-          { tag: "CERCANÍA", label: "Comunicación directa con el equipo que entrena tu sistema" },
-          { tag: "CALIDAD", label: "Conversaciones probadas y ajustadas, no una IA suelta sin supervisión" },
-          { tag: "AUTONOMÍA", label: "Te dejamos el control total para actualizar conocimiento y tono" },
-          { tag: "ACOMPAÑAMIENTO", label: "Seguimos cerca después del lanzamiento, no desaparecemos" },
+          { tag: "EXPERIENCIA", label: "Ya construimos sistemas de este tipo en uso real, en varios países, no es nuestro primer proyecto" },
+          { tag: "VELOCIDAD", label: "Equipo chico y directo: hablás con quien construye, sin capas intermedias" },
+          { tag: "TRANSPARENCIA", label: "Comunicación clara en cada etapa del proyecto, sin sorpresas de último momento" },
+          { tag: "AUTONOMÍA", label: "Te dejamos el control total del sistema, no dependés de nosotros para cada cambio" },
+          { tag: "ACOMPAÑAMIENTO", label: "Seguimos cerca después del lanzamiento, ajustando y mejorando con vos" },
+          { tag: "COMPROMISO", label: "Tratamos tu proyecto como propio, no como un ticket más en una cola" },
         ],
         en: [
-          { tag: "FOCUS", label: "Every answer is based on your business's real information, not something generic" },
-          { tag: "SPEED", label: "Agile processes, no unnecessary detours or delays" },
-          { tag: "PROXIMITY", label: "Direct communication with the team training your system" },
-          { tag: "QUALITY", label: "Tested, tuned conversations, not an unsupervised AI running loose" },
-          { tag: "AUTONOMY", label: "Full control handed to you to update knowledge and tone" },
-          { tag: "SUPPORT", label: "We stay close after launch, we don't disappear" },
+          { tag: "TRACK RECORD", label: "We've already built systems like this in real use, across several countries — this isn't our first one" },
+          { tag: "SPEED", label: "Small, direct team: you talk to the people actually building it, no middle layers" },
+          { tag: "TRANSPARENCY", label: "Clear communication at every stage of the project, no last-minute surprises" },
+          { tag: "AUTONOMY", label: "Full control of the system handed to you, no dependency on us for every change" },
+          { tag: "SUPPORT", label: "We stay close after launch, adjusting and improving alongside you" },
+          { tag: "COMMITMENT", label: "We treat your project as our own, not as one more ticket in a queue" },
         ],
       },
     },
