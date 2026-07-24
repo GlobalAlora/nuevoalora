@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ICONS } from "@/lib/icons";
 
 interface ChannelNode {
@@ -8,12 +8,13 @@ interface ChannelNode {
   icon: string;
   label: { es: string; en: string };
   angle: number;
+  example: { es: string; en: string };
 }
 
 const NODES: ChannelNode[] = [
-  { id: "web", icon: "portal", label: { es: "Web", en: "Web" }, angle: 270 },
-  { id: "whatsapp", icon: "chat", label: { es: "WhatsApp", en: "WhatsApp" }, angle: 30 },
-  { id: "phone", icon: "headset", label: { es: "Teléfono", en: "Phone" }, angle: 150 },
+  { id: "web", icon: "portal", label: { es: "Web", en: "Web" }, angle: 270, example: { es: "\"¿Tienen stock disponible?\" → \"Sí, quedan 4 unidades.\"", en: "\"Do you have it in stock?\" → \"Yes, 4 units left.\"" } },
+  { id: "whatsapp", icon: "chat", label: { es: "WhatsApp", en: "WhatsApp" }, angle: 30, example: { es: "\"¿Hasta qué hora abren?\" → \"Hoy hasta las 20hs 🙌\"", en: "\"What time do you close?\" → \"Until 8pm today 🙌\"" } },
+  { id: "phone", icon: "headset", label: { es: "Teléfono", en: "Phone" }, angle: 150, example: { es: "Llamada en curso: \"...te lo reservo para hoy?\"", en: "Call in progress: \"...want me to hold it for today?\"" } },
 ];
 
 interface Props {
@@ -22,9 +23,13 @@ interface Props {
   locale?: "es" | "en";
 }
 
-/** Hub-and-spoke visual: one AI core broadcasting the same message to every channel at once. */
+/** Interactive hub-and-spoke: one AI core broadcasting the same message to every channel — click a node for a live example. */
 export function ChannelsHub({ accent, accent2, locale = "es" }: Props) {
   const ref = useRef<SVGSVGElement | null>(null);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const svg = ref.current;
@@ -36,6 +41,16 @@ export function ChannelsHub({ accent, accent2, locale = "es" }: Props) {
       p.style.animationDelay = `${i * 1.3}s`;
     });
   }, []);
+
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    setTilt({ x: py * -10, y: px * 14 });
+  };
+  const onMouseLeave = () => setTilt({ x: 0, y: 0 });
 
   const size = 460;
   const cx = size / 2;
@@ -52,123 +67,196 @@ export function ChannelsHub({ accent, accent2, locale = "es" }: Props) {
   });
 
   const meshEdges: [number, number][] = [[0, 1], [1, 2], [2, 0]];
+  const selectedNode = positions.find((p) => p.id === selected);
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[440px]">
+    <div
+      ref={wrapRef}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      className="relative mx-auto aspect-square w-full max-w-[440px]"
+      style={{ perspective: "900px" }}
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-3xl opacity-[0.22]"
         style={{ background: `radial-gradient(circle at 50% 50%, color-mix(in oklab, ${accent} 25%, transparent), transparent 60%)` }}
       />
-      <svg ref={ref} viewBox={`0 0 ${size} ${size}`} className="h-full w-full overflow-visible" role="img" aria-label="Web, WhatsApp, Teléfono">
-        <defs>
-          <radialGradient id="ch-core" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={accent} stopOpacity="0.6" />
-            <stop offset="55%" stopColor={accent2} stopOpacity="0.25" />
-            <stop offset="100%" stopColor={accent2} stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="ch-line" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor={accent} stopOpacity="0.45" />
-            <stop offset="100%" stopColor={accent2} stopOpacity="0.14" />
-          </linearGradient>
-          <linearGradient id="ch-mesh" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={accent2} stopOpacity="0.18" />
-            <stop offset="100%" stopColor={accent} stopOpacity="0.18" />
-          </linearGradient>
-          <filter id="ch-soft" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3.5" />
-          </filter>
-          <filter id="ch-soft-lg" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="6" />
-          </filter>
-        </defs>
+      <div
+        className="ch-tilt-wrap h-full w-full"
+        style={{ transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`, transformStyle: "preserve-3d" }}
+      >
+        <svg ref={ref} viewBox={`0 0 ${size} ${size}`} className="h-full w-full overflow-visible" role="img" aria-label="Web, WhatsApp, Teléfono">
+          <defs>
+            <radialGradient id="ch-core" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={accent} stopOpacity="0.6" />
+              <stop offset="55%" stopColor={accent2} stopOpacity="0.25" />
+              <stop offset="100%" stopColor={accent2} stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="ch-line" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor={accent} stopOpacity="0.45" />
+              <stop offset="100%" stopColor={accent2} stopOpacity="0.14" />
+            </linearGradient>
+            <linearGradient id="ch-mesh" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor={accent2} stopOpacity="0.18" />
+              <stop offset="100%" stopColor={accent} stopOpacity="0.18" />
+            </linearGradient>
+            <linearGradient id="ch-sweep-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor={accent} stopOpacity="0.22" />
+              <stop offset="100%" stopColor={accent} stopOpacity="0" />
+            </linearGradient>
+            <filter id="ch-soft" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3.5" />
+            </filter>
+            <filter id="ch-soft-lg" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="6" />
+            </filter>
+          </defs>
 
-        {/* outer decorative rings + tick marks, for depth */}
-        <circle cx={cx} cy={cy} r={radius + 56} fill="none" stroke="color-mix(in oklab, white 6%, transparent)" strokeWidth={1} />
-        <circle cx={cx} cy={cy} r={radius + 34} fill="none" stroke="color-mix(in oklab, white 10%, transparent)" strokeWidth={1} strokeDasharray="1 9" className="ch-ring-spin" style={{ transformOrigin: `${cx}px ${cy}px` }} />
-        {Array.from({ length: 36 }).map((_, i) => {
-          const a = (i * 10 * Math.PI) / 180;
-          const r1 = radius + 56;
-          const r2 = i % 3 === 0 ? r1 + 8 : r1 + 4;
-          return (
-            <line
-              key={`tick-${i}`}
-              x1={round(cx + Math.cos(a) * r1)} y1={round(cy + Math.sin(a) * r1)}
-              x2={round(cx + Math.cos(a) * r2)} y2={round(cy + Math.sin(a) * r2)}
-              stroke="color-mix(in oklab, white 12%, transparent)"
-              strokeWidth={1}
-            />
-          );
-        })}
+          {/* ambient particles drifting around the core */}
+          {[0, 1, 2, 3, 4, 5].map((i) => {
+            const a = (i * 60 * Math.PI) / 180;
+            const r = 95 + (i % 2) * 20;
+            return (
+              <circle
+                key={`mote-${i}`}
+                cx={round(cx + Math.cos(a) * r)} cy={round(cy + Math.sin(a) * r)}
+                r={1.6} fill={i % 2 === 0 ? accent : accent2}
+                className="ch-mote"
+                style={{ animationDelay: `${i * 0.7}s` }}
+              />
+            );
+          })}
 
-        {/* radar sweep from the core */}
-        <g className="ch-sweep" style={{ transformOrigin: `${cx}px ${cy}px` }}>
-          <path d={`M ${cx} ${cy} L ${cx + radius + 50} ${cy} A ${radius + 50} ${radius + 50} 0 0 1 ${round(cx + Math.cos(Math.PI / 5) * (radius + 50))} ${round(cy + Math.sin(Math.PI / 5) * (radius + 50))} Z`} fill="url(#ch-sweep-grad)" opacity={0.5} />
-        </g>
-        <defs>
-          <linearGradient id="ch-sweep-grad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={accent} stopOpacity="0.22" />
-            <stop offset="100%" stopColor={accent} stopOpacity="0" />
-          </linearGradient>
-        </defs>
+          {/* outer decorative rings + tick marks, for depth */}
+          <circle cx={cx} cy={cy} r={radius + 56} fill="none" stroke="color-mix(in oklab, white 6%, transparent)" strokeWidth={1} />
+          <circle cx={cx} cy={cy} r={radius + 34} fill="none" stroke="color-mix(in oklab, white 10%, transparent)" strokeWidth={1} strokeDasharray="1 9" className="ch-ring-spin" style={{ transformOrigin: `${cx}px ${cy}px` }} />
+          {Array.from({ length: 36 }).map((_, i) => {
+            const a = (i * 10 * Math.PI) / 180;
+            const r1 = radius + 56;
+            const r2 = i % 3 === 0 ? r1 + 8 : r1 + 4;
+            return (
+              <line
+                key={`tick-${i}`}
+                x1={round(cx + Math.cos(a) * r1)} y1={round(cy + Math.sin(a) * r1)}
+                x2={round(cx + Math.cos(a) * r2)} y2={round(cy + Math.sin(a) * r2)}
+                stroke="color-mix(in oklab, white 12%, transparent)"
+                strokeWidth={1}
+              />
+            );
+          })}
 
-        {/* mesh: the three channels are also aware of each other, not isolated */}
-        {meshEdges.map(([a, b]) => (
-          <line key={`m-${a}-${b}`} x1={positions[a].x} y1={positions[a].y} x2={positions[b].x} y2={positions[b].y} stroke="url(#ch-mesh)" strokeWidth={1} strokeDasharray="3 5" className="ch-mesh-breathe" />
-        ))}
-
-        {/* spokes: core → each channel */}
-        {positions.map((p) => (
-          <line key={`l-${p.id}`} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="url(#ch-line)" strokeWidth={1.4} className="ch-line-breathe" />
-        ))}
-
-        {/* concentric broadcast rings expanding from the core */}
-        {[0, 1, 2].map((i) => (
-          <circle key={`ring-${i}`} data-ring cx={cx} cy={cy} r={46} fill="none" stroke={accent} strokeWidth={1.3} className="ch-broadcast-ring" />
-        ))}
-
-        {/* the same message packet, traveling out to every channel at once */}
-        {positions.map((p) => (
-          <g
-            key={`p-${p.id}`}
-            data-pulse
-            className="ch-packet"
-            style={{
-              offsetPath: `path('M ${cx} ${cy} L ${p.x} ${p.y}')`,
-              animation: "ch-pulse 3.2s linear infinite",
-            } as React.CSSProperties}
-          >
-            <circle r={7} fill={accent} opacity={0.16} filter="url(#ch-soft)" />
-            <circle r={3.6} fill={accent} style={{ filter: `drop-shadow(0 0 6px ${accent})` }} />
+          {/* radar sweep from the core */}
+          <g className="ch-sweep" style={{ transformOrigin: `${cx}px ${cy}px` }}>
+            <path d={`M ${cx} ${cy} L ${cx + radius + 50} ${cy} A ${radius + 50} ${radius + 50} 0 0 1 ${round(cx + Math.cos(Math.PI / 5) * (radius + 50))} ${round(cy + Math.sin(Math.PI / 5) * (radius + 50))} Z`} fill="url(#ch-sweep-grad)" opacity={0.5} />
           </g>
-        ))}
 
-        {/* core — one AI */}
-        <circle cx={cx} cy={cy} r={78} fill="url(#ch-core)" filter="url(#ch-soft-lg)" className="ch-core-breathe" style={{ transformOrigin: `${cx}px ${cy}px` }} />
-        <circle cx={cx} cy={cy} r={50} fill="oklch(0.15 0.016 260)" stroke={`color-mix(in oklab, ${accent} 60%, transparent)`} strokeWidth={1.4} />
-        <circle cx={cx} cy={cy} r={57} fill="none" stroke={`color-mix(in oklab, ${accent2} 35%, transparent)`} strokeWidth={1} strokeDasharray="2 4" className="ch-inner-ring-spin" style={{ transformOrigin: `${cx}px ${cy}px` }} />
-        <foreignObject x={cx - 16} y={cy - 24} width={32} height={32}>
-          <div style={{ width: 32, height: 32, color: accent }}>{ICONS.spark}</div>
-        </foreignObject>
-        <text x={cx} y={cy + 26} textAnchor="middle" className="fill-white/85" style={{ fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 700, letterSpacing: "0.2em" }}>
-          IA
-        </text>
+          {/* mesh: the three channels are also aware of each other, not isolated */}
+          {meshEdges.map(([a, b]) => (
+            <line key={`m-${a}-${b}`} x1={positions[a].x} y1={positions[a].y} x2={positions[b].x} y2={positions[b].y} stroke="url(#ch-mesh)" strokeWidth={1} strokeDasharray="3 5" className="ch-mesh-breathe" />
+          ))}
 
-        {/* channel nodes */}
-        {positions.map((p) => (
-          <g key={p.id} className="ch-node" style={{ transformOrigin: `${p.x}px ${p.y}px`, filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.5))" }}>
-            <circle cx={p.x} cy={p.y} r={34} fill="none" stroke={`color-mix(in oklab, ${accent} 25%, transparent)`} strokeWidth={1} className="ch-node-orbit" />
-            <rect x={p.x - 27} y={p.y - 27} width={54} height={54} rx={14} fill="oklch(0.16 0.015 260)" stroke="color-mix(in oklab, white 16%, transparent)" className="ch-node-rect" />
-            <foreignObject x={p.x - 14} y={p.y - 14} width={28} height={28}>
-              <div style={{ width: 28, height: 28, color: `color-mix(in oklab, ${accent} 88%, white 12%)` }}>{ICONS[p.icon]}</div>
-            </foreignObject>
-            <circle cx={p.x + 19} cy={p.y - 19} r={4.5} fill="#28c840" className="ch-node-status" />
-            <text x={p.x} y={p.y + 47} textAnchor="middle" className="fill-white/80 ch-node-label" style={{ fontFamily: "Inter, sans-serif", fontSize: 12.5, fontWeight: 650, letterSpacing: "0.02em" }}>
-              {locale === "en" ? p.label.en : p.label.es}
-            </text>
-          </g>
-        ))}
-      </svg>
+          {/* spokes: core → each channel */}
+          {positions.map((p) => {
+            const isFocused = hovered === p.id || selected === p.id;
+            const isDimmed = (hovered || selected) && !isFocused;
+            return (
+              <line
+                key={`l-${p.id}`}
+                x1={cx} y1={cy} x2={p.x} y2={p.y}
+                stroke={isFocused ? accent : "url(#ch-line)"}
+                strokeWidth={isFocused ? 2.2 : 1.4}
+                opacity={isDimmed ? 0.25 : 1}
+                className={isFocused ? "" : "ch-line-breathe"}
+                style={{ transition: "opacity 250ms ease, stroke-width 250ms ease" }}
+              />
+            );
+          })}
+
+          {/* concentric broadcast rings expanding from the core */}
+          {[0, 1, 2].map((i) => (
+            <circle key={`ring-${i}`} data-ring cx={cx} cy={cy} r={46} fill="none" stroke={accent} strokeWidth={1.3} className="ch-broadcast-ring" />
+          ))}
+
+          {/* the same message packet, traveling out to every channel at once */}
+          {positions.map((p) => (
+            <g
+              key={`p-${p.id}`}
+              data-pulse
+              className="ch-packet"
+              style={{
+                offsetPath: `path('M ${cx} ${cy} L ${p.x} ${p.y}')`,
+                animation: "ch-pulse 3.2s linear infinite",
+              } as React.CSSProperties}
+            >
+              <circle r={7} fill={accent} opacity={0.16} filter="url(#ch-soft)" />
+              <circle r={3.6} fill={accent} style={{ filter: `drop-shadow(0 0 6px ${accent})` }} />
+            </g>
+          ))}
+
+          {/* core — one AI */}
+          <circle cx={cx} cy={cy} r={78} fill="url(#ch-core)" filter="url(#ch-soft-lg)" className="ch-core-breathe" style={{ transformOrigin: `${cx}px ${cy}px` }} />
+          <circle cx={cx} cy={cy} r={50} fill="oklch(0.15 0.016 260)" stroke={`color-mix(in oklab, ${accent} 60%, transparent)`} strokeWidth={1.4} />
+          <circle cx={cx} cy={cy} r={57} fill="none" stroke={`color-mix(in oklab, ${accent2} 35%, transparent)`} strokeWidth={1} strokeDasharray="2 4" className="ch-inner-ring-spin" style={{ transformOrigin: `${cx}px ${cy}px` }} />
+          <foreignObject x={cx - 16} y={cy - 24} width={32} height={32}>
+            <div style={{ width: 32, height: 32, color: accent }}>{ICONS.spark}</div>
+          </foreignObject>
+          <text x={cx} y={cy + 26} textAnchor="middle" className="fill-white/85" style={{ fontFamily: "Inter, sans-serif", fontSize: 12, fontWeight: 700, letterSpacing: "0.2em" }}>
+            IA
+          </text>
+
+          {/* channel nodes — clickable, reveal a live example */}
+          {positions.map((p) => {
+            const isSelected = selected === p.id;
+            return (
+              <g
+                key={p.id}
+                className="ch-node"
+                role="button"
+                tabIndex={0}
+                onClick={() => setSelected(isSelected ? null : p.id)}
+                onMouseEnter={() => setHovered(p.id)}
+                onMouseLeave={() => setHovered(null)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelected(isSelected ? null : p.id); } }}
+                style={{ transformOrigin: `${p.x}px ${p.y}px`, filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.5))", cursor: "pointer" }}
+              >
+                <circle cx={p.x} cy={p.y} r={34} fill="none" stroke={`color-mix(in oklab, ${accent} 25%, transparent)`} strokeWidth={1} className="ch-node-orbit" />
+                <rect
+                  x={p.x - 27} y={p.y - 27} width={54} height={54} rx={14}
+                  fill={isSelected ? `color-mix(in oklab, ${accent} 22%, oklch(0.16 0.015 260))` : "oklch(0.16 0.015 260)"}
+                  stroke={isSelected ? accent : "color-mix(in oklab, white 16%, transparent)"}
+                  strokeWidth={isSelected ? 1.6 : 1}
+                  className="ch-node-rect"
+                />
+                <foreignObject x={p.x - 14} y={p.y - 14} width={28} height={28}>
+                  <div style={{ width: 28, height: 28, color: `color-mix(in oklab, ${accent} 88%, white 12%)` }}>{ICONS[p.icon]}</div>
+                </foreignObject>
+                <circle cx={p.x + 19} cy={p.y - 19} r={4.5} fill="#28c840" className="ch-node-status" />
+                <text x={p.x} y={p.y + 47} textAnchor="middle" className="fill-white/80 ch-node-label" style={{ fontFamily: "Inter, sans-serif", fontSize: 12.5, fontWeight: 650, letterSpacing: "0.02em" }}>
+                  {locale === "en" ? p.label.en : p.label.es}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* example callout for the selected channel */}
+      {selectedNode && (
+        <div
+          className="ch-callout absolute z-10 w-[200px] rounded-xl border p-3 text-center"
+          style={{
+            left: `${(selectedNode.x / size) * 100}%`,
+            top: `${(selectedNode.y / size) * 100}%`,
+            transform: selectedNode.x > cx ? "translate(-108%, -50%)" : selectedNode.x < cx ? "translate(8%, -50%)" : "translate(-50%, -130%)",
+            borderColor: `color-mix(in oklab, ${accent} 45%, transparent)`,
+            background: "oklch(0.17 0.02 260)",
+            boxShadow: `0 20px 50px -12px color-mix(in oklab, ${accent} 45%, transparent)`,
+          }}
+        >
+          <p className="text-[11.5px] leading-snug text-white/85">{locale === "en" ? selectedNode.example.en : selectedNode.example.es}</p>
+        </div>
+      )}
 
       <style>{`
         @keyframes ch-pulse {
@@ -205,6 +293,14 @@ export function ChannelsHub({ accent, accent2, locale = "es" }: Props) {
         .ch-node-orbit { animation: ch-node-orbit-spin 14s linear infinite; stroke-dasharray: 2 6; transform-box: fill-box; }
         @keyframes ch-node-status-pulse { 0%, 100% { opacity: 0.6; r: 4; } 50% { opacity: 1; r: 5; } }
         .ch-node-status { animation: ch-node-status-pulse 2s ease-in-out infinite; transform-box: fill-box; }
+        @keyframes ch-mote-drift {
+          0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+          50% { transform: translate(6px, -8px); opacity: 0.9; }
+        }
+        .ch-mote { animation: ch-mote-drift 4s ease-in-out infinite; transform-box: fill-box; }
+        @keyframes ch-callout-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+        .ch-callout { animation: ch-callout-in 200ms ease; }
+        .ch-tilt-wrap { transition: transform 150ms ease-out; }
       `}</style>
     </div>
   );
