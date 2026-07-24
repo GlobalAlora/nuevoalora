@@ -411,59 +411,54 @@ export default async function SolutionPage({ params }: Props) {
     { name: h.badge, url: `https://www.globalalora.com/${l}/soluciones/${slug}` },
   ]);
 
-  const processSteps = sol.process[l].map((s) => `${s.title}: ${s.body}`).join(" → ");
   const featuresList = sol.features[l].join(", ");
+  const bookCallPath = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+  const bookCallUrl = `https://www.globalalora.com${bookCallPath}`;
+
+  // Plain-text Q&A shared by the JSON-LD FAQPage schema and the visible
+  // accordion below — the schema needs plain strings (no JSX), so the
+  // pricing question's call-to-action is spelled out as a full URL only
+  // here; the visible version links it properly instead.
+  const faqItems = [
+    {
+      name: l === "es" ? `¿Qué incluye el servicio de ${h.badge} de ALORA?` : `What does ALORA's ${h.badge} service include?`,
+      text: l === "es" ? `${h.sub} Incluye: ${featuresList}.` : `${h.sub} Includes: ${featuresList}.`,
+    },
+    {
+      name: l === "es" ? "¿Se integra con las herramientas que ya uso (CRM, calendario, sistema de turnos)?" : "Does it integrate with the tools I already use (CRM, calendar, booking system)?",
+      text: l === "es"
+        ? "Sí. El sistema se conecta con las herramientas que ya usás para que la información esté siempre actualizada de los dos lados, sin cargar nada a mano."
+        : "Yes. The system connects with the tools you already use so information stays up to date on both sides, with nothing to enter by hand.",
+    },
+    {
+      name: l === "es" ? "¿Qué pasa si la IA no puede resolver una consulta?" : "What happens if the AI can't resolve a query?",
+      text: l === "es"
+        ? "Deriva a una persona de tu equipo con todo el contexto de la conversación, para que nadie tenga que repetir lo que ya dijo. Vos definís cuándo y hacia quién deriva."
+        : "It hands off to someone on your team with the full context of the conversation, so nobody has to repeat themselves. You decide when and to whom it hands off.",
+    },
+    {
+      name: l === "es" ? `¿Por qué elegir ALORA para ${h.badge}?` : `Why choose ALORA for ${h.badge}?`,
+      text: l === "es"
+        ? `En ALORA somos una agencia de tecnología especializada en ${h.badge}. Trabajamos como socios de negocio: entendemos adquisición, operaciones y conversión antes de escribir una línea de código. Tenemos base en Argentina, España y Estados Unidos, con proyectos en producción en Argentina, México, Colombia, Chile, España y Uruguay.`
+        : `At ALORA we're a technology agency specializing in ${h.badge}. We work as business partners: we understand acquisition, operations and conversion before writing a line of code. We're based in Argentina, Spain and the United States, with projects live in Argentina, Mexico, Colombia, Chile, Spain and Uruguay.`,
+    },
+    {
+      name: l === "es" ? `¿Cuánto cuesta el servicio de ${h.badge}?` : `How much does ${h.badge} service cost?`,
+      text: l === "es"
+        ? `El costo varía según el alcance y complejidad del proyecto. En ALORA trabajamos con presupuesto a medida para cada cliente. Podés agendar una llamada gratuita de 20 minutos en ${bookCallUrl} para recibir una propuesta sin compromiso.`
+        : `The cost varies depending on the scope and complexity of the project. At ALORA we work with custom quotes for each client. You can book a free 20-minute call at ${bookCallUrl} to receive a no-commitment proposal.`,
+      linkLabel: l === "es" ? "Agendar llamada" : "Book a call",
+    },
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: l === "es"
-          ? `¿Qué incluye el servicio de ${h.badge} de ALORA?`
-          : `What does ALORA's ${h.badge} service include?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: l === "es"
-            ? `${h.sub} Incluye: ${featuresList}.`
-            : `${h.sub} Includes: ${featuresList}.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: l === "es"
-          ? `¿Cómo es el proceso de trabajo para ${h.badge}?`
-          : `What is the work process for ${h.badge}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: processSteps,
-        },
-      },
-      {
-        "@type": "Question",
-        name: l === "es"
-          ? `¿Por qué elegir ALORA para ${h.badge}?`
-          : `Why choose ALORA for ${h.badge}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: l === "es"
-            ? `ALORA es una agencia de tecnología con base en Buenos Aires especializada en ${h.badge}. Trabajamos como socios de negocio: entendemos adquisición, operaciones y conversión antes de escribir una línea de código. Tenemos proyectos en producción en Argentina, México, Colombia, Chile, España y Uruguay.`
-            : `ALORA is a technology agency based in Buenos Aires specializing in ${h.badge}. We work as business partners: we understand acquisition, operations and conversion before writing a line of code. We have projects live in Argentina, Mexico, Colombia, Chile, Spain and Uruguay.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: l === "es"
-          ? `¿Cuánto cuesta el servicio de ${h.badge}?`
-          : `How much does ${h.badge} service cost?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: l === "es"
-            ? `El costo varía según el alcance y complejidad del proyecto. En ALORA trabajamos con presupuesto a medida para cada cliente. Podés agendar una llamada gratuita de 20 minutos en https://www.globalalora.com/es/llamada-de-relevamiento para recibir una propuesta sin compromiso.`
-            : `The cost varies depending on the scope and complexity of the project. At ALORA we work with custom quotes for each client. You can book a free 20-minute call at https://www.globalalora.com/en/discovery-call to receive a no-commitment proposal.`,
-        },
-      },
-    ],
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.name,
+      acceptedAnswer: { "@type": "Answer", text: item.text },
+    })),
   };
 
   return (
@@ -947,15 +942,25 @@ export default async function SolutionPage({ params }: Props) {
               {sol.useCases.heading[l]}
             </h2>
           </div>
-          <div className="mt-11 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="mt-11 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
             {sol.useCases.items[l].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 rounded-xl p-4"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+                className="group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015))",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.05)",
+                }}
               >
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: accent }} />
-                <span className="text-[14.5px] leading-snug text-white/75">{item}</span>
+                <span
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300"
+                  style={{ background: `color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 34%, transparent)` }}
+                >
+                  <svg viewBox="0 0 16 16" fill="none" width="9" height="9">
+                    <path d="M3 8l3 3 6-6" stroke={i % 2 === 0 ? accent : accent2} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="text-[14.5px] leading-snug text-white/80 group-hover:text-white/95">{item}</span>
               </div>
             ))}
           </div>
@@ -1081,21 +1086,36 @@ export default async function SolutionPage({ params }: Props) {
         </div>
         {sol.featuresDetailed && sol.featuresLayout === "checklist" ? (
           <div className="mt-11">
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2">
-              {sol.featuresDetailed[l].map((f, i) => (
-                <div key={i} className="flex items-start gap-3.5 border-t py-4" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg [&_svg]:h-[18px] [&_svg]:w-[18px]"
-                    style={{ background: `color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${i % 2 === 0 ? accent : accent2} 32%, transparent)`, color: i % 2 === 0 ? accent : accent2 }}
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {sol.featuresDetailed[l].map((f, i) => {
+                const color = i % 2 === 0 ? accent : accent2;
+                return (
+                  <div
+                    key={i}
+                    className="group relative flex items-start gap-3.5 overflow-hidden rounded-2xl p-4.5 transition-all duration-300 hover:-translate-y-1"
+                    style={{
+                      background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015))",
+                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.05)",
+                    }}
                   >
-                    {FEATURE_ICONS[f.icon]}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="text-[14.5px] font-semibold leading-snug text-white/92">{f.title}</h3>
-                    <p className="mt-0.5 text-[13px] leading-relaxed text-white/55">{f.body}</p>
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      style={{ background: `radial-gradient(180px circle at 20% 15%, color-mix(in oklab, ${color} 18%, transparent), transparent 70%)` }}
+                    />
+                    <span
+                      className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl [&_svg]:h-[19px] [&_svg]:w-[19px]"
+                      style={{ background: `color-mix(in oklab, ${color} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${color} 34%, transparent)`, color }}
+                    >
+                      {FEATURE_ICONS[f.icon]}
+                    </span>
+                    <div className="relative z-10 min-w-0">
+                      <h3 className="text-[14.5px] font-semibold leading-snug text-white/92">{f.title}</h3>
+                      <p className="mt-1 text-[13px] leading-relaxed text-white/55">{f.body}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             {sol.featuresConclusion && (
               <div
@@ -1525,27 +1545,43 @@ export default async function SolutionPage({ params }: Props) {
           {l === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
         </h2>
         <div className="space-y-4">
-          {faqSchema.mainEntity.map((item, i) => (
-            <details
-              key={i}
-              className="group rounded-2xl border px-6 py-5 transition-colors open:border-white/20"
-              style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                <span className="text-[15px] font-medium text-white/90 group-open:text-white">
-                  {item.name}
-                </span>
-                <span aria-hidden className="shrink-0 text-white/30 transition-transform group-open:rotate-45">
-                  <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
-                    <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-4 text-[14px] leading-relaxed text-white/60">
-                {item.acceptedAnswer.text}
-              </div>
-            </details>
-          ))}
+          {faqItems.map((item, i) => {
+            // The pricing question is the only one with a link — split its
+            // text around the raw URL and swap in a real hyperlink instead
+            // of ever showing the URL itself.
+            const parts = item.linkLabel ? item.text.split(bookCallUrl) : null;
+            return (
+              <details
+                key={i}
+                className="group rounded-2xl border px-6 py-5 transition-colors open:border-white/20"
+                style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                  <span className="text-[15px] font-medium text-white/90 group-open:text-white">
+                    {item.name}
+                  </span>
+                  <span aria-hidden className="shrink-0 text-white/30 transition-transform group-open:rotate-45">
+                    <svg viewBox="0 0 16 16" fill="none" width="16" height="16">
+                      <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div className="mt-4 text-[14px] leading-relaxed text-white/60">
+                  {parts ? (
+                    <>
+                      {parts[0]}
+                      <Link href={bookCallPath} className="font-bold underline" style={{ color: accent }}>
+                        {item.linkLabel}
+                      </Link>
+                      {parts[1]}
+                    </>
+                  ) : (
+                    item.text
+                  )}
+                </div>
+              </details>
+            );
+          })}
         </div>
       </section>
 
