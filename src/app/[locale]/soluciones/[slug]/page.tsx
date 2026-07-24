@@ -1141,6 +1141,25 @@ export default async function SolutionPage({ params }: Props) {
                 </p>
               </div>
             )}
+            {sol.featuresHighlights && (
+              <div className="mx-auto mt-1 flex w-full max-w-4xl flex-wrap justify-center gap-2.5">
+                {sol.featuresHighlights[l].map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 rounded-full py-2 pl-2.5 pr-4"
+                    style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}
+                  >
+                    <span
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full [&_svg]:h-3.5 [&_svg]:w-3.5"
+                      style={{ background: `color-mix(in oklab, ${accent} 18%, transparent)`, color: accent }}
+                    >
+                      {FEATURE_ICONS[h.icon]}
+                    </span>
+                    <span className="text-[12.5px] font-medium leading-snug text-white/75">{h.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         ) : (
           <div className="mt-11 grid grid-cols-1 gap-3 sm:grid-cols-2">

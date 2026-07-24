@@ -119,6 +119,8 @@ export interface SolutionData {
   featuresHeading?: { es: string; en: string }
   featuresIntro?: { es: string; en: string }
   featuresDetailed?: { es: IconBlock[]; en: IconBlock[] }
+  /** Compact icon+label chips shown below featuresDetailed — for commitments that don't need a full card's worth of body text. */
+  featuresHighlights?: { es: { icon: string; label: string }[]; en: { icon: string; label: string }[] }
   featuresConclusion?: { es: string; en: string }
   projects?: SolutionProject[]
   projectsIntro?: { es: string; en: string }
@@ -1962,6 +1964,22 @@ export const SOLUTIONS: SolutionData[] = [
         { icon: "cart", title: "Order, appointment and confirmation management", body: "Confirms, books, changes and cancels, with automatic email and calendar notice." },
         { icon: "controls", title: "Smart handoff to humans", body: "Hands off with full context when the query requires it." },
         { icon: "speed", title: "Full-experience analytics", body: "We measure what your customer needs at every stage and how well it gets resolved." },
+      ],
+    },
+    featuresHighlights: {
+      es: [
+        { icon: "portal", label: "Centro de IA centralizado, todo en un mismo lugar" },
+        { icon: "chart", label: "CRM con pipeline completo, visión holística del proceso" },
+        { icon: "spark", label: "100% a medida, nada de soluciones enlatadas" },
+        { icon: "shield", label: "La propiedad intelectual queda para tu negocio" },
+        { icon: "controls", label: "Totalmente autogestionable, sin depender de nosotros" },
+      ],
+      en: [
+        { icon: "portal", label: "Centralized AI hub, everything in one connected place" },
+        { icon: "chart", label: "Full CRM with pipeline, a holistic view of the process" },
+        { icon: "spark", label: "100% custom-built, never off-the-shelf" },
+        { icon: "shield", label: "The intellectual property stays with your business" },
+        { icon: "controls", label: "Fully self-manageable, no dependency on us" },
       ],
     },
     featuresConclusion: {
