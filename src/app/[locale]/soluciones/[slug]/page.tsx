@@ -1116,26 +1116,26 @@ export default async function SolutionPage({ params }: Props) {
                   </div>
                 );
               })}
-            </div>
-            {sol.featuresConclusion && (
-              <div
-                className="relative mx-auto mt-8 flex max-w-2xl items-center gap-3 overflow-hidden rounded-2xl p-5 text-center sm:text-left"
-                style={{
-                  background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
-                  border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
-                }}
-              >
-                <span
-                  className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                  style={{ background: `color-mix(in oklab, ${accent} 20%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)`, color: accent }}
+              {sol.featuresConclusion && (
+                <div
+                  className="relative flex items-center gap-3 overflow-hidden rounded-2xl p-4.5 text-left sm:col-span-2"
+                  style={{
+                    background: `linear-gradient(155deg, color-mix(in oklab, ${accent} 18%, transparent), color-mix(in oklab, ${accent2} 10%, transparent) 70%)`,
+                    border: `1px solid color-mix(in oklab, ${accent} 30%, transparent)`,
+                  }}
                 >
-                  <svg viewBox="0 0 32 32" fill="none" className="h-5 w-5">
-                    <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" fillOpacity=".9" />
-                  </svg>
-                </span>
-                <p className="relative z-10 text-[14.5px] font-medium leading-relaxed text-white/90">{sol.featuresConclusion[l]}</p>
-              </div>
-            )}
+                  <span
+                    className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: `color-mix(in oklab, ${accent} 20%, transparent)`, border: `1px solid color-mix(in oklab, ${accent} 42%, transparent)`, color: accent }}
+                  >
+                    <svg viewBox="0 0 32 32" fill="none" className="h-5 w-5">
+                      <path d="M16 4l3.2 8.4L28 15.6l-8.8 3.2L16 28l-3.2-9.2L4 15.6l8.8-3.2z" fill="currentColor" fillOpacity=".9" />
+                    </svg>
+                  </span>
+                  <p className="relative z-10 text-[14.5px] font-medium leading-relaxed text-white/90">{sol.featuresConclusion[l]}</p>
+                </div>
+              )}
+            </div>
           </div>
         ) : sol.featuresDetailed ? (
           <div className="mt-11 flex flex-wrap justify-center gap-5">
