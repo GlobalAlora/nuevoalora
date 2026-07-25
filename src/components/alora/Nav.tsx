@@ -228,6 +228,25 @@ export function Nav({ dict, locale }: Props) {
                           </span>
                         </Link>
                       ))}
+                      {/* "See all" tile — lives among the solutions, not off in the sidebar */}
+                      <Link
+                        href={`/${locale}/servicios`}
+                        onClick={() => setServicesOpen(false)}
+                        className="group relative flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center transition-colors hover:bg-white/[0.06]"
+                        style={{ border: "1px dashed rgba(255,255,255,0.16)" }}
+                      >
+                        <span
+                          className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors"
+                          style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.16)", color: "rgba(255,255,255,0.75)" }}
+                        >
+                          <svg viewBox="0 0 16 16" fill="none" width="18" height="18">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        <span className="text-[13.5px] font-semibold text-white/80 transition-colors group-hover:text-white">
+                          {locale === "es" ? "Ver todas las soluciones" : "See all solutions"}
+                        </span>
+                      </Link>
                     </div>
                   </div>
 
@@ -268,27 +287,32 @@ export function Nav({ dict, locale }: Props) {
                       </svg>
                       {dict.nav.ctaWhatsapp}
                     </WhatsAppLink>
-                    <div className="mt-1 border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                      <Link
-                        href={`/${locale}/servicios`}
-                        onClick={() => setServicesOpen(false)}
-                        className="flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
-                      >
-                        {locale === "es" ? "Ver todas las soluciones" : "See all solutions"}
-                        <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </Link>
-                      <Link
-                        href={casosHref}
-                        onClick={() => setServicesOpen(false)}
-                        className="mt-2 flex items-center justify-between text-[13px] font-medium text-white/60 transition-colors hover:text-white"
-                      >
-                        {dict.nav.cases}
-                        <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </Link>
+                    <div className="mt-1 flex flex-col gap-2 border-t pt-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                      {[
+                        { href: casosHref, icon: "chart", label: dict.nav.cases },
+                        { href: blogHref, icon: "portal", label: dict.nav.blog },
+                      ].map((tile) => (
+                        <Link
+                          key={tile.href}
+                          href={tile.href}
+                          onClick={() => setServicesOpen(false)}
+                          className="group flex items-center gap-3 overflow-hidden rounded-xl p-2.5 transition-colors hover:bg-white/[0.05]"
+                          style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
+                        >
+                          <span
+                            className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg"
+                            style={{ background: "linear-gradient(145deg, color-mix(in oklab, var(--turquoise) 26%, transparent), color-mix(in oklab, var(--electric) 20%, transparent))" }}
+                          >
+                            <span className="relative z-10 text-white/85 [&_svg]:h-5 [&_svg]:w-5">{NAV_ICONS[tile.icon]}</span>
+                          </span>
+                          <span className="flex items-center justify-between gap-2 flex-1 min-w-0">
+                            <span className="truncate text-[13px] font-medium text-white/70 transition-colors group-hover:text-white">{tile.label}</span>
+                            <svg viewBox="0 0 16 16" fill="none" width="12" height="12" className="shrink-0 text-white/40 transition-colors group-hover:text-white/70">
+                              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
