@@ -405,6 +405,20 @@ export default async function SolutionPage({ params }: Props) {
   const caseStudy = CASE_STUDY_HIGHLIGHT[sol.slug];
   const relatedBlogPosts = getRelatedBlogPostsForSolution(sol.slug, l);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: h.badge,
+    description: sol.meta[l].desc,
+    url: `https://www.globalalora.com/${l}/soluciones/${slug}`,
+    provider: {
+      "@type": "Organization",
+      name: "ALORA",
+      url: "https://www.globalalora.com",
+    },
+    areaServed: ["Argentina", "España", "Estados Unidos", "México", "Colombia", "Chile", "Uruguay", "Paraguay"],
+  };
+
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: l === "es" ? "Inicio" : "Home", url: `https://www.globalalora.com/${l}` },
     { name: l === "es" ? "Soluciones" : "Solutions", url: `https://www.globalalora.com/${l}/servicios` },
@@ -463,6 +477,7 @@ export default async function SolutionPage({ params }: Props) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Nav dict={dict} locale={l} />
