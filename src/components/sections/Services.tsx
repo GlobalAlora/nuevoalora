@@ -278,7 +278,7 @@ export function Services({ dict, locale }: Props) {
                   }}
                 />
 
-                <div className={isFeatured ? "relative flex flex-col gap-5 sm:flex-row sm:items-center" : "relative"}>
+                <div className={isFeatured ? "relative mx-auto flex max-w-[1040px] flex-col gap-7 sm:flex-row sm:items-center" : "relative"}>
                   {/* Visual */}
                   <div className={isFeatured ? "relative h-[110px] w-full shrink-0 overflow-hidden rounded-xl sm:w-[260px]" : "relative h-[110px] w-full overflow-hidden rounded-xl"}>
                     <div
