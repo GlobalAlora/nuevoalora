@@ -12,7 +12,7 @@ type Freq = "weekly" | "monthly" | "yearly";
 // the sitemap happens to be requested (which told Google everything changes
 // on every crawl), routes without real data use this fixed reference date.
 // Bump it by hand when a real, meaningful update goes out.
-const SITE_LAST_REVIEWED = "2026-07-20";
+const SITE_LAST_REVIEWED = "2026-07-21";
 
 const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: string }[] = [
   // ── Home ─────────────────────────────────────────────────────────────────

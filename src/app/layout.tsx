@@ -67,12 +67,12 @@ export default async function RootLayout({
       "https://www.instagram.com/globalalora",
       "https://www.linkedin.com/company/globalalora",
     ],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "AR",
-      addressLocality: "Buenos Aires",
-    },
-    areaServed: ["AR", "MX", "CO", "CL", "ES", "UY", "PE"],
+    address: [
+      { "@type": "PostalAddress", addressCountry: "AR" },
+      { "@type": "PostalAddress", addressCountry: "ES" },
+      { "@type": "PostalAddress", addressCountry: "US" },
+    ],
+    areaServed: ["AR", "MX", "CO", "CL", "ES", "UY", "PE", "US"],
     knowsAbout: ["Software Development", "Artificial Intelligence", "Automation", "Ecommerce", "Web Development", "Chatbots"],
   };
 
