@@ -9,6 +9,7 @@ const SOLUTION_SLUGS = [
   "desarrollo-web",
   "aplicaciones-web",
   "ecommerce",
+  "experiencia-cliente-ia",
 ];
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 }
 
 type VisualKind = "nodes" | "waves" | "messages" | "layout" | "screens" | "checkout";
-const VISUALS: VisualKind[] = ["nodes", "waves", "messages", "layout", "screens", "checkout"];
+const VISUALS: VisualKind[] = ["nodes", "waves", "messages", "layout", "screens", "checkout", "waves"];
 
 function DarkBackground() {
   return (
@@ -242,77 +243,94 @@ export function Services({ dict, locale }: Props) {
 
         {/* Grid */}
         <div className="mt-11 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.items.map((item, idx) => (
-            <article
-              key={item.n}
-              className="svc-card group relative overflow-hidden rounded-2xl p-5 transition-all duration-500 ease-out hover:-translate-y-1.5"
-              style={{
-                background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 -20px 40px -20px rgba(0,0,0,0.45)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              {/* hover radial */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                style={{ background: "radial-gradient(260px circle at var(--mx,50%) var(--my,40%), color-mix(in oklab, var(--turquoise) 24%, transparent), transparent 70%)" }}
-              />
-              {/* gradient border */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          {services.items.map((item, idx) => {
+            const isFeatured = idx === services.items.length - 1;
+            return (
+              <article
+                key={item.n}
+                className={`svc-card group relative overflow-hidden rounded-2xl p-5 transition-all duration-500 ease-out hover:-translate-y-1.5 ${isFeatured ? "sm:col-span-2 lg:col-span-3" : ""}`}
                 style={{
-                  padding: "1px",
-                  background: "linear-gradient(140deg, color-mix(in oklab, var(--turquoise) 60%, transparent), color-mix(in oklab, var(--electric) 35%, transparent) 40%, transparent 70%)",
-                  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                  WebkitMaskComposite: "xor",
-                  maskComposite: "exclude",
+                  background: isFeatured
+                    ? "linear-gradient(115deg, color-mix(in oklab, var(--turquoise) 14%, transparent), color-mix(in oklab, var(--electric) 8%, transparent) 60%, rgba(255,255,255,0.02))"
+                    : "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
+                  boxShadow: isFeatured
+                    ? "inset 0 1px 0 rgba(255,255,255,0.09), inset 0 0 0 1px color-mix(in oklab, var(--turquoise) 28%, transparent), inset 0 -20px 40px -20px rgba(0,0,0,0.45)"
+                    : "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 -20px 40px -20px rgba(0,0,0,0.45)",
+                  backdropFilter: "blur(8px)",
                 }}
-              />
-
-              <div className="relative">
-                {/* Visual */}
-                <div className="relative h-[110px] w-full overflow-hidden rounded-xl">
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: "radial-gradient(120% 100% at 50% 110%, color-mix(in oklab, var(--turquoise) 14%, transparent), transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))" }}
-                  />
-                  <ServiceVisual kind={VISUALS[idx] ?? "nodes"} />
-                </div>
-
-                {/* Number / title */}
-                <div className="mt-3.5 flex items-center gap-3">
-                  <span className="font-mono text-white/45" style={{ fontSize: "11px", letterSpacing: "0.24em" }}>{item.n}</span>
-                  <span className="h-px flex-1 bg-white/10" />
-                </div>
-                <h3
-                  className="mt-2 text-white/90 transition-colors duration-300 group-hover:text-white"
-                  style={{ fontSize: "20px", fontWeight: 620, lineHeight: 1.18, letterSpacing: "-0.02em" }}
-                >
-                  {item.title}
-                </h3>
-                <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)" }}>
-                  {item.desc}
-                </p>
-                <Link
-                  href={`/${locale}/soluciones/${SOLUTION_SLUGS[idx] ?? "desarrollo-web"}`}
-                  className="svc-cta group/cta mt-4 inline-flex items-center gap-1.5 rounded-full border transition-all duration-300"
+              >
+                {/* hover radial */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                  style={{ background: "radial-gradient(260px circle at var(--mx,50%) var(--my,40%), color-mix(in oklab, var(--turquoise) 24%, transparent), transparent 70%)" }}
+                />
+                {/* gradient border */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
-                    fontSize: "12.5px",
-                    fontWeight: 600,
-                    padding: "6px 14px",
-                    color: "var(--turquoise)",
-                    borderColor: "color-mix(in oklab, var(--turquoise) 35%, transparent)",
-                    background: "color-mix(in oklab, var(--turquoise) 10%, transparent)",
+                    padding: "1px",
+                    background: "linear-gradient(140deg, color-mix(in oklab, var(--turquoise) 60%, transparent), color-mix(in oklab, var(--electric) 35%, transparent) 40%, transparent 70%)",
+                    WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                    WebkitMaskComposite: "xor",
+                    maskComposite: "exclude",
                   }}
-                >
-                  {services.cta}
-                  <span className="transition-transform duration-300 group-hover/cta:translate-x-0.5">→</span>
-                </Link>
-              </div>
-            </article>
-          ))}
+                />
+
+                <div className={isFeatured ? "relative flex flex-col gap-5 sm:flex-row sm:items-center" : "relative"}>
+                  {/* Visual */}
+                  <div className={isFeatured ? "relative h-[110px] w-full shrink-0 overflow-hidden rounded-xl sm:w-[260px]" : "relative h-[110px] w-full overflow-hidden rounded-xl"}>
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: "radial-gradient(120% 100% at 50% 110%, color-mix(in oklab, var(--turquoise) 14%, transparent), transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))" }}
+                    />
+                    <ServiceVisual kind={VISUALS[idx] ?? "nodes"} />
+                  </div>
+
+                  <div className={isFeatured ? "min-w-0 flex-1" : ""}>
+                    {/* Number / title */}
+                    <div className={isFeatured ? "flex items-center gap-3" : "mt-3.5 flex items-center gap-3"}>
+                      <span className="font-mono text-white/45" style={{ fontSize: "11px", letterSpacing: "0.24em" }}>{item.n}</span>
+                      {isFeatured && (
+                        <span
+                          className="rounded-full px-2 py-0.5 font-semibold uppercase"
+                          style={{ fontSize: "10px", letterSpacing: "0.1em", color: "var(--turquoise)", background: "color-mix(in oklab, var(--turquoise) 16%, transparent)", border: "1px solid color-mix(in oklab, var(--turquoise) 40%, transparent)" }}
+                        >
+                          {locale === "es" ? "Nuevo" : "New"}
+                        </span>
+                      )}
+                      <span className="h-px flex-1 bg-white/10" />
+                    </div>
+                    <h3
+                      className="mt-2 text-white/90 transition-colors duration-300 group-hover:text-white"
+                      style={{ fontSize: isFeatured ? "24px" : "20px", fontWeight: 620, lineHeight: 1.18, letterSpacing: "-0.02em" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)", maxWidth: isFeatured ? "560px" : undefined }}>
+                      {item.desc}
+                    </p>
+                    <Link
+                      href={`/${locale}/soluciones/${SOLUTION_SLUGS[idx] ?? "desarrollo-web"}`}
+                      className="svc-cta group/cta mt-4 inline-flex items-center gap-1.5 rounded-full border transition-all duration-300"
+                      style={{
+                        fontSize: "12.5px",
+                        fontWeight: 600,
+                        padding: "6px 14px",
+                        color: "var(--turquoise)",
+                        borderColor: "color-mix(in oklab, var(--turquoise) 35%, transparent)",
+                        background: "color-mix(in oklab, var(--turquoise) 10%, transparent)",
+                      }}
+                    >
+                      {services.cta}
+                      <span className="transition-transform duration-300 group-hover/cta:translate-x-0.5">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 

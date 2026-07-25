@@ -114,6 +114,7 @@ const es: Dictionary = {
       { n: "04", title: "Diseño Web", desc: "Sitios rápidos y a medida que convierten visitas en clientes." },
       { n: "05", title: "Diseño de Aplicaciones", desc: "Apps web y móviles que digitalizan y agilizan tu operación." },
       { n: "06", title: "Ecommerce", desc: "Tiendas online listas para vender, integradas a tu stock y pagos." },
+      { n: "07", title: "Atención y Experiencia de Cliente con IA", desc: "Un mismo sistema de IA que acompaña a tu cliente en preventa, venta y posventa — por WhatsApp, teléfono y web." },
     ],
   },
   cases: {

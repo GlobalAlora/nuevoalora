@@ -34,6 +34,7 @@ const en: Dictionary = {
       { n: "04", title: "Web Design", desc: "Fast, custom sites that turn visits into customers." },
       { n: "05", title: "App Design", desc: "Web and mobile apps that digitize and speed up your operation." },
       { n: "06", title: "Ecommerce", desc: "Online stores ready to sell, integrated with your stock and payments." },
+      { n: "07", title: "AI Customer Care & Experience", desc: "One AI system that supports your customer in pre-sale, sale and post-sale — over WhatsApp, phone and web." },
     ],
   },
   cases: {
