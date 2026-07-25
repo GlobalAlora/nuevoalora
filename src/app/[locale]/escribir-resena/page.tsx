@@ -13,12 +13,17 @@ interface Props { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isEs = locale === "es";
+  const title = isEs ? "Dejanos tu reseña | ALORA" : "Leave us a review | ALORA";
+  const description = isEs
+    ? "¿Ya trabajaste con ALORA? Contanos cómo fue tu experiencia."
+    : "Have you worked with ALORA? Tell us how it went.";
+  const ogImage = `/api/og?title=${encodeURIComponent(isEs ? "Dejanos tu reseña" : "Leave us a review")}`;
   return {
-    title: isEs ? "Dejanos tu reseña | ALORA" : "Leave us a review | ALORA",
-    description: isEs
-      ? "¿Ya trabajaste con ALORA? Contanos cómo fue tu experiencia."
-      : "Have you worked with ALORA? Tell us how it went.",
+    title,
+    description,
     alternates: { canonical: `https://www.globalalora.com/${locale}/escribir-resena` },
+    openGraph: { title, description, url: `https://www.globalalora.com/${locale}/escribir-resena`, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage] },
   };
 }
 

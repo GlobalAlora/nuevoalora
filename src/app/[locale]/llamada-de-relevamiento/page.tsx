@@ -22,10 +22,14 @@ const META: Record<string, { title: string; description: string }> = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const m = META[locale] ?? META.es;
+  const path = locale === "en" ? "/en/discovery-call" : "/es/llamada-de-relevamiento";
+  const ogImage = `/api/og?title=${encodeURIComponent(locale === "en" ? "Free Discovery Call" : "Llamada de Relevamiento Gratuita")}`;
   return {
     title: m.title,
     description: m.description,
-    alternates: { canonical: "https://www.globalalora.com/es/llamada-de-relevamiento" },
+    alternates: { canonical: `https://www.globalalora.com${path}` },
+    openGraph: { title: m.title, description: m.description, url: `https://www.globalalora.com${path}`, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title: m.title, description: m.description, images: [ogImage] },
   };
 }
 

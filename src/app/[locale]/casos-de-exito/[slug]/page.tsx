@@ -37,12 +37,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cs) return {};
   const l = hasLocale(locale) ? (locale as Locale) : "es";
   const m = cs.meta[l];
+  const ogImage = cs.heroImage ?? `/api/og?title=${encodeURIComponent(cs.hero[l].badge ?? m.title)}`;
   return {
     title: m.title,
     description: m.desc,
     alternates: {
       canonical: `https://www.globalalora.com/${l}/casos-de-exito/${slug}`,
       languages: { es: `/es/casos-de-exito/${slug}`, en: `/en/casos-de-exito/${slug}` },
+    },
+    openGraph: {
+      title: m.title,
+      description: m.desc,
+      url: `https://www.globalalora.com/${l}/casos-de-exito/${slug}`,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: m.title,
+      description: m.desc,
+      images: [ogImage],
     },
   };
 }

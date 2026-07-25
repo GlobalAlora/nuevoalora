@@ -29,9 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title[l]} | ALORA Insights`,
     description: post.excerpt[l],
+    alternates: {
+      canonical: `https://www.globalalora.com/${l}/blog/${slug}`,
+      languages: { es: `/es/blog/${slug}`, en: `/en/blog/${slug}` },
+    },
     openGraph: {
       title: post.title[l],
       description: post.excerpt[l],
+      url: `https://www.globalalora.com/${l}/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
       images: post.image ? [{ url: post.image, width: 1200, height: 630 }] : undefined,

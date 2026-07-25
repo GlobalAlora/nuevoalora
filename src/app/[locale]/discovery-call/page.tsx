@@ -9,10 +9,15 @@ import Link from "next/link";
 interface Props { params: Promise<{ locale: string }> }
 
 export async function generateMetadata(): Promise<Metadata> {
+  const title = "Free Discovery Call — ALORA";
+  const description = "Schedule a 20-minute call to analyze your project and discover how we can help you grow with technology, automation and AI.";
+  const ogImage = `/api/og?title=${encodeURIComponent("Free Discovery Call")}`;
   return {
-    title: "Free Discovery Call — ALORA",
-    description: "Schedule a 20-minute call to analyze your project and discover how we can help you grow with technology, automation and AI.",
+    title,
+    description,
     alternates: { canonical: "https://www.globalalora.com/en/discovery-call" },
+    openGraph: { title, description, url: "https://www.globalalora.com/en/discovery-call", images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage] },
   };
 }
 

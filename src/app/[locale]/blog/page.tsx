@@ -15,18 +15,17 @@ interface Props { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isEs = locale === "es";
+  const title = isEs ? "Insights | ALORA — Software, IA y Automatización" : "Insights | ALORA — Software, AI & Automation";
+  const description = isEs
+    ? "Artículos sobre desarrollo de software, inteligencia artificial, automatización y ecommerce para empresas en crecimiento."
+    : "Articles about software development, artificial intelligence, automation and ecommerce for growing businesses.";
+  const ogImage = `/api/og?title=${encodeURIComponent(isEs ? "Insights de ALORA" : "ALORA Insights")}`;
   return {
-    title: isEs ? "Insights | ALORA — Software, IA y Automatización" : "Insights | ALORA — Software, AI & Automation",
-    description: isEs
-      ? "Artículos sobre desarrollo de software, inteligencia artificial, automatización y ecommerce para empresas en crecimiento."
-      : "Articles about software development, artificial intelligence, automation and ecommerce for growing businesses.",
+    title,
+    description,
     alternates: { canonical: `https://www.globalalora.com/${locale}/blog` },
-    openGraph: {
-      title: isEs ? "Insights de ALORA" : "ALORA Insights",
-      description: isEs
-        ? "Insights sobre tecnología, IA y automatización para negocios."
-        : "Insights on technology, AI and automation for businesses.",
-    },
+    openGraph: { title, description, url: `https://www.globalalora.com/${locale}/blog`, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title, description, images: [ogImage] },
   };
 }
 
