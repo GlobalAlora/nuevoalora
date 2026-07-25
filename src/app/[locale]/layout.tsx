@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { hasLocale, getDictionary, getAlternates, LOCALES } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { CookieBanner } from "@/components/alora/CookieBanner";
-import { ExitIntentPopup } from "@/components/alora/ExitIntentPopup";
+import { ExitIntentPopupLoader } from "@/components/alora/ExitIntentPopupLoader";
 import { WhatsAppButton } from "@/components/alora/WhatsAppButton";
-import { Chatbot } from "@/components/alora/Chatbot";
+import { ChatbotLoader } from "@/components/alora/ChatbotLoader";
 
 interface Props {
   children: React.ReactNode;
@@ -67,9 +67,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       {children}
       <CookieBanner locale={locale} />
-      <ExitIntentPopup locale={locale} />
+      <ExitIntentPopupLoader locale={locale} />
       <WhatsAppButton locale={locale} />
-      <Chatbot dict={dict} locale={l} />
+      <ChatbotLoader dict={dict} locale={l} />
     </>
   );
 }
