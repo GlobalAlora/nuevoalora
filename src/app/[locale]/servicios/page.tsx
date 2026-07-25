@@ -275,59 +275,66 @@ export default async function ServicesPage({ params }: Props) {
 
             {/* Solutions grid */}
             <div className="mt-14 flex flex-wrap justify-center gap-5">
-              {services.map((svc, i) => (
-                <Link
-                  key={svc.slug}
-                  href={`/${l}/soluciones/${svc.slug}`}
-                  className="feature-card group relative flex w-full flex-col overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1.5 sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)]"
-                  style={{
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
-                  }}
-                >
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${svc.accent} 22%, transparent), transparent 70%)` }}
-                  />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              {services.map((svc, i) => {
+                const isLast = i === services.length - 1;
+                return (
+                  <Link
+                    key={svc.slug}
+                    href={`/${l}/soluciones/${svc.slug}`}
+                    className={`feature-card group relative flex w-full overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1.5 ${
+                      isLast ? "flex-col items-center justify-center gap-6 text-center sm:flex-row sm:text-left" : "flex-col sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)]"
+                    }`}
                     style={{
-                      padding: "1px",
-                      background: `linear-gradient(140deg, color-mix(in oklab, ${svc.accent} 55%, transparent), transparent 60%)`,
-                      WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                      WebkitMaskComposite: "xor",
-                      maskComposite: "exclude",
+                      background: "linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015))",
+                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.07), inset 0 0 0 1px rgba(255,255,255,0.04)",
                     }}
-                  />
-                  <span
-                    className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                    style={{ background: `color-mix(in oklab, ${svc.accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${svc.accent} 32%, transparent)`, color: svc.accent, animationDelay: `${i * 0.2}s` }}
                   >
-                    {ICONS[svc.icon]}
-                  </span>
-                  <h2 className="relative z-10 mt-4 text-[17px] font-semibold leading-snug text-white/90">{svc.title}</h2>
-                  <p className="relative z-10 mt-1.5 flex-1 text-[13.5px] leading-relaxed text-white/55">{svc.desc}</p>
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                      style={{ background: `radial-gradient(220px circle at 30% 20%, color-mix(in oklab, ${svc.accent} 22%, transparent), transparent 70%)` }}
+                    />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      style={{
+                        padding: "1px",
+                        background: `linear-gradient(140deg, color-mix(in oklab, ${svc.accent} 55%, transparent), transparent 60%)`,
+                        WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                        WebkitMaskComposite: "xor",
+                        maskComposite: "exclude",
+                      }}
+                    />
+                    <span
+                      className="feature-icon relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                      style={{ background: `color-mix(in oklab, ${svc.accent} 16%, transparent)`, border: `1px solid color-mix(in oklab, ${svc.accent} 32%, transparent)`, color: svc.accent, animationDelay: `${i * 0.2}s` }}
+                    >
+                      {ICONS[svc.icon]}
+                    </span>
+                    <div className={isLast ? "relative z-10 flex max-w-[560px] flex-col items-center sm:items-start" : "contents"}>
+                      <h2 className={`relative z-10 text-[17px] font-semibold leading-snug text-white/90 ${isLast ? "mt-0" : "mt-4"}`}>{svc.title}</h2>
+                      <p className={`relative z-10 mt-1.5 text-[13.5px] leading-relaxed text-white/55 ${isLast ? "" : "flex-1"}`}>{svc.desc}</p>
 
-                  <div className="relative z-10 mt-4 flex flex-wrap gap-1.5">
-                    {svc.tags.map((tag) => (
-                      <span key={tag} className="rounded-full px-2.5 py-0.5 text-[10.5px] font-medium"
-                        style={{ background: `color-mix(in oklab, ${svc.accent} 12%, transparent)`, color: `color-mix(in oklab, ${svc.accent} 80%, white)`, border: `1px solid color-mix(in oklab, ${svc.accent} 26%, transparent)` }}>
-                        {tag}
+                      <div className={`relative z-10 mt-4 flex flex-wrap gap-1.5 ${isLast ? "justify-center sm:justify-start" : ""}`}>
+                        {svc.tags.map((tag) => (
+                          <span key={tag} className="rounded-full px-2.5 py-0.5 text-[10.5px] font-medium"
+                            style={{ background: `color-mix(in oklab, ${svc.accent} 12%, transparent)`, color: `color-mix(in oklab, ${svc.accent} 80%, white)`, border: `1px solid color-mix(in oklab, ${svc.accent} 26%, transparent)` }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <span className="relative z-10 mt-5 flex items-center gap-1.5 text-[13px] font-medium transition-transform group-hover:translate-x-0.5"
+                        style={{ color: svc.accent }}>
+                        {l === "es" ? "Ver detalle" : "View details"}
+                        <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                       </span>
-                    ))}
-                  </div>
-
-                  <span className="relative z-10 mt-5 flex items-center gap-1.5 text-[13px] font-medium transition-transform group-hover:translate-x-0.5"
-                    style={{ color: svc.accent }}>
-                    {l === "es" ? "Ver detalle" : "View details"}
-                    <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </Link>
-              ))}
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
 
             {/* CTA */}
