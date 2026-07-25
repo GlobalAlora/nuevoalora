@@ -123,18 +123,17 @@ export default async function RootLayout({
         {children}
 
         {/*
-          gtag-init and meta-pixel-init use beforeInteractive: they only
-          define the window.gtag/window.fbq functions our own code calls
-          directly (trackEvent in src/lib/analytics.ts). afterInteractive
-          left a real race — a page whose analytics event fires immediately
-          on mount (e.g. /call-booked's "schedule") could run before these
-          scripts loaded, silently dropping the direct-to-GA4/Meta call
-          (the GTM dataLayer push still went through, since that's just a
-          plain array push with no such ordering requirement). Per Next's
-          docs, beforeInteractive scripts execute before any first-party
-          code runs but don't block hydration, so this has no perf cost.
-          gtm-init and the external gtag/js loader don't need this: nothing
-          in our code calls a function they define synchronously.
+          All four load afterInteractive, on purpose: on mobile, giving any
+          of these earlier-than-necessary network/CPU priority measurably
+          delays LCP for the page's own content (confirmed via Lighthouse —
+          GTM+GA4+Meta cost ~570ms of main-thread time here, and elevating
+          them competed with the app bundle for the critical path). A
+          previous attempt used beforeInteractive on gtag-init/meta-pixel-init
+          to close a race where a page whose event fires immediately on
+          mount (e.g. /call-booked's "schedule") could call window.gtag
+          before it existed — that's fixed instead in trackEvent (see
+          src/lib/analytics.ts), which retries once if gtag/fbq aren't
+          defined yet, so this stays afterInteractive for everyone.
         */}
         <Script
           id="gtm-init"
@@ -145,7 +144,7 @@ export default async function RootLayout({
         />
         <Script
           id="meta-pixel-init"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`,
           }}
@@ -156,7 +155,7 @@ export default async function RootLayout({
         />
         <Script
           id="gtag-init"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
