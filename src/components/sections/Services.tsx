@@ -278,9 +278,9 @@ export function Services({ dict, locale }: Props) {
                   }}
                 />
 
-                <div className={isFeatured ? "relative mx-auto flex max-w-[1040px] flex-col gap-7 sm:flex-row sm:items-center" : "relative"}>
+                <div className={isFeatured ? "relative mx-auto flex max-w-[520px] flex-col items-center gap-5 text-center" : "relative"}>
                   {/* Visual */}
-                  <div className={isFeatured ? "relative h-[110px] w-full shrink-0 overflow-hidden rounded-xl sm:w-[260px]" : "relative h-[110px] w-full overflow-hidden rounded-xl"}>
+                  <div className={isFeatured ? "relative h-[130px] w-full max-w-[360px] overflow-hidden rounded-xl" : "relative h-[110px] w-full overflow-hidden rounded-xl"}>
                     <div
                       className="absolute inset-0"
                       style={{ background: "radial-gradient(120% 100% at 50% 110%, color-mix(in oklab, var(--turquoise) 14%, transparent), transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))" }}
@@ -288,9 +288,9 @@ export function Services({ dict, locale }: Props) {
                     <ServiceVisual kind={VISUALS[idx] ?? "nodes"} />
                   </div>
 
-                  <div className={isFeatured ? "min-w-0 flex-1" : ""}>
+                  <div className={isFeatured ? "flex flex-col items-center" : ""}>
                     {/* Number / title */}
-                    <div className={isFeatured ? "flex items-center gap-3" : "mt-3.5 flex items-center gap-3"}>
+                    <div className={isFeatured ? "flex items-center justify-center gap-3" : "mt-3.5 flex items-center gap-3"}>
                       <span className="font-mono text-white/45" style={{ fontSize: "11px", letterSpacing: "0.24em" }}>{item.n}</span>
                       {isFeatured && (
                         <span
@@ -300,7 +300,7 @@ export function Services({ dict, locale }: Props) {
                           {locale === "es" ? "Nuevo" : "New"}
                         </span>
                       )}
-                      <span className="h-px flex-1 bg-white/10" />
+                      {!isFeatured && <span className="h-px flex-1 bg-white/10" />}
                     </div>
                     <h3
                       className="mt-2 text-white/90 transition-colors duration-300 group-hover:text-white"
@@ -308,7 +308,7 @@ export function Services({ dict, locale }: Props) {
                     >
                       {item.title}
                     </h3>
-                    <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)", maxWidth: isFeatured ? "560px" : undefined }}>
+                    <p className="mt-1.5 text-pretty" style={{ fontSize: "14px", lineHeight: 1.5, color: "rgba(255,255,255,0.62)" }}>
                       {item.desc}
                     </p>
                     <Link
