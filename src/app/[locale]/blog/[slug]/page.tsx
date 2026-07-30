@@ -11,6 +11,8 @@ import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
 import { getCategoryColor } from "@/lib/blog-categories";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { TrackedLink } from "@/components/shared/TrackedLink";
+import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
+import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
@@ -88,6 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
   const faqItems = post.faq?.[langKey];
   const relatedPosts = getRelatedPosts(slug, langKey);
   const callUrl = l === "es" ? "/es/llamada-de-relevamiento" : "/en/discovery-call";
+  const whatsappUrl = buildWhatsAppHref(`/${l}/blog/${slug}`, l);
 
   const siteUrl = "https://www.globalalora.com";
   const pageUrl = `${siteUrl}/${l}/blog/${slug}`;
@@ -132,7 +135,7 @@ export default async function BlogPostPage({ params }: Props) {
       )}
       <Nav dict={dict} locale={l} />
       <main className="min-h-screen text-white pt-24 pb-20" style={{ background: "oklch(0.13 0.015 260)" }}>
-        <div className="mx-auto max-w-3xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           {/* Back */}
           <Link
             href={`/${l}/blog`}
@@ -141,6 +144,8 @@ export default async function BlogPostPage({ params }: Props) {
             ← {isEs ? "Volver a Insights" : "Back to Insights"}
           </Link>
 
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_320px]">
+          <div className="min-w-0 max-w-3xl">
           {/* Header */}
           <div className="mb-10">
             <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -239,79 +244,94 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           )}
 
-          {/* Related posts */}
-          {relatedPosts.length > 0 && (
-            <div className="mt-14">
-              <h2 className="text-[22px] font-bold text-white mb-6" style={{ letterSpacing: "-0.025em" }}>
-                {isEs ? "Insights de tecnología que quizás te interesen" : "Tech insights you might like"}
+          </div>
+
+          {/* Sidebar — CTAs + related posts, sticky on desktop, inline below the article on mobile */}
+          <aside className="lg:sticky lg:top-28">
+            <div
+              className="rounded-2xl p-6"
+              style={{
+                background: "linear-gradient(155deg, color-mix(in oklab, var(--turquoise) 14%, transparent), color-mix(in oklab, var(--electric) 8%, transparent) 70%)",
+                border: "1px solid color-mix(in oklab, var(--turquoise) 28%, transparent)",
+              }}
+            >
+              <h2 className="text-[16px] font-bold text-white" style={{ letterSpacing: "-0.02em" }}>
+                {isEs ? "¿Hablamos de tu proyecto?" : "Should we talk about your project?"}
               </h2>
-              <div className="grid gap-4 sm:grid-cols-3">
-                {relatedPosts.map((rp) => (
-                  <Link
-                    key={rp.slug}
-                    href={`/${l}/blog/${rp.slug}`}
-                    className="group flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1"
-                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-                  >
-                    {rp.image ? (
-                      <div className="relative h-28 overflow-hidden">
-                        <Image
-                          src={rp.image}
-                          alt={rp.imageAlt ?? rp.title}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 33vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-28" style={{ background: "radial-gradient(ellipse at 30% 50%, color-mix(in oklab, var(--turquoise) 16%, transparent), transparent 70%), oklch(0.15 0.015 260)" }} />
-                    )}
-                    <div className="flex flex-1 flex-col p-4">
-                      <span className="mb-2 text-[10.5px] font-semibold uppercase tracking-wider text-white/45">{rp.category[0]}</span>
-                      <h3 className="text-[13.5px] font-semibold leading-snug text-white group-hover:text-[var(--turquoise)] transition-colors">
-                        {rp.title}
-                      </h3>
-                    </div>
-                  </Link>
-                ))}
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">
+                {isEs ? "Elegí el canal que prefieras — respondemos en menos de 24 horas." : "Pick whichever channel you prefer — we reply within 24 hours."}
+              </p>
+              <div className="mt-5 flex flex-col gap-2.5">
+                <TrackedLink
+                  href={callUrl}
+                  event="book_call_click"
+                  eventParams={{ landing_page: `/${l}/blog/${slug}` }}
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-center text-[13.5px] font-semibold text-white transition-all hover:scale-[1.02]"
+                  style={{
+                    background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
+                    boxShadow: "0 6px 24px color-mix(in oklab, var(--turquoise) 30%, transparent)",
+                  }}
+                >
+                  {isEs ? "Reservar llamada de estrategia" : "Book a strategy call"}
+                </TrackedLink>
+                <WhatsAppLink
+                  href={whatsappUrl}
+                  landingPage={`/${l}/blog/${slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-center text-[13.5px] font-semibold text-white transition-all hover:scale-[1.02]"
+                  style={{ background: "#25D366" }}
+                >
+                  {isEs ? "Hablar por WhatsApp" : "Chat on WhatsApp"}
+                </WhatsAppLink>
+                <Link
+                  href={`/${l}/contacto`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-center text-[13.5px] font-semibold text-white transition-all hover:scale-[1.02]"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.16)" }}
+                >
+                  {isEs ? "Escribirnos por formulario" : "Send us a message"}
+                </Link>
               </div>
             </div>
-          )}
 
-          {/* CTA */}
-          <div
-            className="mt-16 rounded-2xl p-8 text-center"
-            style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
-          >
-            <h2 className="text-[22px] font-bold text-white mb-2" style={{ letterSpacing: "-0.03em" }}>
-              {isEs ? "Hablemos de tu proyecto." : "Let's talk about your project."}
-            </h2>
-            <p className="text-white/50 mb-6 text-[14px]">
-              {isEs
-                ? "Contanos qué necesitás y te respondemos en menos de 24 horas."
-                : "Tell us what you need and we'll get back to you within 24 hours."}
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <TrackedLink
-                href={callUrl}
-                event="book_call_click"
-                eventParams={{ landing_page: `/${l}/blog/${slug}` }}
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
-                style={{
-                  background: "linear-gradient(135deg, var(--turquoise), var(--electric))",
-                  boxShadow: "0 6px 24px color-mix(in oklab, var(--turquoise) 30%, transparent)",
-                }}
-              >
-                {isEs ? "Reservar llamada gratuita" : "Book a free call"}
-              </TrackedLink>
-              <Link
-                href={`/${l}/contacto`}
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[14px] font-semibold text-white transition-all hover:scale-[1.02]"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)" }}
-              >
-                {isEs ? "Contactar a ALORA" : "Contact ALORA"}
-              </Link>
-            </div>
+            {relatedPosts.length > 0 && (
+              <div className="mt-8">
+                <h2 className="mb-4 text-[13px] font-semibold uppercase tracking-wider text-white/45">
+                  {isEs ? "Te puede interesar" : "You might like"}
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {relatedPosts.map((rp) => (
+                    <Link
+                      key={rp.slug}
+                      href={`/${l}/blog/${rp.slug}`}
+                      className="group flex items-center gap-3 overflow-hidden rounded-xl p-2.5 transition-all duration-300 hover:-translate-y-0.5"
+                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                    >
+                      {rp.image ? (
+                        <div className="relative h-14 w-16 shrink-0 overflow-hidden rounded-lg">
+                          <Image
+                            src={rp.image}
+                            alt={rp.imageAlt ?? rp.title}
+                            fill
+                            sizes="64px"
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      ) : (
+                        <div className="h-14 w-16 shrink-0 rounded-lg" style={{ background: "radial-gradient(ellipse at 30% 50%, color-mix(in oklab, var(--turquoise) 16%, transparent), transparent 70%), oklch(0.15 0.015 260)" }} />
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">{rp.category[0]}</span>
+                        <h3 className="text-[12.5px] font-semibold leading-snug text-white group-hover:text-[var(--turquoise)] transition-colors line-clamp-2">
+                          {rp.title}
+                        </h3>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
           </div>
         </div>
       </main>
