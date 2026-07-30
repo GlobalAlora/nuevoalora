@@ -21,7 +21,7 @@ repetido: "esto no es teoría, todo lo que se describe acá es implementable
 hoy" — sin prometer resultados falsos, pero dejando en claro que la
 tecnología ya está madura para cualquier industria.
 
-### 2. SEO, AEO, GEO, SXO y AIO: la guía completa — status: pending
+### 2. SEO, AEO, GEO, SXO y AIO: la guía completa — status: done (published 2026-07-26, slug: seo-aeo-geo-sxo-aio-guia-completa)
 **Ángulo:** Tema nuevo, sin post existente que lo cubra. Explicar cada sigla
 por separado con una definición clara y citable (bueno para AEO/GEO del
 propio post — meta, ¿no?): SEO (buscadores tradicionales), AEO (answer
