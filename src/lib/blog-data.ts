@@ -3123,8 +3123,8 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
       en: "SEO trends for developers",
     },
     excerpt: {
-      es: "Las claves de SEO técnico que todo desarrollador debe conocer para destacar en Google en 2025.",
-      en: "The key technical SEO practices every developer should know to stand out on Google in 2025.",
+      es: "Las claves de SEO técnico que todo desarrollador debe conocer para destacar en Google en 2025: velocidad, estructura y contenido.",
+      en: "The key technical SEO practices every developer should know to stand out on Google in 2025: speed, structure and content.",
     },
     date: "2025-06-17",
     category: { es: ["Desarrollo Web"], en: ["Web Development"] },

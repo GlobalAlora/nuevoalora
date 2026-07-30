@@ -21,21 +21,33 @@ export async function generateStaticParams() {
   );
 }
 
+// Several post excerpts run well past Google's ~155-160 char SERP cutoff —
+// they're written to work as blog-card copy too, where the extra length is
+// fine. Meta/OG/Twitter descriptions get a word-boundary-safe trim instead
+// of a mid-sentence cut, so they never get truncated in an ugly place.
+function truncateForMeta(text: string, max = 155): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max)}…`;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return { title: "Not found" };
   const l = locale as "es" | "en";
+  const metaDescription = truncateForMeta(post.excerpt[l]);
   return {
     title: `${post.title[l]} | ALORA Insights`,
-    description: post.excerpt[l],
+    description: metaDescription,
     alternates: {
       canonical: `https://www.globalalora.com/${l}/blog/${slug}`,
       languages: { es: `/es/blog/${slug}`, en: `/en/blog/${slug}` },
     },
     openGraph: {
       title: post.title[l],
-      description: post.excerpt[l],
+      description: metaDescription,
       url: `https://www.globalalora.com/${l}/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
@@ -44,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: post.title[l],
-      description: post.excerpt[l],
+      description: metaDescription,
       images: post.image ? [post.image] : undefined,
     },
   };

@@ -362,11 +362,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
     meta: {
       es: {
         title: "Caso de éxito: ALORA CRM | ALORA",
-        desc: "Cómo diseñamos y desarrollamos un CRM para seguimiento comercial automatizado, con pipeline por etapas, IA integrada y dashboard en tiempo real — hoy disponible como marca blanca.",
+        desc: "Cómo diseñamos un CRM para seguimiento comercial automatizado, con pipeline por etapas, IA integrada y dashboard en tiempo real.",
       },
       en: {
         title: "Case study: ALORA CRM | ALORA",
-        desc: "How we designed and built a CRM for automated sales follow-up, with a stage-based pipeline, built-in AI and a real-time dashboard — now available as a white-label product.",
+        desc: "How we designed a CRM for automated sales follow-up, with a stage-based pipeline, built-in AI and a real-time dashboard.",
       },
     },
     hero: {

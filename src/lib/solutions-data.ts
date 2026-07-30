@@ -675,8 +675,8 @@ export const SOLUTIONS: SolutionData[] = [
     slug: "ecommerce",
     theme: { primary: "var(--violet)" },
     meta: {
-      es: { title: "Ecommerce y Tiendas Online | ALORA", desc: "Diseñamos y desarrollamos tiendas online pensadas para vender, gestionar y escalar." },
-      en: { title: "Ecommerce & Online Stores | ALORA", desc: "We design and develop online stores built to sell, manage and scale." },
+      es: { title: "Ecommerce y Tiendas Online | ALORA", desc: "Diseñamos y desarrollamos tiendas online pensadas para vender, gestionar stock y pedidos, y escalar tu negocio sin fricciones técnicas." },
+      en: { title: "Ecommerce & Online Stores | ALORA", desc: "We design and develop online stores built to sell, manage stock and orders, and scale your business without technical friction." },
     },
     hero: {
       es: { badge: "Ecommerce", headline: "Una tienda online que vende todos los días", sub: "Diseñamos y desarrollamos tiendas online funcionales, claras y orientadas a conversión. Una tienda online no es solo un catálogo. Es estructura, confianza, medios de pago y una experiencia de compra que funciona." },
@@ -1471,8 +1471,8 @@ export const SOLUTIONS: SolutionData[] = [
     slug: "desarrollo-software",
     theme: { primary: "var(--turquoise)", secondary: "var(--violet)" },
     meta: {
-      es: { title: "Desarrollo de Software a Medida | ALORA", desc: "Diseñamos y desarrollamos soluciones de software a medida para resolver problemas reales de tu negocio." },
-      en: { title: "Custom Software Development | ALORA", desc: "We design and develop custom software solutions to solve your business's real problems." },
+      es: { title: "Desarrollo de Software a Medida | ALORA", desc: "Diseñamos y desarrollamos soluciones de software a medida para resolver problemas reales de tu negocio, con arquitectura sólida y escalable." },
+      en: { title: "Custom Software Development | ALORA", desc: "We design and develop custom software solutions to solve your business's real problems, with solid, scalable architecture." },
     },
     hero: {
       es: {
@@ -1710,8 +1710,8 @@ export const SOLUTIONS: SolutionData[] = [
     slug: "experiencia-cliente-ia",
     theme: { primary: "var(--turquoise)", secondary: "var(--electric)" },
     meta: {
-      es: { title: "Atención y Experiencia de Cliente con IA | ALORA", desc: "IA que atiende a tus clientes por WhatsApp, teléfono y web, antes, durante y después de la compra." },
-      en: { title: "AI Customer Care & Experience | ALORA", desc: "AI that takes care of your customers over WhatsApp, phone and web, before, during and after the sale." },
+      es: { title: "Atención y Experiencia de Cliente con IA | ALORA", desc: "IA que atiende a tus clientes por WhatsApp, teléfono y web — antes, durante y después de la compra, con un mismo mensaje en todos los canales." },
+      en: { title: "AI Customer Care & Experience | ALORA", desc: "AI that takes care of your customers over WhatsApp, phone and web — before, during and after the sale, with one consistent message everywhere." },
     },
     hero: {
       es: {
