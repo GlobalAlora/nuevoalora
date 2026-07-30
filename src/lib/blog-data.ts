@@ -4053,7 +4053,7 @@ Hace unos años, "estar en Google" alcanzaba. Hoy alguien puede encontrar tu neg
 
 No compiten entre sí. Tampoco es que una "reemplazó" a la otra. Son capas que hoy conviven, y un sitio bien trabajado necesita las cinco.
 
-## Qué es SEO y por qué sigue siendo la base del posicionamiento en Google
+## Qué es SEO (Search Engine Optimization) y por qué sigue siendo la base del posicionamiento en Google
 
 SEO (Search Engine Optimization) es la disciplina de siempre: que un buscador tradicional — Google, Bing — pueda encontrar, entender y posicionar bien tu sitio. Cubre lo técnico (sitemap actualizado, URLs canónicas, metadatos completos, velocidad de carga) y lo estructural (una jerarquía de encabezados clara, enlaces internos que conecten contenido relacionado, sin páginas huérfanas).
 
@@ -4065,19 +4065,19 @@ AEO (Answer Engine Optimization) es optimizar para que tu contenido sea LA respu
 
 La forma concreta de trabajar AEO es con contenido en formato pregunta-respuesta explícito, con datos estructurados de tipo \`FAQPage\` que le digan al buscador "esta pregunta específica tiene esta respuesta específica", y con definiciones cortas y citables al principio de cada sección — no un párrafo de contexto antes de llegar al punto.
 
-## Qué es GEO y cómo lograr que ChatGPT, Perplexity y los resúmenes con IA de Google te citen
+## Qué es GEO (Generative Engine Optimization) y cómo lograr que ChatGPT, Perplexity y los resúmenes con IA de Google te citen
 
 GEO (Generative Engine Optimization) es la más nueva de las cinco y la que menos entiende todavía la mayoría de los negocios. Se trata de optimizar para que herramientas como ChatGPT, Gemini, Claude, Perplexity o los AI Overviews de Google te mencionen o citen cuando alguien les pregunta algo relacionado con lo que hacés — cada una de estas IAs generativas rastrea y prioriza información distinta, pero todas premian lo mismo: datos claros, verificables y bien estructurados.
 
 A diferencia del SEO clásico, acá no hay un ranking de diez posiciones — o te citan, o no existís en esa respuesta. Lo que mejora tus chances: contenido con hechos verificables y específicos (no genéricos), datos estructurados completos (\`Organization\`, \`Service\`, \`Article\`), y consistencia — si tu sitio dice una cosa en una página y otra distinta en otra, un modelo generativo no tiene forma de saber cuál es la verdadera, y en la duda, no te cita.
 
-## Qué es SXO y por qué la velocidad del sitio en mobile también afecta tu posicionamiento
+## Qué es SXO (Search Experience Optimization) y por qué la velocidad del sitio en mobile también afecta tu posicionamiento
 
 SXO (Search Experience Optimization) une SEO con experiencia de usuario: no alcanza con que alguien LLEGUE a tu sitio, tiene que quedarse, entender y avanzar. Google lo mide con Core Web Vitals — métricas concretas como LCP (qué tan rápido aparece el contenido principal) e INP (qué tan rápido responde el sitio cuando alguien interactúa) — y penaliza a los sitios que fallan ahí, incluso si el contenido es bueno.
 
 Es, en la práctica, la disciplina más fácil de arruinar sin darte cuenta: un script de analytics mal configurado, una imagen sin optimizar o un menú que tarda en abrirse en el celular pueden hacerte perder posiciones que ganaste con buen contenido.
 
-## Qué es AIO y cómo optimizar tu sitio para que las inteligencias artificiales lo entiendan
+## Qué es AIO (AI Optimization) y cómo optimizar tu sitio para que las inteligencias artificiales lo entiendan
 
 AIO (AI Optimization) es la disciplina más amplia de las cinco: que cualquier sistema de IA — un asistente, un agente, una herramienta interna de otra empresa — pueda leer, interpretar y usar correctamente la información de tu sitio. Se apoya en datos estructurados completos y coherentes, en contenido semánticamente claro, y en herramientas específicas como el archivo \`llms.txt\`, pensado exactamente para esto — lo explicamos en detalle en [qué es llms.txt y por qué tu sitio lo necesita](/es/blog/llms-txt-contexto-para-interpretacion-ia).
 
@@ -4138,7 +4138,7 @@ A few years ago, "being on Google" was enough. Today someone can find your busin
 
 They don't compete with each other. None of them "replaced" the others. They're layers that coexist today, and a well-built site needs all five.
 
-## What is SEO and why it's still the foundation of ranking on Google
+## What is SEO (Search Engine Optimization) and why it's still the foundation of ranking on Google
 
 SEO (Search Engine Optimization) is the original discipline: making sure a traditional search engine — Google, Bing — can find, understand and rank your site well. It covers the technical side (an up-to-date sitemap, canonical URLs, complete metadata, load speed) and the structural side (a clear heading hierarchy, internal links connecting related content, no orphaned pages).
 
@@ -4150,19 +4150,19 @@ AEO (Answer Engine Optimization) means optimizing so your content becomes THE di
 
 The concrete way to work on AEO is content in explicit question-and-answer format, with \`FAQPage\` structured data telling the search engine "this specific question has this specific answer," and short, quotable definitions at the start of each section — not a paragraph of context before you get to the point.
 
-## What is GEO and how to get cited by ChatGPT, Perplexity and Google's AI Overviews
+## What is GEO (Generative Engine Optimization) and how to get cited by ChatGPT, Perplexity and Google's AI Overviews
 
 GEO (Generative Engine Optimization) is the newest of the five, and the one most businesses still understand the least. It's about optimizing so tools like ChatGPT, Gemini, Claude, Perplexity or Google's AI Overviews mention or cite you when someone asks them something related to what you do — each of these generative AIs crawls and prioritizes information differently, but they all reward the same thing: clear, verifiable, well-structured data.
 
 Unlike classic SEO, there's no ranking of ten positions here — either you get cited, or you don't exist in that answer. What improves your odds: content with specific, verifiable facts (not generic claims), complete structured data (\`Organization\`, \`Service\`, \`Article\`), and consistency — if your site says one thing on one page and something different on another, a generative model has no way to know which is true, and when in doubt, it won't cite you.
 
-## What is SXO and why mobile site speed affects your ranking too
+## What is SXO (Search Experience Optimization) and why mobile site speed affects your ranking too
 
 SXO (Search Experience Optimization) merges SEO with user experience: it's not enough for someone to REACH your site, they have to stay, understand, and move forward. Google measures this with Core Web Vitals — concrete metrics like LCP (how fast the main content appears) and INP (how fast the site responds when someone interacts with it) — and penalizes sites that fail there, even when the content itself is good.
 
 In practice, it's the easiest discipline to accidentally wreck: a misconfigured analytics script, an unoptimized image, or a menu that's slow to open on mobile can cost you rankings you earned with good content.
 
-## What is AIO and how to optimize your site so AI systems understand it
+## What is AIO (AI Optimization) and how to optimize your site so AI systems understand it
 
 AIO (AI Optimization) is the broadest of the five: making sure any AI system — an assistant, an agent, another company's internal tool — can read, interpret and correctly use your site's information. It rests on complete, consistent structured data, semantically clear content, and specific tools like the \`llms.txt\` file, built exactly for this purpose — we cover it in detail in [what llms.txt is and why your site needs it](/en/blog/llms-txt-contexto-para-interpretacion-ia).
 
