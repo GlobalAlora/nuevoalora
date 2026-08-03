@@ -715,6 +715,32 @@ export const CASE_STUDIES: CaseStudyData[] = [
     icon: "api",
     url: "https://nuevodistrisal.globalalora.com/",
     theme: { primary: "var(--electric)", secondary: "var(--violet)" },
+    heroImage: "/images/case-studies/distrisal/hero.png",
+    heroImageAspect: "1863/836",
+    heroImageMobile: "/images/case-studies/distrisal/hero-mobile.jpeg",
+    heroImageMobileAspect: "736/1600",
+    screenshots: [
+      {
+        src: "/images/case-studies/distrisal/featured-product.png",
+        alt: { es: "Producto destacado con precios visibles solo para clientes registrados", en: "Featured product with prices visible only to registered clients" },
+      },
+      {
+        src: "/images/case-studies/distrisal/categories.png",
+        alt: { es: "Categorías principales del catálogo: sanitarios, electricidad, tejidos plásticos y ferretería", en: "Main catalog categories: plumbing, electrical, plastic textiles and hardware" },
+      },
+      {
+        src: "/images/case-studies/distrisal/catalog-filters.png",
+        alt: { es: "Listado de productos con filtros por precio y categoría", en: "Product listing with filters by price and category" },
+      },
+      {
+        src: "/images/case-studies/distrisal/contact.png",
+        alt: { es: "Página de contacto con formulario y datos del negocio", en: "Contact page with form and business information" },
+      },
+      {
+        src: "/images/case-studies/distrisal/faq.png",
+        alt: { es: "Preguntas frecuentes sobre envíos, pagos y compras", en: "Frequently asked questions about shipping, payments and orders" },
+      },
+    ],
     location: { es: "Argentina", en: "Argentina" },
     industry: { es: "Ferretería y electricidad (mayorista)", en: "Wholesale hardware & electrical" },
     category: { es: "Ecommerce / Integración de Sistemas", en: "Ecommerce / Systems Integration" },
