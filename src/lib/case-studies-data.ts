@@ -1072,6 +1072,127 @@ export const CASE_STUDIES: CaseStudyData[] = [
       role: "Fundadora de Mimi Kids",
     },
   },
+  {
+    slug: "escribania-jalil",
+    client: "Escribanía Jalil",
+    icon: "shield",
+    url: "https://escribaniajalil.com/",
+    theme: { primary: "var(--violet)", secondary: "var(--turquoise)" },
+    heroImage: "/images/case-studies/escribania-jalil/hero.png",
+    heroImageAspect: "1463/710",
+    heroImageMobile: "/images/case-studies/escribania-jalil/hero-mobile.jpeg",
+    heroImageMobileAspect: "736/1600",
+    location: { es: "Cerro de las Rosas, Córdoba, Argentina", en: "Cerro de las Rosas, Córdoba, Argentina" },
+    industry: { es: "Escribanía / Servicios notariales", en: "Notary / Legal services" },
+    category: { es: "Sitio Web One Page", en: "One-Page Website" },
+    meta: {
+      es: {
+        title: "Caso de éxito: Escribanía Jalil | ALORA",
+        desc: "Cómo diseñamos y desarrollamos el sitio web de Escribanía Jalil, un estudio notarial en Córdoba, con reseñas de Google en vivo y contacto directo por WhatsApp.",
+      },
+      en: {
+        title: "Case study: Escribanía Jalil | ALORA",
+        desc: "How we designed and developed the website for Escribanía Jalil, a notary practice in Córdoba, with live Google reviews and direct WhatsApp contact.",
+      },
+    },
+    hero: {
+      es: {
+        badge: "Caso de éxito",
+        title: "Cómo Escribanía Jalil transmite seguridad jurídica desde la web",
+        sub: "Diseñamos y desarrollamos un sitio web one page en WordPress para Escribanía Jalil, con reseñas de Google en vivo, un proceso de trabajo explicado paso a paso y contacto directo por WhatsApp, teléfono y formulario.",
+      },
+      en: {
+        badge: "Case study",
+        title: "How Escribanía Jalil conveys legal certainty online",
+        sub: "We designed and developed a one-page WordPress website for Escribanía Jalil, with live Google reviews, a step-by-step work process and direct contact by WhatsApp, phone and form.",
+      },
+    },
+    challenge: {
+      es: {
+        heading: "La confianza es el corazón de una escribanía, pero no se transmite sin presencia digital.",
+        body: "Escribanía Jalil ofrece un servicio que depende enteramente de la confianza: escrituras, poderes, sucesiones y actos que requieren fe pública. Pero esa confianza —la atención personalizada, el criterio profesional, la seguridad jurídica en cada trámite— no se transmite sola. Sin un sitio propio, quien buscaba un escribano en Cerro de las Rosas no tenía forma de conocer los servicios, entender el proceso de trabajo ni ver las opiniones reales de otros clientes antes de dar el primer paso.",
+        points: [
+          { icon: "shield", text: "La seguridad jurídica y la atención personalizada son el valor central del estudio, pero no había forma de transmitirlas sin un sitio propio" },
+          { icon: "layers", text: "Servicios técnicos y variados —escrituras, certificaciones, poderes, sucesiones, actas y asesoramiento— difíciles de explicar sin caer en tecnicismos" },
+          { icon: "chat", text: "Cada trámite genera dudas puntuales que necesitan una respuesta rápida, antes incluso de sacar un turno" },
+          { icon: "target", text: "El objetivo no era una web informativa más, sino un canal que transmita confianza y filtre consultas calificadas antes de la cita presencial" },
+        ],
+      },
+      en: {
+        heading: "Trust is the heart of a notary practice, but it doesn't come across without a digital presence.",
+        body: "Escribanía Jalil offers a service that depends entirely on trust: deeds, powers of attorney, estate proceedings and acts that require notarial certification. But that trust — personalized attention, professional judgment, legal certainty at every step — doesn't come across on its own. Without its own website, anyone looking for a notary in Cerro de las Rosas had no way to learn about the services, understand the work process, or see real client reviews before taking the first step.",
+        points: [
+          { icon: "shield", text: "Legal certainty and personalized attention are the practice's core value, but there was no way to convey them without its own website" },
+          { icon: "layers", text: "Technical, varied services — deeds, certifications, powers of attorney, estate proceedings, notarial acts and legal advice — hard to explain without jargon" },
+          { icon: "chat", text: "Every procedure raises specific questions that need a fast answer, even before booking an appointment" },
+          { icon: "target", text: "The goal wasn't another informational website, but a channel that conveys trust and filters qualified inquiries before the in-person appointment" },
+        ],
+      },
+    },
+    solution: {
+      es: {
+        heading: "Un sitio one page que explica los servicios, muestra reseñas reales de Google en vivo y ordena cada consulta.",
+        intro: "Un sitio pensado para transmitir seguridad jurídica desde el primer segundo, con reseñas reales, un proceso de trabajo explicado paso a paso y contacto directo por WhatsApp, teléfono o formulario.",
+        items: [
+          { icon: "shield", title: "Reseñas de Google en vivo", body: "Plugin propio que conecta la Business Profile API de Google para mostrar las reseñas reales del estudio, actualizadas automáticamente y con el mismo diseño del resto del sitio.", highlight: true },
+          { icon: "structure", title: "Servicios explicados sin tecnicismos", body: "Escrituras, certificaciones, poderes, sucesiones, actas notariales y asesoramiento, organizados en secciones claras con los trámites específicos de cada una." },
+          { icon: "layers", title: "Proceso de trabajo en cinco pasos", body: "Desde el contacto inicial hasta la inscripción registral, para que el cliente sepa en qué etapa está su trámite y qué sigue." },
+          { icon: "chat", title: "Tres canales de contacto", body: "WhatsApp, teléfono y formulario, para que cada consulta llegue por el canal que el cliente prefiera." },
+          { icon: "portal", title: "Ubicación y llegada claras", body: "Mapa, dirección, horario y cómo llegar a la oficina en Cerro de las Rosas, sin fricción para coordinar una visita." },
+          { icon: "design", title: "Identidad editorial propia", body: "Tipografía serif y mono, paleta grafito y fotografía propia: una estética seria y profesional, sin plantillas genéricas." },
+          { icon: "code", title: "WordPress 100% autogestionable", body: "Tema a medida armado en bloques editables: el estudio actualiza textos e imágenes sin depender de un desarrollador." },
+          { icon: "controls", title: "Datos del estudio centralizados", body: "WhatsApp, teléfono, dirección, horario y escribanas configurados en una sola pantalla de opciones, sin repetir información en distintas partes del sitio." },
+        ],
+      },
+      en: {
+        heading: "A one-page site that explains the services, shows live real Google reviews and organizes every inquiry.",
+        intro: "A site designed to convey legal certainty from the first second, with real reviews, a step-by-step work process and direct contact by WhatsApp, phone or form.",
+        items: [
+          { icon: "shield", title: "Live Google reviews", body: "A custom plugin that connects Google's Business Profile API to show the practice's real reviews, updated automatically and styled like the rest of the site.", highlight: true },
+          { icon: "structure", title: "Services explained without jargon", body: "Deeds, certifications, powers of attorney, estate proceedings, notarial acts and legal advice, organized into clear sections with each one's specific procedures." },
+          { icon: "layers", title: "A five-step work process", body: "From first contact to registry filing, so the client knows exactly what stage their procedure is at and what comes next." },
+          { icon: "chat", title: "Three contact channels", body: "WhatsApp, phone and a form, so every inquiry comes in through the channel the client prefers." },
+          { icon: "portal", title: "Clear location and directions", body: "Map, address, hours and how to get to the office in Cerro de las Rosas, with no friction to schedule a visit." },
+          { icon: "design", title: "A distinct editorial identity", body: "Serif and mono typography, a graphite palette and original photography: a serious, professional look, with no generic templates." },
+          { icon: "code", title: "Fully self-manageable WordPress", body: "A custom theme built in editable blocks: the practice updates text and images without depending on a developer." },
+          { icon: "controls", title: "Practice data centralized", body: "WhatsApp, phone, address, hours and notaries configured in a single settings screen, instead of repeated across the site." },
+        ],
+      },
+    },
+    techStack: [
+      { name: "WordPress", icon: "code", body: { es: "Tema a medida (jaliltheme) armado en bloques editables, sin depender de un builder de terceros.", en: "Custom theme (jaliltheme) built in editable blocks, with no third-party page builder." } },
+      { name: "Google Business Profile API", icon: "shield", body: { es: "Plugin propio con OAuth para traer reseñas reales de Google en vivo.", en: "Custom plugin with OAuth to pull real, live Google reviews." } },
+      { name: "Contact Form 7", icon: "chat", body: { es: "Formulario de contacto con emails de diseño propio para el estudio y para el cliente.", en: "Contact form with custom-designed emails for both the practice and the client." } },
+    ],
+    scopeDelivered: {
+      es: {
+        heading: "Un sitio one page listo para transmitir confianza desde el primer clic",
+        intro: "En menos de dos semanas pasamos de no tener presencia digital a un sitio en producción, con reseñas en vivo y despliegue automático a cada cambio — no como un paso pendiente.",
+        items: [
+          "Sitio one page completo en producción, con Hero, Servicios, Nosotros, Proceso, Reseñas, Ubicación y Contacto armados en bloques editables desde WordPress",
+          "Reseñas de Google en vivo mediante un plugin propio (Places API + Business Profile API con OAuth), sin depender de capturas ni testimonios estáticos",
+          "Formulario de contacto con Contact Form 7 y emails con diseño propio, tanto para la notificación al estudio como para la autorespuesta al cliente",
+          "Datos del estudio centralizados en una sola pantalla de opciones: WhatsApp, teléfono, dirección, horario y escribanas",
+          "Despliegue continuo vía GitHub Actions a cada push a staging, sin necesidad de entrar al hosting para actualizar el sitio",
+          "Diseño responsive con identidad editorial propia y animaciones de entrada al hacer scroll",
+        ],
+      },
+      en: {
+        heading: "A one-page site ready to convey trust from the first click",
+        intro: "In under two weeks we went from no digital presence to a live site in production, with live reviews and automatic deployment on every change — not as a pending step.",
+        items: [
+          "Complete one-page site in production, with Hero, Services, About, Process, Reviews, Location and Contact built in editable blocks from WordPress",
+          "Live Google reviews through a custom plugin (Places API + Business Profile API with OAuth), with no reliance on screenshots or static testimonials",
+          "Contact form with Contact Form 7 and custom-designed emails, both for the practice's notification and the client's auto-reply",
+          "Practice data centralized in a single settings screen: WhatsApp, phone, address, hours and notaries",
+          "Continuous deployment via GitHub Actions on every push to staging, with no need to log into hosting to update the site",
+          "Responsive design with a distinct editorial identity and scroll-triggered entrance animations",
+        ],
+      },
+    },
+    duration: { es: "Menos de 2 semanas", en: "Less than 2 weeks" },
+    cta: { es: "Quiero un sitio que transmita confianza", en: "I want a site that conveys trust" },
+  },
 ];
 
 export function getCaseStudy(slug: string): CaseStudyData | undefined {

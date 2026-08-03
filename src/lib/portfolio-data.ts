@@ -69,6 +69,15 @@ export const PORTFOLIO: PortfolioProject[] = [
     en: { desc: "Design and development of a new digital platform accompanying brand evolution in technology, automation and AI." },
   },
   {
+    slug: "escribania-jalil",
+    client: "Escribanía Jalil",
+    url: "https://escribaniajalil.com/",
+    image: "/images/case-studies/escribania-jalil/hero.png",
+    tags: ["Web"],
+    es: { desc: "Sitio one page en WordPress para un estudio notarial en Córdoba, con reseñas de Google en vivo y contacto directo por WhatsApp." },
+    en: { desc: "One-page WordPress site for a notary practice in Córdoba, with live Google reviews and direct WhatsApp contact." },
+  },
+  {
     slug: "fpnn",
     client: "Fundación Por Nuestros Niños",
     url: "http://fpnn.org.ar",

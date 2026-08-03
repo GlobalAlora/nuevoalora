@@ -142,6 +142,7 @@ const es: Dictionary = {
       { slug: "protorneos", client: "Protorneos", desc: "Sitio web desarrollado con HTML5, CSS3 y JavaScript puro para torneos deportivos.", tags: ["Web"] },
       { slug: "tenis-trenque", client: "Tenis de Mesa Trenque", desc: "Sitio web informativo moderno y dinámico desarrollado en React para club deportivo.", tags: ["Web", "App"] },
       { slug: "alkemia", client: "ALKEMIA", desc: "Sitio web informativo corporativo para empresa de soluciones tecnológicas.", tags: ["Web"] },
+      { slug: "escribania-jalil", client: "Escribanía Jalil", desc: "Sitio one page en WordPress para un estudio notarial en Córdoba, con reseñas de Google en vivo y contacto directo por WhatsApp.", tags: ["Web"] },
       { slug: "soy-lidia", client: "Soy LIDIA", desc: "Plataforma web con IA para automatización de atención al cliente y gestión de consultas.", tags: ["IA", "App"] },
       { slug: "fpnn", client: "Fundación por Nuestros Niños", desc: "Sitio web informativo para fundación sin fines de lucro orientado a donaciones.", tags: ["Web"] },
       { slug: "grupo-terra-lauquen", client: "Grupo Terra Lauquen", desc: "Sitio web corporativo para grupo empresarial del sector inmobiliario y agropecuario.", tags: ["Web"] },
