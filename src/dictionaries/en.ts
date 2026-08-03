@@ -139,6 +139,12 @@ const en: Dictionary = {
         name: "Cami",
         role: "Founder of Mimi Kids",
       },
+      {
+        quote: "We loved working with Alora! They're a very professional team, but also very approachable and willing to help. They always look to resolve any situation and give a quick, clear response. Communication is excellent, they explain everything transparently and support you at every stage of the process. Without a doubt, they offer a top-tier service. We recommend them!",
+        tags: ["Approachable team", "Clear communication", "Top-tier service"],
+        name: "Sara",
+        role: "Distri-Sal – Marketing Manager",
+      },
     ],
   },
   reviewForm: {

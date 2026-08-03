@@ -825,6 +825,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     duration: { es: "75 días", en: "75 days" },
     cta: { es: "Quiero un ecommerce integrado a mi sistema", en: "I want an ecommerce integrated with my system" },
+    testimonial: {
+      quote: "¡Nos encantó trabajar con Alora! Son un equipo muy profesional, pero también muy cercano y predispuesto. Siempre buscan resolver cualquier situación y brindar una respuesta rápida y clara. La comunicación es excelente, explican todo de forma transparente y acompañan en cada etapa del proceso. Sin dudas, ofrecen un servicio de primer nivel. ¡Los recomendamos!",
+      name: "Sara",
+      role: "Gerente de Marketing, Distri-Sal",
+    },
   },
   {
     slug: "voutier",

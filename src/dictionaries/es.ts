@@ -207,6 +207,12 @@ const es: Dictionary = {
         name: "Cami",
         role: "Fundadora de Mimi Kids",
       },
+      {
+        quote: "¡Nos encantó trabajar con Alora! Son un equipo muy profesional, pero también muy cercano y predispuesto. Siempre buscan resolver cualquier situación y brindar una respuesta rápida y clara. La comunicación es excelente, explican todo de forma transparente y acompañan en cada etapa del proceso. Sin dudas, ofrecen un servicio de primer nivel. ¡Los recomendamos!",
+        tags: ["Trato cercano", "Comunicación clara", "Servicio de primer nivel"],
+        name: "Sara",
+        role: "Distri-Sal – Gerente de Marketing",
+      },
     ],
   },
   reviewForm: {
