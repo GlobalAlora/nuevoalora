@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "emagro",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "emagro", "run", "dev", "--", "-p", "3001"],
+      "port": 3001
     }
   ]
 }
