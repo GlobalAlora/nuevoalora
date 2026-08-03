@@ -412,6 +412,20 @@ export default async function CaseStudyPage({ params }: Props) {
         {/* Testimonial */}
         {cs.testimonial && (
           <section className="mx-auto max-w-3xl px-6 py-16">
+            <div className="mb-8 text-center">
+              <div
+                className="inline-flex items-center rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white"
+                style={{
+                  background: `linear-gradient(180deg, color-mix(in oklab, ${accent} 80%, var(--ink) 20%), color-mix(in oklab, ${accent} 58%, var(--ink) 42%))`,
+                  boxShadow: `0 1px 0 color-mix(in oklab, white 22%, transparent) inset, 0 8px 20px -10px color-mix(in oklab, ${accent} 55%, transparent), 0 0 0 1px color-mix(in oklab, ${accent} 40%, transparent)`,
+                }}
+              >
+                {l === "es" ? "Testimonio" : "Testimonial"}
+              </div>
+              <h2 className="mt-4 text-balance text-white" style={{ fontSize: "clamp(26px, 3vw, 40px)", fontWeight: 720, lineHeight: 1.1, letterSpacing: "-0.03em" }}>
+                {l === "es" ? "En sus propias palabras" : "In their own words"}
+              </h2>
+            </div>
             <div
               className="relative rounded-2xl p-8"
               style={{ background: `color-mix(in oklab, ${accent} 8%, rgba(255,255,255,0.03))`, border: `1px solid color-mix(in oklab, ${accent} 25%, rgba(255,255,255,0.08))` }}
