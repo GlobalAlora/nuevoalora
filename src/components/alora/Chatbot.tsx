@@ -238,7 +238,7 @@ export function Chatbot({ dict, locale }: Props) {
         botMsg(t.thankYou);
         const conv = newHistory.map((m) => `${m.from === "user" ? "Cliente" : "Bot"}: ${m.text}`).join("\n\n");
         void sendEmailJS({ lead_contact: `Email: ${email}`, lead_type: "Chatbot sin teléfono", conversation: conv, user_message: text, date: new Date().toLocaleString("es-AR") });
-        void sendWebhooks({ nombre: name, email, telefono: "", locale, conversationId: conversationId.current, source: "chatbot", fuente: "chatbot", landingPage: pathname });
+        void sendWebhooks({ nombre: name, email, telefono: "", locale, idioma: locale, conversationId: conversationId.current, source: "chatbot", fuente: "chatbot", landingPage: pathname });
         trackEvent("chatbot_lead", { landing_page: pathname });
         return;
       }
@@ -271,7 +271,7 @@ export function Chatbot({ dict, locale }: Props) {
       botMsg(t.thankYou);
       const conv = newHistory.map((m) => `${m.from === "user" ? "Cliente" : "Bot"}: ${m.text}`).join("\n\n");
       void sendEmailJS({ lead_contact: `Email: ${email}\nTeléfono: ${phone}`, lead_type: "Chatbot completo", conversation: conv, user_message: text, date: new Date().toLocaleString("es-AR") });
-      void sendWebhooks({ nombre: name, email, telefono: phone, locale, conversationId: conversationId.current, source: "chatbot", fuente: "chatbot", landingPage: pathname });
+      void sendWebhooks({ nombre: name, email, telefono: phone, locale, idioma: locale, conversationId: conversationId.current, source: "chatbot", fuente: "chatbot", landingPage: pathname });
       trackEvent("chatbot_lead", { landing_page: pathname });
       return;
     }

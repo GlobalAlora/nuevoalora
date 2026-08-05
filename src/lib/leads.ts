@@ -45,6 +45,7 @@ async function sendToClay(data: LeadData): Promise<void> {
       empresa: data.empresa ?? "",
       consulta: data.mensaje,
       landing_page: data.landingPage ?? "",
+      idioma: data.locale ?? "es",
       fecha_ingreso: new Date().toISOString(),
     }),
   });
@@ -63,6 +64,7 @@ async function sendToMake(data: LeadData): Promise<void> {
       consulta: data.mensaje,
       fuente: data.fuente ?? data.formId,
       landing_page: data.landingPage ?? "",
+      idioma: data.locale ?? "es",
     }),
   });
 }
@@ -82,6 +84,7 @@ async function sendToAloraCRM(data: LeadData): Promise<void> {
       formId: data.formId,
       fuente: data.fuente ?? data.formId,
       landing_page: data.landingPage ?? "",
+      idioma: data.locale ?? "es",
     }),
   });
 }
