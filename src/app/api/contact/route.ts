@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       mensaje: data.mensaje,
       locale,
       formId: "contact-form",
-      fuente: "contact-form",
+      fuente: "formulario",
       landingPage,
     });
     return NextResponse.json({ ok: true });

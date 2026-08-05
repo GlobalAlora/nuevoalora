@@ -18,8 +18,6 @@ export async function POST(req: NextRequest) {
   const data = parsed.data;
   const extra = raw as Record<string, unknown>;
   const locale = extra.locale === "en" ? "en" : "es";
-  const slug = typeof extra.slug === "string" ? extra.slug : "solution";
-  const source = typeof extra.source === "string" ? extra.source : "solucion";
   const landingPage = typeof extra.landingPage === "string" ? extra.landingPage : undefined;
 
   try {
@@ -31,7 +29,7 @@ export async function POST(req: NextRequest) {
       mensaje: data.mensaje,
       locale,
       formId: "solution-contact-form",
-      fuente: `${source}-${slug}`,
+      fuente: "formulario",
       landingPage,
     });
     return NextResponse.json({ ok: true });
