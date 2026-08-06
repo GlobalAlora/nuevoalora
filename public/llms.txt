@@ -33,6 +33,7 @@ Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Node.js, P
 - **ALORA CRM** — CRM propio con IA para gestión de contactos, pipeline de ventas y agente conversacional por WhatsApp
 - **ALKEMIA** — plataforma digital con integración de IA para empresa de tecnología y automatización
 - **Nutriac** — ecommerce 100% custom integrado con sistema PICASSO para clientes registrados
+- **Escribanía Jalil** — sitio one page para estudio notarial en Córdoba, con reseñas de Google en vivo (WordPress)
 - **Castro Yeso, Asesoría Dialogar, Grupo Terra Lauquen** — sitios web de alto impacto con SEO local
 
 ## Blog — Contenido sobre tecnología e IA

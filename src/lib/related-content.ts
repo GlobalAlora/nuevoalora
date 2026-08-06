@@ -29,6 +29,7 @@ const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
   distrisal: [],
   voutier: [],
   mimikids: [],
+  "escribania-jalil": ["landing-page-vs-sitio-web", "chatbot-whatsapp-para-empresas"],
 };
 
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
