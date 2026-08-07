@@ -63,6 +63,7 @@ const en: Dictionary = {
       { slug: "tenis-trenque", client: "Tenis de Mesa Trenque", desc: "Modern informational website built in React for a sports club.", tags: ["Web", "App"] },
       { slug: "alkemia", client: "ALKEMIA", desc: "Corporate informational website for a technology solutions company.", tags: ["Web"] },
       { slug: "escribania-jalil", client: "Escribanía Jalil", desc: "One-page WordPress site for a notary practice in Córdoba, with live Google reviews and direct WhatsApp contact.", tags: ["Web"] },
+      { slug: "tony-piorno", client: "Tony Piorno", desc: "Digital media kit for a content creator, with live metrics, segmented audience data and a brand proposal form.", tags: ["Web"] },
       { slug: "soy-lidia", client: "Soy LIDIA", desc: "AI-powered web platform for automated customer service and query management.", tags: ["AI", "App"] },
       { slug: "fpnn", client: "Fundación por Nuestros Niños", desc: "Informational website for a non-profit foundation focused on donations.", tags: ["Web"] },
       { slug: "grupo-terra-lauquen", client: "Grupo Terra Lauquen", desc: "Corporate website for a real estate and agricultural business group.", tags: ["Web"] },

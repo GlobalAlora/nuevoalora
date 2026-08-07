@@ -233,6 +233,15 @@ export const PORTFOLIO: PortfolioProject[] = [
     es: { desc: "Plataforma tecnológica con integración de IA para automatización de procesos y atención al cliente inteligente." },
     en: { desc: "Technology platform with AI integration for process automation and intelligent customer service." },
   },
+  {
+    slug: "tony-piorno",
+    client: "Tony Piorno",
+    url: "https://www.tonypiorno.com.ar/",
+    image: "/images/case-studies/tony-piorno/hero.png",
+    tags: ["Web", "Branding"],
+    es: { desc: "Media kit digital para creador de contenido, con métricas en vivo, audiencia segmentada y formulario de propuestas para marcas." },
+    en: { desc: "Digital media kit for a content creator, with live metrics, segmented audience data and a brand proposal form." },
+  },
 ]
 
 export type ProjectCategory = "all" | "web" | "ecommerce" | "app" | "ia"

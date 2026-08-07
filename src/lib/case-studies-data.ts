@@ -1224,6 +1224,139 @@ export const CASE_STUDIES: CaseStudyData[] = [
     duration: { es: "Menos de 2 semanas", en: "Less than 2 weeks" },
     cta: { es: "Quiero un sitio que transmita confianza", en: "I want a site that conveys trust" },
   },
+  {
+    slug: "tony-piorno",
+    client: "Tony Piorno",
+    icon: "chart",
+    url: "https://www.tonypiorno.com.ar/",
+    theme: { primary: "var(--turquoise)", secondary: "var(--electric)" },
+    heroImage: "/images/case-studies/tony-piorno/hero.png",
+    heroImageAspect: "1506/723",
+    screenshots: [
+      {
+        src: "/images/case-studies/tony-piorno/live-metrics.png",
+        alt: { es: "Métricas en vivo: seguidores, likes totales y alcance promedio por video", en: "Live metrics: followers, total likes and average views per video" },
+      },
+      {
+        src: "/images/case-studies/tony-piorno/content-formats.png",
+        alt: { es: "Cuatro pilares de contenido con ejemplos en video", en: "Four content pillars with video examples" },
+      },
+      {
+        src: "/images/case-studies/tony-piorno/audience-demographics.png",
+        alt: { es: "Audiencia segmentada por edad, género y ubicación", en: "Audience segmented by age, gender and location" },
+      },
+    ],
+    location: { es: "La Plata, Buenos Aires, Argentina", en: "La Plata, Buenos Aires, Argentina" },
+    industry: { es: "Creador de contenido / Influencer marketing", en: "Content creator / Influencer marketing" },
+    category: { es: "Media Kit Digital", en: "Digital Media Kit" },
+    meta: {
+      es: {
+        title: "Caso de éxito: Tony Piorno | ALORA",
+        desc: "Cómo diseñamos el media kit digital de Tony Piorno, con métricas en vivo, audiencia segmentada y un formulario de propuestas para marcas.",
+      },
+      en: {
+        title: "Case study: Tony Piorno | ALORA",
+        desc: "How we designed Tony Piorno's digital media kit, with live metrics, segmented audience data and a brand proposal form.",
+      },
+    },
+    hero: {
+      es: {
+        badge: "Caso de éxito",
+        title: "Cómo Tony Piorno convirtió sus redes en una herramienta comercial",
+        sub: "Diseñamos y desarrollamos el media kit digital de Tony Piorno, con métricas en vivo, audiencia segmentada por edad, género y ubicación, casos de colaboraciones anteriores y un formulario de propuestas para marcas.",
+      },
+      en: {
+        badge: "Case study",
+        title: "How Tony Piorno turned his social reach into a business tool",
+        sub: "We designed and developed Tony Piorno's digital media kit, with live metrics, audience data segmented by age, gender and location, past brand collaborations and a proposal form for brands.",
+      },
+    },
+    challenge: {
+      es: {
+        heading: "Una carpeta de capturas de pantalla no alcanza para que una marca confíe en una colaboración.",
+        body: "Tony Piorno construyó una comunidad de más de 430K seguidores entre TikTok e Instagram con humor cotidiano, vida universitaria y contenido de lifestyle. Pero cuando una marca evalúa una colaboración, no alcanza con mandar capturas de pantalla de las métricas o un link a los perfiles: necesita ver alcance real, audiencia y casos anteriores organizados en un solo lugar, actualizados y verificables.",
+        points: [
+          { icon: "chart", text: "Las métricas de alcance vivían dispersas entre capturas de pantalla y las estadísticas de cada plataforma por separado" },
+          { icon: "puzzle", text: "Sin datos de audiencia organizados por edad, género y ubicación, a una marca le cuesta evaluar si el público encaja con su producto" },
+          { icon: "portal", text: "Las colaboraciones anteriores no estaban documentadas en ningún lugar accesible para una marca nueva" },
+          { icon: "target", text: "El objetivo no era una landing más, sino una herramienta que acelere la decisión de una marca antes de escribir por WhatsApp o email" },
+        ],
+      },
+      en: {
+        heading: "A folder of screenshots isn't enough for a brand to trust a collaboration.",
+        body: "Tony Piorno built a community of over 430K followers across TikTok and Instagram with everyday humor, university life and lifestyle content. But when a brand evaluates a collaboration, sending metric screenshots or a profile link isn't enough: it needs real reach, audience data and past campaigns organized in one place, up to date and verifiable.",
+        points: [
+          { icon: "chart", text: "Reach metrics lived scattered across screenshots and each platform's own separate stats" },
+          { icon: "puzzle", text: "Without audience data organized by age, gender and location, a brand struggles to tell if the audience fits its product" },
+          { icon: "portal", text: "Past collaborations weren't documented anywhere accessible to a new brand" },
+          { icon: "target", text: "The goal wasn't another landing page, but a tool that speeds up a brand's decision before reaching out over WhatsApp or email" },
+        ],
+      },
+    },
+    solution: {
+      es: {
+        heading: "Un media kit con métricas en vivo, audiencia segmentada y un formulario que califica cada propuesta.",
+        intro: "Un sitio pensado como herramienta comercial: todo lo que una marca necesita para decidir una colaboración, sin tener que pedirlo por mensaje.",
+        items: [
+          { icon: "chart", title: "Métricas en vivo, con fecha de actualización", body: "Seguidores, likes totales y alcance promedio por video, sincronizados automáticamente y con la fecha de la última actualización a la vista.", highlight: true },
+          { icon: "structure", title: "Audiencia segmentada por edad, género y ubicación", body: "Gráficos con la demografía real de la comunidad en TikTok, para que una marca vea de un vistazo si el público encaja con su producto." },
+          { icon: "layers", title: "Cuatro pilares de contenido, con hashtags", body: "Lifestyle, unboxing, vida universitaria y humor — cada formato explicado con ejemplos, listo para adaptarse a un brief." },
+          { icon: "portal", title: "Casos de colaboraciones anteriores", body: "Marcas, tipo de campaña y resultado en una línea — de post único a ambassador de largo plazo." },
+          { icon: "search", title: "FAQ pensada para una marca, no para un fan", body: "Quién es, cuántos seguidores tiene, cuánto cobra y cómo contactarlo — las preguntas que una marca hace antes de escribir." },
+          { icon: "controls", title: "Formulario de propuestas con presupuesto y tipo de campaña", body: "Un brief estructurado con rango de presupuesto, plataformas y fecha estimada, para que cada propuesta llegue calificada." },
+          { icon: "design", title: "Identidad visual propia", body: "Estética oscura con acento verde lima, tipografía bold y galería de fotos reales — nada de plantillas genéricas de linktree." },
+          { icon: "mobile", title: "100% responsive, pensado para llegar desde Instagram", body: "La mayoría del tráfico llega desde el link en bio — el sitio está optimizado para verse igual de bien desde el celular." },
+        ],
+      },
+      en: {
+        heading: "A media kit with live metrics, segmented audience data and a form that qualifies every proposal.",
+        intro: "A site designed as a business tool: everything a brand needs to decide on a collaboration, without having to ask for it over DM.",
+        items: [
+          { icon: "chart", title: "Live metrics, with an update date", body: "Followers, total likes and average views per video, synced automatically with the last update date visible on the page.", highlight: true },
+          { icon: "structure", title: "Audience segmented by age, gender and location", body: "Charts with the real demographics of the TikTok community, so a brand can see at a glance whether the audience fits its product." },
+          { icon: "layers", title: "Four content pillars, with hashtags", body: "Lifestyle, unboxing, university life and humor — each format explained with examples, ready to adapt to a brief." },
+          { icon: "portal", title: "Past collaboration case studies", body: "Brands, campaign type and result in a single line — from a one-off post to a long-term ambassadorship." },
+          { icon: "search", title: "An FAQ written for a brand, not a fan", body: "Who he is, how many followers he has, what he charges and how to reach him — the questions a brand asks before reaching out." },
+          { icon: "controls", title: "Proposal form with budget and campaign type", body: "A structured brief with budget range, platforms and estimated date, so every proposal arrives pre-qualified." },
+          { icon: "design", title: "A distinct visual identity", body: "Dark aesthetic with a lime-green accent, bold typography and a real photo gallery — no generic link-in-bio templates." },
+          { icon: "mobile", title: "Fully responsive, built for traffic from Instagram", body: "Most traffic arrives from the link in bio — the site is optimized to look just as good from a phone." },
+        ],
+      },
+    },
+    techStack: [
+      { name: "Next.js", icon: "code", body: { es: "Frontend rápido, animado y optimizado para SEO.", en: "Fast, animated, SEO-optimized frontend." } },
+      { name: "Sync de métricas", icon: "api", body: { es: "Actualización periódica de seguidores, likes y alcance desde las plataformas de origen.", en: "Periodic sync of followers, likes and reach from the source platforms." } },
+      { name: "Vercel", icon: "speed", body: { es: "Hosting con despliegue continuo.", en: "Hosting with continuous deployment." } },
+    ],
+    scopeDelivered: {
+      es: {
+        heading: "Un media kit listo para recibir propuestas de marcas",
+        intro: "En menos de dos semanas pasamos de un perfil disperso en redes a una herramienta comercial propia, con métricas verificables y un formulario que filtra cada propuesta antes de que llegue por privado.",
+        items: [
+          "Media kit completo en producción: hero, métricas, audiencia, formatos de contenido, casos anteriores, FAQ y formulario de propuestas",
+          "Métricas en vivo (seguidores, likes, alcance promedio) con fecha de última actualización visible",
+          "Segmentación de audiencia por edad, género y ubicación, con datos oficiales de TikTok Studio",
+          "Showcase de colaboraciones anteriores con marcas como Shein, Adrenaline, Luqstoff, Firmoo y Suprabond",
+          "Formulario de propuestas con presupuesto estimado, tipo de campaña y plataformas de interés",
+          "Diseño responsive con identidad visual propia, pensado para el tráfico que llega desde Instagram y TikTok",
+        ],
+      },
+      en: {
+        heading: "A media kit ready to receive brand proposals",
+        intro: "In under two weeks we went from a scattered social media presence to a business tool of his own, with verifiable metrics and a form that filters every proposal before it lands in his DMs.",
+        items: [
+          "Complete media kit in production: hero, metrics, audience, content formats, past collaborations, FAQ and proposal form",
+          "Live metrics (followers, likes, average reach) with the last update date visible",
+          "Audience segmented by age, gender and location, with official TikTok Studio data",
+          "Showcase of past collaborations with brands like Shein, Adrenaline, Luqstoff, Firmoo and Suprabond",
+          "Proposal form with estimated budget, campaign type and platforms of interest",
+          "Responsive design with a distinct visual identity, built for traffic arriving from Instagram and TikTok",
+        ],
+      },
+    },
+    duration: { es: "Menos de 2 semanas", en: "Less than 2 weeks" },
+    cta: { es: "Quiero un media kit así", en: "I want a media kit like this" },
+  },
 ];
 
 export function getCaseStudy(slug: string): CaseStudyData | undefined {

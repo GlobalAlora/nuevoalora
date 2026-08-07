@@ -30,6 +30,7 @@ const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
   voutier: [],
   mimikids: [],
   "escribania-jalil": ["landing-page-vs-sitio-web", "chatbot-whatsapp-para-empresas"],
+  "tony-piorno": ["landing-page-vs-sitio-web"],
 };
 
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
