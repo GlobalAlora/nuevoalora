@@ -13,7 +13,7 @@ const CASE_STUDY_BY_SLUG = new Map(CASE_STUDIES.map((cs) => [cs.slug, cs]));
 const VISIBLE_COUNT = 3;
 
 const CASE_IMAGES: Record<string, string> = {
-  "autodux": "/images/case-studies/autodux/hero.png",
+  "autodux": "/images/case-studies/autodux/autodux-hero.png",
   "escribania-jalil": "/images/case-studies/escribania-jalil/escribania-jalil-hero.png",
   "tony-piorno": "/images/case-studies/tony-piorno/tony-piorno-hero.png",
   "castro-yeso": "/images/castroweb.png",

@@ -31,7 +31,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   chatbots: [
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/hero.png",
+      image: "/images/case-studies/soy-lidia/soy-lidia-hero.png",
       imageAspect: "1600/1542",
       imageAlt: "Soy LIDIA",
       badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
@@ -50,7 +50,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "alora-crm",
-      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      image: "/images/case-studies/alora-crm/alora-crm-whatsapp-inbox.png",
       imageAspect: "1660/850",
       imageAlt: "ALORA CRM — Chatbot IA por WhatsApp",
       badge: { es: "Caso de Éxito · Chatbots IA", en: "Case Study · AI Chatbots" },
@@ -71,7 +71,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   "atencion-cliente-ia": [
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/hero.png",
+      image: "/images/case-studies/soy-lidia/soy-lidia-hero.png",
       imageAspect: "1600/1542",
       imageAlt: "Soy LIDIA",
       badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
@@ -90,7 +90,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "alora-crm",
-      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      image: "/images/case-studies/alora-crm/alora-crm-whatsapp-inbox.png",
       imageAspect: "1660/850",
       imageAlt: "ALORA CRM — Agente Conversacional IA por WhatsApp",
       badge: { es: "Caso de Éxito · Agentes Conversacionales IA", en: "Case Study · AI Conversational Agents" },
@@ -111,7 +111,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   "experiencia-cliente-ia": [
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/hero.png",
+      image: "/images/case-studies/soy-lidia/soy-lidia-hero.png",
       imageAspect: "1600/1542",
       imageAlt: "Soy LIDIA",
       badge: { es: "Caso de Éxito · Atención y Experiencia de Cliente IA", en: "Case Study · AI Customer Care & Experience" },
@@ -130,7 +130,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "alora-crm",
-      image: "/images/case-studies/alora-crm/whatsapp-inbox.png",
+      image: "/images/case-studies/alora-crm/alora-crm-whatsapp-inbox.png",
       imageAspect: "1660/850",
       imageAlt: "ALORA CRM — Atención y Experiencia de Cliente IA por WhatsApp",
       badge: { es: "Caso de Éxito · Atención y Experiencia de Cliente IA", en: "Case Study · AI Customer Care & Experience" },
@@ -187,7 +187,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "mimikids",
-      image: "/images/case-studies/mimikids/hero-v2.png",
+      image: "/images/case-studies/mimikids/mimikids-hero-v2.png",
       imageAspect: "1914/942",
       imageAlt: "Mimi Kids",
       badge: { es: "Caso de Éxito · Ecommerce", en: "Case Study · Ecommerce" },
@@ -208,7 +208,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   "desarrollo-web": [
     {
       caseSlug: "alkemia",
-      image: "/images/case-studies/alkemia/hero.png",
+      image: "/images/case-studies/alkemia/alkemia-hero.png",
       imageAspect: "1400/697",
       imageAlt: "ALKEMIA",
       badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
@@ -227,7 +227,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "castro-yeso",
-      image: "/images/case-studies/castro-yeso/hero.png",
+      image: "/images/case-studies/castro-yeso/castro-yeso-hero.png",
       imageAspect: "1063/635",
       imageAlt: "Castro Yeso",
       badge: { es: "Caso de Éxito · Desarrollo Web", en: "Case Study · Web Development" },
@@ -248,7 +248,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   "desarrollo-software": [
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/hero.png",
+      image: "/images/case-studies/soy-lidia/soy-lidia-hero.png",
       imageAspect: "1600/1542",
       imageAlt: "Soy LIDIA",
       badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
@@ -267,7 +267,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "alora-crm",
-      image: "/images/case-studies/alora-crm/hero.png",
+      image: "/images/case-studies/alora-crm/alora-crm-hero.png",
       imageAspect: "1400/613",
       imageAlt: "ALORA CRM",
       badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
@@ -286,7 +286,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "autodux",
-      image: "/images/case-studies/autodux/hero.png",
+      image: "/images/case-studies/autodux/autodux-hero.png",
       imageAspect: "1144/694",
       imageAlt: "Autodux",
       badge: { es: "Caso de Éxito · Desarrollo de Software", en: "Case Study · Custom Software Development" },
@@ -307,7 +307,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
   "aplicaciones-web": [
     {
       caseSlug: "alora-crm",
-      image: "/images/case-studies/alora-crm/mobile-pipeline.png",
+      image: "/images/case-studies/alora-crm/alora-crm-mobile-pipeline.png",
       imageAspect: "390/795",
       imageAlt: "ALORA CRM en celular",
       frame: "phone",
@@ -327,7 +327,7 @@ const CASE_STUDY_HIGHLIGHT: Record<string, CaseStudyHighlightItem[]> = {
     },
     {
       caseSlug: "soy-lidia",
-      image: "/images/case-studies/soy-lidia/web-reports.png",
+      image: "/images/case-studies/soy-lidia/soy-lidia-web-reports.png",
       imageAspect: "390/973",
       imageAlt: "LIDIA en celular",
       frame: "phone",
