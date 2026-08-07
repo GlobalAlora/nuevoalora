@@ -220,6 +220,12 @@ const es: Dictionary = {
         name: "Tony Piorno",
         role: "Dueño de marca",
       },
+      {
+        quote: "Recomiendo al 100% los servicios de Alora. Desde el asesoramiento inicial y la reunión de relevamiento hasta la página web final que me entregaron, el proceso tuvo mucho acompañamiento no solo técnico sino estratégico para que mi Escribanía tenga una página web de acuerdo a los servicios y los valores con los que trabajamos. Actualmente estamos haciendo campañas de Google Ads a la página web y funciona a la perfección. Trabajar con Walo y Bruno fue un acierto y lo recomiendo.",
+        tags: ["Acompañamiento estratégico", "Google Ads funcionando", "Recomendado al 100%"],
+        name: "María Grazia Jalil",
+        role: "Escribana — Escribanía Jalil",
+      },
     ],
   },
   reviewForm: {

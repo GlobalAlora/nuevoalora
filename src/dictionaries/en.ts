@@ -152,6 +152,12 @@ const en: Dictionary = {
         name: "Tony Piorno",
         role: "Brand owner",
       },
+      {
+        quote: "I fully recommend Alora's services. From the initial consultation and the discovery meeting to the final website they delivered, the process included real support — not just technical, but strategic — so my notary practice would have a website matching the services and values we work by. We're currently running Google Ads campaigns to the site and it's working perfectly. Working with Walo and Bruno was the right call, and I recommend them.",
+        tags: ["Strategic support", "Google Ads performing well", "100% recommended"],
+        name: "María Grazia Jalil",
+        role: "Notary — Escribanía Jalil",
+      },
     ],
   },
   reviewForm: {

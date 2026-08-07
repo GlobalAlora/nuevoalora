@@ -1223,6 +1223,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     duration: { es: "Menos de 2 semanas", en: "Less than 2 weeks" },
     cta: { es: "Quiero un sitio que transmita confianza", en: "I want a site that conveys trust" },
+    testimonial: {
+      quote: "Recomiendo al 100% los servicios de Alora. Desde el asesoramiento inicial y la reunión de relevamiento hasta la página web final que me entregaron, el proceso tuvo mucho acompañamiento no solo técnico sino estratégico para que mi Escribanía tenga una página web de acuerdo a los servicios y los valores con los que trabajamos. Actualmente estamos haciendo campañas de Google Ads a la página web y funciona a la perfección. Trabajar con Walo y Bruno fue un acierto y lo recomiendo.",
+      name: "María Grazia Jalil",
+      role: "Escribana, Escribanía Jalil",
+    },
   },
   {
     slug: "tony-piorno",
