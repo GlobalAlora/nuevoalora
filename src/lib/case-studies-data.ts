@@ -1362,6 +1362,11 @@ export const CASE_STUDIES: CaseStudyData[] = [
     },
     duration: { es: "Menos de 2 semanas", en: "Less than 2 weeks" },
     cta: { es: "Quiero un media kit así", en: "I want a media kit like this" },
+    testimonial: {
+      quote: "Quería una web para que las marcas pudieran conocer mi trabajo sin tener que andar mandando links y capturas todo el tiempo. En Global Alora entendieron exactamente lo que buscaba y me hicieron una página que quedó increíble. Se actualiza con mis redes en tiempo real, muestra mis colaboraciones y hace que todo se vea mucho más profesional. Siento que hoy cualquier marca que entra entiende enseguida quién soy y cómo trabajo. Unos genios. Se nota que le ponen ganas y que hacen las cosas pensando en lo que realmente necesitás. Los volvería a elegir sin dudar.",
+      name: "Tony Piorno",
+      role: "Dueño de marca",
+    },
   },
 ];
 

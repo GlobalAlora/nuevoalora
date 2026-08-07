@@ -214,6 +214,12 @@ const es: Dictionary = {
         name: "Sara",
         role: "Distri-Sal – Gerente de Marketing",
       },
+      {
+        quote: "Quería una web para que las marcas pudieran conocer mi trabajo sin tener que andar mandando links y capturas todo el tiempo. En Global Alora entendieron exactamente lo que buscaba y me hicieron una página que quedó increíble. Se actualiza con mis redes en tiempo real, muestra mis colaboraciones y hace que todo se vea mucho más profesional. Siento que hoy cualquier marca que entra entiende enseguida quién soy y cómo trabajo. Unos genios. Se nota que le ponen ganas y que hacen las cosas pensando en lo que realmente necesitás. Los volvería a elegir sin dudar.",
+        tags: ["Datos en tiempo real", "Imagen profesional", "Atención personalizada"],
+        name: "Tony Piorno",
+        role: "Dueño de marca",
+      },
     ],
   },
   reviewForm: {

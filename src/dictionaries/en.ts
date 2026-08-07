@@ -146,6 +146,12 @@ const en: Dictionary = {
         name: "Sara",
         role: "Distri-Sal – Marketing Manager",
       },
+      {
+        quote: "I wanted a website so brands could see my work without me having to send links and screenshots all the time. At Global Alora they understood exactly what I was looking for and built me a page that turned out incredible. It updates with my social media in real time, shows my collaborations and makes everything look a lot more professional. I feel like any brand that visits today immediately understands who I am and how I work. Absolute geniuses. You can tell they put real effort in and do things thinking about what you actually need. I'd choose them again without hesitation.",
+        tags: ["Real-time data", "Professional image", "Personalized attention"],
+        name: "Tony Piorno",
+        role: "Brand owner",
+      },
     ],
   },
   reviewForm: {
