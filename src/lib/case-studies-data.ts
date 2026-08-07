@@ -1247,6 +1247,10 @@ export const CASE_STUDIES: CaseStudyData[] = [
         src: "/images/case-studies/tony-piorno/audience-demographics.png",
         alt: { es: "Audiencia segmentada por edad, género y ubicación", en: "Audience segmented by age, gender and location" },
       },
+      {
+        src: "/images/case-studies/tony-piorno/collaborations.png",
+        alt: { es: "Colaboraciones anteriores con marcas como Shein, Adrenaline y Luqstoff", en: "Past collaborations with brands like Shein, Adrenaline and Luqstoff" },
+      },
     ],
     location: { es: "La Plata, Buenos Aires, Argentina", en: "La Plata, Buenos Aires, Argentina" },
     industry: { es: "Creador de contenido / Influencer marketing", en: "Content creator / Influencer marketing" },
