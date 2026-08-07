@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const customTitle = searchParams.get("title")?.slice(0, 120) || null;
 
-  const logoUrl = new URL("/logo-nav-white.png", req.url).toString();
+  const logoUrl = new URL("/alora-logo-nav-white.png", req.url).toString();
   const logoData = await fetch(logoUrl).then((r) => r.arrayBuffer());
   const logoSrc = `data:image/png;base64,${Buffer.from(logoData).toString("base64")}`;
 

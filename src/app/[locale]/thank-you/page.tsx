@@ -52,7 +52,7 @@ export default async function ThankYouPage({ params }: Props) {
           {/* LEFT — confirmation */}
           <div className="text-center lg:text-left">
             <Link href={`/${l}`} className="mb-8 inline-flex items-center gap-2.5 opacity-80 transition-opacity hover:opacity-100">
-              <Image src="/logo-nav-white.png" alt="ALORA" width={110} height={30} className="h-7 w-auto" />
+              <Image src="/alora-logo-nav-white.png" alt="ALORA" width={110} height={30} className="h-7 w-auto" />
             </Link>
 
             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl lg:mx-0 mx-auto"

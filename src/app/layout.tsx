@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo-icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/alora-favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/alora-favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/alora-logo-icon.png", sizes: "512x512", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
-    apple: [{ url: "/logo192.png", sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "mask-icon", url: "/logo-icon.png" }],
+    apple: [{ url: "/alora-logo-192x192.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "mask-icon", url: "/alora-logo-icon.png" }],
   },
   manifest: "/manifest.json",
 };
@@ -60,7 +60,7 @@ export default async function RootLayout({
     "@type": "Organization",
     name: "ALORA",
     url: "https://www.globalalora.com",
-    logo: "https://www.globalalora.com/logo-nav-white.png",
+    logo: "https://www.globalalora.com/alora-logo-nav-white.png",
     description: "Agencia de desarrollo de software, automatización e inteligencia artificial para empresas en Latinoamérica.",
     email: "info@globalalora.com",
     sameAs: [

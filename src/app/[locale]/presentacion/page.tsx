@@ -35,8 +35,8 @@ const BRUNO_EMAIL = "mailto:somosglobalalora@gmail.com";
 const WALO_LINKEDIN = "https://www.linkedin.com/in/walidjalil/";
 const WALO_EMAIL = "mailto:somosglobalalora@gmail.com";
 
-const BRUNO_PHOTO = "/images/team/bruno.jpg";
-const WALO_PHOTO = "/images/team/walo.jpg";
+const BRUNO_PHOTO = "/images/team/bruno-cofundador-alora.jpg";
+const WALO_PHOTO = "/images/team/walo-cofundador-alora.jpg";
 
 const STATS = [
   { icon: "chart", es: { n: "+15", label: "Años generando ecosistemas digitales" }, en: { n: "+15", label: "Years building digital ecosystems" } },

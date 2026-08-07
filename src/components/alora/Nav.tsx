@@ -145,7 +145,7 @@ export function Nav({ dict, locale }: Props) {
           aria-label="ALORA — inicio"
         >
           <Image
-            src="/logo-nav-white.png"
+            src="/alora-logo-nav-white.png"
             alt="ALORA"
             width={132}
             height={36}
