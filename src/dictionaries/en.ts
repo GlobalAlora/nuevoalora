@@ -111,36 +111,6 @@ const en: Dictionary = {
     body: "Real feedback from clients who already have their project in production.",
     items: [
       {
-        quote: "Working with Alora was an excellent experience. They developed both our institutional website and a fully custom professional ranking system, which now lets us manage players, statistics and points clearly and efficiently. The platform is fast, easy to use, and gave our table tennis organization a real leap in quality. There was always good communication, commitment and willingness to adapt the system to our real needs.",
-        tags: ["Comprehensive system", "Efficient management", "Easy to use"],
-        name: "Alejandro",
-        role: "President of the Table Tennis Commission",
-      },
-      {
-        quote: "At Fundación por Nuestros Niños we're grateful for the process we shared in creating our website. It's been a wonderful experience that also let us revisit some very important aspects of our organization. It was a pending debt for our NGO, which has worked for more than 28 years for the children of Salta. Thank you for the warmth, commitment, professionalism and patience of the Alora team. We hope to keep our alliance for the common good!",
-        tags: ["Collaborative process", "Social impact", "Committed team"],
-        name: "Verónica Figueroa",
-        role: "Fundación por Nuestros Niños – Chair of the Board",
-      },
-      {
-        quote: "It was a pleasure working with Bruno and his team. From the processes and communication channels to the way they managed timelines and approached the work seriously. They took the time to understand the essence of the project, made relevant suggestions, and were always willing to resolve any situation. I was very happy with the work and I recommend them.",
-        tags: ["Clear process", "Open communication", "Flawless results"],
-        name: "Rulo de Viaje",
-        role: "Founder of the Club Rulo de Viaje community",
-      },
-      {
-        quote: "Throughout this time, the work was very professional, with excellent willingness and on-time delivery. Communication was always clear and resolutive. I want to highlight their commitment and efficiency.",
-        tags: ["Consistent professionalism", "Clear communication", "Commitment and efficiency"],
-        name: "Fernando Celaya",
-        role: "Starley – Manager",
-      },
-      {
-        quote: "I had my business running through Instagram but I needed to take the leap to a real store. The team understood from day one that Mimi Kids isn't just a shop — it has its own identity. The platform turned out exactly as I imagined: my customers can customize everything, I manage orders from the panel without needing help from anyone, and the automatic emails save me so much time. It was an investment that was worth every penny.",
-        tags: ["Custom store", "Own admin panel", "Real automation"],
-        name: "Cami",
-        role: "Founder of Mimi Kids",
-      },
-      {
         quote: "We loved working with Alora! They're a very professional team, but also very approachable and willing to help. They always look to resolve any situation and give a quick, clear response. Communication is excellent, they explain everything transparently and support you at every stage of the process. Without a doubt, they offer a top-tier service. We recommend them!",
         tags: ["Approachable team", "Clear communication", "Top-tier service"],
         name: "Sara",
@@ -157,6 +127,36 @@ const en: Dictionary = {
         tags: ["Strategic support", "Google Ads performing well", "100% recommended"],
         name: "María Grazia Jalil",
         role: "Notary — Escribanía Jalil",
+      },
+      {
+        quote: "It was a pleasure working with Bruno and his team. From the processes and communication channels to the way they managed timelines and approached the work seriously. They took the time to understand the essence of the project, made relevant suggestions, and were always willing to resolve any situation. I was very happy with the work and I recommend them.",
+        tags: ["Clear process", "Open communication", "Flawless results"],
+        name: "Rulo de Viaje",
+        role: "Founder of the Club Rulo de Viaje community",
+      },
+      {
+        quote: "Working with Alora was an excellent experience. They developed both our institutional website and a fully custom professional ranking system, which now lets us manage players, statistics and points clearly and efficiently. The platform is fast, easy to use, and gave our table tennis organization a real leap in quality. There was always good communication, commitment and willingness to adapt the system to our real needs.",
+        tags: ["Comprehensive system", "Efficient management", "Easy to use"],
+        name: "Alejandro",
+        role: "President of the Table Tennis Commission",
+      },
+      {
+        quote: "At Fundación por Nuestros Niños we're grateful for the process we shared in creating our website. It's been a wonderful experience that also let us revisit some very important aspects of our organization. It was a pending debt for our NGO, which has worked for more than 28 years for the children of Salta. Thank you for the warmth, commitment, professionalism and patience of the Alora team. We hope to keep our alliance for the common good!",
+        tags: ["Collaborative process", "Social impact", "Committed team"],
+        name: "Verónica Figueroa",
+        role: "Fundación por Nuestros Niños – Chair of the Board",
+      },
+      {
+        quote: "Throughout this time, the work was very professional, with excellent willingness and on-time delivery. Communication was always clear and resolutive. I want to highlight their commitment and efficiency.",
+        tags: ["Consistent professionalism", "Clear communication", "Commitment and efficiency"],
+        name: "Fernando Celaya",
+        role: "Starley – Manager",
+      },
+      {
+        quote: "I had my business running through Instagram but I needed to take the leap to a real store. The team understood from day one that Mimi Kids isn't just a shop — it has its own identity. The platform turned out exactly as I imagined: my customers can customize everything, I manage orders from the panel without needing help from anyone, and the automatic emails save me so much time. It was an investment that was worth every penny.",
+        tags: ["Custom store", "Own admin panel", "Real automation"],
+        name: "Cami",
+        role: "Founder of Mimi Kids",
       },
     ],
   },

@@ -179,36 +179,6 @@ const es: Dictionary = {
     body: "Opiniones reales de clientes que ya tienen su proyecto en producción.",
     items: [
       {
-        quote: "Trabajar con Alora fue una excelente experiencia. Desarrollaron tanto el sitio web institucional como un sistema de ranking profesional totalmente a medida, que hoy nos permite gestionar jugadores, estadísticas y puntos de forma clara y eficiente. La plataforma es rápida, fácil de usar y nos dio un salto de calidad en la organización del Tenis de Mesa. Siempre hubo buena comunicación, compromiso y predisposición para adaptar el sistema a nuestras necesidades reales.",
-        tags: ["Sistema integral", "Gestión eficiente", "Fácil de usar"],
-        name: "Alejandro",
-        role: "Presidente de la Comisión de Tenis de Mesa",
-      },
-      {
-        quote: "Desde Fundación por Nuestros Niños agradecemos el proceso compartido en la creación de nuestra página web. Ha sido una experiencia muy linda, que además nos permitió revisar aspectos muy importantes de nuestra institución. Era una deuda pendiente para nuestra ONG que lleva más de 28 años trabajando por la niñez de Salta. Gracias por la calidez, compromiso, profesionalismo y paciencia del equipo de Alora. ¡Esperamos mantener nuestra alianza por el bien común!",
-        tags: ["Proceso colaborativo", "Impacto social", "Equipo comprometido"],
-        name: "Verónica Figueroa",
-        role: "Fundación por Nuestros Niños – Presidenta del Consejo de Administración",
-      },
-      {
-        quote: "Fue un placer trabajar con Bruno y su equipo. Desde los procesos y canales de comunicación, el manejo de los tiempos y la seriedad con la que abordaron el trabajo. Dedicaron tiempo para entender la esencia del proyecto, hacer las sugerencias pertinentes y tener la predisposición para resolver cada situación. Quedé muy conforme con el trabajo realizado y los recomiendo.",
-        tags: ["Proceso claro", "Comunicación abierta", "Resultados impecables"],
-        name: "Rulo de Viaje",
-        role: "Creador de la comunidad Club Rulo de Viaje",
-      },
-      {
-        quote: "Durante este tiempo, el trabajo fue muy profesional, con excelente predisposición y cumplimiento en los plazos. La comunicación fue siempre clara y resolutiva. Destaco el compromiso y la eficiencia.",
-        tags: ["Profesionalismo constante", "Comunicación clara", "Compromiso y eficiencia"],
-        name: "Fernando Celaya",
-        role: "Starley – Gerente",
-      },
-      {
-        quote: "Tenía mi emprendimiento funcionando por Instagram pero necesitaba dar el salto a una tienda de verdad. El equipo entendió desde el primer día que Mimi Kids no es solo una tienda, es un proyecto con identidad propia. La plataforma quedó exactamente como lo imaginé: mis clientas pueden personalizar todo, yo gestiono los pedidos desde el panel sin necesitar ayuda de nadie, y los emails automáticos me ahorran un montón de tiempo. Fue una inversión que valió cada peso.",
-        tags: ["Tienda a medida", "Panel propio", "Automatización real"],
-        name: "Cami",
-        role: "Fundadora de Mimi Kids",
-      },
-      {
         quote: "¡Nos encantó trabajar con Alora! Son un equipo muy profesional, pero también muy cercano y predispuesto. Siempre buscan resolver cualquier situación y brindar una respuesta rápida y clara. La comunicación es excelente, explican todo de forma transparente y acompañan en cada etapa del proceso. Sin dudas, ofrecen un servicio de primer nivel. ¡Los recomendamos!",
         tags: ["Trato cercano", "Comunicación clara", "Servicio de primer nivel"],
         name: "Sara",
@@ -225,6 +195,36 @@ const es: Dictionary = {
         tags: ["Acompañamiento estratégico", "Google Ads funcionando", "Recomendado al 100%"],
         name: "María Grazia Jalil",
         role: "Escribana — Escribanía Jalil",
+      },
+      {
+        quote: "Fue un placer trabajar con Bruno y su equipo. Desde los procesos y canales de comunicación, el manejo de los tiempos y la seriedad con la que abordaron el trabajo. Dedicaron tiempo para entender la esencia del proyecto, hacer las sugerencias pertinentes y tener la predisposición para resolver cada situación. Quedé muy conforme con el trabajo realizado y los recomiendo.",
+        tags: ["Proceso claro", "Comunicación abierta", "Resultados impecables"],
+        name: "Rulo de Viaje",
+        role: "Creador de la comunidad Club Rulo de Viaje",
+      },
+      {
+        quote: "Trabajar con Alora fue una excelente experiencia. Desarrollaron tanto el sitio web institucional como un sistema de ranking profesional totalmente a medida, que hoy nos permite gestionar jugadores, estadísticas y puntos de forma clara y eficiente. La plataforma es rápida, fácil de usar y nos dio un salto de calidad en la organización del Tenis de Mesa. Siempre hubo buena comunicación, compromiso y predisposición para adaptar el sistema a nuestras necesidades reales.",
+        tags: ["Sistema integral", "Gestión eficiente", "Fácil de usar"],
+        name: "Alejandro",
+        role: "Presidente de la Comisión de Tenis de Mesa",
+      },
+      {
+        quote: "Desde Fundación por Nuestros Niños agradecemos el proceso compartido en la creación de nuestra página web. Ha sido una experiencia muy linda, que además nos permitió revisar aspectos muy importantes de nuestra institución. Era una deuda pendiente para nuestra ONG que lleva más de 28 años trabajando por la niñez de Salta. Gracias por la calidez, compromiso, profesionalismo y paciencia del equipo de Alora. ¡Esperamos mantener nuestra alianza por el bien común!",
+        tags: ["Proceso colaborativo", "Impacto social", "Equipo comprometido"],
+        name: "Verónica Figueroa",
+        role: "Fundación por Nuestros Niños – Presidenta del Consejo de Administración",
+      },
+      {
+        quote: "Durante este tiempo, el trabajo fue muy profesional, con excelente predisposición y cumplimiento en los plazos. La comunicación fue siempre clara y resolutiva. Destaco el compromiso y la eficiencia.",
+        tags: ["Profesionalismo constante", "Comunicación clara", "Compromiso y eficiencia"],
+        name: "Fernando Celaya",
+        role: "Starley – Gerente",
+      },
+      {
+        quote: "Tenía mi emprendimiento funcionando por Instagram pero necesitaba dar el salto a una tienda de verdad. El equipo entendió desde el primer día que Mimi Kids no es solo una tienda, es un proyecto con identidad propia. La plataforma quedó exactamente como lo imaginé: mis clientas pueden personalizar todo, yo gestiono los pedidos desde el panel sin necesitar ayuda de nadie, y los emails automáticos me ahorran un montón de tiempo. Fue una inversión que valió cada peso.",
+        tags: ["Tienda a medida", "Panel propio", "Automatización real"],
+        name: "Cami",
+        role: "Fundadora de Mimi Kids",
       },
     ],
   },
