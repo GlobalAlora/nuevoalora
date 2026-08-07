@@ -14,8 +14,8 @@ const VISIBLE_COUNT = 3;
 
 const CASE_IMAGES: Record<string, string> = {
   "autodux": "/images/case-studies/autodux/hero.png",
-  "escribania-jalil": "/images/case-studies/escribania-jalil/hero.png",
-  "tony-piorno": "/images/case-studies/tony-piorno/hero.png",
+  "escribania-jalil": "/images/case-studies/escribania-jalil/escribania-jalil-hero.png",
+  "tony-piorno": "/images/case-studies/tony-piorno/tony-piorno-hero.png",
   "castro-yeso": "/images/castroweb.png",
   "asesoria-dialogar": "/images/dialogar.png",
   "protorneos": "/images/protorneo.png",
