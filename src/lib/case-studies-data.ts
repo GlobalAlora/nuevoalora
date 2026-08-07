@@ -1232,6 +1232,8 @@ export const CASE_STUDIES: CaseStudyData[] = [
     theme: { primary: "var(--turquoise)", secondary: "var(--electric)" },
     heroImage: "/images/case-studies/tony-piorno/hero.png",
     heroImageAspect: "1506/723",
+    heroImageMobile: "/images/case-studies/tony-piorno/hero-mobile.jpeg",
+    heroImageMobileAspect: "736/1600",
     screenshots: [
       {
         src: "/images/case-studies/tony-piorno/live-metrics.png",
