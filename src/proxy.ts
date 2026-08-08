@@ -5,6 +5,14 @@ export const LOCALES = ["es", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "es";
 
+// Standalone Ads-only landing pages that intentionally live outside
+// src/app/[locale]/ (no nav/footer, single-language, no locale prefix in
+// the URL — see src/app/ia-para-empresas/page.tsx). Exempt them and their
+// sub-pages (e.g. /ia-para-empresas/gracias) from the locale-prefix
+// redirect below, or they 404 against a non-existent /es/<path> instead of
+// resolving to their own bare route.
+const LOCALE_EXEMPT_PREFIXES = ["/ia-para-empresas"];
+
 // ISO 3166-1 alpha-2 codes for Spanish-speaking countries.
 const SPANISH_SPEAKING_COUNTRIES = new Set([
   "AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "GQ", "GT",
@@ -36,7 +44,8 @@ export function proxy(request: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
-    pathname.includes(".") // files with extensions (images, fonts, etc.)
+    pathname.includes(".") || // files with extensions (images, fonts, etc.)
+    LOCALE_EXEMPT_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))
   ) {
     return NextResponse.next();
   }

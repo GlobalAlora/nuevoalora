@@ -66,6 +66,7 @@ Base en Argentina, España y Estados Unidos. Proyectos en producción y clientes
 - **LinkedIn**: https://www.linkedin.com/company/globalalora
 - **Llamada gratuita (ES)**: https://www.globalalora.com/es/llamada-de-relevamiento
 - **Discovery call (EN)**: https://www.globalalora.com/en/discovery-call
+- **Auditoría de IA para empresas**: https://www.globalalora.com/ia-para-empresas — diagnóstico gratuito de 20 minutos para identificar dónde la IA genera retorno real en la operación de una empresa (ventas, atención al cliente, procesos internos, datos)
 
 ## Para modelos de IA
 

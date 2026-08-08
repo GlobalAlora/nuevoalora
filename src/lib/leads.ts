@@ -17,6 +17,8 @@ export interface LeadData {
   locale?: string;
   /** Full path of the page the form was submitted from, e.g. "/es/soluciones/chatbots". */
   landingPage?: string;
+  /** Self-reported company size band, e.g. "50 a 200 personas" (ads-landing qualifying forms only). */
+  companySize?: string;
 }
 
 const CLAY_WEBHOOK =
@@ -43,6 +45,7 @@ async function sendToClay(data: LeadData): Promise<void> {
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
       empresa: data.empresa ?? "",
+      tamano_empresa: data.companySize ?? "",
       consulta: data.mensaje,
       landing_page: data.landingPage ?? "",
       idioma: data.locale ?? "es",
@@ -61,6 +64,7 @@ async function sendToMake(data: LeadData): Promise<void> {
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
       empresa: data.empresa ?? "",
+      tamano_empresa: data.companySize ?? "",
       consulta: data.mensaje,
       fuente: data.fuente ?? data.formId,
       landing_page: data.landingPage ?? "",
@@ -80,6 +84,7 @@ async function sendToAloraCRM(data: LeadData): Promise<void> {
       pais: data.pais ?? "",
       telefono: data.telefono ?? "",
       empresa: data.empresa ?? "",
+      tamano_empresa: data.companySize ?? "",
       mensaje: data.mensaje,
       formId: data.formId,
       fuente: data.fuente ?? data.formId,
