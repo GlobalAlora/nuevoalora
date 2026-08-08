@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
-import { TechBackground } from "../TechBackground";
+import { TechBackground } from "../ia-para-empresas/TechBackground";
 
 const ACCENT = "var(--electric)";
 const ACCENT2 = "var(--violet)";

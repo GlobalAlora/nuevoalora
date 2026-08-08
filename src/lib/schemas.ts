@@ -88,7 +88,7 @@ export const aiLandingContactSchema = z.object({
   empresa: z.string().min(2, "Campo requerido"),
   companySize: z.enum(COMPANY_SIZE_BANDS, { message: "Elegí una opción" }),
   pais: z.string().min(1, "Campo requerido"),
-  mensaje: z.string().min(10, "Mínimo 10 caracteres").max(2000, "Máximo 2000 caracteres"),
+  mensaje: z.string().min(100, "Contanos un poco más — mínimo 100 caracteres").max(2000, "Máximo 2000 caracteres"),
   privacy: z.literal(true, { message: "Debes aceptar para continuar" }),
 });
 

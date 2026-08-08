@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { TechBackground } from "../TechBackground";
+import { TechBackground } from "../ia-para-empresas/TechBackground";
 
 const ACCENT = "var(--electric)";
 const ACCENT2 = "var(--violet)";
 
 export const metadata: Metadata = {
-  title: "¡Llamada agendada! | ALORA",
+  title: "¡Tu auditoría de IA está agendada! | ALORA",
   robots: { index: false },
 };
 
@@ -32,14 +32,14 @@ export default function GraciasLlamadaPage() {
             </svg>
           </div>
           <h1 className="mt-6 text-balance" style={{ fontSize: "clamp(28px, 3.6vw, 44px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}>
-            Tu llamada está agendada
+            Tu auditoría de IA está agendada
           </h1>
           <p className="mx-auto mt-4 max-w-md text-pretty" style={{ fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.65)" }}>
-            Te enviamos la confirmación por email, con los detalles y el link de acceso. En 20 minutos analizamos tu operación y vemos dónde la IA genera retorno real.
+            Te enviamos la confirmación por email, con los detalles y el link de acceso. En 20 minutos analizamos tu operación y te mostramos, en concreto, dónde la IA puede generar retorno real.
           </p>
 
           <div className="mx-auto mt-10 max-w-md rounded-xl p-5 text-left" style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <p className="text-[13px] font-semibold text-white/85">Antes de la llamada, pensá en:</p>
+            <p className="text-[13px] font-semibold text-white/85">Antes de tu auditoría de IA, pensá en:</p>
             <ul className="mt-2 flex flex-col gap-1.5 text-[13px] leading-relaxed text-white/60">
               <li>— Qué proceso o equipo te consume más tiempo hoy</li>
               <li>— Qué sistemas usás actualmente (CRM, WhatsApp, ecommerce, etc.)</li>

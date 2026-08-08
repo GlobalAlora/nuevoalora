@@ -31,8 +31,12 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<AiLandingContactFormData>({ resolver: zodResolver(aiLandingContactSchema) });
+
+  const mensajeLength = watch("mensaje")?.length ?? 0;
+  const MENSAJE_MIN = 100;
 
   const onSubmit = async (data: AiLandingContactFormData) => {
     setSubmitting(true);
@@ -50,7 +54,7 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
         company_size: data.companySize,
       });
       reset();
-      router.push("/ia-para-empresas/gracias");
+      router.push("/gracias-ia-empresas");
     } catch {
       setStatus("error");
     } finally {
@@ -131,8 +135,13 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
 
       <div>
         <label htmlFor="ai-mensaje" style={labelBase}>¿Qué proceso o equipo te gustaría optimizar con IA? <span className="text-red-400/70">*</span></label>
-        <textarea id="ai-mensaje" {...register("mensaje")} rows={4} placeholder="Contanos un poco sobre tu operación y qué te gustaría mejorar" style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
-        {fieldError(errors.mensaje?.message)}
+        <textarea id="ai-mensaje" {...register("mensaje")} rows={4} placeholder="Contanos un poco sobre tu operación y qué te gustaría mejorar (mínimo 100 caracteres)" style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
+        <div className="mt-1 flex items-center justify-between">
+          {fieldError(errors.mensaje?.message) ?? <span />}
+          <span className="text-[11.5px]" style={{ color: mensajeLength >= MENSAJE_MIN ? accent : "rgba(255,255,255,0.4)" }}>
+            {mensajeLength} / {MENSAJE_MIN}
+          </span>
+        </div>
       </div>
 
       <label className="flex cursor-pointer items-start gap-3">

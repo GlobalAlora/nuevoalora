@@ -15,11 +15,12 @@ import { AiLandingContactForm } from "./AiLandingContactForm";
 // layout injects everywhere else. No exits before the form.
 // Don't move this under [locale] to "fix" the missing nav.
 // See src/proxy.ts (LOCALE_EXEMPT_PREFIXES) — required for this route and
-// its /gracias, /gracias-llamada, /reservar-llamada sub-pages to resolve
-// without a /es prefix.
+// its conversion sub-pages (gracias-ia-empresas, reservar-auditoria-ia-empresas,
+// auditoria-ia-empresas-reservada — separate top-level routes, not nested
+// under /ia-para-empresas/) to resolve without a /es prefix.
 //
-// Indexed on purpose (unlike its /gracias* sub-pages, which stay noindex):
-// this page is meant to rank on its own, it's just not linked from the main
+// Indexed on purpose (unlike its sub-pages above, which stay noindex): this
+// page is meant to rank on its own, it's just not linked from the main
 // nav yet. See src/app/robots.ts and src/app/sitemap.ts for the other two
 // pieces of that — all three need to move together if that changes again.
 
@@ -413,7 +414,7 @@ export default function IaParaEmpresasPage() {
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-2xl text-center">
               <SectionBadge>Empecemos</SectionBadge>
-              <h2 className="mt-5 text-balance" style={{ fontSize: "clamp(28px, 3.4vw, 46px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}>
+              <h2 className="mt-5" style={{ fontSize: "clamp(22px, 2.9vw, 40px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em", whiteSpace: "nowrap" }}>
                 Empecemos con tu diagnóstico de IA
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-balance" style={{ fontSize: "16.5px", lineHeight: 1.62, color: "rgba(255,255,255,0.65)" }}>
@@ -455,7 +456,7 @@ export default function IaParaEmpresasPage() {
                 </div>
 
                 <Link
-                  href="/ia-para-empresas/reservar-llamada"
+                  href="/reservar-auditoria-ia-empresas"
                   className="mt-7 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[13.5px] font-semibold text-white transition-all hover:-translate-y-0.5"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.16)" }}
                 >

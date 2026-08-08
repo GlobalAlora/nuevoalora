@@ -7,11 +7,19 @@ export const DEFAULT_LOCALE: Locale = "es";
 
 // Standalone Ads-only landing pages that intentionally live outside
 // src/app/[locale]/ (no nav/footer, single-language, no locale prefix in
-// the URL — see src/app/ia-para-empresas/page.tsx). Exempt them and their
-// sub-pages (e.g. /ia-para-empresas/gracias) from the locale-prefix
-// redirect below, or they 404 against a non-existent /es/<path> instead of
-// resolving to their own bare route.
-const LOCALE_EXEMPT_PREFIXES = ["/ia-para-empresas"];
+// the URL — see src/app/ia-para-empresas/page.tsx). Its conversion
+// sub-pages are separate top-level routes for their own short URLs
+// (gracias-ia-empresas, reservar-auditoria-ia-empresas,
+// auditoria-ia-empresas-reservada), not nested under /ia-para-empresas/.
+// Exempt all of them from the locale-prefix redirect below, or they 404
+// against a non-existent /es/<path> instead of resolving to their own
+// bare route.
+const LOCALE_EXEMPT_PREFIXES = [
+  "/ia-para-empresas",
+  "/reservar-auditoria-ia-empresas",
+  "/gracias-ia-empresas",
+  "/auditoria-ia-empresas-reservada",
+];
 
 // ISO 3166-1 alpha-2 codes for Spanish-speaking countries.
 const SPANISH_SPEAKING_COUNTRIES = new Set([
