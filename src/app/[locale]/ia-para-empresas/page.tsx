@@ -446,9 +446,27 @@ export default async function IaParaEmpresasPage({ params }: Props) {
                       </svg>
                     </span>
                   </summary>
-                  <div className="mt-4 text-[14px] leading-relaxed text-white/60">{item.answer}</div>
+                  <div className="mt-4">
+                    <p className="text-[14px] leading-relaxed text-white/60">{item.answer}</p>
+                    <a
+                      href="#contacto"
+                      className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold transition-transform hover:translate-x-0.5"
+                      style={{ color: ACCENT_CYCLE[0] }}
+                    >
+                      {t.faq.itemCta}
+                    </a>
+                  </div>
                 </details>
               ))}
+            </div>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[13.5px] font-semibold text-white transition-all hover:-translate-y-0.5"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.16)" }}
+              >
+                {t.faq.backToForm}
+              </a>
             </div>
           </div>
         </section>

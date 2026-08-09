@@ -55,7 +55,7 @@ export interface LandingContent {
     infoChip: string;
     secondaryCta: string;
   };
-  faq: { badge: string; title: string; intro: string; items: FaqItemContent[] };
+  faq: { badge: string; title: string; intro: string; items: FaqItemContent[]; itemCta: string; backToForm: string };
   footer: { copyright: string; privacy: string; cookies: string; terms: string };
 }
 
@@ -196,6 +196,8 @@ export const LANDING_CONTENT: Record<"es" | "en", LandingContent> = {
         { question: "¿Trabajan con empresas de cualquier tamaño?", answer: "Trabajamos con empresas que ya tienen una operación en marcha, con equipo y procesos activos — no con emprendimientos que recién arrancan. Más allá de eso, el tamaño exacto importa menos que tener un proceso real para optimizar." },
         { question: "¿En qué se diferencia esto de una demo de producto?", answer: "Una demo te muestra una herramienta. Esta auditoría parte de tu operación real y define qué caso de uso conviene resolver primero — la herramienta, si hace falta una, viene después, no antes." },
       ],
+      itemCta: "¿Seguís con dudas? Resolvelas en tu auditoría de IA →",
+      backToForm: "Volver al formulario ↑",
     },
     footer: { copyright: "© 2026 ALORA. Todos los derechos reservados.", privacy: "Privacidad", cookies: "Cookies", terms: "Términos" },
   },
@@ -335,6 +337,8 @@ export const LANDING_CONTENT: Record<"es" | "en", LandingContent> = {
         { question: "Do you work with companies of any size?", answer: "We work with companies that already have an operation running, with an active team and processes — not with early-stage startups just getting off the ground. Beyond that, exact size matters less than having a real process to optimize." },
         { question: "How is this different from a product demo?", answer: "A demo shows you a tool. This audit starts from your actual operation and defines which use case is worth solving first — the tool, if one is even needed, comes after, not before." },
       ],
+      itemCta: "Still have questions? Get them answered in your AI audit →",
+      backToForm: "Back to the form ↑",
     },
     footer: { copyright: "© 2026 ALORA. All rights reserved.", privacy: "Privacy", cookies: "Cookies", terms: "Terms" },
   },
