@@ -298,7 +298,7 @@ export default async function IaParaEmpresasPage({ params }: Props) {
         </section>
 
         {/* Problem / friction */}
-        <section className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <section id="el-problema" className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <SectionBackground variant="diagonal" accent={ACCENT_CYCLE[0]} accent2={ACCENT_CYCLE[2]} />
           <div className="mx-auto max-w-6xl">
             <SectionHeader badge={t.problem.badge} title={t.problem.title} intro={t.problem.intro} accent={ACCENT_CYCLE[0]} />
@@ -427,7 +427,7 @@ export default async function IaParaEmpresasPage({ params }: Props) {
         </section>
 
         {/* FAQ — visible accordion, feeds the FAQPage schema above */}
-        <section className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <section id="preguntas-frecuentes" className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <SectionBackground variant="particles" accent={ACCENT_CYCLE[0]} accent2={ACCENT_CYCLE[1]} />
           <div className="mx-auto max-w-3xl">
             <SectionHeader badge={t.faq.badge} title={t.faq.title} intro={t.faq.intro} accent={ACCENT_CYCLE[0]} />
