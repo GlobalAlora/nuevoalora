@@ -172,7 +172,7 @@ export const LANDING_CONTENT: Record<"es" | "en", LandingContent> = {
     },
     contact: {
       badge: "Empecemos",
-      title: "Empecemos con tu diagnóstico de IA",
+      title: "Reservá tu auditoría IA gratuita",
       subtitle: "Una conversación breve para entender tu negocio y mostrarte, en concreto, dónde la IA puede generar resultado — sin compromiso.",
       leftHeading: "¿Qué incluye?",
       bullets: [
@@ -313,7 +313,7 @@ export const LANDING_CONTENT: Record<"es" | "en", LandingContent> = {
     },
     contact: {
       badge: "Let's start",
-      title: "Let's start with your AI diagnosis",
+      title: "Book your free AI audit",
       subtitle: "A short conversation to understand your business and show you, in concrete terms, where AI can generate results — no strings attached.",
       leftHeading: "What's included?",
       bullets: [
