@@ -18,16 +18,28 @@ export interface ProofItem {
 const ACCENT = "var(--electric)";
 const ACCENT2 = "var(--violet)";
 
+const NAV_LABELS = {
+  es: { prev: "Caso anterior", next: "Caso siguiente", goTo: (n: number) => `Ver caso ${n}` },
+  en: { prev: "Previous case", next: "Next case", goTo: (n: number) => `View case ${n}` },
+};
+
+interface RowLabels {
+  problem: string;
+  logic: string;
+  solution: string;
+}
+
 /** Large, single-card-at-a-time proof carousel. No external link — problem/logic/solution shown inline. */
-export function ProofCarousel({ items }: { items: ProofItem[] }) {
+export function ProofCarousel({ items, rowLabels, locale = "es" }: { items: ProofItem[]; rowLabels: RowLabels; locale?: "es" | "en" }) {
   const [index, setIndex] = useState(0);
   const item = items[index];
   const go = (dir: 1 | -1) => setIndex((i) => (i + dir + items.length) % items.length);
+  const nav = NAV_LABELS[locale];
 
   const rows: { label: string; body: string }[] = [
-    { label: "Problema", body: item.problem },
-    { label: "Lógica de la solución", body: item.logic },
-    { label: "Solución implementada", body: item.solution },
+    { label: rowLabels.problem, body: item.problem },
+    { label: rowLabels.logic, body: item.logic },
+    { label: rowLabels.solution, body: item.solution },
   ];
 
   return (
@@ -44,17 +56,17 @@ export function ProofCarousel({ items }: { items: ProofItem[] }) {
 
       {/* Nav */}
       <div className="relative z-10 mb-6 flex items-center justify-center gap-3 md:justify-start">
-        <button type="button" aria-label="Caso anterior" onClick={() => go(-1)} className="flex h-8 w-8 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}>
+        <button type="button" aria-label={nav.prev} onClick={() => go(-1)} className="flex h-8 w-8 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}>
           <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <div className="flex items-center gap-2">
           {items.map((it, i) => (
-            <button key={it.client} type="button" aria-label={`Ver caso ${i + 1}`} onClick={() => setIndex(i)} className="flex h-6 min-w-6 items-center justify-center">
+            <button key={it.client} type="button" aria-label={nav.goTo(i + 1)} onClick={() => setIndex(i)} className="flex h-6 min-w-6 items-center justify-center">
               <span aria-hidden className="h-2 rounded-full transition-all duration-300" style={{ width: i === index ? "22px" : "8px", background: i === index ? `linear-gradient(90deg, ${ACCENT}, ${ACCENT2})` : "rgba(255,255,255,0.18)" }} />
             </button>
           ))}
         </div>
-        <button type="button" aria-label="Caso siguiente" onClick={() => go(1)} className="flex h-8 w-8 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}>
+        <button type="button" aria-label={nav.next} onClick={() => go(1)} className="flex h-8 w-8 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}>
           <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <span className="text-[12px] font-medium text-white/40">{index + 1} / {items.length}</span>

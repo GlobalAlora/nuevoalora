@@ -1,8 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
+import { isChromelessPath } from "@/lib/chromeless-routes";
 
 // Chatbot is a substantial client component (chat state machine, webhook
 // calls, several effects) rendered on every single page via the root
@@ -12,5 +14,7 @@ import type { Locale } from "@/lib/i18n";
 const Chatbot = dynamic(() => import("./Chatbot").then((m) => m.Chatbot), { ssr: false });
 
 export function ChatbotLoader({ dict, locale }: { dict: Dictionary; locale: Locale }) {
+  const pathname = usePathname();
+  if (isChromelessPath(pathname)) return null;
   return <Chatbot dict={dict} locale={locale} />;
 }

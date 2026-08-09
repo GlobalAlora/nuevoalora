@@ -5,7 +5,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/es/thank-you", "/en/thank-you", "/es/call-booked", "/en/call-booked", "/gracias-ia-empresas", "/auditoria-ia-empresas-reservada", "/reservar-auditoria-ia-empresas"],
+      disallow: [
+        "/api/",
+        "/es/thank-you", "/en/thank-you",
+        "/es/call-booked", "/en/call-booked",
+        "/es/gracias-ia-empresas", "/en/gracias-ia-empresas",
+        "/es/auditoria-ia-empresas-reservada", "/en/auditoria-ia-empresas-reservada",
+        "/es/reservar-auditoria-ia-empresas", "/en/reservar-auditoria-ia-empresas",
+      ],
     },
     sitemap: "https://www.globalalora.com/sitemap.xml",
   };

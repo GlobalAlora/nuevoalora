@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
+import { isChromelessPath } from "@/lib/chromeless-routes";
 
 export function WhatsAppButton({ locale }: { locale: string }) {
   const pathname = usePathname();
@@ -11,6 +12,7 @@ export function WhatsAppButton({ locale }: { locale: string }) {
   // The review-writing page asks for an honest, unhurried testimonial —
   // a WhatsApp escape hatch right next to it undercuts that.
   if (pathname?.includes("/escribir-resena")) return null;
+  if (isChromelessPath(pathname)) return null;
 
   return (
     <WhatsAppLink

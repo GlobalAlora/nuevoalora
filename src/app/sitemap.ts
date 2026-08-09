@@ -37,6 +37,7 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: strin
   { path: "/contacto",                                           freq: "monthly", priority: 0.8 },
   { path: "/llamada-de-relevamiento",                            freq: "monthly", priority: 0.8 },
   { path: "/discovery-call",                                     freq: "monthly", priority: 0.8 },
+  { path: "/ia-para-empresas",                                   freq: "monthly", priority: 0.8 },
 
   // ── Legal ─────────────────────────────────────────────────────────────
   { path: "/privacy-policy",                                     freq: "yearly",  priority: 0.3 },
@@ -44,16 +45,8 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: strin
   { path: "/terminos",                                           freq: "yearly",  priority: 0.3 },
 
   // Excluidas intencionalmente (conversión, no indexar):
-  // /thank-you, /call-booked, y las sub-páginas de /ia-para-empresas
-  // (/gracias, /gracias-llamada, /reservar-llamada)
-];
-
-// /ia-para-empresas vive fuera de src/app/[locale]/ a propósito (ver
-// comentario en ese archivo) — es español-only, sin prefijo /es ni /en y sin
-// variante de idioma alternativa, así que no puede pasar por el
-// LOCALES.map(...) de abajo como el resto de las rutas.
-const STANDALONE_ROUTES: MetadataRoute.Sitemap = [
-  { url: `${BASE}/ia-para-empresas`, lastModified: SITE_LAST_REVIEWED, changeFrequency: "monthly", priority: 0.8 },
+  // /thank-you, /call-booked, /gracias-ia-empresas,
+  // /reservar-auditoria-ia-empresas, /auditoria-ia-empresas-reservada
 ];
 
 // Soluciones, casos de éxito y posts del blog se derivan directamente de sus
@@ -66,21 +59,18 @@ const ROUTES: { path: string; freq: Freq; priority: number; image?: string; last
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    ...ROUTES.flatMap(({ path, freq, priority, image, lastModified }) =>
-      LOCALES.map((locale) => ({
-        url: `${BASE}/${locale}${path}`,
-        lastModified,
-        changeFrequency: freq,
-        priority,
-        images: image ? [`${BASE}${image}`] : undefined,
-        alternates: {
-          languages: Object.fromEntries(
-            LOCALES.map((l) => [l, `${BASE}/${l}${path}`])
-          ),
-        },
-      }))
-    ),
-    ...STANDALONE_ROUTES,
-  ];
+  return ROUTES.flatMap(({ path, freq, priority, image, lastModified }) =>
+    LOCALES.map((locale) => ({
+      url: `${BASE}/${locale}${path}`,
+      lastModified,
+      changeFrequency: freq,
+      priority,
+      images: image ? [`${BASE}${image}`] : undefined,
+      alternates: {
+        languages: Object.fromEntries(
+          LOCALES.map((l) => [l, `${BASE}/${l}${path}`])
+        ),
+      },
+    }))
+  );
 }

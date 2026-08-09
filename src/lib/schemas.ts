@@ -55,6 +55,24 @@ export const COMPANY_SIZE_BANDS = [
   "Más de 200 personas",
 ] as const;
 
+// Stored value stays Spanish in both locales (CRM/webhook automations key
+// off these exact strings via tamano_empresa) — only the dropdown's visible
+// label is translated.
+export const COMPANY_SIZE_LABELS: Record<"es" | "en", Record<(typeof COMPANY_SIZE_BANDS)[number], string>> = {
+  es: {
+    "Menos de 10 personas": "Menos de 10 personas",
+    "10 a 50 personas": "10 a 50 personas",
+    "50 a 200 personas": "50 a 200 personas",
+    "Más de 200 personas": "Más de 200 personas",
+  },
+  en: {
+    "Menos de 10 personas": "Fewer than 10 people",
+    "10 a 50 personas": "10 to 50 people",
+    "50 a 200 personas": "50 to 200 people",
+    "Más de 200 personas": "More than 200 people",
+  },
+};
+
 // Free consumer email providers — this landing is B2B-only, so these are
 // rejected with a dedicated message rather than a generic "invalid email".
 export const FREE_EMAIL_DOMAINS = new Set([
@@ -74,22 +92,46 @@ export const FREE_EMAIL_DOMAINS = new Set([
   "fastmail.com",
 ]);
 
-export const FREE_EMAIL_ERROR = "Este es un servicio para empresas, no aceptamos solicitudes de servicios de correo gratuitos.";
+const AI_LANDING_MESSAGES = {
+  es: {
+    minChars2: "Mínimo 2 caracteres",
+    invalidEmail: "Email inválido",
+    freeEmail: "Este es un servicio para empresas, no aceptamos solicitudes de servicios de correo gratuitos.",
+    required: "Campo requerido",
+    chooseOption: "Elegí una opción",
+    mensajeMin: "Contanos un poco más — mínimo 100 caracteres",
+    mensajeMax: "Máximo 2000 caracteres",
+    privacy: "Debes aceptar para continuar",
+  },
+  en: {
+    minChars2: "Must be at least 2 characters",
+    invalidEmail: "Invalid email",
+    freeEmail: "This is a service for companies — we don't accept requests from free email providers.",
+    required: "Required field",
+    chooseOption: "Choose an option",
+    mensajeMin: "Tell us a bit more — minimum 100 characters",
+    mensajeMax: "Maximum 2000 characters",
+    privacy: "You must accept to continue",
+  },
+} as const;
 
-const businessEmail = z
-  .string()
-  .email("Email inválido")
-  .refine((v) => !FREE_EMAIL_DOMAINS.has(v.split("@")[1]?.toLowerCase() ?? ""), { message: FREE_EMAIL_ERROR });
+export function getAiLandingContactSchema(locale: "es" | "en" = "es") {
+  const t = AI_LANDING_MESSAGES[locale];
+  const businessEmail = z
+    .string()
+    .email(t.invalidEmail)
+    .refine((v) => !FREE_EMAIL_DOMAINS.has(v.split("@")[1]?.toLowerCase() ?? ""), { message: t.freeEmail });
 
-export const aiLandingContactSchema = z.object({
-  nombre: z.string().min(2, "Mínimo 2 caracteres"),
-  apellido: z.string().min(2, "Mínimo 2 caracteres"),
-  email: businessEmail,
-  empresa: z.string().min(2, "Campo requerido"),
-  companySize: z.enum(COMPANY_SIZE_BANDS, { message: "Elegí una opción" }),
-  pais: z.string().min(1, "Campo requerido"),
-  mensaje: z.string().min(100, "Contanos un poco más — mínimo 100 caracteres").max(2000, "Máximo 2000 caracteres"),
-  privacy: z.literal(true, { message: "Debes aceptar para continuar" }),
-});
+  return z.object({
+    nombre: z.string().min(2, t.minChars2),
+    apellido: z.string().min(2, t.minChars2),
+    email: businessEmail,
+    empresa: z.string().min(2, t.required),
+    companySize: z.enum(COMPANY_SIZE_BANDS, { message: t.chooseOption }),
+    pais: z.string().min(1, t.required),
+    mensaje: z.string().min(100, t.mensajeMin).max(2000, t.mensajeMax),
+    privacy: z.literal(true, { message: t.privacy }),
+  });
+}
 
-export type AiLandingContactFormData = z.infer<typeof aiLandingContactSchema>;
+export type AiLandingContactFormData = z.infer<ReturnType<typeof getAiLandingContactSchema>>;

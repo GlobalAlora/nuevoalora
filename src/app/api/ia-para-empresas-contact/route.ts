@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { submitLead } from "@/lib/leads";
-import { aiLandingContactSchema } from "@/lib/schemas";
+import { getAiLandingContactSchema } from "@/lib/schemas";
+
+function pickLocale(raw: unknown): "es" | "en" {
+  if (raw && typeof raw === "object" && (raw as { locale?: unknown }).locale === "en") return "en";
+  return "es";
+}
 
 export async function POST(req: NextRequest) {
   let raw: unknown;
@@ -10,7 +15,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
 
-  const parsed = aiLandingContactSchema.safeParse(raw);
+  const locale = pickLocale(raw);
+  const parsed = getAiLandingContactSchema(locale).safeParse(raw);
   if (!parsed.success) {
     return NextResponse.json({ error: "validation", issues: parsed.error.flatten() }, { status: 422 });
   }
@@ -25,10 +31,10 @@ export async function POST(req: NextRequest) {
       empresa: data.empresa,
       companySize: data.companySize,
       mensaje: data.mensaje,
-      locale: "es",
+      locale,
       formId: "ia-para-empresas-contact-form",
       fuente: "formulario",
-      landingPage: "/ia-para-empresas",
+      landingPage: `/${locale}/ia-para-empresas`,
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

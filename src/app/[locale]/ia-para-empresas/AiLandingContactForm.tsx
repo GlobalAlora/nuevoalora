@@ -5,27 +5,22 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { aiLandingContactSchema, COMPANY_SIZE_BANDS, type AiLandingContactFormData } from "@/lib/schemas";
+import { getAiLandingContactSchema, COMPANY_SIZE_BANDS, COMPANY_SIZE_LABELS, type AiLandingContactFormData } from "@/lib/schemas";
 import { trackEvent } from "@/lib/analytics";
-
-const COUNTRIES = [
-  "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Costa Rica",
-  "Ecuador", "El Salvador", "Guatemala", "Honduras", "México",
-  "Nicaragua", "Panamá", "Paraguay", "Perú", "Uruguay", "Venezuela",
-  "España", "Portugal", "Estados Unidos", "Canadá", "Otro",
-];
-
-const LANDING_PAGE = "/ia-para-empresas";
+import { FORM_CONTENT } from "./content";
 
 interface Props {
   accent: string;
   accent2: string;
+  locale: "es" | "en";
 }
 
-export function AiLandingContactForm({ accent, accent2 }: Props) {
+export function AiLandingContactForm({ accent, accent2, locale }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "error">("idle");
   const router = useRouter();
+  const f = FORM_CONTENT[locale];
+  const landingPage = `/${locale}/ia-para-empresas`;
 
   const {
     register,
@@ -33,7 +28,7 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
     reset,
     watch,
     formState: { errors },
-  } = useForm<AiLandingContactFormData>({ resolver: zodResolver(aiLandingContactSchema) });
+  } = useForm<AiLandingContactFormData>({ resolver: zodResolver(getAiLandingContactSchema(locale)) });
 
   const mensajeLength = watch("mensaje")?.length ?? 0;
   const MENSAJE_MIN = 100;
@@ -45,16 +40,16 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
       const res = await fetch("/api/ia-para-empresas-contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale }),
       });
       if (!res.ok) throw new Error("error");
       trackEvent("generate_lead", {
         form_id: "ia-para-empresas-contact-form",
-        landing_page: LANDING_PAGE,
+        landing_page: landingPage,
         company_size: data.companySize,
       });
       reset();
-      router.push("/gracias-ia-empresas");
+      router.push(`/${locale}/gracias-ia-empresas`);
     } catch {
       setStatus("error");
     } finally {
@@ -90,52 +85,52 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4" style={{ ["--focus-color" as string]: accent }}>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="ai-nombre" style={labelBase}>Nombre <span className="text-red-400/70">*</span></label>
-          <input id="ai-nombre" {...register("nombre")} placeholder="Tu nombre" style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="ai-nombre" style={labelBase}>{f.labels.nombre} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-nombre" {...register("nombre")} placeholder={f.placeholders.nombre} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.nombre?.message)}
         </div>
         <div>
-          <label htmlFor="ai-apellido" style={labelBase}>Apellido <span className="text-red-400/70">*</span></label>
-          <input id="ai-apellido" {...register("apellido")} placeholder="Tu apellido" style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="ai-apellido" style={labelBase}>{f.labels.apellido} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-apellido" {...register("apellido")} placeholder={f.placeholders.apellido} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.apellido?.message)}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="ai-email" style={labelBase}>Correo <span className="text-red-400/70">*</span></label>
-          <input id="ai-email" {...register("email")} type="email" placeholder="vos@empresa.com" style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="ai-email" style={labelBase}>{f.labels.email} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-email" {...register("email")} type="email" placeholder={f.placeholders.email} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.email?.message)}
         </div>
         <div>
-          <label htmlFor="ai-empresa" style={labelBase}>Empresa <span className="text-red-400/70">*</span></label>
-          <input id="ai-empresa" {...register("empresa")} placeholder="Nombre de tu empresa" style={inputBase} className={`form-field ${focusClass}`} />
+          <label htmlFor="ai-empresa" style={labelBase}>{f.labels.empresa} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-empresa" {...register("empresa")} placeholder={f.placeholders.empresa} style={inputBase} className={`form-field ${focusClass}`} />
           {fieldError(errors.empresa?.message)}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="ai-tamano" style={labelBase}>Tamaño de la empresa <span className="text-red-400/70">*</span></label>
+          <label htmlFor="ai-tamano" style={labelBase}>{f.labels.companySize} <span className="text-red-400/70">{f.requiredMark}</span></label>
           <select id="ai-tamano" {...register("companySize")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`} defaultValue="">
-            <option value="" disabled style={optionStyle}>Seleccioná una opción</option>
-            {COMPANY_SIZE_BANDS.map((b) => <option key={b} value={b} style={optionStyle}>{b}</option>)}
+            <option value="" disabled style={optionStyle}>{f.placeholders.companySizeOption}</option>
+            {COMPANY_SIZE_BANDS.map((b) => <option key={b} value={b} style={optionStyle}>{COMPANY_SIZE_LABELS[locale][b]}</option>)}
           </select>
           {fieldError(errors.companySize?.message)}
         </div>
         <div>
-          <label htmlFor="ai-pais" style={labelBase}>País <span className="text-red-400/70">*</span></label>
+          <label htmlFor="ai-pais" style={labelBase}>{f.labels.pais} <span className="text-red-400/70">{f.requiredMark}</span></label>
           <select id="ai-pais" {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`} defaultValue="">
-            <option value="" disabled style={optionStyle}>Seleccioná tu país</option>
-            {COUNTRIES.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
+            <option value="" disabled style={optionStyle}>{f.placeholders.paisOption}</option>
+            {f.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
           </select>
           {fieldError(errors.pais?.message)}
         </div>
       </div>
 
       <div>
-        <label htmlFor="ai-mensaje" style={labelBase}>¿Qué proceso o equipo te gustaría optimizar con IA? <span className="text-red-400/70">*</span></label>
-        <textarea id="ai-mensaje" {...register("mensaje")} rows={4} placeholder="Contanos un poco sobre tu operación y qué te gustaría mejorar (mínimo 100 caracteres)" style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
+        <label htmlFor="ai-mensaje" style={labelBase}>{f.labels.mensaje} <span className="text-red-400/70">{f.requiredMark}</span></label>
+        <textarea id="ai-mensaje" {...register("mensaje")} rows={4} placeholder={f.placeholders.mensaje} style={{ ...inputBase, resize: "vertical" }} className={`form-field ${focusClass}`} />
         <div className="mt-1 flex items-center justify-between">
           {fieldError(errors.mensaje?.message) ?? <span />}
           <span className="text-[11.5px]" style={{ color: mensajeLength >= MENSAJE_MIN ? accent : "rgba(255,255,255,0.4)" }}>
@@ -147,9 +142,9 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
       <label className="flex cursor-pointer items-start gap-3">
         <input {...register("privacy")} type="checkbox" className="mt-0.5 h-4 w-4 shrink-0 rounded" style={{ accentColor: accent }} />
         <span className="text-[12px] leading-relaxed text-white/45">
-          Acepto la política de privacidad y quiero recibir novedades y comunicaciones comerciales de ALORA.{" "}
-          <Link href="/es/privacy-policy" className="underline transition-colors hover:text-white/80">
-            Política de Privacidad
+          {f.privacyText}{" "}
+          <Link href={`/${locale}/privacy-policy`} className="underline transition-colors hover:text-white/80">
+            {f.privacyLink}
           </Link>
         </span>
       </label>
@@ -157,7 +152,7 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
 
       {status === "error" && (
         <p className="rounded-lg border border-red-400/20 bg-red-500/10 px-4 py-3 text-[13px] text-red-400">
-          Error al enviar. Por favor intentá de nuevo.
+          {f.submitError}
         </p>
       )}
 
@@ -173,10 +168,10 @@ export function AiLandingContactForm({ accent, accent2 }: Props) {
               <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity=".25" strokeWidth="3" />
               <path d="M12 2a10 10 0 010 20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            Enviando...
+            {f.submitting}
           </>
         ) : (
-          "Reservar mi auditoría de IA"
+          f.submit
         )}
       </button>
 

@@ -1,17 +1,31 @@
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { hasLocale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import { TechBackground } from "../ia-para-empresas/TechBackground";
+import { GRACIAS_CONTENT, LANDING_CONTENT } from "../ia-para-empresas/content";
 
 const ACCENT = "var(--electric)";
 const ACCENT2 = "var(--violet)";
 
-export const metadata: Metadata = {
-  title: "¡Solicitud de auditoría de IA recibida! | ALORA",
-  robots: { index: false },
-};
+interface Props {
+  params: Promise<{ locale: string }>;
+}
 
-export default function GraciasFormularioPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const l = hasLocale(locale) ? (locale as Locale) : "es";
+  return { title: GRACIAS_CONTENT[l].title, robots: { index: false } };
+}
+
+export default async function GraciasFormularioPage({ params }: Props) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const l = locale as Locale;
+  const t = GRACIAS_CONTENT[l];
+
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
       <TechBackground accent={ACCENT} accent2={ACCENT2} />
@@ -31,36 +45,32 @@ export default function GraciasFormularioPage() {
             </svg>
           </div>
           <h1 className="mt-6 text-balance" style={{ fontSize: "clamp(28px, 3.6vw, 44px)", fontWeight: 720, lineHeight: 1.08, letterSpacing: "-0.03em" }}>
-            Recibimos tu solicitud de auditoría de IA
+            {t.h1}
           </h1>
           <p className="mx-auto mt-4 max-w-md text-pretty" style={{ fontSize: "16px", lineHeight: 1.65, color: "rgba(255,255,255,0.65)" }}>
-            Un especialista revisa lo que nos contaste sobre tu operación y te escribe en menos de 24 horas para coordinar tu auditoría de IA — 20 minutos, online y gratis.
+            {t.body}
           </p>
 
           <div className="mx-auto mt-10 grid max-w-md grid-cols-1 gap-3 text-left sm:grid-cols-3 sm:text-center">
-            {[
-              { n: "01", t: "Revisamos tu operación" },
-              { n: "02", t: "Te contactamos en 24hs" },
-              { n: "03", t: "Agendamos tu auditoría de IA" },
-            ].map((s) => (
-              <div key={s.n} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <p className="font-mono text-[11px] font-semibold" style={{ color: ACCENT }}>{s.n}</p>
-                <p className="mt-1 text-[13px] text-white/70">{s.t}</p>
+            {t.steps.map((s, i) => (
+              <div key={s} className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <p className="font-mono text-[11px] font-semibold" style={{ color: ACCENT }}>{String(i + 1).padStart(2, "0")}</p>
+                <p className="mt-1 text-[13px] text-white/70">{s}</p>
               </div>
             ))}
           </div>
 
           <p className="mt-10 text-[13.5px] text-white/45">
-            ¿Preferís no esperar?{" "}
-            <Link href="/reservar-auditoria-ia-empresas" className="font-medium underline transition-colors hover:text-white/80" style={{ color: ACCENT }}>
-              Reservá tu auditoría de IA ahora
+            {t.waitNote}{" "}
+            <Link href={`/${l}/reservar-auditoria-ia-empresas`} className="font-medium underline transition-colors hover:text-white/80" style={{ color: ACCENT }}>
+              {t.waitLink}
             </Link>
           </p>
         </div>
       </div>
 
       <footer className="relative z-10 px-6 py-8 text-center">
-        <p className="text-[12px] text-white/35">© 2026 ALORA. Todos los derechos reservados.</p>
+        <p className="text-[12px] text-white/35">{LANDING_CONTENT[l].footer.copyright}</p>
       </footer>
     </main>
   );
