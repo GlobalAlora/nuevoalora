@@ -320,7 +320,7 @@ export default async function IaParaEmpresasPage({ params }: Props) {
         </section>
 
         {/* Industries */}
-        <section className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <section id="industrias" className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <SectionBackground variant="aurora" accent={ACCENT_CYCLE[2]} accent2={ACCENT_CYCLE[1]} />
           <div className="mx-auto max-w-6xl">
             <SectionHeader badge={t.industries.badge} title={t.industries.title} intro={t.industries.intro} accent={ACCENT_CYCLE[2]} />
@@ -338,7 +338,7 @@ export default async function IaParaEmpresasPage({ params }: Props) {
         </section>
 
         {/* Methodology */}
-        <section className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <section id="como-trabajamos" className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <SectionBackground variant="diagonal" accent={ACCENT} accent2={ACCENT2} />
           <div className="mx-auto max-w-6xl">
             <SectionHeader badge={t.methodology.badge} title={t.methodology.title} intro={t.methodology.intro} />
@@ -347,7 +347,7 @@ export default async function IaParaEmpresasPage({ params }: Props) {
         </section>
 
         {/* Proof — carousel, self-contained, no external links */}
-        <section className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <section id="resultados-reales" className="relative px-6 py-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <SectionBackground variant="pulse" accent={ACCENT2} accent2={ACCENT} />
           <div className="mx-auto max-w-6xl">
             <SectionHeader badge={t.proof.badge} title={t.proof.title} intro={t.proof.intro} />
