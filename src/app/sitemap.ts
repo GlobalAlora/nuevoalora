@@ -49,28 +49,44 @@ const STATIC_ROUTES: { path: string; freq: Freq; priority: number; image?: strin
   // /reservar-auditoria-ia-empresas, /auditoria-ia-empresas-reservada
 ];
 
-// Soluciones, casos de éxito y posts del blog se derivan directamente de sus
-// archivos de datos, así el sitemap nunca queda desactualizado al agregar contenido.
+// Soluciones y casos de éxito comparten el mismo slug en /es/ y /en/ (son
+// nombres propios), así que pasan por el LOCALES.map(...) genérico de abajo.
+// Los posts del blog NO: cada uno tiene un slug en español (p.slug) y otro en
+// inglés (p.slugEn), así que se arman aparte, con la URL correcta por idioma.
 const ROUTES: { path: string; freq: Freq; priority: number; image?: string; lastModified: string }[] = [
   ...STATIC_ROUTES.map((r) => ({ ...r, lastModified: SITE_LAST_REVIEWED })),
   ...SOLUTIONS.map((s) => ({ path: `/soluciones/${s.slug}`, freq: "monthly" as Freq, priority: 0.9, image: s.heroImage, lastModified: SITE_LAST_REVIEWED })),
   ...CASE_STUDIES.map((c) => ({ path: `/casos-de-exito/${c.slug}`, freq: "monthly" as Freq, priority: 0.8, image: c.heroImage, lastModified: SITE_LAST_REVIEWED })),
-  ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, freq: "monthly" as Freq, priority: 0.8, image: p.image, lastModified: p.date })),
 ];
 
+const BLOG_ROUTES: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((p) => {
+  const alternates = { languages: { es: `${BASE}/es/blog/${p.slug}`, en: `${BASE}/en/blog/${p.slugEn}` } };
+  return LOCALES.map((locale) => ({
+    url: `${BASE}/${locale}/blog/${locale === "en" ? p.slugEn : p.slug}`,
+    lastModified: p.date,
+    changeFrequency: "monthly" as Freq,
+    priority: 0.8,
+    images: p.image ? [`${BASE}${p.image}`] : undefined,
+    alternates,
+  }));
+});
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.flatMap(({ path, freq, priority, image, lastModified }) =>
-    LOCALES.map((locale) => ({
-      url: `${BASE}/${locale}${path}`,
-      lastModified,
-      changeFrequency: freq,
-      priority,
-      images: image ? [`${BASE}${image}`] : undefined,
-      alternates: {
-        languages: Object.fromEntries(
-          LOCALES.map((l) => [l, `${BASE}/${l}${path}`])
-        ),
-      },
-    }))
-  );
+  return [
+    ...ROUTES.flatMap(({ path, freq, priority, image, lastModified }) =>
+      LOCALES.map((locale) => ({
+        url: `${BASE}/${locale}${path}`,
+        lastModified,
+        changeFrequency: freq,
+        priority,
+        images: image ? [`${BASE}${image}`] : undefined,
+        alternates: {
+          languages: Object.fromEntries(
+            LOCALES.map((l) => [l, `${BASE}/${l}${path}`])
+          ),
+        },
+      }))
+    ),
+    ...BLOG_ROUTES,
+  ];
 }

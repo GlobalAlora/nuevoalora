@@ -4,7 +4,10 @@ export interface BlogFaqItem {
 }
 
 export interface BlogPost {
+  /** Canonical/stable id and the ES URL slug — used internally for relatedSlugs and cross-references. Never changes once published. */
   slug: string;
+  /** EN URL slug — independent of `slug` so English routes read as real English, not a transliterated Spanish string. */
+  slugEn: string;
   title: { es: string; en: string };
   excerpt: { es: string; en: string };
   date: string;
@@ -23,6 +26,7 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "tienda-nube-vs-woocommerce",
+    slugEn: "tienda-nube-vs-woocommerce",
     title: {
       es: "Tienda Nube vs WooCommerce: ¿cuál elegir para tu ecommerce?",
       en: "Tienda Nube vs WooCommerce: which one to choose for your ecommerce?",
@@ -170,6 +174,7 @@ There's no universal answer. The best platform is the one that best fits your ne
   },
   {
     slug: "que-es-un-agente-ia",
+    slugEn: "what-is-an-ai-agent",
     title: {
       es: "¿Qué es un agente de IA y cómo puede transformar tu negocio?",
       en: "What is an AI agent and how can it transform your business?",
@@ -296,6 +301,7 @@ At ALORA we design and implement custom AI agents for businesses of all sizes. I
   },
   {
     slug: "automatizacion-empresas-make",
+    slugEn: "business-automation-with-make",
     title: {
       es: "Automatización para empresas: cómo Make transforma operaciones sin escribir código",
       en: "Business automation: how Make transforms operations without writing code",
@@ -454,6 +460,7 @@ At ALORA we implement Make solutions for businesses that want to operate more ef
   },
   {
     slug: "chatbot-vs-agente-conversacional-ia",
+    slugEn: "chatbot-vs-conversational-ai-agent",
     title: {
       es: "Chatbot vs Agente Conversacional de IA: la diferencia real (y cuál necesita tu empresa)",
       en: "Chatbot vs Conversational AI Agent: the real difference (and which one your business needs)",
@@ -647,6 +654,7 @@ At ALORA we build both: guided [chatbots](/en/soluciones/chatbots) to qualify an
   },
   {
     slug: "mi-empresa-necesita-inteligencia-artificial",
+    slugEn: "does-my-business-need-ai",
     title: {
       es: "¿Tu empresa necesita inteligencia artificial? Cómo saberlo y por dónde empezar",
       en: "Does your business need artificial intelligence? How to know, and where to start",
@@ -828,6 +836,7 @@ At ALORA we help businesses identify where to apply AI for real impact, without 
   },
   {
     slug: "agente-ia-atencion-cliente",
+    slugEn: "ai-agent-for-customer-service",
     title: {
       es: "Agente de IA para atención al cliente: qué es, cómo funciona y cuándo conviene implementarlo",
       en: "AI agent for customer service: what it is, how it works, and when to implement it",
@@ -1019,6 +1028,7 @@ At ALORA we design and implement [AI agents for customer service](/en/soluciones
   },
   {
     slug: "chatbot-clinicas-turnos-whatsapp",
+    slugEn: "chatbot-for-clinics-whatsapp-appointments",
     title: {
       es: "Chatbot para clínicas y consultorios: cómo recuperar turnos perdidos con WhatsApp",
       en: "Chatbot for clinics and medical offices: how to recover lost appointments with WhatsApp",
@@ -1182,6 +1192,7 @@ Want to see how it would work in a clinic like yours? At ALORA we can run a live
   },
   {
     slug: "automatizacion-ia-pymes-casos",
+    slugEn: "ai-automation-for-small-businesses",
     title: {
       es: "Casos de uso de IA en PyMEs: automatización real por área de negocio, con resultados medibles",
       en: "AI Use Cases for Small Businesses: Real Automation by Business Area, with Measurable Results",
@@ -1425,6 +1436,7 @@ Want to know which processes in your business you could automate first? At ALORA
   },
   {
     slug: "cuanto-cuesta-chatbot-ia",
+    slugEn: "how-much-does-an-ai-chatbot-cost",
     title: {
       es: "¿Cuánto cuesta un chatbot con IA? Precios reales, qué incluye y cómo comparar opciones en 2026",
       en: "How much does an AI chatbot cost? Real prices, what's included, and how to compare options in 2026",
@@ -1588,6 +1600,7 @@ Want a real quote for your business? At ALORA we run free assessments before quo
   },
   {
     slug: "chatbot-whatsapp-para-empresas",
+    slugEn: "whatsapp-chatbot-for-businesses",
     title: {
       es: "Chatbot de WhatsApp para empresas: guía completa para implementarlo en 2026",
       en: "WhatsApp Chatbot for Businesses: The Complete 2026 Implementation Guide",
@@ -1811,6 +1824,7 @@ Schedule a [free 20-minute call](/en/contacto) to evaluate whether a WhatsApp ch
   },
   {
     slug: "ia-automatizacion-negocios",
+    slugEn: "ai-automation-for-business",
     title: {
       es: "Tu competencia ya usa IA para vender más. Tú todavía la usas para escribir textos.",
       en: "Your Competitors Are Already Using AI to Sell More. You're Still Using It to Write Captions.",
@@ -2014,6 +2028,7 @@ At Alora we build these automations with you, step by step. We don't sell you co
   },
   {
     slug: "5-automatizaciones-email-marketing-ecommerce",
+    slugEn: "5-email-marketing-automations-for-ecommerce",
     title: {
       es: "Las 5 automatizaciones de email marketing que toda tienda online debería tener",
       en: "The 5 Email Marketing Automations Every Online Store Should Have",
@@ -2379,6 +2394,7 @@ If you want to analyze what's missing in your store and how to implement strateg
   },
   {
     slug: "landing-page-vs-sitio-web",
+    slugEn: "landing-page-vs-website",
     title: {
       es: "Landing page vs sitio web: diferencias reales, cuándo usar cada uno y cómo impactan en tus conversiones y ventas",
       en: "Landing Page vs Website: Real Differences, When to Use Each One, and How They Impact Your Conversions and Sales",
@@ -2664,6 +2680,7 @@ If you're not sure which is the best option for your case, we can help you figur
   },
   {
     slug: "llms-txt-contexto-para-interpretacion-ia",
+    slugEn: "llms-txt-for-ai-interpretation",
     title: {
       es: "llms.txt: Cómo ayudar a las IAs a interpretar correctamente tu empresa",
       en: "llms.txt: How to Help AIs Correctly Interpret Your Business",
@@ -2757,6 +2774,7 @@ At ALORA we offer analysis, writing, implementation, and validation of llms.txt 
   },
   {
     slug: "guia-seo-tecnico-2026-atraer-clientes",
+    slugEn: "technical-seo-guide-2026",
     title: {
       es: "Guía de SEO Técnico 2026: Cómo atraer clientes mientras dormís",
       en: "Technical SEO Guide 2026: How to Attract Clients While You Sleep",
@@ -2846,6 +2864,7 @@ Let's book a free call to analyze your business model and define the digital pie
   },
   {
     slug: "como-usar-ia-en-wordpress-para-atraer-clientes",
+    slugEn: "how-to-use-ai-in-wordpress",
     title: {
       es: "Cómo Usar la Inteligencia Artificial en WordPress para Atraer Más Clientes (Aunque no seas un experto)",
       en: "How to Use Artificial Intelligence in WordPress to Attract More Clients (Even If You're Not an Expert)",
@@ -3009,6 +3028,7 @@ Leave us your details and we'll contact you within 24 hours with a personalized 
   },
   {
     slug: "wordpress-6-8-2-version-mantenimiento",
+    slugEn: "wordpress-6-8-2-maintenance-release",
     title: {
       es: "WordPress 6.8.2: Nueva versión de mantenimiento y seguridad",
       en: "WordPress 6.8.2: New Maintenance and Security Release",
@@ -3118,6 +3138,7 @@ Have you already updated to WordPress 6.8.2? Share your experience and help othe
   },
   {
     slug: "tendencias-seo-para-desarrolladores",
+    slugEn: "seo-trends-for-developers",
     title: {
       es: "Tendencias SEO para desarrolladores",
       en: "SEO trends for developers",
@@ -3195,6 +3216,7 @@ Leave us your details and we'll get back to you within 24 hours with a personali
   },
   {
     slug: "mejorar-seguridad-wordpress-2025",
+    slugEn: "improve-wordpress-security-2025",
     title: {
       es: "Cómo mejorar la seguridad de tu WordPress en 2025",
       en: "How to improve your WordPress security in 2025",
@@ -3286,6 +3308,7 @@ Google prioritizes secure sites (HTTPS, malware-free, spam-free). Compromised si
   },
   {
     slug: "php-8-2-en-wordpress",
+    slugEn: "php-8-2-in-wordpress",
     title: {
       es: "¿Qué aporta PHP 8.2 a WordPress? Novedades y compatibilidad",
       en: "What does PHP 8.2 bring to WordPress? New features and compatibility",
@@ -3387,6 +3410,7 @@ If you need help migrating your site safely, [let's talk](/en/contacto).
   },
   {
     slug: "mejores-plugins-wordpress-2025",
+    slugEn: "best-wordpress-plugins-2025",
     title: {
       es: "Los mejores plugins para WordPress en 2025",
       en: "The best WordPress plugins in 2025",
@@ -3450,6 +3474,7 @@ If you need help choosing and implementing the right plugins for your project, [
   },
   {
     slug: "que-es-un-crm-y-por-que-lo-necesita-tu-empresa",
+    slugEn: "what-is-a-crm-and-why-your-business-needs-one",
     title: {
       es: "Qué es un CRM y por qué tu empresa lo necesita (con ejemplos e IA incluida)",
       en: "What is a CRM and why your business needs one (with examples and AI included)",
@@ -3641,6 +3666,7 @@ If you're thinking about implementing or improving your company's CRM, [let's ta
   },
   {
     slug: "ia-atencion-cliente-por-industria",
+    slugEn: "ai-customer-service-by-industry",
     title: {
       es: "IA para atención al cliente por industria: qué se puede automatizar en cada rubro",
       en: "AI for Customer Service by Industry: What You Can Automate in Every Sector",
@@ -3840,6 +3866,7 @@ At ALORA we build both [guided-flow chatbots](/en/soluciones/chatbots) and custo
   },
   {
     slug: "atencion-al-cliente-con-ia",
+    slugEn: "ai-customer-care",
     title: {
       es: "Atención al cliente con IA: experiencia omnicanal, un solo mensaje, 24/7",
       en: "AI Customer Care: Omnichannel Experience, One Message, 24/7",
@@ -4031,6 +4058,7 @@ At ALORA we design and implement [AI customer care and experience](/en/solucione
   },
   {
     slug: "seo-aeo-geo-sxo-aio-guia-completa",
+    slugEn: "seo-aeo-geo-sxo-aio-complete-guide",
     title: {
       es: "SEO, AEO, GEO, SXO y AIO: la guía completa para que te encuentren en Google, ChatGPT y Claude en 2026",
       en: "SEO, AEO, GEO, SXO and AIO: The Complete Guide to Being Found on Google, ChatGPT and Claude in 2026",
@@ -4238,6 +4266,7 @@ Want to know where your site stands across these five dimensions? [Book a free 2
   },
   {
     slug: "ia-generativa-vs-ia-predictiva",
+    slugEn: "generative-ai-vs-predictive-ai",
     title: {
       es: "IA Generativa vs IA Predictiva: la diferencia real (y cuál necesita tu empresa)",
       en: "Generative AI vs Predictive AI: the real difference (and which one your business needs)",
@@ -4249,6 +4278,8 @@ Want to know where your site stands across these five dimensions? [Book a free 2
     date: "2026-08-11",
     category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
     readTime: 9,
+    image: "/images/blog/ia-generativa-vs-ia-predictiva.png",
+    imageAlt: { es: "Comparación visual entre IA Generativa e IA Predictiva, separadas por un ícono VS", en: "Visual comparison between Generative AI and Predictive AI, split by a VS icon" },
     relatedSlugs: ["que-es-un-agente-ia", "mi-empresa-necesita-inteligencia-artificial", "chatbot-vs-agente-conversacional-ia"],
     content: {
       es: `
@@ -4449,11 +4480,22 @@ At ALORA we build [conversational agents powered by generative AI](/en/solucione
   },
 ];
 
+/** Canonical (ES) lookup — used wherever a post is referenced by its stable id (relatedSlugs, SOLUTION_BLOG_POSTS, CASE_STUDY_BLOG_POSTS). */
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }
 
-export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
+/** URL-slug for a given locale — /es/blog/{slug} and /en/blog/{slugEn} are different strings for the same post. */
+export function getSlugForLocale(post: BlogPost, locale: "es" | "en"): string {
+  return locale === "en" ? post.slugEn : post.slug;
+}
+
+/** Looks a post up by whatever slug actually appears in the URL for that locale (an EN route hits slugEn, not slug). */
+export function getBlogPostByRouteSlug(routeSlug: string, locale: "es" | "en"): BlogPost | undefined {
+  return BLOG_POSTS.find((p) => getSlugForLocale(p, locale) === routeSlug);
+}
+
+export function getRelatedPosts(routeSlug: string, locale: "es" | "en"): Array<{
   slug: string;
   title: string;
   category: string[];
@@ -4461,13 +4503,13 @@ export function getRelatedPosts(slug: string, locale: "es" | "en"): Array<{
   image?: string;
   imageAlt?: string;
 }> {
-  const post = getBlogPost(slug);
+  const post = getBlogPostByRouteSlug(routeSlug, locale);
   if (!post?.relatedSlugs) return [];
   return post.relatedSlugs
     .map((s) => getBlogPost(s))
     .filter((p): p is BlogPost => Boolean(p))
     .map((p) => ({
-      slug: p.slug,
+      slug: getSlugForLocale(p, locale),
       title: p.title[locale],
       category: p.category[locale],
       readTime: p.readTime,
@@ -4490,7 +4532,7 @@ export function getBlogPostsByLocale(locale: "es" | "en"): Array<{
     .slice()
     .sort((a, b) => b.date.localeCompare(a.date))
     .map((p) => ({
-      slug: p.slug,
+      slug: getSlugForLocale(p, locale),
       title: p.title[locale],
       excerpt: p.excerpt[locale],
       date: p.date,

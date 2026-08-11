@@ -1,4 +1,4 @@
-import { getBlogPost } from "./blog-data";
+import { getBlogPost, getSlugForLocale } from "./blog-data";
 
 type Locale = "es" | "en";
 
@@ -36,7 +36,7 @@ const CASE_STUDY_BLOG_POSTS: Record<string, string[]> = {
 function blogCard(slug: string, locale: Locale): RelatedCard | null {
   const post = getBlogPost(slug);
   if (!post || !post.image) return null;
-  return { href: `/${locale}/blog/${slug}`, title: post.title[locale], eyebrow: post.category[locale][0], image: post.image, imageAlt: post.imageAlt?.[locale] };
+  return { href: `/${locale}/blog/${getSlugForLocale(post, locale)}`, title: post.title[locale], eyebrow: post.category[locale][0], image: post.image, imageAlt: post.imageAlt?.[locale] };
 }
 
 export function getRelatedBlogPostsForSolution(slug: string, locale: Locale): RelatedCard[] {

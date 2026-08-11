@@ -7,7 +7,7 @@ import Image from "next/image";
 import { marked } from "marked";
 import { Nav } from "@/components/alora/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { getBlogPost, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
+import { getBlogPostByRouteSlug, getRelatedPosts, BLOG_POSTS } from "@/lib/blog-data";
 import { getCategoryColor } from "@/lib/blog-categories";
 import { buildBreadcrumbSchema } from "@/lib/breadcrumbs";
 import { TrackedLink } from "@/components/shared/TrackedLink";
@@ -17,10 +17,10 @@ import { buildWhatsAppHref } from "@/lib/whatsapp";
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
 export async function generateStaticParams() {
-  const locales = ["es", "en"];
-  return locales.flatMap((locale) =>
-    BLOG_POSTS.map((post) => ({ locale, slug: post.slug }))
-  );
+  return BLOG_POSTS.flatMap((post) => [
+    { locale: "es", slug: post.slug },
+    { locale: "en", slug: post.slugEn },
+  ]);
 }
 
 // Several post excerpts run well past Google's ~155-160 char SERP cutoff —
@@ -36,16 +36,16 @@ function truncateForMeta(text: string, max = 155): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = getBlogPost(slug);
-  if (!post) return { title: "Not found" };
   const l = locale as "es" | "en";
+  const post = getBlogPostByRouteSlug(slug, l);
+  if (!post) return { title: "Not found" };
   const metaDescription = truncateForMeta(post.excerpt[l]);
   return {
     title: `${post.title[l]} | ALORA Insights`,
     description: metaDescription,
     alternates: {
       canonical: `https://www.globalalora.com/${l}/blog/${slug}`,
-      languages: { es: `/es/blog/${slug}`, en: `/en/blog/${slug}` },
+      languages: { es: `/es/blog/${post.slug}`, en: `/en/blog/${post.slugEn}` },
     },
     openGraph: {
       title: post.title[l],
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   if (!hasLocale(locale)) notFound();
   const l = locale as Locale;
-  const post = getBlogPost(slug);
+  const post = getBlogPostByRouteSlug(slug, l);
   if (!post) notFound();
 
   const dict = await getDictionary(l);
