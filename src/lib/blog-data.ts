@@ -4236,6 +4236,217 @@ Want to know where your site stands across these five dimensions? [Book a free 2
       ],
     },
   },
+  {
+    slug: "ia-generativa-vs-ia-predictiva",
+    title: {
+      es: "IA Generativa vs IA Predictiva: la diferencia real (y cuál necesita tu empresa)",
+      en: "Generative AI vs Predictive AI: the real difference (and which one your business needs)",
+    },
+    excerpt: {
+      es: "Los llaman 'IA' a los dos, pero resuelven problemas opuestos: una crea contenido nuevo, la otra anticipa lo que va a pasar. Te explicamos la diferencia real, con ejemplos de negocio, para que sepas cuál aplicar primero.",
+      en: "Both get called 'AI', but they solve opposite problems: one creates new content, the other predicts what's coming. We break down the real difference, with business examples, so you know which one to apply first.",
+    },
+    date: "2026-08-11",
+    category: { es: ["Inteligencia Artificial"], en: ["Artificial Intelligence"] },
+    readTime: 9,
+    relatedSlugs: ["que-es-un-agente-ia", "mi-empresa-necesita-inteligencia-artificial", "chatbot-vs-agente-conversacional-ia"],
+    content: {
+      es: `
+## Dos tipos de IA que resuelven problemas opuestos
+
+"IA generativa" e "IA predictiva" se usan como si fueran la misma cosa con nombres distintos. No lo son, y confundirlas te hace elegir mal: pedís un chatbot cuando lo que necesitás es un modelo que prediga demanda, o encargás un proyecto de forecasting cuando lo que tu negocio necesita es automatizar respuestas por WhatsApp.
+
+La diferencia es de fondo: **la IA generativa crea contenido nuevo, la IA predictiva anticipa un resultado a partir de datos históricos.**
+
+## ¿Qué es la IA generativa?
+
+La IA generativa toma una instrucción (texto, imagen, audio) y **genera contenido nuevo** que no existía antes: texto, imágenes, código, voz, video. Funciona con modelos de lenguaje grandes (LLMs) o modelos de difusión, entrenados con enormes cantidades de datos para aprender patrones y producir salidas originales.
+
+Ejemplos que probablemente ya usás:
+
+- **ChatGPT, Claude, Gemini**: generan texto — respuestas, resúmenes, borradores, código.
+- **Midjourney, DALL-E**: generan imágenes a partir de una descripción.
+- **Un chatbot o agente conversacional de WhatsApp** (como los que construimos en ALORA): genera la respuesta a cada consulta de un cliente, en tiempo real.
+
+Lo que caracteriza a la IA generativa:
+
+- **Produce algo nuevo** cada vez, no elige entre opciones fijas.
+- **No es determinística**: la misma pregunta puede tener respuestas distintas (aunque coherentes).
+- **Aplica a contenido no estructurado**: texto libre, imágenes, conversaciones.
+
+## ¿Qué es la IA predictiva?
+
+La IA predictiva no genera nada nuevo — **analiza datos históricos para anticipar un resultado futuro o clasificar algo**. Le das datos estructurados (ventas pasadas, comportamiento de clientes, sensores de una máquina) y el modelo aprende patrones para predecir qué va a pasar o a qué categoría pertenece un caso nuevo.
+
+Ejemplos de negocio:
+
+- **Forecasting de demanda**: cuánto vas a vender el mes que viene, por producto y por local.
+- **Scoring de leads**: qué probabilidad tiene un lead de convertirse en cliente (HubSpot y Salesforce Einstein lo ofrecen así).
+- **Detección de fraude**: si una transacción es probablemente fraudulenta, en el momento.
+- **Mantenimiento predictivo**: cuándo una máquina va a fallar, antes de que falle.
+- **Predicción de stock**: qué productos se van a agotar antes de que pase.
+
+Lo que caracteriza a la IA predictiva:
+
+- **No crea contenido**: devuelve un número, una probabilidad o una categoría.
+- **Depende de datos históricos estructurados y de calidad** — sin buen historial, no hay buena predicción.
+- **Es determinística dentro de su modelo**: los mismos datos de entrada dan la misma predicción.
+
+## La diferencia real, punto por punto
+
+| | IA Generativa | IA Predictiva |
+|---|---|---|
+| Qué produce | Contenido nuevo (texto, imagen, voz) | Un resultado, probabilidad o categoría |
+| Pregunta que responde | "¿Qué digo o qué creo?" | "¿Qué va a pasar?" |
+| Tipo de datos | No estructurados (texto, conversaciones) | Estructurados e históricos (ventas, transacciones) |
+| Ejemplos | ChatGPT, Claude, Midjourney, chatbots | Forecasting de demanda, scoring de leads, mantenimiento predictivo |
+| Resultado | Distinto cada vez, coherente | El mismo dato de entrada, siempre la misma salida |
+| Riesgo principal | Puede "alucinar" información incorrecta | Es tan buena como los datos históricos que la alimentan |
+
+## ¿Cuándo conviene la IA generativa en tu empresa?
+
+Tiene sentido cuando necesitás:
+
+- **Responder consultas de clientes** en WhatsApp, chat web o email, sin que un humano escriba cada respuesta.
+- **Generar contenido** de forma repetida: descripciones de producto, emails, publicaciones.
+- **Automatizar tareas de redacción**: cotizaciones, resúmenes de reuniones, propuestas.
+
+## ¿Cuándo conviene la IA predictiva en tu empresa?
+
+Tiene sentido cuando necesitás:
+
+- **Anticipar demanda o ventas** para no quedarte sin stock ni sobrestockearte.
+- **Priorizar leads** según probabilidad real de compra, no por orden de llegada.
+- **Detectar riesgo** antes de que se concrete: un cliente que va a darse de baja, una transacción sospechosa, un equipo que va a fallar.
+
+## Ejemplo real: el mismo negocio, dos problemas distintos
+
+Pensá en un ecommerce mayorista (uno de los rubros con los que trabajamos en ALORA). Dos problemas típicos:
+
+**Problema 1**: no saben cuándo se les va a agotar un producto hasta que ya pasó. Acá la solución es **IA predictiva**: un modelo que mira el historial de ventas, la estacionalidad y el tiempo de reposición, y avisa con anticipación qué producto hay que reponer y cuándo.
+
+**Problema 2**: los clientes mayoristas preguntan por WhatsApp precios, disponibilidad y estado de pedidos, y el equipo no da abasto. Acá la solución es **IA generativa**: un agente conversacional que responde en el momento, con la info real del sistema de gestión.
+
+Son dos proyectos distintos, con tecnología distinta, resolviendo el mismo negocio.
+
+## ¿Se pueden combinar las dos?
+
+Sí, y cada vez es más común. Un caso típico: la IA predictiva **detecta** que un lead tiene alta probabilidad de compra, y la IA generativa **redacta** el mensaje de seguimiento personalizado para ese lead específico. Una decide a quién priorizar, la otra ejecuta la comunicación. Ninguna reemplaza a la otra — resuelven partes distintas del mismo problema.
+
+## Conclusión
+
+No hay una "mejor" entre las dos — resuelven preguntas distintas. Si tu problema es "necesito responder o crear contenido más rápido", es un caso de **IA generativa**. Si tu problema es "necesito anticipar qué va a pasar antes de que pase", es un caso de **IA predictiva**. Muchas empresas terminan necesitando ambas, en distintas partes de la operación.
+
+En ALORA construimos [agentes conversacionales con IA generativa](/es/soluciones/atencion-cliente-ia) y [software a medida](/es/soluciones/desarrollo-software) que incorpora modelos predictivos cuando el caso lo justifica. Si no estás seguro de cuál necesitás, [reservá una auditoría de IA gratuita](/es/ia-para-empresas) y lo definimos juntos a partir de tu operación real.
+      `,
+      en: `
+## Two types of AI that solve opposite problems
+
+"Generative AI" and "predictive AI" get used as if they were the same thing with different names. They're not, and mixing them up leads to bad decisions: you ask for a chatbot when what you actually need is a demand-forecasting model, or you commission a forecasting project when what your business needs is automating WhatsApp replies.
+
+The difference is fundamental: **generative AI creates new content, predictive AI anticipates an outcome from historical data.**
+
+## What is generative AI?
+
+Generative AI takes an instruction (text, image, audio) and **produces new content** that didn't exist before: text, images, code, voice, video. It runs on large language models (LLMs) or diffusion models, trained on huge amounts of data to learn patterns and produce original outputs.
+
+Examples you're probably already using:
+
+- **ChatGPT, Claude, Gemini**: generate text — replies, summaries, drafts, code.
+- **Midjourney, DALL-E**: generate images from a description.
+- **A WhatsApp chatbot or conversational agent** (like the ones we build at ALORA): generates the reply to each customer inquiry, in real time.
+
+What defines generative AI:
+
+- **Produces something new** every time, instead of picking from fixed options.
+- **Isn't deterministic**: the same question can get different (though consistent) answers.
+- **Applies to unstructured content**: free text, images, conversations.
+
+## What is predictive AI?
+
+Predictive AI doesn't generate anything new — it **analyzes historical data to anticipate a future outcome or classify something**. You feed it structured data (past sales, customer behavior, machine sensors) and the model learns patterns to predict what's going to happen or which category a new case falls into.
+
+Business examples:
+
+- **Demand forecasting**: how much you'll sell next month, by product and by location.
+- **Lead scoring**: how likely a lead is to convert into a customer (HubSpot and Salesforce Einstein offer this).
+- **Fraud detection**: whether a transaction is likely fraudulent, in real time.
+- **Predictive maintenance**: when a machine is going to fail, before it fails.
+- **Stock prediction**: which products are going to run out before it happens.
+
+What defines predictive AI:
+
+- **Doesn't create content**: it returns a number, a probability, or a category.
+- **Depends on quality, structured historical data** — without a good track record, there's no good prediction.
+- **Is deterministic within its model**: the same input data produces the same prediction.
+
+## The real difference, point by point
+
+| | Generative AI | Predictive AI |
+|---|---|---|
+| What it produces | New content (text, image, voice) | A result, probability, or category |
+| Question it answers | "What should I say or create?" | "What's going to happen?" |
+| Type of data | Unstructured (text, conversations) | Structured and historical (sales, transactions) |
+| Examples | ChatGPT, Claude, Midjourney, chatbots | Demand forecasting, lead scoring, predictive maintenance |
+| Output | Different each time, consistent | Same input, always the same output |
+| Main risk | Can "hallucinate" incorrect information | Only as good as the historical data feeding it |
+
+## When does generative AI make sense for your business?
+
+It makes sense when you need to:
+
+- **Answer customer inquiries** over WhatsApp, web chat, or email, without a human typing every reply.
+- **Generate content** repeatedly: product descriptions, emails, posts.
+- **Automate writing tasks**: quotes, meeting summaries, proposals.
+
+## When does predictive AI make sense for your business?
+
+It makes sense when you need to:
+
+- **Anticipate demand or sales** so you don't run out of stock or overstock.
+- **Prioritize leads** by real purchase probability, not by order of arrival.
+- **Detect risk** before it happens: a customer about to churn, a suspicious transaction, equipment about to fail.
+
+## Real example: same business, two different problems
+
+Think of a wholesale ecommerce business (one of the industries we work with at ALORA). Two typical problems:
+
+**Problem 1**: they don't know a product is about to run out until it already has. Here the solution is **predictive AI**: a model that looks at sales history, seasonality, and restocking lead time, and flags in advance which product needs restocking and when.
+
+**Problem 2**: wholesale customers ask over WhatsApp about pricing, availability, and order status, and the team can't keep up. Here the solution is **generative AI**: a conversational agent that replies in real time, using real data from the management system.
+
+Two different projects, different technology, solving the same business.
+
+## Can you combine both?
+
+Yes, and it's increasingly common. A typical case: predictive AI **detects** that a lead has a high probability of buying, and generative AI **writes** the personalized follow-up message for that specific lead. One decides who to prioritize, the other executes the communication. Neither replaces the other — they solve different parts of the same problem.
+
+## Conclusion
+
+Neither one is "better" — they answer different questions. If your problem is "I need to reply or create content faster," that's a **generative AI** case. If your problem is "I need to anticipate what's going to happen before it happens," that's a **predictive AI** case. Many businesses end up needing both, in different parts of their operation.
+
+At ALORA we build [conversational agents powered by generative AI](/en/soluciones/atencion-cliente-ia) and [custom software](/en/soluciones/desarrollo-software) that incorporates predictive models when the case calls for it. If you're not sure which one you need, [book a free AI audit](/en/ia-para-empresas) and we'll figure it out together, based on your actual operation.
+      `,
+    },
+    faq: {
+      es: [
+        { q: "¿Qué es la IA generativa y en qué se diferencia de la IA predictiva?", a: "La IA generativa crea contenido nuevo (texto, imágenes, respuestas) a partir de una instrucción. La IA predictiva no crea nada — analiza datos históricos para anticipar un resultado futuro o clasificar un caso, como qué probabilidad tiene un lead de comprar." },
+        { q: "¿ChatGPT es un ejemplo de IA generativa o predictiva?", a: "Es IA generativa: genera texto nuevo en cada respuesta a partir de un modelo de lenguaje. No predice resultados de negocio como ventas o riesgo de fraude — eso es trabajo de la IA predictiva." },
+        { q: "¿Qué tipo de IA necesito para predecir ventas o demanda?", a: "IA predictiva. Necesitás un modelo entrenado con tu historial de ventas, estacionalidad y variables relevantes de tu negocio — no un chatbot ni un generador de texto." },
+        { q: "¿Qué tipo de IA necesito para un chatbot o agente de atención al cliente?", a: "IA generativa, específicamente un agente conversacional basado en un modelo de lenguaje. Es la tecnología que entiende lenguaje natural y genera respuestas coherentes en tiempo real." },
+        { q: "¿Puedo usar IA generativa y predictiva juntas en mi empresa?", a: "Sí, es cada vez más común. Un caso típico: un modelo predictivo prioriza qué leads tienen más probabilidad de compra, y un modelo generativo redacta el mensaje de seguimiento para cada uno." },
+        { q: "¿Cuál es más cara de implementar, la IA generativa o la predictiva?", a: "Depende del caso, no de la categoría. Un chatbot generativo bien acotado puede ser más simple y rápido que un modelo predictivo que requiere limpiar años de datos históricos — y viceversa. El costo real lo define el alcance del proyecto, no el tipo de IA." },
+      ],
+      en: [
+        { q: "What is generative AI and how is it different from predictive AI?", a: "Generative AI creates new content (text, images, replies) from an instruction. Predictive AI doesn't create anything — it analyzes historical data to anticipate a future outcome or classify a case, like how likely a lead is to buy." },
+        { q: "Is ChatGPT an example of generative or predictive AI?", a: "It's generative AI: it generates new text in every reply from a language model. It doesn't predict business outcomes like sales or fraud risk — that's predictive AI's job." },
+        { q: "What type of AI do I need to predict sales or demand?", a: "Predictive AI. You need a model trained on your sales history, seasonality, and relevant business variables — not a chatbot or a text generator." },
+        { q: "What type of AI do I need for a chatbot or customer service agent?", a: "Generative AI, specifically a conversational agent built on a language model. It's the technology that understands natural language and generates coherent replies in real time." },
+        { q: "Can I use generative and predictive AI together in my business?", a: "Yes, it's increasingly common. A typical case: a predictive model prioritizes which leads are most likely to buy, and a generative model writes the follow-up message for each one." },
+        { q: "Which is more expensive to implement, generative or predictive AI?", a: "It depends on the specific case, not the category. A well-scoped generative chatbot can be simpler and faster than a predictive model that requires cleaning years of historical data — and vice versa. Real cost is driven by project scope, not AI type." },
+      ],
+    },
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
