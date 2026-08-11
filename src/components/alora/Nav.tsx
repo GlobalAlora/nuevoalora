@@ -9,6 +9,7 @@ import type { Dictionary } from "@/dictionaries/es";
 import type { Locale } from "@/lib/i18n";
 import { ICONS as NAV_ICONS } from "@/lib/icons";
 import { CASE_STUDIES } from "@/lib/case-studies-data";
+import { BLOG_SLUG_ES_TO_EN, BLOG_SLUG_EN_TO_ES } from "@/lib/blog-slug-map";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { WhatsAppLink } from "@/components/shared/WhatsAppLink";
 import { trackEvent } from "@/lib/analytics";
@@ -124,7 +125,13 @@ export function Nav({ dict, locale }: Props) {
     "/discovery-call": "/llamada-de-relevamiento",
   };
   const restPath = pathname?.replace(/^\/(es|en)/, "") || "";
-  const otherLocaleHref = `/${otherLocale}${SLUG_OVERRIDES[restPath] ?? restPath}`;
+  // Every blog post also has its own per-locale slug (see blog-slug-map.ts) —
+  // resolve that translation before falling back to the generic overrides.
+  const blogSlugMatch = restPath.match(/^\/blog\/(.+)$/);
+  const translatedBlogPath = blogSlugMatch
+    ? (locale === "es" ? BLOG_SLUG_ES_TO_EN[blogSlugMatch[1]] : BLOG_SLUG_EN_TO_ES[blogSlugMatch[1]])
+    : undefined;
+  const otherLocaleHref = `/${otherLocale}${translatedBlogPath ? `/blog/${translatedBlogPath}` : (SLUG_OVERRIDES[restPath] ?? restPath)}`;
   const esHref = locale === "es" ? pathname ?? homeHref : otherLocaleHref;
   const enHref = locale === "en" ? pathname ?? homeHref : otherLocaleHref;
 
