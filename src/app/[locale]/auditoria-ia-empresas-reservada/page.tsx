@@ -5,6 +5,7 @@ import { hasLocale } from "@/lib/i18n";
 import type { Locale } from "@/lib/i18n";
 import { TechBackground } from "../ia-para-empresas/TechBackground";
 import { AGENDADA_CONTENT, LANDING_CONTENT } from "../ia-para-empresas/content";
+import { FireAnalyticsEvent } from "@/components/shared/FireAnalyticsEvent";
 
 const ACCENT = "var(--electric)";
 const ACCENT2 = "var(--violet)";
@@ -27,6 +28,7 @@ export default async function AuditoriaReservadaPage({ params }: Props) {
 
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
+      <FireAnalyticsEvent event="schedule_audit" params={{ landing_page: `/${l}/auditoria-ia-empresas-reservada` }} />
       <TechBackground accent={ACCENT} accent2={ACCENT2} />
 
       <header className="relative z-10 flex items-center justify-center py-8">
