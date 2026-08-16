@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentesting con IA — Guía Strix × Claude Code | AloraDev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep: #060b14;
+    --navy: #0b1526;
+    --navy-panel: #101d33;
+    --navy-line: #1e2c45;
+    --green: #39ff8c;
+    --green-dim: #1f8f52;
+    --white: #f4f7fb;
+    --gray: #8b98ad;
+    --gray-dim: #5c6a80;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--navy-deep);
+    color: var(--white);
+    font-family:'DM Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(57,255,140,0.10), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(57,255,140,0.06), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap{max-width:840px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+
+  /* ---------- NAV / LOGO ---------- */
+  header.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 24px;
+    max-width:840px; margin:0 auto;
+    position:relative; z-index:2;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Syne', sans-serif;}
+  .logo-mark{
+    width:34px; height:34px; border-radius:9px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dim) 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; color:var(--navy-deep); font-size:16px;
+    box-shadow: 0 0 24px rgba(57,255,140,0.35);
+  }
+  .logo-text{font-weight:700; font-size:19px; letter-spacing:0.2px;}
+  .logo-text span{color:var(--green);}
+  .tag-pill{
+    font-family:'DM Mono', monospace; font-size:11px; color:var(--gray);
+    border:1px solid var(--navy-line); padding:6px 12px; border-radius:100px;
+    letter-spacing:0.5px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:56px 0 44px; position:relative;}
+  .eyebrow{
+    font-family:'DM Mono', monospace; font-size:12.5px; color:var(--green);
+    letter-spacing:2px; text-transform:uppercase; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"▸"; color:var(--green);}
+  h1{
+    font-family:'Syne', sans-serif; font-weight:800;
+    font-size:clamp(34px, 6vw, 54px); line-height:1.05;
+    letter-spacing:-1px; margin-bottom:20px;
+  }
+  h1 em{
+    font-style:normal; color:var(--green);
+    text-shadow:0 0 30px rgba(57,255,140,0.3);
+  }
+  .lead{font-size:17.5px; color:var(--gray); max-width:600px; margin-bottom:8px;}
+  .lead strong{color:var(--white); font-weight:600;}
+
+  .terminal{
+    margin-top:36px;
+    background: var(--navy);
+    border:1px solid var(--navy-line);
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:7px;
+    padding:12px 16px; background:var(--navy-panel);
+    border-bottom:1px solid var(--navy-line);
+  }
+  .dot{width:10px; height:10px; border-radius:50%;}
+  .dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
+  .terminal-title{
+    margin-left:8px; font-family:'DM Mono', monospace; font-size:12px; color:var(--gray-dim);
+  }
+  .terminal-body{
+    padding:20px 22px; font-family:'DM Mono', monospace; font-size:13.5px;
+    color:#c7d3e0;
+  }
+  .terminal-body .prompt{color:var(--green);}
+  .terminal-body .comment{color:var(--gray-dim);}
+  .terminal-body .out{color:var(--gray); display:block; margin:2px 0 10px 0;}
+  .terminal-body div{margin-bottom:2px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:52px 0; border-top:1px solid var(--navy-line); position:relative;}
+  .section-head{margin-bottom:30px;}
+  .section-num{
+    font-family:'DM Mono', monospace; font-size:12px; color:var(--green);
+    letter-spacing:1.5px; margin-bottom:10px; display:block;
+  }
+  h2{
+    font-family:'Syne', sans-serif; font-weight:700; font-size:28px;
+    letter-spacing:-0.3px;
+  }
+  p.sub{color:var(--gray); margin-top:10px; max-width:560px; font-size:15.5px;}
+
+  /* ---------- WHAT IS ---------- */
+  .feature-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px;
+  }
+  .feature-card{
+    background:var(--navy-panel); border:1px solid var(--navy-line);
+    border-radius:12px; padding:20px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .feature-card:hover{border-color: var(--green-dim); transform: translateY(-2px);}
+  .feature-card .fi{font-size:20px; margin-bottom:10px; display:block;}
+  .feature-card h3{font-family:'Syne', sans-serif; font-size:15.5px; margin-bottom:6px; font-weight:700;}
+  .feature-card p{font-size:13.5px; color:var(--gray);}
+
+  /* ---------- PATH TOGGLE ---------- */
+  .toggle-row{display:flex; gap:10px; margin-bottom:28px;}
+  .toggle-btn{
+    font-family:'DM Mono', monospace; font-size:13px;
+    background:transparent; border:1px solid var(--navy-line); color:var(--gray);
+    padding:10px 18px; border-radius:100px; cursor:pointer;
+    transition: all 0.2s ease;
+  }
+  .toggle-btn.active{
+    background: var(--green); color:var(--navy-deep); border-color:var(--green);
+    font-weight:600;
+  }
+  .path-panel{display:none;}
+  .path-panel.active{display:block;}
+
+  /* ---------- STEPS ---------- */
+  .step{
+    display:grid; grid-template-columns:44px 1fr; gap:18px;
+    padding:22px 0; border-bottom:1px solid var(--navy-line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    width:44px; height:44px; border-radius:10px;
+    background:var(--navy-panel); border:1px solid var(--navy-line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Syne', sans-serif; font-weight:700; color:var(--green); font-size:16px;
+  }
+  .step h3{
+    font-family:'Syne', sans-serif; font-size:17px; font-weight:700; margin-bottom:6px;
+  }
+  .step p{color:var(--gray); font-size:14.5px; margin-bottom:12px;}
+  .code-block{
+    background:var(--navy); border:1px solid var(--navy-line); border-radius:10px;
+    padding:14px 16px; font-family:'DM Mono', monospace; font-size:13px;
+    color:var(--green); overflow-x:auto; white-space:pre;
+    position:relative;
+  }
+  .code-block .cm{color:var(--gray-dim);}
+  .prompt-example{
+    background: rgba(57,255,140,0.06); border:1px solid var(--green-dim);
+    border-radius:10px; padding:14px 16px; margin-top:10px;
+    font-size:14px; font-style:italic; color:#d3f5e2;
+  }
+  .prompt-example::before{content:"💬 "; font-style:normal;}
+
+  /* ---------- WARNING BOX ---------- */
+  .warn{
+    margin-top:44px;
+    background: linear-gradient(135deg, rgba(255,95,87,0.08), rgba(255,95,87,0.02));
+    border:1px solid rgba(255,95,87,0.35);
+    border-radius: var(--radius);
+    padding:24px 26px;
+  }
+  .warn-head{
+    display:flex; align-items:center; gap:10px; margin-bottom:10px;
+  }
+  .warn-head .wi{font-size:18px;}
+  .warn h3{font-family:'Syne', sans-serif; font-size:16px; color:#ff8f88; font-weight:700;}
+  .warn p{font-size:14.5px; color:#d9c3c1;}
+  .warn p + p{margin-top:8px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border-bottom:1px solid var(--navy-line); padding:18px 0;
+  }
+  .faq-item h3{
+    font-family:'Syne', sans-serif; font-size:15.5px; font-weight:700; margin-bottom:8px;
+    display:flex; gap:10px;
+  }
+  .faq-item h3::before{content:"?"; color:var(--green);}
+  .faq-item p{font-size:14.5px; color:var(--gray);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:44px 0 60px; text-align:center;
+  }
+  .footer-logo{
+    display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:14px;
+  }
+  footer p{color:var(--gray-dim); font-size:13px;}
+  footer a{color:var(--green); text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width:600px){
+    .feature-grid{grid-template-columns:1fr;}
+    h1{font-size:32px;}
+    .step{grid-template-columns:38px 1fr; gap:12px;}
+    .step-num{width:38px; height:38px; font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo">
+    <div class="logo-mark">A</div>
+    <div class="logo-text">Alora<span>Dev</span></div>
+  </div>
+  <div class="tag-pill">GUÍA TÉCNICA</div>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none; padding-top:12px;">
+    <div class="eyebrow">Seguridad + IA</div>
+    <h1>Testeá tu app como lo haría <em>un hacker</em>, con IA.</h1>
+    <p class="lead">Guía paso a paso para correr <strong>Strix</strong> —agentes de IA de pentesting open source— desde <strong>Claude Code</strong>, y encontrar vulnerabilidades reales en tu propia aplicación antes de que las encuentre otra persona.</p>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <div class="terminal-title">claude-code — tu-proyecto</div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="comment"># le pedís esto a Claude Code, así de simple</span></div>
+        <div><span class="prompt">tú &gt;</span> Corré un pentest con Strix sobre esta app</div>
+        <div><span class="out">↳ usando skill "penetration-testing-with-strix"...
+↳ escaneando: auth, endpoints, inputs...
+↳ 3 hallazgos validados con PoC</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUE ES -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">01 — QUÉ ES</span>
+      <h2>Strix, en criollo</h2>
+      <p class="sub">No es un scanner que tira falsos positivos. Son agentes de IA que corren tu app de verdad, encuentran fallas y las explotan con una prueba de concepto real, como haría un pentester humano.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="fi">🕷️</span>
+        <h3>Explota, no solo detecta</h3>
+        <p>Genera exploits funcionales (PoC) en vez de alertas genéricas sin validar.</p>
+      </div>
+      <div class="feature-card">
+        <span class="fi">🧩</span>
+        <h3>Cubre el OWASP Top 10</h3>
+        <p>SQLi, XSS, IDOR, SSRF, auth bypass, lógica de negocio y más.</p>
+      </div>
+      <div class="feature-card">
+        <span class="fi">🤖</span>
+        <h3>Multi-agente</h3>
+        <p>Varios agentes se coordinan: reconocimiento, explotación y validación en paralelo.</p>
+      </div>
+      <div class="feature-card">
+        <span class="fi">🛠️</span>
+        <h3>Auto-fix</h3>
+        <p>Puede generar el parche de seguridad y dejarlo listo como pull request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO USARLO -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">02 — CÓMO CORRERLO</span>
+      <h2>Elegí tu camino</h2>
+      <p class="sub">Hay dos formas de usarlo desde Claude Code. Si es tu primera vez, arrancá por la <strong style="color:var(--white)">Managed</strong> — no necesitás Docker ni tu propia API key de LLM.</p>
+    </div>
+
+    <div class="toggle-row">
+      <button class="toggle-btn active" onclick="showPath('managed', this)">☁️ Managed (recomendado)</button>
+      <button class="toggle-btn" onclick="showPath('local', this)">💻 Local</button>
+    </div>
+
+    <!-- MANAGED PATH -->
+    <div id="managed" class="path-panel active">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Creá tu cuenta gratis</h3>
+          <p>Andá a <strong style="color:var(--white)">app.strix.ai</strong> y registrate. No hace falta instalar nada localmente ni tener Docker corriendo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Instalá el skill en tu proyecto</h3>
+          <p>Desde la terminal, parado en la carpeta de tu app:</p>
+          <div class="code-block"><span class="cm"># instala los 4 skills de Strix para Claude Code</span>
+npx skills add usestrix/strix</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Pedíselo a Claude Code</h3>
+          <p>Le indicás en lenguaje natural qué querés testear, usando el skill managed (vía API, sin infraestructura local):</p>
+          <div class="prompt-example">Usá Strix managed para pentestear mi app en producción, enfocate en autenticación e IDOR</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Revisá los hallazgos</h3>
+          <p>Los resultados —con severidad, PoC y pasos de reproducción— quedan disponibles en el dashboard de app.strix.ai y Claude Code te los resume en el chat.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCAL PATH -->
+    <div id="local" class="path-panel">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Requisitos previos</h3>
+          <p>Necesitás Docker corriendo en tu máquina y una API key de un proveedor de LLM (Anthropic, OpenAI, Google, etc.).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Instalá el skill</h3>
+          <div class="code-block">npx skills add usestrix/strix</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Configurá tu proveedor de IA</h3>
+          <p>Esto lo corrés una sola vez en tu terminal (Strix guarda la config para la próxima):</p>
+          <div class="code-block"><span class="cm"># variables de entorno para el motor de Strix</span>
+export STRIX_LLM="anthropic/claude-sonnet-4-6"
+export LLM_API_KEY="tu-api-key"</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Pedíselo a Claude Code</h3>
+          <div class="prompt-example">Corré un pentest local con Strix sobre esta app y contame qué encontrás</div>
+          <p style="margin-top:10px;">Claude Code va a invocar el binario <code style="color:var(--green)">strix</code> por vos, que corre en un sandbox Docker aislado.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>Mirá el dashboard local</h3>
+          <div class="code-block">strix view</div>
+          <p style="margin-top:8px;">Abre un panel local (sin subir nada a la nube) con el mapa de agentes, hallazgos y reportes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">03 — DUDAS COMUNES</span>
+      <h2>Antes de que preguntes</h2>
+    </div>
+    <div class="faq-item">
+      <h3>¿Si se lo pido en el chat de Claude Code, usa la sesión de Claude que ya tengo abierta?</h3>
+      <p>No. Strix es un proceso independiente por fuera de Claude Code. Claude Code solo ejecuta el comando; Strix necesita su propia configuración (managed = cuenta en app.strix.ai, local = Docker + API key propia).</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cuál conviene si nunca lo usé?</h3>
+      <p>Managed. Cero fricción: sin Docker, sin variables de entorno, sin gastar tu propia API key de LLM en cada escaneo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puede arreglar lo que encuentra?</h3>
+      <p>Sí — el skill "fix-security-vulnerabilities-with-strix" genera el parche y vuelve a escanear para confirmar que la falla quedó resuelta.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Sirve para meterlo en el pipeline de CI/CD?</h3>
+      <p>Sí, con el skill "ci-security-scanning-with-strix" escanea automáticamente cada pull request y bloquea código inseguro antes de mergear.</p>
+    </div>
+  </section>
+
+  <!-- WARNING -->
+  <div class="warn">
+    <div class="warn-head">
+      <span class="wi">⚠️</span>
+      <h3>Uso autorizado únicamente</h3>
+    </div>
+    <p>Strix ejecuta ataques reales contra el objetivo que le indiques. Corrélo <strong>solo</strong> contra aplicaciones propias, o con permiso explícito y por escrito del dueño.</p>
+    <p>Testear sistemas de terceros sin autorización es ilegal en la mayoría de las jurisdicciones. La responsabilidad de tener autorización es enteramente tuya.</p>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="logo-mark" style="width:26px; height:26px; font-size:13px;">A</div>
+      <div class="logo-text" style="font-size:15px;">Alora<span>Dev</span></div>
+    </div>
+    <p>Guía elaborada por AloraDev · <a href="https://globalalora.com" target="_blank">globalalora.com</a></p>
+    <p style="margin-top:6px;">Basado en la documentación oficial de <a href="https://docs.strix.ai" target="_blank">docs.strix.ai</a></p>
+  </footer>
+
+</div>
+
+<script>
+  function showPath(id, btn){
+    document.querySelectorAll('.path-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
