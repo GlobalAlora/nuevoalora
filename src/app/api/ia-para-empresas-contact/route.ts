@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
     await submitLead({
       nombre: `${data.nombre} ${data.apellido}`,
       email: data.email,
+      telefono: data.telefono,
       pais: data.pais,
       empresa: data.empresa,
       companySize: data.companySize,

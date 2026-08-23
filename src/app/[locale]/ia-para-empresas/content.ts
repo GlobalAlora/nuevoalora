@@ -345,8 +345,8 @@ export const LANDING_CONTENT: Record<"es" | "en", LandingContent> = {
 };
 
 export interface FormContent {
-  labels: { nombre: string; apellido: string; email: string; empresa: string; companySize: string; pais: string; mensaje: string };
-  placeholders: { nombre: string; apellido: string; email: string; empresa: string; companySizeOption: string; paisOption: string; mensaje: string };
+  labels: { nombre: string; apellido: string; email: string; telefono: string; empresa: string; companySize: string; pais: string; mensaje: string };
+  placeholders: { nombre: string; apellido: string; email: string; telefono: string; empresa: string; companySizeOption: string; paisOption: string; mensaje: string };
   countries: string[];
   privacyText: string;
   privacyLink: string;
@@ -358,11 +358,12 @@ export interface FormContent {
 
 export const FORM_CONTENT: Record<"es" | "en", FormContent> = {
   es: {
-    labels: { nombre: "Nombre", apellido: "Apellido", email: "Correo", empresa: "Empresa", companySize: "Tamaño de la empresa", pais: "País", mensaje: "¿Qué proceso o equipo te gustaría optimizar con IA?" },
+    labels: { nombre: "Nombre", apellido: "Apellido", email: "Correo", telefono: "Teléfono / WhatsApp", empresa: "Empresa", companySize: "Tamaño de la empresa", pais: "País", mensaje: "¿Qué proceso o equipo te gustaría optimizar con IA?" },
     placeholders: {
       nombre: "Tu nombre",
       apellido: "Tu apellido",
       email: "vos@empresa.com",
+      telefono: "+54 9 11 1234-5678",
       empresa: "Nombre de tu empresa",
       companySizeOption: "Seleccioná una opción",
       paisOption: "Seleccioná tu país",
@@ -377,11 +378,12 @@ export const FORM_CONTENT: Record<"es" | "en", FormContent> = {
     requiredMark: "*",
   },
   en: {
-    labels: { nombre: "First name", apellido: "Last name", email: "Email", empresa: "Company", companySize: "Company size", pais: "Country", mensaje: "What process or team would you like to optimize with AI?" },
+    labels: { nombre: "First name", apellido: "Last name", email: "Email", telefono: "Phone / WhatsApp", empresa: "Company", companySize: "Company size", pais: "Country", mensaje: "What process or team would you like to optimize with AI?" },
     placeholders: {
       nombre: "Your first name",
       apellido: "Your last name",
       email: "you@company.com",
+      telefono: "+1 555 123 4567",
       empresa: "Your company's name",
       companySizeOption: "Select an option",
       paisOption: "Select your country",

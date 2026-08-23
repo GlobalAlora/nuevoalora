@@ -103,13 +103,18 @@ export function AiLandingContactForm({ accent, accent2, locale }: Props) {
           {fieldError(errors.email?.message)}
         </div>
         <div>
-          <label htmlFor="ai-empresa" style={labelBase}>{f.labels.empresa} <span className="text-red-400/70">{f.requiredMark}</span></label>
-          <input id="ai-empresa" {...register("empresa")} placeholder={f.placeholders.empresa} style={inputBase} className={`form-field ${focusClass}`} />
-          {fieldError(errors.empresa?.message)}
+          <label htmlFor="ai-telefono" style={labelBase}>{f.labels.telefono} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-telefono" {...register("telefono")} type="tel" placeholder={f.placeholders.telefono} style={inputBase} className={`form-field ${focusClass}`} />
+          {fieldError(errors.telefono?.message)}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="ai-empresa" style={labelBase}>{f.labels.empresa} <span className="text-red-400/70">{f.requiredMark}</span></label>
+          <input id="ai-empresa" {...register("empresa")} placeholder={f.placeholders.empresa} style={inputBase} className={`form-field ${focusClass}`} />
+          {fieldError(errors.empresa?.message)}
+        </div>
         <div>
           <label htmlFor="ai-tamano" style={labelBase}>{f.labels.companySize} <span className="text-red-400/70">{f.requiredMark}</span></label>
           <select id="ai-tamano" {...register("companySize")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`} defaultValue="">
@@ -118,14 +123,15 @@ export function AiLandingContactForm({ accent, accent2, locale }: Props) {
           </select>
           {fieldError(errors.companySize?.message)}
         </div>
-        <div>
-          <label htmlFor="ai-pais" style={labelBase}>{f.labels.pais} <span className="text-red-400/70">{f.requiredMark}</span></label>
-          <select id="ai-pais" {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`} defaultValue="">
-            <option value="" disabled style={optionStyle}>{f.placeholders.paisOption}</option>
-            {f.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
-          </select>
-          {fieldError(errors.pais?.message)}
-        </div>
+      </div>
+
+      <div>
+        <label htmlFor="ai-pais" style={labelBase}>{f.labels.pais} <span className="text-red-400/70">{f.requiredMark}</span></label>
+        <select id="ai-pais" {...register("pais")} style={{ ...inputBase, appearance: "none" }} className={`form-field ${focusClass}`} defaultValue="">
+          <option value="" disabled style={optionStyle}>{f.placeholders.paisOption}</option>
+          {f.countries.map((c) => <option key={c} value={c} style={optionStyle}>{c}</option>)}
+        </select>
+        {fieldError(errors.pais?.message)}
       </div>
 
       <div>
