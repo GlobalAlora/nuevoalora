@@ -43,11 +43,12 @@ export function ContactSection({ dict, locale }: Props) {
             <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em] lg:justify-start">
               <span className="text-white/50">{contact.sectionIndex}</span>
               <span className="h-px w-8 bg-white/20" />
-              <span className="text-white/80">{contact.sectionLabel}</span>
+              <span className="text-white/80" aria-hidden="true">{contact.sectionLabel}</span>
             </div>
-            <h2 className="mt-6 text-balance" style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 720, lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+            <h2 className="sr-only">{contact.sectionLabel}</h2>
+            <p className="mt-6 text-balance" style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 720, lineHeight: 1.06, letterSpacing: "-0.035em" }}>
               {contact.heading}
-            </h2>
+            </p>
             <p className="mt-5 text-pretty text-[15.5px] leading-relaxed text-white/60">{contact.body}</p>
 
             {/* Reassurance items */}

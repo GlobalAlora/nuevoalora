@@ -63,12 +63,13 @@ export function Process({ dict }: Props) {
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
             <span className="text-white/50">{process.sectionIndex}</span>
             <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80">{process.sectionLabel}</span>
+            <span className="text-white/80" aria-hidden="true">{process.sectionLabel}</span>
           </div>
-          <h2 className="mt-6" style={{ fontSize: "clamp(28px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="sr-only">{process.sectionLabel}</h2>
+          <p className="mt-6" style={{ fontSize: "clamp(28px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             <span className="block sm:whitespace-nowrap">{process.headingLine1}</span>
             <span className="block sm:whitespace-nowrap">{process.headingLine2}</span>
-          </h2>
+          </p>
         </div>
 
         {/* Desktop: zigzag stepper — content alternates above/below a single connecting line, so each label gets full room to be readable */}

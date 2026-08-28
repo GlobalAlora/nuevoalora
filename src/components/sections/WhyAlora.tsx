@@ -63,11 +63,12 @@ export function WhyAlora({ dict }: Props) {
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
             <span className="text-white/50">{why.sectionIndex}</span>
             <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80">{why.sectionLabel}</span>
+            <span className="text-white/80" aria-hidden="true">{why.sectionLabel}</span>
           </div>
-          <h2 className="mt-6 text-balance" style={{ fontSize: "clamp(36px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+          <h2 className="sr-only">{why.sectionLabel}</h2>
+          <p className="mt-6 text-balance" style={{ fontSize: "clamp(36px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             {why.heading}
-          </h2>
+          </p>
           <p className="mt-5 text-pretty" style={{ maxWidth: "600px", margin: "20px auto 0", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.62)" }}>
             {why.body}
           </p>

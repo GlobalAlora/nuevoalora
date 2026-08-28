@@ -228,14 +228,15 @@ export function Services({ dict, locale }: Props) {
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
             <span className="text-white/50">{services.sectionIndex}</span>
             <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80">{services.sectionLabel}</span>
+            <span className="text-white/80" aria-hidden="true">{services.sectionLabel}</span>
           </div>
-          <h2
+          <h2 className="sr-only">{services.sectionLabel}</h2>
+          <p
             className="mt-6 text-white sm:whitespace-nowrap"
             style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}
           >
             {services.heading}
-          </h2>
+          </p>
           <p className="mx-auto mt-5 text-pretty" style={{ maxWidth: "620px", fontSize: "17px", lineHeight: 1.6, color: "rgba(255,255,255,0.66)" }}>
             {services.body}
           </p>
