@@ -41,13 +41,13 @@ export function ContactSection({ dict, locale }: Props) {
           {/* Left — copy */}
           <div className="text-center lg:text-left">
             <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em] lg:justify-start">
-              <span className="text-white/50" aria-hidden="true">{contact.sectionIndex}</span>
-              <span className="h-px w-8 bg-white/20" aria-hidden="true" />
-              <h2 className="m-0 text-xs font-normal text-white/80">{contact.sectionLabel}</h2>
+              <span className="text-white/50">{contact.sectionIndex}</span>
+              <span className="h-px w-8 bg-white/20" />
+              <span className="text-white/80">{contact.sectionLabel}</span>
             </div>
-            <p className="mt-6 text-balance" style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 720, lineHeight: 1.06, letterSpacing: "-0.035em" }}>
+            <h2 className="mt-6 text-balance" style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 720, lineHeight: 1.06, letterSpacing: "-0.035em" }}>
               {contact.heading}
-            </p>
+            </h2>
             <p className="mt-5 text-pretty text-[15.5px] leading-relaxed text-white/60">{contact.body}</p>
 
             {/* Reassurance items */}
