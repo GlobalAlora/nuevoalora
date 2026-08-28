@@ -116,10 +116,25 @@ export default function NotFound() {
         </Link>
       </div>
 
-      {/* Easter egg */}
-      <p className="mt-16 text-[11px] text-white/15">
-        Si llegaste acá por un link roto, avisanos ↗
-      </p>
+      {/* Agent/crawler recovery — server-rendered, always visible */}
+      <nav
+        aria-label="Page not found – recovery links"
+        className="mt-16 max-w-lg rounded-xl border px-6 py-5 text-left"
+        style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
+      >
+        <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-white/25">
+          Páginas disponibles
+        </p>
+        <ul className="space-y-1.5 text-[13px] text-white/40">
+          <li><Link href="/es" className="hover:text-white/70 transition-colors">→ Inicio — globalalora.com/es</Link></li>
+          <li><Link href="/es/servicios" className="hover:text-white/70 transition-colors">→ Servicios — globalalora.com/es/servicios</Link></li>
+          <li><Link href="/es/casos-de-exito" className="hover:text-white/70 transition-colors">→ Casos de éxito — globalalora.com/es/casos-de-exito</Link></li>
+          <li><Link href="/es/blog" className="hover:text-white/70 transition-colors">→ Blog — globalalora.com/es/blog</Link></li>
+          <li><Link href="/es/contacto" className="hover:text-white/70 transition-colors">→ Contacto — globalalora.com/es/contacto</Link></li>
+          <li><a href="/sitemap.xml" className="hover:text-white/70 transition-colors">→ Sitemap completo — globalalora.com/sitemap.xml</a></li>
+          <li><a href="/llms.txt" className="hover:text-white/70 transition-colors">→ Información para agentes — globalalora.com/llms.txt</a></li>
+        </ul>
+      </nav>
     </main>
   );
 }

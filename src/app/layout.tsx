@@ -74,6 +74,15 @@ export default async function RootLayout({
     ],
     areaServed: ["AR", "MX", "CO", "CL", "ES", "UY", "PE", "US"],
     knowsAbout: ["Software Development", "Artificial Intelligence", "Automation", "Ecommerce", "Web Development", "Chatbots"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "info@globalalora.com",
+      telephone: "+54-11-2462-9452",
+      contactType: "customer service",
+      availableLanguage: ["Spanish", "English"],
+      contactOption: "TollFree",
+      areaServed: ["AR", "MX", "CO", "CL", "ES", "UY", "PE", "US"],
+    },
   };
 
   const websiteSchema = {

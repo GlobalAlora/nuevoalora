@@ -83,6 +83,15 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
+      {
+        // llms.txt: mark as markdown-capable and vary by Accept so CDNs
+        // don't serve cached HTML to agents requesting text/markdown
+        source: "/llms.txt",
+        headers: [
+          { key: "Content-Type", value: "text/markdown; charset=utf-8" },
+          { key: "Vary", value: "Accept" },
+        ],
+      },
     ];
   },
 
