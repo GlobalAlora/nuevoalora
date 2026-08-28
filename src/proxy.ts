@@ -31,6 +31,17 @@ function getLocale(request: NextRequest): Locale {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const accept = request.headers.get("accept") ?? "";
+
+  // Serve llms.txt as markdown when an AI agent requests text/markdown
+  if (accept.includes("text/markdown") && !pathname.includes(".")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/llms.txt";
+    const res = NextResponse.rewrite(url);
+    res.headers.set("Content-Type", "text/markdown; charset=utf-8");
+    res.headers.set("Vary", "Accept");
+    return res;
+  }
 
   // Skip static assets and Next.js internals
   if (
@@ -47,7 +58,11 @@ export function proxy(request: NextRequest) {
       pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
   );
 
-  if (hasLocale) return NextResponse.next();
+  if (hasLocale) {
+    const res = NextResponse.next();
+    res.headers.set("Vary", "Accept");
+    return res;
+  }
 
   // Redirect bare paths to locale-prefixed version
   const locale = getLocale(request);
