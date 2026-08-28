@@ -226,11 +226,10 @@ export function Services({ dict, locale }: Props) {
         {/* Header */}
         <div className="mx-auto max-w-[960px] text-center">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
-            <span className="text-white/50">{services.sectionIndex}</span>
-            <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80" aria-hidden="true">{services.sectionLabel}</span>
+            <span className="text-white/50" aria-hidden="true">{services.sectionIndex}</span>
+            <span className="h-px w-8 bg-white/20" aria-hidden="true" />
+            <h2 className="m-0 text-xs font-normal text-white/80">{services.sectionLabel}</h2>
           </div>
-          <h2 className="sr-only">{services.sectionLabel}</h2>
           <p
             className="mt-6 text-white sm:whitespace-nowrap"
             style={{ fontSize: "clamp(30px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}

@@ -61,11 +61,10 @@ export function Process({ dict }: Props) {
         {/* Header */}
         <div className="mx-auto max-w-[1150px] text-center">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
-            <span className="text-white/50">{process.sectionIndex}</span>
-            <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80" aria-hidden="true">{process.sectionLabel}</span>
+            <span className="text-white/50" aria-hidden="true">{process.sectionIndex}</span>
+            <span className="h-px w-8 bg-white/20" aria-hidden="true" />
+            <h2 className="m-0 text-xs font-normal text-white/80">{process.sectionLabel}</h2>
           </div>
-          <h2 className="sr-only">{process.sectionLabel}</h2>
           <p className="mt-6" style={{ fontSize: "clamp(28px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             <span className="block sm:whitespace-nowrap">{process.headingLine1}</span>
             <span className="block sm:whitespace-nowrap">{process.headingLine2}</span>

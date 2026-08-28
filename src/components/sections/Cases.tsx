@@ -230,11 +230,10 @@ export function Cases({ dict, locale }: Props) {
         {/* Header */}
         <div className="mx-auto max-w-[1150px] text-center text-white">
           <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.22em]">
-            <span className="text-white/50">{cases.sectionIndex}</span>
-            <span className="h-px w-8 bg-white/20" />
-            <span className="text-white/80" aria-hidden="true">{cases.sectionLabel}</span>
+            <span className="text-white/50" aria-hidden="true">{cases.sectionIndex}</span>
+            <span className="h-px w-8 bg-white/20" aria-hidden="true" />
+            <h2 className="m-0 text-xs font-normal text-white/80">{cases.sectionLabel}</h2>
           </div>
-          <h2 className="sr-only">{cases.sectionLabel}</h2>
           <p className="mt-6 sm:whitespace-nowrap" style={{ fontSize: "clamp(28px, 3.6vw, 56px)", fontWeight: 720, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             {cases.heading}
           </p>
