@@ -46,7 +46,7 @@ export function Hero({ dict, locale }: Props) {
   }, []);
 
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-white">
+    <section aria-label="ALORA — tecnología, automatización e IA para empresas" className="relative isolate overflow-hidden bg-ink text-white">
       {/* Backgrounds */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div

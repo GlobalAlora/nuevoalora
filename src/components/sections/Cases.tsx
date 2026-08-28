@@ -212,7 +212,7 @@ export function Cases({ dict, locale }: Props) {
   const hasMore = filteredItems.length > VISIBLE_COUNT;
 
   return (
-    <section id="casos" className="relative isolate overflow-hidden py-24">
+    <section id="casos" aria-label="Casos de éxito y proyectos de ALORA" className="relative isolate overflow-hidden py-24">
       {/* Background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10" style={{ background: "linear-gradient(180deg, oklch(0.11 0.012 260) 0%, oklch(0.1 0.01 255) 100%)" }} />
       <div

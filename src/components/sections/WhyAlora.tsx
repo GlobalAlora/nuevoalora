@@ -49,7 +49,7 @@ export function WhyAlora({ dict }: Props) {
   const { why } = dict;
 
   return (
-    <section id="por-que" className="relative isolate overflow-hidden py-24 text-white" style={{ background: "oklch(0.1 0.01 255)" }}>
+    <section id="por-que" aria-label="Por qué elegir ALORA: diferenciadores y ventajas" className="relative isolate overflow-hidden py-24 text-white" style={{ background: "oklch(0.1 0.01 255)" }}>
       {/* Radial glow accent */}
       <div
         aria-hidden

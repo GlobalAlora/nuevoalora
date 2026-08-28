@@ -50,7 +50,7 @@ export function Process({ dict }: Props) {
   const { process } = dict;
 
   return (
-    <section className="relative isolate overflow-hidden py-24 text-white" style={{ background: SECTION_BG }}>
+    <section aria-label="Proceso de trabajo de ALORA" className="relative isolate overflow-hidden py-24 text-white" style={{ background: SECTION_BG }}>
       <div
         aria-hidden
         className="pointer-events-none absolute right-[5%] top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full blur-3xl opacity-[0.12]"

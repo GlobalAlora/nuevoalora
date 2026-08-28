@@ -92,6 +92,21 @@ const nextConfig: NextConfig = {
           { key: "Vary", value: "Accept" },
         ],
       },
+      {
+        // agent-instructions.md: dedicated agent instruction file
+        source: "/agent-instructions.md",
+        headers: [
+          { key: "Content-Type", value: "text/markdown; charset=utf-8" },
+          { key: "X-Robots-Tag", value: "noindex" },
+        ],
+      },
+      {
+        // Advertise machine-readable resources to AI agents via Link header
+        source: "/(es|en)/:path*",
+        headers: [
+          { key: "Link", value: "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </agent-instructions.md>; rel=\"describedby\"; type=\"text/markdown\"" },
+        ],
+      },
     ];
   },
 

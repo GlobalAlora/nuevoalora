@@ -14,7 +14,7 @@ export function ContactSection({ dict, locale }: Props) {
   const whatsappUrl = buildWhatsAppHref(`/${locale}`, locale);
 
   return (
-    <section id="contacto" className="relative isolate overflow-hidden py-24 text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
+    <section id="contacto" aria-label="Contacto con ALORA — iniciá tu proyecto" className="relative isolate overflow-hidden py-24 text-white" style={{ background: "oklch(0.13 0.015 260)" }}>
       {/* Glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div

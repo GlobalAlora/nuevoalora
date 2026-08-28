@@ -219,7 +219,7 @@ export function Services({ dict, locale }: Props) {
   const { services } = dict;
 
   return (
-    <section id="servicios" className="relative isolate overflow-hidden bg-ink text-white">
+    <section id="servicios" aria-label="Servicios de ALORA: desarrollo web, ecommerce, IA y automatización" className="relative isolate overflow-hidden bg-ink text-white">
       <DarkBackground />
 
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-20">
