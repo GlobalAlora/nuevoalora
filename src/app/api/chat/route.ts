@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 
-const REQUEST_TIMEOUT_MS = 10_000;
-const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+const MODEL = "claude-haiku-4-5";
+const MAX_TOKENS = 200;
 
 const CONTACT = {
   whatsapp: "+541124629452",
@@ -180,7 +180,7 @@ export async function POST(req: NextRequest) {
     return new NextResponse("invalid messages format", { status: 400 });
   }
 
-  if (!process.env.GROQ_API_KEY) {
+  if (!process.env.ANTHROPIC_API_KEY) {
     log.error("MISSING_API_KEY", { conversationId });
     return new NextResponse(fallbackText, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
   }
@@ -193,41 +193,38 @@ export async function POST(req: NextRequest) {
   if (state.isExiting) log.warn("USER_EXITING", { conversationId });
 
   const systemPrompt = buildPrompt(lang, state);
-  const temperature  = state.isFrustrated || state.isExiting ? 0.78 : 0.55;
 
   const history = messages
     .filter((m) => m.from === "user" || m.from === "bot")
     .slice(-10)
-    .map((m) => ({ role: m.from === "user" ? "user" : "assistant", content: m.text }));
+    .map((m) => ({ role: (m.from === "user" ? "user" : "assistant") as "user" | "assistant", content: m.text }));
 
   if (!history.length) {
     history.push({ role: "user", content: lang === "en" ? "Hi, I need some information." : "Hola, necesito información." });
   }
 
   try {
-    const groqRes = await Promise.race([
-      fetch(GROQ_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.GROQ_API_KEY}` },
-        body: JSON.stringify({ model: GROQ_MODEL, temperature, max_tokens: 200, messages: [{ role: "system", content: systemPrompt }, ...history] }),
-      }),
-      new Promise<never>((_, rej) => setTimeout(() => rej(new Error("timeout")), REQUEST_TIMEOUT_MS)),
-    ]);
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-    if (!groqRes.ok) {
-      const errBody = await groqRes.text();
-      throw new Error(`Groq ${groqRes.status}: ${errBody}`);
-    }
+    const response = await client.messages.create({
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: systemPrompt,
+      messages: history,
+    });
 
-    const data = await groqRes.json() as { choices?: Array<{ message?: { content?: string } }> };
-    const text = (data?.choices?.[0]?.message?.content ?? "").trim();
+    const text = response.content
+      .filter((b) => b.type === "text")
+      .map((b) => (b as { type: "text"; text: string }).text)
+      .join("")
+      .trim();
 
     if (!text || text.length < 5) {
       log.warn("EMPTY_RESPONSE", { conversationId });
       return new NextResponse(fallbackText, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
     }
 
-    log.info("CHAT_RESPONSE", { conversationId, len: text.length, temperature, isAtRisk: state.isAtRisk });
+    log.info("CHAT_RESPONSE", { conversationId, len: text.length, isAtRisk: state.isAtRisk });
 
     return new NextResponse(text, {
       headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-cache" },
